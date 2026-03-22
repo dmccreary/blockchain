@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>1. Trust and Digital Networks - Blockchain - The Skeptic's Guide</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../css/mascot.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Blockchain - The Skeptic's Guide</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../course-description/" class="nav-link">Course Description</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Chapters</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../" class="dropdown-item">List of Chapters</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">1. Trust and Digital Networks</a>
+</li>
+                                    
+<li>
+    <a href="../02-cryptographic-foundations/" class="dropdown-item">2. Cryptographic Foundations</a>
+</li>
+                                    
+<li>
+    <a href="../03-keys-signatures-identity/" class="dropdown-item">3. Keys, Signatures, and Identity</a>
+</li>
+                                    
+<li>
+    <a href="../04-certificate-authorities-pki/" class="dropdown-item">4. Certificate Authorities and PKI</a>
+</li>
+                                    
+<li>
+    <a href="../05-distributed-systems-ledgers/" class="dropdown-item">5. Distributed Systems and Ledgers</a>
+</li>
+                                    
+<li>
+    <a href="../06-nodes-throughput-performance/" class="dropdown-item">6. Nodes, Throughput, and Performance</a>
+</li>
+                                    
+<li>
+    <a href="../07-consensus-mechanisms/" class="dropdown-item">7. Consensus Mechanisms</a>
+</li>
+                                    
+<li>
+    <a href="../08-mining-computational-economics/" class="dropdown-item">8. Mining and Computational Economics</a>
+</li>
+                                    
+<li>
+    <a href="../09-smart-contracts-tokens/" class="dropdown-item">9. Smart Contracts and Tokens</a>
+</li>
+                                    
+<li>
+    <a href="../10-blockchain-types-platforms/" class="dropdown-item">10. Blockchain Types and Platforms</a>
+</li>
+                                    
+<li>
+    <a href="../11-governance-and-scalability/" class="dropdown-item">11. Governance and Scalability</a>
+</li>
+                                    
+<li>
+    <a href="../12-cost-analysis-tco/" class="dropdown-item">12. Cost Analysis and TCO</a>
+</li>
+                                    
+<li>
+    <a href="../13-architecture-tradeoff-analysis/" class="dropdown-item">13. Architecture Tradeoff Analysis</a>
+</li>
+                                    
+<li>
+    <a href="../14-risk-analysis-quality-attributes/" class="dropdown-item">14. Risk Analysis and Quality Attributes</a>
+</li>
+                                    
+<li>
+    <a href="../15-cognitive-bias-technology/" class="dropdown-item">15. Cognitive Bias in Technology</a>
+</li>
+                                    
+<li>
+    <a href="../16-evidence-based-evaluation/" class="dropdown-item">16. Evidence-Based Evaluation</a>
+</li>
+                                    
+<li>
+    <a href="../17-industry-case-studies/" class="dropdown-item">17. Industry Case Studies</a>
+</li>
+                                    
+<li>
+    <a href="../18-emerging-trust-technologies/" class="dropdown-item">18. Emerging Trust Technologies</a>
+</li>
+                                    
+<li>
+    <a href="../19-alternative-architectures-decisions/" class="dropdown-item">19. Alternative Architectures</a>
+</li>
+                                    
+<li>
+    <a href="../20-implementation-capstone/" class="dropdown-item">20. Implementation and Capstone</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Learning Graph</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../learning-graph/" class="dropdown-item">Introduction</a>
+</li>
+                                    
+<li>
+    <a href="../../learning-graph/course-description-assessment/" class="dropdown-item">Course Description Assessment</a>
+</li>
+                                    
+<li>
+    <a href="../../learning-graph/concept-list/" class="dropdown-item">Concept Enumeration</a>
+</li>
+                                    
+<li>
+    <a href="../../learning-graph/quality-metrics/" class="dropdown-item">Graph Quality Analysis</a>
+</li>
+                                    
+<li>
+    <a href="../../learning-graph/concept-taxonomy/" class="dropdown-item">Concept Taxonomy</a>
+</li>
+                                    
+<li>
+    <a href="../../learning-graph/taxonomy-distribution/" class="dropdown-item">Taxonomy Distribution Report</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">MicroSims</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../sims/graph-viewer/" class="dropdown-item">Graph Viewer</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../about/" class="nav-link">About</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../02-cryptographic-foundations/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#trust-and-digital-networks" class="nav-link">Trust and Digital Networks</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#summary" class="nav-link">Summary</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#concepts-covered" class="nav-link">Concepts Covered</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#learning-objectives" class="nav-link">Learning Objectives</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#why-trust-is-the-central-problem" class="nav-link">Why Trust Is the Central Problem</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#digital-trust" class="nav-link">Digital Trust</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#network-fundamentals" class="nav-link">Network Fundamentals</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#internet-architecture" class="nav-link">Internet Architecture</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#the-client-server-model" class="nav-link">The Client-Server Model</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#peer-to-peer-networks" class="nav-link">Peer-to-Peer Networks</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#centralized-trust" class="nav-link">Centralized Trust</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#decentralized-trust" class="nav-link">Decentralized Trust</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#key-takeaways" class="nav-link">Key Takeaways</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="trust-and-digital-networks">Trust and Digital Networks</h1>
+<h2 id="summary">Summary</h2>
+<p>This chapter introduces the fundamental problem of establishing trust between parties who do not know each other across digital networks. Students will explore how network architecture shapes trust models, contrasting the client-server approach with peer-to-peer networks, and understanding why trust is the central challenge that all subsequent technologies in this course attempt to solve.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 8 concepts from the learning graph:</p>
+<ol>
+<li>Trust</li>
+<li>Digital Trust</li>
+<li>Network Fundamentals</li>
+<li>Internet Architecture</li>
+<li>Client-Server Model</li>
+<li>Peer-to-Peer Networks</li>
+<li>Centralized Trust</li>
+<li>Decentralized Trust</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter assumes only the prerequisites listed in the <a href="../../course-description/">course description</a>.</p>
+<hr />
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Rex Says: Trust, but Verify!</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Rex welcomes you">
+Welcome, fellow analysts! Every technology in this course — from certificate
+authorities to blockchain to zero-knowledge proofs — exists because of one
+stubborn problem: how do you trust someone you've never met, across a network
+you don't control? Trust, but verify — let's examine the evidence!</p>
+</div>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>After completing this chapter, you will be able to:</p>
+<ul>
+<li>Define trust in the context of digital networks and explain why it is a fundamental architectural problem</li>
+<li>Distinguish between trust in personal relationships and trust in technical systems</li>
+<li>Describe the basic architecture of the internet and how data moves between networked systems</li>
+<li>Compare and contrast the client-server model with peer-to-peer network architectures</li>
+<li>Explain the structural differences between centralized and decentralized trust models</li>
+<li>Identify real-world scenarios where each trust model provides advantages or introduces risks</li>
+</ul>
+<h2 id="why-trust-is-the-central-problem">Why Trust Is the Central Problem</h2>
+<p>Trust is the foundation on which all commercial, governmental, and personal interactions depend. In face-to-face transactions, trust is established through physical presence, reputation, legal jurisdiction, and social context. A handshake in a shop, a signature on a contract, a face recognized by a bank teller — these are trust mechanisms that humans have refined over thousands of years.</p>
+<p>Digital networks destroy nearly all of these mechanisms. When you purchase an item from an online retailer, you cannot see the product, verify the seller's identity through physical cues, or rely on the social accountability that comes from operating within a shared community. The seller faces the same problem in reverse: they cannot verify that your payment is genuine until after they have shipped the goods.</p>
+<p>This asymmetry creates what economists call the <strong>trust problem</strong> — the risk that one party will fail to fulfill their obligations in a transaction where the other party has already committed resources. Every technology examined in this course, from public key infrastructure to blockchain, represents a different architectural approach to solving this problem.</p>
+<table>
+<thead>
+<tr>
+<th>Trust Mechanism</th>
+<th>Physical World</th>
+<th>Digital World</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identity verification</td>
+<td>Face recognition, ID cards</td>
+<td>Digital certificates, passwords</td>
+</tr>
+<tr>
+<td>Transaction integrity</td>
+<td>Signed paper documents</td>
+<td>Digital signatures, hash chains</td>
+</tr>
+<tr>
+<td>Dispute resolution</td>
+<td>Courts, arbitration</td>
+<td>Smart contracts, escrow services</td>
+</tr>
+<tr>
+<td>Reputation</td>
+<td>Community knowledge, word of mouth</td>
+<td>Rating systems, transaction history</td>
+</tr>
+<tr>
+<td>Non-repudiation</td>
+<td>Witnessed signatures</td>
+<td>Cryptographic signatures, logs</td>
+</tr>
+</tbody>
+</table>
+<p>The table above illustrates a key insight: digital trust mechanisms are not fundamentally different from physical ones in purpose — they differ in implementation. Understanding this parallel helps frame the rest of the course. We are not asking "how do we invent trust?" but rather "how do we translate centuries-old trust mechanisms into systems that work across networks at scale?"</p>
+<h2 id="digital-trust">Digital Trust</h2>
+<p><strong>Digital trust</strong> is the confidence that a digital system will behave as expected — that data has not been tampered with, that the party on the other end is who they claim to be, and that commitments made electronically will be honored. Unlike personal trust, which develops over time through repeated interactions, digital trust must often be established instantaneously between parties who have never interacted before.</p>
+<p>Digital trust rests on three technical pillars:</p>
+<ul>
+<li><strong>Confidentiality</strong> — ensuring that only authorized parties can read the data</li>
+<li><strong>Integrity</strong> — ensuring that data has not been altered in transit or storage</li>
+<li><strong>Authentication</strong> — verifying that parties are who they claim to be</li>
+</ul>
+<p>These pillars map directly to the cryptographic building blocks covered in Chapter 2. For now, the important point is that digital trust is not a single technology but a composite property that emerges from multiple mechanisms working together.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+Digital trust is never absolute. Every trust architecture makes tradeoffs between
+cost, performance, and the degree of assurance it provides. The skeptic's question
+is not "does this system create trust?" but "how much trust does it create, at
+what cost, compared to alternatives?"</p>
+</div>
+<p>A common mistake in technology evaluation is treating trust as a binary property — either a system is "trusted" or it is not. In practice, trust exists on a spectrum. A system may provide strong authentication but weak integrity guarantees, or excellent data protection but poor identity verification. The Architecture Tradeoff Analysis Method (ATAM), covered in Chapter 13, provides a structured framework for evaluating these tradeoffs.</p>
+<h2 id="network-fundamentals">Network Fundamentals</h2>
+<p>To understand why digital trust is difficult, you must first understand how digital networks operate. A <strong>network</strong> is a collection of computing devices connected by communication links that can exchange data. Networks range from a two-computer Bluetooth connection to the global internet connecting billions of devices.</p>
+<p>All digital networks share several fundamental characteristics:</p>
+<ul>
+<li><strong>Packet-based communication</strong> — data is broken into small packets that travel independently across the network and are reassembled at the destination</li>
+<li><strong>Routing</strong> — intermediate devices (routers) forward packets along paths toward their destination, with no guarantee that all packets follow the same route</li>
+<li><strong>Protocols</strong> — standardized rules govern how devices communicate, including how connections are established, data is formatted, and errors are handled</li>
+<li><strong>Latency and bandwidth</strong> — physical constraints limit how quickly data can travel (latency) and how much data can move simultaneously (bandwidth)</li>
+</ul>
+<p>These characteristics have direct implications for trust. Because packets travel through intermediate devices controlled by third parties, any data sent across a network can potentially be intercepted, modified, or redirected. This is not a theoretical concern — it is the operational reality that drives the need for every trust technology in this course.</p>
+<div class="admonition example">
+<p class="admonition-title">The Postcard Analogy</p>
+<p>Sending data across the internet without encryption is like sending a postcard through the mail. Every postal worker who handles the card can read its contents, and nothing prevents someone from altering the message. Encryption transforms the postcard into a sealed, tamper-evident envelope — but even then, you still need a way to verify that the envelope was sealed by the person who claims to have sent it.</p>
+</div>
+<h2 id="internet-architecture">Internet Architecture</h2>
+<p>The <strong>internet</strong> is a global network of networks, connected through a layered protocol stack commonly known as TCP/IP. Understanding this architecture is essential because it reveals where trust must be established and where vulnerabilities exist.</p>
+<p>The internet protocol stack operates in layers, each responsible for a specific aspect of communication:</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Protocol</th>
+<th>Function</th>
+<th>Trust Implication</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application</td>
+<td>HTTP, HTTPS, SMTP</td>
+<td>User-facing services</td>
+<td>Where users interact with trust decisions</td>
+</tr>
+<tr>
+<td>Transport</td>
+<td>TCP, UDP</td>
+<td>Reliable delivery</td>
+<td>Ensures complete data delivery, not data integrity</td>
+</tr>
+<tr>
+<td>Network</td>
+<td>IP</td>
+<td>Routing and addressing</td>
+<td>Packets can be intercepted at any hop</td>
+</tr>
+<tr>
+<td>Link</td>
+<td>Ethernet, Wi-Fi</td>
+<td>Physical transmission</td>
+<td>Vulnerable to local network attacks</td>
+</tr>
+</tbody>
+</table>
+<p>No layer in this stack inherently provides trust. TCP guarantees that packets arrive in order, but it does not guarantee that they haven't been modified by an attacker who intercepted them in transit. HTTP transmits web pages, but it provides no mechanism for verifying the identity of the web server. HTTPS adds a trust layer (via TLS and certificates), but that trust depends entirely on the certificate authority infrastructure examined in Chapter 4.</p>
+<p>This layered architecture means that trust is an <em>overlay</em> — something added on top of the basic communication infrastructure rather than built into it. This design choice, made in the early days of the internet when the network connected a small number of trusted academic institutions, has profound consequences for every trust technology we will examine.</p>
+<h4 id="diagram-internet-protocol-stack-and-trust-gaps">Diagram: Internet Protocol Stack and Trust Gaps</h4>
+<details markdown="1">
+<summary>Internet Protocol Stack with Trust Gap Annotations</summary>
+Type: Diagram
+**sim-id:** internet-trust-gaps<br/>
+**Library:** p5.js<br/>
+**Status:** Specified
+
+**Learning objective:** Understand (L2) — Explain how the layered internet architecture creates specific trust gaps at each layer that must be addressed by additional security mechanisms.
+
+**Description:** An interactive diagram showing the four-layer TCP/IP protocol stack as stacked horizontal bars. Each layer is color-coded and labeled with its protocol name, function, and a specific trust gap annotation (e.g., "IP layer: packets can be intercepted at any routing hop"). Hovering over each layer reveals a tooltip with a real-world attack example (e.g., "Man-in-the-middle attack" for the network layer). A toggle button switches between "Without Trust Overlay" (showing the raw stack with red warning icons) and "With Trust Overlay" (showing TLS/certificates layered on top with green check icons).
+
+**Canvas:** Responsive width, 500px height. Background: aliceblue.
+
+**Controls:** Toggle button for "Without Trust" / "With Trust" view.
+
+**Visual elements:**
+- 4 stacked rectangular bars (Link, Network, Transport, Application)
+- Each bar shows: layer name, protocol examples, trust gap description
+- Red warning icons on each layer in "Without Trust" view
+- Green overlay bars showing TLS, certificates, digital signatures in "With Trust" view
+- Hover tooltips with attack examples
+
+Implementation: p5.js with responsive canvas, hover detection for tooltips
+</details>
+
+<h2 id="the-client-server-model">The Client-Server Model</h2>
+<p>The <strong>client-server model</strong> is the dominant architecture for internet services. In this model, a <strong>client</strong> (typically a web browser or mobile app) sends requests to a <strong>server</strong> (a centralized computer that stores data and processes requests), which returns responses.</p>
+<p>Nearly every digital service you use daily — email, web browsing, social media, online banking, cloud storage — operates on the client-server model. The server is the single authoritative source of truth, and clients trust that the server will store their data correctly, process their transactions honestly, and protect their information from unauthorized access.</p>
+<p>This architecture has significant implications for trust:</p>
+<ul>
+<li><strong>Single point of authority</strong> — the server operator controls all data and logic, meaning users must trust a single entity</li>
+<li><strong>Scalability</strong> — centralized servers can be optimized, cached, and replicated efficiently</li>
+<li><strong>Accountability</strong> — a single operator can be held legally and contractually responsible</li>
+<li><strong>Vulnerability</strong> — if the server is compromised, all users are affected simultaneously</li>
+</ul>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Rex's Tip</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Rex shares a tip">
+When evaluating any trust technology, ask: "Who controls the server?"
+In the client-server model, the answer is always one entity. That's
+a feature when you need accountability, and a liability when you need
+resilience against that entity's failure or misconduct.</p>
+</div>
+<p>The client-server model's reliance on centralized authority is both its greatest strength and its most frequently criticized limitation. Proponents of blockchain often frame this centralization as an inherent flaw. The skeptic's response is to ask: <em>compared to what, and at what cost?</em> Centralized systems have served billions of users reliably for decades. The question is whether specific use cases genuinely require an alternative.</p>
+<h2 id="peer-to-peer-networks">Peer-to-Peer Networks</h2>
+<p>A <strong>peer-to-peer (P2P) network</strong> distributes both data and processing across all participating nodes, with no single server acting as the central authority. Every node in a P2P network is simultaneously a client and a server — it can both request data from other nodes and provide data to them.</p>
+<p>P2P networks gained widespread public awareness through file-sharing systems like Napster (1999) and BitTorrent (2001), but the architecture has broader applications including distributed computing, content delivery networks, and — most relevant to this course — distributed ledger technologies.</p>
+<p>The key characteristics of P2P networks include:</p>
+<ul>
+<li><strong>No single point of failure</strong> — if one node goes offline, the network continues to function through remaining nodes</li>
+<li><strong>Distributed data storage</strong> — data is replicated across multiple nodes, providing redundancy</li>
+<li><strong>Censorship resistance</strong> — no single entity can unilaterally block access to data or services</li>
+<li><strong>Coordination cost</strong> — without a central authority, nodes must agree on the state of shared data through consensus mechanisms (covered in Chapter 7)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Characteristic</th>
+<th>Client-Server</th>
+<th>Peer-to-Peer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authority</td>
+<td>Single server operator</td>
+<td>Distributed across all nodes</td>
+</tr>
+<tr>
+<td>Data storage</td>
+<td>Centralized</td>
+<td>Replicated across nodes</td>
+</tr>
+<tr>
+<td>Scalability</td>
+<td>Vertical (bigger servers)</td>
+<td>Horizontal (more nodes)</td>
+</tr>
+<tr>
+<td>Failure mode</td>
+<td>Server failure affects all users</td>
+<td>Individual node failure is tolerable</td>
+</tr>
+<tr>
+<td>Cost structure</td>
+<td>Server operator bears infrastructure cost</td>
+<td>All participants share cost</td>
+</tr>
+<tr>
+<td>Trust model</td>
+<td>Trust the server operator</td>
+<td>Trust the protocol and majority of nodes</td>
+</tr>
+<tr>
+<td>Coordination</td>
+<td>Simple (server decides)</td>
+<td>Complex (consensus required)</td>
+</tr>
+</tbody>
+</table>
+<p>This comparison reveals a fundamental architectural tradeoff that will recur throughout this course: centralized systems are simpler and cheaper to operate but require trust in a single entity, while distributed systems eliminate single points of failure but introduce coordination complexity and cost.</p>
+<h4 id="diagram-client-server-vs-peer-to-peer-network-topology">Diagram: Client-Server vs. Peer-to-Peer Network Topology</h4>
+<details markdown="1">
+<summary>Interactive Network Topology Comparison</summary>
+Type: MicroSim
+**sim-id:** network-topology-compare<br/>
+**Library:** p5.js<br/>
+**Status:** Specified
+
+**Learning objective:** Analyze (L4) — Compare and contrast the structural differences between client-server and peer-to-peer network architectures, identifying how topology affects trust, resilience, and coordination.
+
+**Description:** A split-screen interactive simulation showing two network topologies side by side. On the left, a client-server network with one large central node (server) connected to 8-12 smaller nodes (clients). On the right, a peer-to-peer network with 8-12 equal-sized nodes interconnected with multiple links. Students can click on any node to "remove" it (simulating failure) and observe the impact on the network. In the client-server view, removing the server disconnects all clients. In the P2P view, removing one node only eliminates direct links to that node while the rest remain connected.
+
+**Canvas:** Responsive width, 500px height. Background: aliceblue. Split into two equal halves with labels.
+
+**Controls:**
+
+- Click any node to toggle it on/off (simulate failure)
+- "Reset" button to restore all nodes
+- "Animate Data Flow" button to show packets traveling between nodes
+
+**Visual elements:**
+
+- Server node: large blue circle with "S" label
+- Client nodes: smaller green circles with numbers
+- P2P nodes: medium teal circles with numbers
+- Active connections: solid gray lines
+- Data flow: small orange dots moving along connections
+- Failed node: red X overlay, connections become dashed red
+- Counter showing: "Active nodes: X/Y" and "Connected clients: X/Y" for each side
+
+Implementation: p5.js with responsive canvas, node click detection, animation loop for data flow
+</details>
+
+<h2 id="centralized-trust">Centralized Trust</h2>
+<p><strong>Centralized trust</strong> is a model in which a single authoritative entity vouches for the identities, transactions, or data of all participants in a system. Banks, governments, certificate authorities, and most internet platforms operate on centralized trust. When you log into your bank's website, you trust the bank to maintain accurate records of your balance. When you visit a website secured with HTTPS, you trust a certificate authority to have verified the website operator's identity.</p>
+<p>Centralized trust has several well-established advantages:</p>
+<ul>
+<li><strong>Efficiency</strong> — a single authority can make decisions quickly without coordinating with other parties</li>
+<li><strong>Accountability</strong> — when something goes wrong, there is a clear entity to hold responsible</li>
+<li><strong>Legal framework</strong> — existing laws and regulations are designed around centralized authorities (courts, regulators, auditors)</li>
+<li><strong>Cost</strong> — operating a centralized trust system is typically orders of magnitude cheaper than operating a distributed one</li>
+</ul>
+<p>These are not minor advantages. The global financial system, internet commerce, and government identity systems all operate on centralized trust, serving billions of users at remarkably low per-transaction costs. Any proposal to replace centralized trust with an alternative must demonstrate that the benefits of the alternative outweigh the proven advantages of the existing approach.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Bias Alert</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Rex warns you">
+Beware of the false dichotomy between "centralized" and "decentralized" trust.
+Most real-world systems use a hybrid approach. Even blockchain networks rely on
+centralized elements — the core development team, mining pool operators, and
+exchange platforms. The question is not "centralized or decentralized?" but
+"where along the spectrum does this system sit, and what does that cost?"</p>
+</div>
+<p>The vulnerabilities of centralized trust are equally real. A compromised certificate authority can issue fraudulent certificates for any domain. A corrupt bank officer can alter records. A government can freeze assets arbitrarily. These are not hypothetical scenarios — they have all occurred. The question for the technology evaluator is not whether centralized trust has risks, but whether the proposed alternative reduces those risks without introducing worse ones.</p>
+<h2 id="decentralized-trust">Decentralized Trust</h2>
+<p><strong>Decentralized trust</strong> is a model in which no single entity has unilateral authority over the system. Instead, trust emerges from the collective behavior of multiple independent participants following a shared protocol. Blockchain is the most prominent example of decentralized trust, but it is not the only one — the Domain Name System (DNS) and the internet's routing infrastructure both incorporate decentralized trust elements.</p>
+<p>Proponents of decentralized trust emphasize several potential benefits:</p>
+<ul>
+<li><strong>Censorship resistance</strong> — no single entity can block or reverse transactions</li>
+<li><strong>Fault tolerance</strong> — the system continues operating even if some participants fail or act maliciously</li>
+<li><strong>Transparency</strong> — all participants can verify the state of the system independently</li>
+<li><strong>Disintermediation</strong> — removing intermediaries can reduce fees and counterparty risk</li>
+</ul>
+<p>These benefits are genuine in specific contexts. However, they come at substantial costs:</p>
+<ul>
+<li><strong>Computational overhead</strong> — achieving consensus across distributed nodes requires significantly more processing power than centralized decision-making</li>
+<li><strong>Coordination complexity</strong> — without a central authority, governance decisions are slow and contentious</li>
+<li><strong>Scalability constraints</strong> — decentralized systems typically process far fewer transactions per second than centralized alternatives</li>
+<li><strong>Irreversibility risk</strong> — the inability to reverse transactions means that errors and fraud have permanent consequences</li>
+</ul>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+Decentralized trust does not eliminate the need for trust — it redistributes it.
+Instead of trusting a single institution, participants must trust the protocol's
+design, the majority of network participants, and the development team that
+maintains the software. Whether this redistribution is an improvement depends
+entirely on the specific use case.</p>
+</div>
+<p>The remainder of this course will equip you with the analytical tools to evaluate that tradeoff rigorously. Chapters 2-5 provide the technical foundations. Chapters 6-11 cover the mechanics and economics of blockchain systems. Chapters 12-14 introduce structured evaluation frameworks. And Chapters 15-20 apply those frameworks to real-world decisions.</p>
+<h4 id="diagram-trust-model-spectrum">Diagram: Trust Model Spectrum</h4>
+<details markdown="1">
+<summary>Interactive Trust Model Spectrum</summary>
+Type: MicroSim
+**sim-id:** trust-model-spectrum<br/>
+**Library:** p5.js<br/>
+**Status:** Specified
+
+**Learning objective:** Evaluate (L5) — Assess where different trust technologies fall on the centralization-decentralization spectrum and judge the tradeoffs each position entails.
+
+**Description:** An interactive horizontal spectrum with "Fully Centralized" on the left and "Fully Decentralized" on the right. Positioned along the spectrum are labeled markers representing real-world trust systems: traditional bank (far left), certificate authority, consortium blockchain, public blockchain, and Bitcoin (far right). Each marker is draggable to encourage students to think about where systems actually fall. Clicking a marker reveals a panel below showing: trust entity, cost profile, throughput, and key tradeoffs. A "Compare" mode allows selecting two markers to display a side-by-side tradeoff comparison table.
+
+**Canvas:** Responsive width, 450px height. Background: aliceblue.
+
+**Controls:**
+
+- Click markers to see detail panel
+- "Compare" toggle to select two systems for side-by-side comparison
+- "Reset Positions" button to restore default placement
+
+**Visual elements:**
+
+- Horizontal gradient bar from blue (centralized) to green (decentralized)
+- 6-8 positioned circular markers with system labels
+- Detail panel below spectrum showing: trust entity, cost per transaction, transactions per second, key tradeoff
+- Comparison table when two markers are selected
+- Axis labels and tick marks for orientation
+
+Implementation: p5.js with responsive canvas, draggable markers, click panels
+</details>
+
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>This chapter established the foundational concepts that will inform every subsequent topic in this course:</p>
+<ul>
+<li><strong>Trust</strong> is the fundamental problem of digital networks — the inability to verify identity, integrity, and intent across systems controlled by third parties</li>
+<li><strong>Digital trust</strong> is a composite property built from confidentiality, integrity, and authentication — it exists on a spectrum, not as a binary state</li>
+<li><strong>Network fundamentals</strong> and <strong>internet architecture</strong> reveal why trust is difficult: the layered protocol stack provides communication but not inherent security</li>
+<li>The <strong>client-server model</strong> offers simplicity and accountability through centralized authority, at the cost of single-point-of-failure risk</li>
+<li><strong>Peer-to-peer networks</strong> eliminate central authority but introduce coordination complexity and cost</li>
+<li><strong>Centralized trust</strong> is efficient, legally established, and cost-effective, but vulnerable to corruption and single points of compromise</li>
+<li><strong>Decentralized trust</strong> redistributes trust across participants but does not eliminate it — and imposes significant computational, scalability, and governance costs</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Excellent Analytical Work!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Rex celebrates">
+You now understand why trust is the central architectural problem that drives
+every technology in this course. More importantly, you've learned to ask the
+skeptic's question: not "is this system trustworthy?" but "how much trust does
+it provide, at what cost, compared to what alternative?" That analytical habit
+will serve you well through every chapter ahead. Outstanding work, fellow analyst!</p>
+</div></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

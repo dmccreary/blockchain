@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Taxonomy Distribution Report - Blockchain - The Skeptic's Guide</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../css/mascot.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Blockchain - The Skeptic's Guide</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../course-description/" class="nav-link">Course Description</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Chapters</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../chapters/" class="dropdown-item">List of Chapters</a>
+</li>
+                                    
+<li>
+    <a href="../../chapters/01-trust-and-digital-networks/" class="dropdown-item">1. Trust and Digital Networks</a>
+</li>
+                                    
+<li>
+    <a href="../../chapters/02-cryptographic-foundations/" class="dropdown-item">2. Cryptographic Foundations</a>
+</li>
+                                    
+<li>
+    <a href="../../chapters/03-keys-signatures-identity/" class="dropdown-item">3. Keys, Signatures, and Identity</a>
+</li>
+                                    
+<li>
+    <a href="../../chapters/04-certificate-authorities-pki/" class="dropdown-item">4. Certificate Authorities and PKI</a>
+</li>
+                                    
+<li>
+    <a href="../../chapters/05-distributed-systems-ledgers/" class="dropdown-item">5. Distributed Systems and Ledgers</a>
+</li>
+                                    
+<li>
+    <a href="../../chapters/06-nodes-throughput-performance/" class="dropdown-item">6. Nodes, Throughput, and Performance</a>
+</li>
+                                    
+<li>
+    <a href="../../chapters/07-consensus-mechanisms/" class="dropdown-item">7. Consensus Mechanisms</a>
+</li>
+                                    
+<li>
+    <a href="../../chapters/08-mining-computational-economics/" class="dropdown-item">8. Mining and Computational Economics</a>
+</li>
+                                    
+<li>
+    <a href="../../chapters/09-smart-contracts-tokens/" class="dropdown-item">9. Smart Contracts and Tokens</a>
+</li>
+                                    
+<li>
+    <a href="../../chapters/10-blockchain-types-platforms/" class="dropdown-item">10. Blockchain Types and Platforms</a>
+</li>
+                                    
+<li>
+    <a href="../../chapters/11-governance-and-scalability/" class="dropdown-item">11. Governance and Scalability</a>
+</li>
+                                    
+<li>
+    <a href="../../chapters/12-cost-analysis-tco/" class="dropdown-item">12. Cost Analysis and TCO</a>
+</li>
+                                    
+<li>
+    <a href="../../chapters/13-architecture-tradeoff-analysis/" class="dropdown-item">13. Architecture Tradeoff Analysis</a>
+</li>
+                                    
+<li>
+    <a href="../../chapters/14-risk-analysis-quality-attributes/" class="dropdown-item">14. Risk Analysis and Quality Attributes</a>
+</li>
+                                    
+<li>
+    <a href="../../chapters/15-cognitive-bias-technology/" class="dropdown-item">15. Cognitive Bias in Technology</a>
+</li>
+                                    
+<li>
+    <a href="../../chapters/16-evidence-based-evaluation/" class="dropdown-item">16. Evidence-Based Evaluation</a>
+</li>
+                                    
+<li>
+    <a href="../../chapters/17-industry-case-studies/" class="dropdown-item">17. Industry Case Studies</a>
+</li>
+                                    
+<li>
+    <a href="../../chapters/18-emerging-trust-technologies/" class="dropdown-item">18. Emerging Trust Technologies</a>
+</li>
+                                    
+<li>
+    <a href="../../chapters/19-alternative-architectures-decisions/" class="dropdown-item">19. Alternative Architectures</a>
+</li>
+                                    
+<li>
+    <a href="../../chapters/20-implementation-capstone/" class="dropdown-item">20. Implementation and Capstone</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Learning Graph</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../" class="dropdown-item">Introduction</a>
+</li>
+                                    
+<li>
+    <a href="../course-description-assessment/" class="dropdown-item">Course Description Assessment</a>
+</li>
+                                    
+<li>
+    <a href="../concept-list/" class="dropdown-item">Concept Enumeration</a>
+</li>
+                                    
+<li>
+    <a href="../quality-metrics/" class="dropdown-item">Graph Quality Analysis</a>
+</li>
+                                    
+<li>
+    <a href="../concept-taxonomy/" class="dropdown-item">Concept Taxonomy</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Taxonomy Distribution Report</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">MicroSims</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../sims/graph-viewer/" class="dropdown-item">Graph Viewer</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../about/" class="nav-link">About</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../concept-taxonomy/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../sims/graph-viewer/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#taxonomy-distribution-report" class="nav-link">Taxonomy Distribution Report</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#distribution-summary" class="nav-link">Distribution Summary</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#visual-distribution" class="nav-link">Visual Distribution</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#balance-analysis" class="nav-link">Balance Analysis</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#category-details" class="nav-link">Category Details</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recommendations" class="nav-link">Recommendations</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="taxonomy-distribution-report">Taxonomy Distribution Report</h1>
+<h2 id="overview">Overview</h2>
+<ul>
+<li><strong>Total Concepts</strong>: 200</li>
+<li><strong>Number of Taxonomies</strong>: 13</li>
+<li><strong>Average Concepts per Taxonomy</strong>: 15.4</li>
+</ul>
+<h2 id="distribution-summary">Distribution Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>TaxonomyID</th>
+<th>Count</th>
+<th>Percentage</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blockchain Ecosystem</td>
+<td>ECOSS</td>
+<td>27</td>
+<td>13.5%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Architecture Tradeoff Analysis</td>
+<td>ATAM</td>
+<td>24</td>
+<td>12.0%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Distributed Ledger Technology</td>
+<td>DLT</td>
+<td>18</td>
+<td>9.0%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Consensus and Mining</td>
+<td>CONS</td>
+<td>17</td>
+<td>8.5%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Cognitive Bias and Thinking</td>
+<td>BIAS</td>
+<td>17</td>
+<td>8.5%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Decision and Implementation</td>
+<td>DECIDE</td>
+<td>16</td>
+<td>8.0%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Cryptography Essentials</td>
+<td>CRYPT</td>
+<td>15</td>
+<td>7.5%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Cost and Economics</td>
+<td>COST</td>
+<td>14</td>
+<td>7.0%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Public Key Infrastructure</td>
+<td>PKI</td>
+<td>13</td>
+<td>6.5%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Case Studies and Use Cases</td>
+<td>CASE</td>
+<td>13</td>
+<td>6.5%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Emerging Technologies</td>
+<td>EMRG</td>
+<td>11</td>
+<td>5.5%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Scalability and Networks</td>
+<td>SCALE</td>
+<td>9</td>
+<td>4.5%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Foundation Concepts</td>
+<td>FOUND</td>
+<td>6</td>
+<td>3.0%</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h2 id="visual-distribution">Visual Distribution</h2>
+<div class="highlight"><pre><span></span><code>Blockchain Ecosystem      ██████  27 ( 13.5%)
+Architecture Tradeoff Ana ██████  24 ( 12.0%)
+Distributed Ledger Techno ████  18 (  9.0%)
+Consensus and Mining      ████  17 (  8.5%)
+Cognitive Bias and Thinki ████  17 (  8.5%)
+Decision and Implementati ████  16 (  8.0%)
+Cryptography Essentials   ███  15 (  7.5%)
+Cost and Economics        ███  14 (  7.0%)
+Public Key Infrastructure ███  13 (  6.5%)
+Case Studies and Use Case ███  13 (  6.5%)
+Emerging Technologies     ██  11 (  5.5%)
+Scalability and Networks  ██   9 (  4.5%)
+Foundation Concepts       █   6 (  3.0%)
+</code></pre></div>
+<h2 id="balance-analysis">Balance Analysis</h2>
+<h3 id="no-over-represented-categories">✅ No Over-Represented Categories</h3>
+<p>All categories are under the 30% threshold. Good balance!</p>
+<h2 id="category-details">Category Details</h2>
+<h3 id="blockchain-ecosystem-ecoss">Blockchain Ecosystem (ECOSS)</h3>
+<p><strong>Count</strong>: 27 concepts (13.5%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>Smart Contract</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Smart Contract Risks</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Oracle Problem</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Gas and Fees</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Token</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Fungible Token</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Non-Fungible Token</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Tokenization</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Wallet</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Cold Storage</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Hot Wallet</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Permissioned Blockchain</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Permissionless Blockchain</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Public Blockchain</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Private Blockchain</li>
+</ol>
+</li>
+<li><em>...and 12 more</em></li>
+</ul>
+<h3 id="architecture-tradeoff-analysis-atam">Architecture Tradeoff Analysis (ATAM)</h3>
+<p><strong>Count</strong>: 24 concepts (12.0%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>Architecture</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Architecture Tradeoff</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>ATAM Overview</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Quality Attribute</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Quality Attribute Scenario</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Utility Tree</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Utility Tree Construction</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Sensitivity Point</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Tradeoff Point</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Risk Theme</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Architecture Risk</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Risk Identification</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Risk Mitigation</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Scenario Generation</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Stakeholder Analysis</li>
+</ol>
+</li>
+<li><em>...and 9 more</em></li>
+</ul>
+<h3 id="distributed-ledger-technology-dlt">Distributed Ledger Technology (DLT)</h3>
+<p><strong>Count</strong>: 18 concepts (9.0%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>Decentralized Trust</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Distributed System</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Distributed Ledger</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Ledger Replication</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Immutability</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Append-Only Data</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Blockchain Definition</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Block Structure</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Block Header</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Block Body</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Genesis Block</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Transaction</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Transaction Validation</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Transaction Throughput</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Mempool</li>
+</ol>
+</li>
+<li><em>...and 3 more</em></li>
+</ul>
+<h3 id="consensus-and-mining-cons">Consensus and Mining (CONS)</h3>
+<p><strong>Count</strong>: 17 concepts (8.5%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>Mining</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Miner</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Mining Reward</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Difficulty Adjustment</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Nonce</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Consensus Mechanism</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Proof of Work</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Proof of Stake</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Delegated Proof of Stake</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Byzantine Fault Tolerance</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Byzantine Generals Problem</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Practical BFT</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Finality</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Fork</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Hard Fork</li>
+</ol>
+</li>
+<li><em>...and 2 more</em></li>
+</ul>
+<h3 id="cognitive-bias-and-thinking-bias">Cognitive Bias and Thinking (BIAS)</h3>
+<p><strong>Count</strong>: 17 concepts (8.5%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>Cognitive Bias</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Confirmation Bias</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Sunk Cost Fallacy</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Bandwagon Effect</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Appeal to Novelty</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Anchoring Bias</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Status Quo Bias</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Dunning-Kruger Effect</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Halo Effect</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Survivorship Bias</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Availability Heuristic</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Groupthink</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Bias Checklist</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Debiasing Techniques</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Critical Thinking</li>
+</ol>
+</li>
+<li><em>...and 2 more</em></li>
+</ul>
+<h3 id="decision-and-implementation-decide">Decision and Implementation (DECIDE)</h3>
+<p><strong>Count</strong>: 16 concepts (8.0%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>Technology Readiness Level</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Decision Flowchart</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Hybrid Architecture</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Organizational Challenges</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Stakeholder Buy-In</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Change Management</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Technology Evaluation</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Vendor Assessment</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Proof of Concept</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Pilot Program</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Implementation Roadmap</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Architecture Report</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Decision Framework</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Recommendation Writing</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Presentation to Management</li>
+</ol>
+</li>
+<li><em>...and 1 more</em></li>
+</ul>
+<h3 id="cryptography-essentials-crypt">Cryptography Essentials (CRYPT)</h3>
+<p><strong>Count</strong>: 15 concepts (7.5%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>Encryption</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Symmetric Encryption</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Asymmetric Encryption</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Public Key</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Private Key</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Key Pair Generation</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Digital Signature</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Hash Function</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Cryptographic Hash</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>SHA-256</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Hash Chain</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Merkle Tree</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Data Integrity</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Tamper Evidence</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Non-Repudiation</li>
+</ol>
+</li>
+</ul>
+<h3 id="cost-and-economics-cost">Cost and Economics (COST)</h3>
+<p><strong>Count</strong>: 14 concepts (7.0%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>Computational Cost</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Energy Consumption</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Network Cost Analysis</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Transaction Cost</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Total Cost of Ownership</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Cost Projection Model</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Cost Simulation</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Cost-Benefit Analysis</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Break-Even Analysis</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Operating Expense</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Capital Expense</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Infrastructure Cost</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Cloud vs On-Premise</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Vendor Lock-In</li>
+</ol>
+</li>
+</ul>
+<h3 id="public-key-infrastructure-pki">Public Key Infrastructure (PKI)</h3>
+<p><strong>Count</strong>: 13 concepts (6.5%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>Authentication</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Authorization</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Identity Verification</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Certificate Authority</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Public Key Infrastructure</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>X.509 Certificate</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Certificate Chain</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Root Certificate</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Certificate Revocation</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>CA Vulnerabilities</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>CA Compromise Scenarios</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Trust Anchor</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Centralized Trust</li>
+</ol>
+</li>
+</ul>
+<h3 id="case-studies-and-use-cases-case">Case Studies and Use Cases (CASE)</h3>
+<p><strong>Count</strong>: 13 concepts (6.5%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>Supply Chain Use Case</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Healthcare Use Case</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Financial Services Use Case</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>E-Commerce Use Case</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Retail Use Case</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Case Study Analysis</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Successful Adoption Factors</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Failed Project Analysis</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Blockchain Limitations</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>When Not to Use Blockchain</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Alternative Technologies</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Centralized Database</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Traditional PKI vs DLT</li>
+</ol>
+</li>
+</ul>
+<h3 id="emerging-technologies-emrg">Emerging Technologies (EMRG)</h3>
+<p><strong>Count</strong>: 11 concepts (5.5%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>Zero-Knowledge Proof</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Verifiable Credential</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Decentralized Identifier</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Self-Sovereign Identity</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Post-Blockchain Tech</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Emerging Trust Tech</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Privacy</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Data Sovereignty</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Regulatory Compliance</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>GDPR and Blockchain</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Right to Be Forgotten</li>
+</ol>
+</li>
+</ul>
+<h3 id="scalability-and-networks-scale">Scalability and Networks (SCALE)</h3>
+<p><strong>Count</strong>: 9 concepts (4.5%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>Network Latency</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Scalability</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Scalability Trilemma</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Throughput vs Latency</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>On-Chain vs Off-Chain</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Layer 1</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Layer 2 Solutions</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>State Channel</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Sidechain</li>
+</ol>
+</li>
+</ul>
+<h3 id="foundation-concepts-found">Foundation Concepts (FOUND)</h3>
+<p><strong>Count</strong>: 6 concepts (3.0%)</p>
+<p><strong>Concepts</strong>:</p>
+<ul>
+<li>
+<ol>
+<li>Trust</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Digital Trust</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Network Fundamentals</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Internet Architecture</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Client-Server Model</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Peer-to-Peer Networks</li>
+</ol>
+</li>
+</ul>
+<h2 id="recommendations">Recommendations</h2>
+<ul>
+<li>✅ <strong>Excellent balance</strong>: Categories are evenly distributed (spread: 10.5%)</li>
+<li>✅ <strong>MISC category minimal</strong>: Good categorization specificity</li>
+</ul>
+<h3 id="educational-use-recommendations">Educational Use Recommendations</h3>
+<ul>
+<li>Use taxonomy categories for color-coding in graph visualizations</li>
+<li>Design curriculum modules based on taxonomy groupings</li>
+<li>Create filtered views for focused learning paths</li>
+<li>Use categories for assessment organization</li>
+<li>Enable navigation by topic area in interactive tools</li>
+</ul>
+<hr />
+<p><em>Report generated by learning-graph-reports/taxonomy_distribution.py</em></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

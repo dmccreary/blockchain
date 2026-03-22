@@ -1,0 +1,15 @@
+{
+  "FOUND": "Foundation Concepts",
+  "CRYPT": "Cryptography Essentials",
+  "PKI": "Public Key Infrastructure",
+  "DLT": "Distributed Ledger Technology",
+  "CONS": "Consensus and Mining",
+  "SCALE": "Scalability and Networks",
+  "ECOSS": "Blockchain Ecosystem",
+  "COST": "Cost and Economics",
+  "ATAM": "Architecture Tradeoff Analysis",
+  "BIAS": "Cognitive Bias and Thinking",
+  "CASE": "Case Studies and Use Cases",
+  "EMRG": "Emerging Technologies",
+  "DECIDE": "Decision and Implementation"
+}
