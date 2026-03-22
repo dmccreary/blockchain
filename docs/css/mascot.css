@@ -9,7 +9,7 @@
   --mascot-secondary: #ff7043;    /* Deep orange — highlights key insights */
   --mascot-bg: #eceff1;           /* Light gray-blue background */
   --mascot-border: #78909c;       /* Medium blue-gray border */
-  --mascot-size: 60px;
+  --mascot-size: 90px;
 }
 
 /* Override MkDocs Material's default smaller admonition font size
@@ -187,9 +187,10 @@
 
 /* --- Mascot image in admonition body (larger, decorative) --- */
 .mascot-admonition-img {
-  float: right;
+  float: left;
   width: var(--mascot-size);
   height: var(--mascot-size);
-  margin: 0 0 0.5em 1em;
+  /* order is top, right, bottom, left - margin on the right only */
+  margin: 0 0.5em 0 0;
   object-fit: contain;
 }

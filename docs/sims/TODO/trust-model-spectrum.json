@@ -1,0 +1,14 @@
+{
+  "sim_id": "trust-model-spectrum",
+  "diagram_name": "Trust Model Spectrum",
+  "chapter_number": 1,
+  "chapter_title": "Trust and Digital Networks",
+  "chapter_dir": "01-trust-and-digital-networks",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** trust-model-spectrum<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Evaluate (L5) — Assess where different trust technologies fall on the centralization-decentralization spectrum and judge the tradeoffs each position entails.\n\n**Description:** An interactive horizontal spectrum with \"Fully Centralized\" on the left and \"Fully Decentralized\" on the right. Positioned along the spectrum are labeled markers representing real-world trust systems: traditional bank (far left), certificate authority, consortium blockchain, public blockchain, and Bitcoin (far right). Each marker is draggable to encourage students to think about where systems actually fall. Clicking a marker reveals a panel below showing: trust entity, cost profile, throughput, and key tradeoffs. A \"Compare\" mode allows selecting two markers to display a side-by-side tradeoff comparison table.\n\n**Canvas:** Responsive width, 450px height. Background: aliceblue.\n\n**Controls:**\n\n- Click markers to see detail panel\n- \"Compare\" toggle to select two systems for side-by-side comparison\n- \"Reset Positions\" button to restore default placement\n\n**Visual elements:**\n\n- Horizontal gradient bar from blue (centralized) to green (decentralized)\n- 6-8 positioned circular markers with system labels\n- Detail panel below spectrum showing: trust entity, cost per transaction, transactions per second, key tradeoff\n- Comparison table when two markers are selected\n- Axis labels and tick marks for orientation\n\nImplementation: p5.js with responsive canvas, draggable markers, click panels"
+}

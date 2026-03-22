@@ -243,8 +243,8 @@ Supporting data files:
 
 - Each admonition type gets its own `border-color` + `background-color` block
 - CSS variables: `--mascot-primary` (#546e7a), `--mascot-secondary` (#ff7043), `--mascot-bg`, `--mascot-size`
-- `.mascot-admonition-img` uses `float: right; margin: 0 0 0.5em 1em` to place the image right of text
-- `--mascot-size: 60px` controls image size in admonitions
+- `.mascot-admonition-img` uses `float: left; margin: 0 0.5em 0 0` to place the image left of text
+- `--mascot-size: 90px` controls image size in admonitions
 
 ### Mascot Images
 
