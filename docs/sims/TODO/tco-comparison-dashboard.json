@@ -1,0 +1,14 @@
+{
+  "sim_id": "tco-comparison-dashboard",
+  "diagram_name": "TCO Comparison Dashboard",
+  "chapter_number": 12,
+  "chapter_title": "Cost Analysis and Total Cost of Ownership",
+  "chapter_dir": "12-cost-analysis-tco",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** tco-comparison-dashboard<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Evaluate (L5) — Compare total cost of ownership between blockchain and traditional architectures across multiple cost categories and time horizons, identifying the conditions under which each approach is more cost-effective.\n\n**Description:** A dashboard-style simulation comparing blockchain TCO against traditional database TCO over a configurable time horizon. The main display shows two stacked area charts (one for blockchain, one for traditional) breaking down costs into categories: infrastructure, development, operations, governance, and transaction fees. Below the charts, a cumulative cost comparison line graph shows where (if ever) the blockchain solution's cumulative cost advantage materializes. Input sliders allow adjusting transaction volume, number of consortium partners, and gas price assumptions. A summary panel shows break-even year (or \"Never\" if costs never converge), 3-year TCO for each approach, and cost-per-transaction comparison.\n\n**Canvas:** Responsive width, 600px height. Background: aliceblue.\n\n**Controls:**\n\n- Slider: Annual transaction volume (10K-10M, log scale)\n- Slider: Number of consortium partners (2-20)\n- Slider: Planning horizon (1-7 years)\n- Select: Blockchain type (Public, Private, Consortium)\n- Button: \"Calculate TCO\"\n\n**Visual elements:**\n\n- Two stacked area charts with color-coded cost categories\n- Cumulative cost comparison line graph\n- Break-even point marker (if applicable)\n- Summary statistics panel\n- Cost-per-transaction comparison bar\n\nImplementation: p5.js with responsive canvas, dynamic chart rendering, parameter-driven calculations"
+}

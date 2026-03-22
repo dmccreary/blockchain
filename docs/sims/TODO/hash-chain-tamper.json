@@ -1,0 +1,14 @@
+{
+  "sim_id": "hash-chain-tamper",
+  "diagram_name": "Hash Chain Visualization",
+  "chapter_number": 2,
+  "chapter_title": "Cryptographic Foundations",
+  "chapter_dir": "02-cryptographic-foundations",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** hash-chain-tamper<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Apply (L3) — Demonstrate how modifying data in one block of a hash chain invalidates all subsequent blocks, making tampering detectable.\n\n**Description:** An interactive visualization showing a chain of 5-6 linked blocks. Each block displays: a data field (editable text), the hash of the previous block, and the block's own hash. When a student modifies the data in any block, that block's hash turns red (invalid), and the cascade effect turns all subsequent blocks red as well. A \"Recalculate\" button allows the student to rehash from the modified block forward, showing the computational cost of tampering. A counter tracks how many hashes need recalculation.\n\n**Canvas:** Responsive width, 450px height. Background: aliceblue.\n\n**Controls:**\n\n- Click on any block's data field to edit it\n- \"Recalculate Chain\" button to rehash from first invalid block\n- \"Reset\" button to restore original chain\n- Speed slider for recalculation animation\n\n**Visual elements:**\n\n- 5-6 rectangular blocks arranged horizontally with arrows between them\n- Each block shows: block number, data text, previous hash (truncated), current hash (truncated)\n- Valid blocks: green border. Invalid blocks: red border with warning icon\n- Arrow links between blocks with hash values on the arrows\n- Counter: \"Blocks to recalculate: X\"\n\nImplementation: p5.js with editable text fields, simplified hash simulation for visual demonstration"
+}

@@ -1,0 +1,14 @@
+{
+  "sim_id": "blockchain-platform-selector",
+  "diagram_name": "Blockchain Type Decision Matrix",
+  "chapter_number": 10,
+  "chapter_title": "Blockchain Types and Platforms",
+  "chapter_dir": "10-blockchain-types-platforms",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** blockchain-platform-selector<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Evaluate (L5) — Select the appropriate blockchain type and platform for a given set of requirements by analyzing tradeoffs across trust, performance, privacy, and governance dimensions.\n\n**Description:** An interactive decision-tree and comparison tool. Students answer a series of questions about their use case: Do participants trust each other? Is regulatory compliance required? What throughput is needed? Is public transparency important? Based on answers, the tool recommends a blockchain type (public permissionless, public permissioned, consortium, private) and highlights matching platforms. A comparison table dynamically shows how selected platforms score across key dimensions. A \"Scenario Library\" offers pre-built use cases (supply chain, DeFi, identity management, cross-border payments) that students can explore.\n\n**Canvas:** Responsive width, 550px height. Background: aliceblue.\n\n**Controls:**\n\n- Radio buttons for decision-tree questions\n- Dropdown: Select from scenario library\n- Button: Reset and start over\n- Hover: Platform detail tooltips\n\n**Visual elements:**\n\n- Decision tree with highlighted path\n- Platform comparison radar chart\n- Recommendation panel with justification\n- Scenario description sidebar\n- Color-coded platform categories\n\nImplementation: p5.js with decision-tree navigation, dynamic radar chart, scenario presets"
+}

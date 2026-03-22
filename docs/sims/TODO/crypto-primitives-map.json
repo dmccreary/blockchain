@@ -1,0 +1,14 @@
+{
+  "sim_id": "crypto-primitives-map",
+  "diagram_name": "Cryptographic Primitives Relationship Map",
+  "chapter_number": 2,
+  "chapter_title": "Cryptographic Foundations",
+  "chapter_dir": "02-cryptographic-foundations",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: Diagram\n**sim-id:** crypto-primitives-map<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Analyze (L4) — Examine how hash functions, encryption, nonces, and non-repudiation relate to each other and combine to form higher-level trust mechanisms like digital signatures and blockchain.\n\n**Description:** An interactive concept map showing all 12 cryptographic concepts from this chapter as nodes, with directed edges showing \"builds on\" or \"enables\" relationships. Nodes are color-coded by type: blue for hash-related concepts, green for encryption-related, orange for application-level concepts (non-repudiation, tamper evidence). Clicking a node highlights all its incoming and outgoing connections and displays a brief definition. A \"Build Up\" animation mode starts with the foundational concepts (Hash Function, Encryption) and progressively reveals how higher-level concepts are constructed from them.\n\n**Canvas:** Responsive width, 500px height. Background: aliceblue.\n\n**Controls:**\n\n- Click nodes to highlight connections and show definitions\n- \"Build Up\" button for progressive reveal animation\n- \"Show All\" button to display full map\n- \"Reset\" button\n\n**Visual elements:**\n\n- 12 nodes arranged in layers (foundational at bottom, applied at top)\n- Directed arrows showing dependency/enables relationships\n- Color coding: blue (hash family), green (encryption family), orange (applications)\n- Definition panel below the map\n- Highlight effect dims unconnected nodes to 30% opacity\n\nImplementation: p5.js with node positioning, click detection, animation sequencing"
+}

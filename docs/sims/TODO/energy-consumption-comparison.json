@@ -1,0 +1,14 @@
+{
+  "sim_id": "energy-consumption-comparison",
+  "diagram_name": "Energy Consumption Comparison",
+  "chapter_number": 8,
+  "chapter_title": "Mining and Computational Economics",
+  "chapter_dir": "08-mining-computational-economics",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** energy-consumption-comparison<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Evaluate (L5) — Compare the energy cost per transaction across blockchain networks and traditional payment systems, assessing whether the tradeoff is justified for different use cases.\n\n**Description:** A logarithmic-scale bar chart comparing energy per transaction across systems: Bitcoin (PoW), Ethereum (PoS), Visa, Mastercard, ACH, SWIFT, and a traditional database write. Each bar is color-coded by system type (PoW = red, PoS = yellow, traditional = green). A tooltip on hover shows the exact value and context (e.g., \"equivalent to X hours of household electricity\"). A toggle switches between per-transaction and annual network total views. A second panel lets students input a transaction volume and see the total energy cost for processing that volume on each system.\n\n**Canvas:** Responsive width, 500px height. Background: aliceblue.\n\n**Controls:**\n\n- Toggle: Per-transaction vs. annual total view\n- Input: Custom transaction volume\n- Hover: Detailed tooltips per system\n- Checkbox: Show/hide individual systems\n\n**Visual elements:**\n\n- Logarithmic bar chart with labeled axes\n- Color-coded bars by system category\n- Household equivalency annotations\n- Custom volume calculation panel\n\nImplementation: p5.js with logarithmic scale rendering, toggle views, tooltip overlays"
+}

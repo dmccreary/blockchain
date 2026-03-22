@@ -1,0 +1,14 @@
+{
+  "sim_id": "capstone-project-tracker",
+  "diagram_name": "Capstone Project Workflow",
+  "chapter_number": 20,
+  "chapter_title": "Implementation and Capstone",
+  "chapter_dir": "20-implementation-capstone",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** capstone-project-tracker<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Create (L6) — Synthesize all course concepts into a comprehensive trust architecture recommendation that integrates problem analysis, technology assessment, architecture evaluation, and implementation planning.\n\n**Description:** An interactive project tracker showing the six capstone deliverables as interconnected hexagonal nodes arranged in a workflow diagram. Each node displays the deliverable name, associated course chapters, and completion status. Clicking a node expands it to show the specific requirements, relevant frameworks to apply, and a checklist of items to complete. Arrows between nodes show dependencies (e.g., Problem Analysis feeds into Technology Assessment). A progress bar at the top shows overall completion. A sidebar shows a timeline view mapping deliverables to the 13-week capstone schedule. Color coding indicates status: gray (not started), blue (in progress), green (completed).\n\n**Canvas:** Responsive width, 600px height. Background: aliceblue.\n\n**Controls:**\n\n- Click hexagonal nodes to expand deliverable details\n- \"Timeline View\" toggle to switch between workflow and timeline views\n- \"Checklist\" toggle to show accumulated requirements across all deliverables\n- \"Reset Progress\" button\n\n**Visual elements:**\n\n- 6 hexagonal nodes with deliverable labels and chapter references\n- Directional arrows showing dependencies\n- Expandable detail panels with requirements checklists\n- Progress bar showing overall completion percentage\n- Timeline sidebar with 13-week schedule\n- Color-coded status indicators (gray/blue/green)\n- Connecting lines highlighting which course concepts map to which deliverables\n\nImplementation: p5.js with responsive canvas, hexagonal node layout, click-to-expand panels, dual view modes (workflow/timeline)"
+}

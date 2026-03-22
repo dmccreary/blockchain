@@ -1,0 +1,14 @@
+{
+  "sim_id": "quality-attribute-radar",
+  "diagram_name": "Quality Attribute Radar Chart",
+  "chapter_number": 14,
+  "chapter_title": "Risk Analysis and Quality Attributes",
+  "chapter_dir": "14-risk-analysis-quality-attributes",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: Diagram\n**sim-id:** quality-attribute-radar<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Evaluate (L5) — Visually compare how different trust architectures perform across multiple quality attributes simultaneously, identifying where each architecture excels and where it falls short.\n\n**Description:** A radar (spider) chart with 7 axes representing quality attributes: Security, Availability, Reliability, Performance, Modifiability, Maintainability, and Cost Efficiency. Three overlaid polygons represent three candidate architectures: Public Blockchain (blue), Consortium Blockchain (orange), and Centralized Database (green). Each polygon's vertices show the architecture's rating (1-5) on each attribute. Checkboxes allow toggling each architecture's polygon on/off for cleaner comparison. Hovering over a vertex shows a tooltip with the specific rating rationale. A \"Customize\" mode allows students to adjust ratings based on their own analysis and see how the polygons change.\n\n**Canvas:** Responsive width, 550px height. Background: aliceblue.\n\n**Controls:**\n\n- Checkbox: Show/hide each architecture polygon\n- Button: \"Customize Ratings\" to enter edit mode\n- Sliders (in edit mode): adjust each attribute rating (1-5) per architecture\n- Button: \"Reset to Defaults\"\n\n**Visual elements:**\n\n- Radar chart with 7 labeled axes\n- Three color-coded polygons with semi-transparent fill\n- Axis labels at each spoke endpoint\n- Tooltips on vertex hover\n- Legend identifying each architecture\n- Rating values displayed at each vertex\n\nImplementation: p5.js with responsive canvas, polar coordinate rendering, hover detection"
+}

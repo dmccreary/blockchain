@@ -1,0 +1,14 @@
+{
+  "sim_id": "utility-tree-builder",
+  "diagram_name": "Utility Tree Builder",
+  "chapter_number": 13,
+  "chapter_title": "Architecture Tradeoff Analysis Method",
+  "chapter_dir": "13-architecture-tradeoff-analysis",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** utility-tree-builder<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Create (L6) — Construct a utility tree for a trust technology evaluation by selecting quality attributes, adding scenario leaves, and assigning importance/difficulty ratings.\n\n**Description:** An interactive tree-building tool where students construct a utility tree from scratch. The root node \"Overall Utility\" is pre-placed at the top. Students click \"Add Branch\" to create quality attribute branches (selecting from a predefined list: Performance, Security, Availability, Modifiability, Auditability, Cost). Under each branch, they can add sub-attribute nodes and attach scenario leaves. Each leaf node has dropdown selectors for Importance (H/M/L) and Difficulty (H/M/L). Nodes rated (H,H) are highlighted in red; (H,M) in orange; others in gray. A summary panel on the right lists all (H,H) and (H,M) scenarios that should receive detailed architecture analysis. The tree is displayed as an expandable/collapsible hierarchy.\n\n**Canvas:** Responsive width, 600px height. Background: aliceblue.\n\n**Controls:**\n\n- Button: \"Add Quality Attribute Branch\"\n- Button: \"Add Sub-Attribute\" (when branch is selected)\n- Button: \"Add Scenario\" (when sub-attribute is selected)\n- Select dropdowns: Importance (H/M/L), Difficulty (H/M/L)\n- Button: \"Reset Tree\"\n- Button: \"Show Priority Summary\"\n\n**Visual elements:**\n\n- Tree nodes as rounded rectangles with labels\n- Color coding by priority: red (H,H), orange (H,M), gray (other)\n- Connecting lines between parent and child nodes\n- Selected node highlighted with border\n- Summary panel listing high-priority scenarios\n- Expand/collapse indicators on branch nodes\n\nImplementation: p5.js with responsive canvas, tree layout algorithm, click-to-select interaction"
+}

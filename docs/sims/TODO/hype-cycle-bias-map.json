@@ -1,0 +1,14 @@
+{
+  "sim_id": "hype-cycle-bias-map",
+  "diagram_name": "Hype Cycle Bias Map",
+  "chapter_number": 15,
+  "chapter_title": "Cognitive Bias in Technology Decisions",
+  "chapter_dir": "15-cognitive-bias-technology",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** hype-cycle-bias-map<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Analyze (L4) — Map specific cognitive biases to each phase of the Gartner Hype Cycle and predict which biases are most likely to affect technology decisions at each phase.\n\n**Description:** An interactive visualization of the Gartner Hype Cycle curve with blockchain-specific annotations. The x-axis represents time/maturity and the y-axis represents visibility/expectations. The classic hype cycle curve is drawn through its five labeled phases. Along the curve, clickable hotspot markers represent specific cognitive biases that are most active at each phase. Clicking a hotspot reveals a panel showing: the bias name, a description, a blockchain-specific example of how it manifests at that phase, and a recommended debiasing technique. A draggable marker on the curve allows students to position \"current state\" and see which biases are most relevant at that position. A timeline sidebar shows key blockchain events plotted against the curve.\n\n**Canvas:** Responsive width, 550px height. Background: aliceblue.\n\n**Controls:**\n\n- Click bias hotspots for detailed panels\n- Draggable \"current position\" marker on the curve\n- Toggle: \"Show blockchain timeline events\"\n- Button: \"Show all biases\" / \"Show phase biases only\"\n\n**Visual elements:**\n\n- Smooth hype cycle curve through five labeled phases\n- Color-coded bias hotspot markers along the curve\n- Detail panel with bias name, description, example, debiasing technique\n- Draggable current-position marker\n- Timeline event labels (Bitcoin launch, ICO boom, pilot failures, etc.)\n- Phase labels and dividers\n\nImplementation: p5.js with responsive canvas, click detection, draggable element, panel rendering"
+}

@@ -33,7 +33,43 @@ nav:
     - 20. Implementation and Capstone: chapters/20-implementation-capstone/index.md
 
   - MicroSims:
-    - Graph Viewer: sims/graph-viewer/index.md
+    - List of MicroSims: sims/index.md
+    - Architecture Decision Communication Flow: sims/architecture-presentation-builder/index.md
+    - ATAM Process Flow: sims/atam-process-flow/index.md
+    - Bias Interaction Network: sims/bias-interaction-network/index.md
+    - Block Anatomy: sims/block-anatomy-explorer/index.md
+    - Blockchain Type Decision Matrix: sims/blockchain-platform-selector/index.md
+    - Capstone Project Workflow: sims/capstone-project-tracker/index.md
+    - Case Study Analysis Dashboard: sims/case-study-dashboard/index.md
+    - Certificate Chain of Trust: sims/certificate-chain-trust/index.md
+    - Client-Server vs. Peer-to-Peer Network Topology: sims/network-topology-compare/index.md
+    - Consensus Mechanism Comparison: sims/consensus-tradeoff-explorer/index.md
+    - Cryptographic Primitives Relationship Map: sims/crypto-primitives-map/index.md
+    - Digital Signature Process: sims/digital-signature-process/index.md
+    - Energy Consumption Comparison: sims/energy-consumption-comparison/index.md
+    - Evidence-Based Evaluation Process: sims/evidence-evaluation-pipeline/index.md
+    - Governance Model Comparison: sims/governance-model-comparison/index.md
+    - Hash Chain Visualization: sims/hash-chain-tamper/index.md
+    - Hype Cycle Bias Map: sims/hype-cycle-bias-map/index.md
+    - Implementation Phase Gate Dashboard: sims/implementation-phase-gates/index.md
+    - Internet Protocol Stack and Trust Gaps: sims/internet-trust-gaps/index.md
+    - Learning Graph Viewer: sims/graph-viewer/index.md
+    - Mining Economics Dashboard: sims/mining-economics-dashboard/index.md
+    - Monte Carlo Cost Simulation: sims/blockchain-cost-monte-carlo/index.md
+    - Quality Attribute Radar Chart: sims/quality-attribute-radar/index.md
+    - Risk Theme Heat Map: sims/risk-theme-heatmap/index.md
+    - Scalability Trilemma Explorer: sims/scalability-trilemma-explorer/index.md
+    - Smart Contract Risk Taxonomy: sims/smart-contract-risk-explorer/index.md
+    - TCO Comparison Dashboard: sims/tco-comparison-dashboard/index.md
+    - Technology Readiness Level Assessment Tool: sims/trl-assessment-tool/index.md
+    - Throughput vs Latency Comparison: sims/throughput-latency-compare/index.md
+    - Token Types Comparison: sims/token-types-comparison/index.md
+    - Trust Architecture Decision Flowchart: sims/trust-decision-flowchart/index.md
+    - Trust Model Spectrum: sims/trust-model-spectrum/index.md
+    - Utility Tree Builder: sims/utility-tree-builder/index.md
+    - When to Use Blockchain Decision Tree: sims/blockchain-decision-flowchart/index.md
+
+
 
   - Learning Graph:
     - Introduction: learning-graph/index.md

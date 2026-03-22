@@ -1,0 +1,14 @@
+{
+  "sim_id": "case-study-dashboard",
+  "diagram_name": "Case Study Analysis Dashboard",
+  "chapter_number": 17,
+  "chapter_title": "Industry Case Studies",
+  "chapter_dir": "17-industry-case-studies",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** case-study-dashboard<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Evaluate (L5) — Assess real-world blockchain deployments against evidence-based criteria, comparing outcomes across industries and identifying patterns that predict success or failure.\n\n**Description:** An interactive dashboard that presents the case studies from this chapter in a visual comparison format. The top section displays a scatter plot with \"Evidence Strength\" on the X-axis and \"Blockchain Value-Add\" on the Y-axis, with each case study plotted as a labeled dot color-coded by industry. Clicking a dot reveals a detail panel below showing the full case study summary: problem, architecture, outcome, counterfactual, and lessons. A filter panel on the right allows filtering by industry, outcome (success/mixed/failure), and deployment scale. A toggle switches between \"Blockchain Deployments\" and \"Alternative Approaches\" to compare outcomes.\n\n**Canvas:** Responsive width, 600px height. Background: aliceblue.\n\n**Controls:**\n\n- Click case study dots to show detail panel\n- Industry filter checkboxes (supply chain, healthcare, finance, e-commerce, retail)\n- Outcome filter radio buttons (all, success, mixed, failure)\n- Toggle between blockchain deployments and alternative approaches\n\n**Visual elements:**\n\n- Scatter plot with labeled dots\n- Color-coded dots by industry (blue=supply chain, green=healthcare, red=finance, purple=e-commerce, orange=retail)\n- Detail panel with structured case study summary\n- Filter panel with checkboxes and radio buttons\n- Quadrant labels on scatter plot (e.g., \"Strong Evidence + High Value\" upper right)\n\nImplementation: p5.js with responsive canvas, interactive scatter plot, click-to-reveal detail panels, filter state management"
+}

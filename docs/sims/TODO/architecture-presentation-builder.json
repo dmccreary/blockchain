@@ -1,0 +1,14 @@
+{
+  "sim_id": "architecture-presentation-builder",
+  "diagram_name": "Architecture Decision Communication Flow",
+  "chapter_number": 19,
+  "chapter_title": "Alternative Architectures and Decision Frameworks",
+  "chapter_dir": "19-alternative-architectures-decisions",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** architecture-presentation-builder<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Apply (L3) — Design an effective management presentation that communicates a complex architecture recommendation using the pyramid principle, quantified business impact, and anticipated objection handling.\n\n**Description:** An interactive tool that guides users through building a management presentation for an architecture decision. The screen displays a pyramid diagram with the recommendation at the top, three supporting arguments in the middle tier, and evidence items at the base. Users can click on each section to expand it and fill in content using dropdown selections from predefined scenarios. A \"Preview\" mode shows the resulting slide deck in miniature. A \"Common Objections\" panel on the right shows typical management questions with suggested response frameworks. Color coding indicates completeness (gray=empty, yellow=partial, green=complete).\n\n**Canvas:** Responsive width, 550px height. Background: aliceblue.\n\n**Controls:**\n\n- Click pyramid sections to expand and edit content\n- \"Preview Slides\" button to see miniature slide deck\n- \"Common Objections\" toggle to show/hide objection panel\n- Scenario selector dropdown to load different evaluation contexts\n\n**Visual elements:**\n\n- Three-tier pyramid diagram (recommendation, arguments, evidence)\n- Expandable section panels with form fields\n- Miniature slide preview panels\n- Common objections panel with response frameworks\n- Completeness indicators (gray/yellow/green)\n- Progress bar showing presentation completion status\n\nImplementation: p5.js with responsive canvas, click-to-expand panels, state management for content editing"
+}

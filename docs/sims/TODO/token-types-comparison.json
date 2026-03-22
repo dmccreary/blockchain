@@ -1,0 +1,14 @@
+{
+  "sim_id": "token-types-comparison",
+  "diagram_name": "Token Types Comparison",
+  "chapter_number": 9,
+  "chapter_title": "Smart Contracts and Tokens",
+  "chapter_dir": "09-smart-contracts-tokens",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** token-types-comparison<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Understand (L2) — Distinguish between fungible and non-fungible tokens, explaining the properties, standards, and use cases for each type.\n\n**Description:** A side-by-side visual comparison of fungible tokens (ERC-20) and non-fungible tokens (ERC-721). The left panel shows fungible tokens as identical, interchangeable coins that can be divided and combined. The right panel shows NFTs as unique cards with distinct properties. Students can click to \"transfer\" tokens between wallets, observing how fungible tokens split and merge while NFTs transfer as whole units. A properties panel below each type lists the key characteristics: divisibility, interchangeability, uniqueness, and common standards. A \"Real World Analogy\" section maps each type to familiar concepts (dollars vs. baseball cards).\n\n**Canvas:** Responsive width, 500px height. Background: aliceblue.\n\n**Controls:**\n\n- Click to transfer tokens between wallet visualizations\n- Toggle: Show/hide token metadata\n- Dropdown: Select token example (USDC, CryptoKitty, etc.)\n- Button: Reset wallets\n\n**Visual elements:**\n\n- Fungible token visualization (identical coins/bars)\n- NFT visualization (unique cards with metadata)\n- Wallet containers showing balances\n- Transfer animations\n- Properties comparison table\n- Real-world analogy illustrations\n\nImplementation: p5.js with drag-and-drop token interactions, wallet state management, animated transfers"
+}

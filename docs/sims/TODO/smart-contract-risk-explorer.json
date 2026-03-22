@@ -1,0 +1,14 @@
+{
+  "sim_id": "smart-contract-risk-explorer",
+  "diagram_name": "Smart Contract Risk Taxonomy",
+  "chapter_number": 9,
+  "chapter_title": "Smart Contracts and Tokens",
+  "chapter_dir": "09-smart-contracts-tokens",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** smart-contract-risk-explorer<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Analyze (L4) — Categorize smart contract vulnerabilities by type, severity, and historical financial impact, and evaluate mitigation strategies for each risk category.\n\n**Description:** A visual taxonomy of smart contract risks displayed as an interactive tree diagram. The root node branches into categories: Coding Errors, Economic Exploits, Oracle Failures, Access Control, and Upgrade Risks. Each category expands to show specific vulnerabilities with real-world examples. Clicking a node shows a detail panel with: description, historical examples with dollar amounts lost, mitigation strategies, and a severity rating. A timeline view at the bottom shows major smart contract exploits chronologically with cumulative losses.\n\n**Canvas:** Responsive width, 550px height. Background: aliceblue.\n\n**Controls:**\n\n- Click to expand/collapse tree branches\n- Hover for quick tooltip descriptions\n- Toggle: Tree view vs. timeline view\n- Dropdown: Filter by risk category\n- Button: Show cumulative losses chart\n\n**Visual elements:**\n\n- Interactive tree diagram with color-coded categories\n- Detail panel with example and mitigation info\n- Cumulative loss timeline chart\n- Severity rating indicators (color-coded)\n- Dollar amount annotations on exploit nodes\n\nImplementation: p5.js with tree layout, click/hover interactions, timeline chart rendering"
+}

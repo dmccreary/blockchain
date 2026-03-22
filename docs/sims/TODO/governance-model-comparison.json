@@ -1,0 +1,14 @@
+{
+  "sim_id": "governance-model-comparison",
+  "diagram_name": "Governance Model Comparison",
+  "chapter_number": 10,
+  "chapter_title": "Blockchain Types and Platforms",
+  "chapter_dir": "10-blockchain-types-platforms",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** governance-model-comparison<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Analyze (L4) — Compare on-chain, off-chain, and consortium governance models by examining their decision-making processes, power distributions, and historical outcomes.\n\n**Description:** A three-panel visualization showing how governance works in practice for on-chain (Tezos/MakerDAO), off-chain (Bitcoin/Ethereum), and consortium (Hyperledger) models. Each panel shows the decision-making flow from proposal to implementation. An overlay shows power distribution — who actually influences outcomes — using proportional bubble charts. A timeline at the bottom shows major governance decisions and their outcomes for each model (e.g., The DAO fork, Bitcoin block size debate, Tezos protocol upgrades). Students can click on historical events to see the governance process that produced the outcome.\n\n**Canvas:** Responsive width, 600px height. Background: aliceblue.\n\n**Controls:**\n\n- Click on governance events in timeline\n- Toggle between flow diagram and power distribution views\n- Dropdown: Select specific governance decision to explore\n- Hover: Detail tooltips on process steps\n\n**Visual elements:**\n\n- Three-panel governance flow diagrams\n- Power distribution bubble charts\n- Historical event timeline\n- Decision detail pop-up panels\n- Color-coded governance model categories\n\nImplementation: p5.js with multi-panel layout, timeline navigation, bubble chart rendering"
+}

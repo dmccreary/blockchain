@@ -1,0 +1,14 @@
+{
+  "sim_id": "blockchain-cost-monte-carlo",
+  "diagram_name": "Monte Carlo Cost Simulation",
+  "chapter_number": 12,
+  "chapter_title": "Cost Analysis and Total Cost of Ownership",
+  "chapter_dir": "12-cost-analysis-tco",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** blockchain-cost-monte-carlo<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Apply (L3) — Use Monte Carlo simulation to model uncertainty in blockchain deployment costs and interpret the resulting probability distributions for decision-making.\n\n**Description:** An interactive simulation that runs Monte Carlo trials on blockchain TCO. The left panel shows sliders for key input parameters: number of nodes (5-50), annual transaction growth rate (10%-100%), gas price volatility (low/medium/high), and development timeline uncertainty (1x-3x). A \"Run Simulation\" button executes 1,000 trials and displays a histogram of total 3-year costs on the right panel. The histogram shows P50, P75, and P90 lines annotated with dollar values. A comparison line shows the equivalent centralized system cost. Students can adjust parameters and re-run to see how uncertainty affects the cost distribution.\n\n**Canvas:** Responsive width, 550px height. Background: aliceblue.\n\n**Controls:**\n\n- Slider: Number of nodes (5-50, default 10)\n- Slider: Transaction growth rate (10%-100%, default 30%)\n- Select: Gas price volatility (Low, Medium, High)\n- Slider: Development uncertainty multiplier (1.0-3.0, default 1.5)\n- Button: \"Run 1,000 Trials\"\n- Checkbox: \"Show centralized comparison line\"\n\n**Visual elements:**\n\n- Histogram with 20 bins showing cost distribution\n- Vertical dashed lines for P50 (blue), P75 (orange), P90 (red)\n- Green vertical line for centralized system cost comparison\n- Summary statistics panel: mean, median, std dev, P90\n- Parameter display showing current input values\n\nImplementation: p5.js with responsive canvas, random sampling, histogram rendering"
+}
