@@ -399,6 +399,7 @@ Implementation: p5.js with multi-panel layout, timeline navigation, bubble chart
 - **Hyperledger Fabric** optimizes for enterprise compliance and privacy — no native cryptocurrency, fully permissioned, channel-based data isolation
 - **Interoperability** remains an unsolved challenge; platform choice may create ecosystem lock-in comparable to ERP vendor selection
 - **On-chain governance** is transparent but plutocratic; **off-chain governance** is flexible but opaque; **consortium governance** resembles traditional organizational governance with a blockchain substrate
+- **The PKI baseline** — before selecting any blockchain platform, evaluate whether a well-designed PKI deployment with certificate authorities, mutual TLS, and digitally signed audit logs meets your requirements. PKI provides authentication, non-repudiation, and data integrity through standards that are mature, legally recognized, and supported by vast tooling ecosystems. Many use cases framed as "blockchain problems" are actually identity and integrity problems that PKI already solves at lower cost and higher throughput
 
 !!! mascot-celebration "Excellent Analytical Work!"
     <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Rex celebrates">

@@ -191,6 +191,8 @@ The evolution of consensus mechanisms and blockchain capabilities is often descr
 
 Each generation expanded capabilities but also introduced new tradeoffs and attack surfaces. The skeptic's perspective is that each generation has also expanded the gap between promises and delivered performance.
 
+It is worth noting that centralized trust systems — certificate authorities, managed databases, and traditional settlement networks — do not require consensus mechanisms at all. A single authoritative server can validate a transaction in milliseconds at near-zero marginal cost. The entire consensus machinery described in this chapter exists solely to solve the problem of agreement among untrusted parties. If your use case has a natural trusted authority (a regulator, a bank, an industry body), the cost and complexity of distributed consensus may be unnecessary overhead. Always evaluate whether the consensus mechanism's cost is justified by the specific trust deficit it addresses.
+
 #### Diagram: Consensus Mechanism Comparison
 
 <details markdown="1">

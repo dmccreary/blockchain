@@ -367,6 +367,7 @@ Implementation: p5.js with drag-and-drop token interactions, wallet state manage
 - **Wallets** manage keys, not coins — the tradeoff between hot wallets (convenient, vulnerable) and cold storage (secure, inconvenient) has no costless solution
 - **Decentralized applications** typically have significant centralized dependencies in their frontend, API, and storage layers
 - **Cross-chain bridges** are the weakest link in multi-chain architectures, with billions lost to bridge exploits that concentrate risk at chain boundaries
+- **The traditional alternative** — many functions attributed to smart contracts (escrow, conditional payments, automated compliance) can be implemented through traditional server-side business logic with database transactions, legal contracts, and established dispute resolution. Smart contracts add value primarily when multiple untrusting parties need automated enforcement without a shared intermediary. For single-organization workflows or scenarios with a trusted operator, traditional application code is simpler, cheaper, auditable, and patchable
 
 !!! mascot-celebration "Excellent Analytical Work!"
     <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Rex celebrates">

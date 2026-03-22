@@ -123,6 +123,8 @@ However, immutability also creates significant challenges:
     really means "economically infeasible to modify given current network hash power"
     — which is an important distinction from mathematically impossible.
 
+It is important to recognize that many of the properties valued in distributed ledgers — audit trails, tamper evidence, and data integrity — can also be achieved through centralized architectures using append-only databases, cryptographic signatures, and timestamped hash chains managed by a certificate authority. The distinguishing feature of a distributed ledger is that *no single entity controls the data*. If your use case has an acceptable central authority, a centralized system with digital signatures and PKI-based audit logging may provide equivalent integrity guarantees at a fraction of the cost and complexity.
+
 ## Blockchain Definition
 
 A **blockchain** is a specific type of distributed ledger that organizes transactions into cryptographically linked blocks, forming a chain. Formally, a blockchain is:

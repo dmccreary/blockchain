@@ -22,6 +22,7 @@ This file provides guidance to Claude Code when working with code in this reposi
 - **Use American English** spelling (color, center, analyze)
 - **Accessible to business audience** — define technical jargon on first use; don't assume all readers are developers or cryptographers
 - **Cost-conscious** — consistently tie architectural choices back to real-world costs and business value
+- **Total energy accounting** — when comparing energy costs across architectures, always include the TOTAL energy: CPU computation, data movement (network switches, routers, inter-node communication, storage I/O), and cooling. Never compare only CPU cost. In many data centers, data movement energy accounts for 40-60% of total energy consumption. Blockchain amplifies data movement costs because every transaction and block must be propagated to every full node
 
 ### Chapter Structure
 

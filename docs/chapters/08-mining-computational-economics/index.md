@@ -179,14 +179,29 @@ When the daily cost exceeds the daily revenue, rational miners shut down equipme
 - A single Bitcoin transaction uses approximately 700-1,000 kWh of electricity
 - By comparison, a Visa transaction uses approximately 0.001-0.002 kWh
 
-To put the per-transaction comparison in perspective:
+### Total Energy: Computation Plus Data Movement
 
-| System | Energy per Transaction | Transactions per Second |
-|--------|----------------------|------------------------|
-| Bitcoin (PoW) | ~850 kWh | ~7 |
-| Ethereum (PoS) | ~0.03 kWh | ~15-30 |
-| Visa network | ~0.001 kWh | ~65,000 |
-| Traditional database write | ~0.0000001 kWh | ~100,000+ |
+A rigorous energy comparison must account for the **total energy cost** of each system, not just CPU computation. In modern data centers, the energy consumed by data movement — network switches, routers, inter-node communication, storage I/O, and memory bus transfers — is a significant and often dominant portion of total system energy. Some studies estimate that data movement accounts for 40-60% of total data center energy consumption.
+
+This distinction is critical for blockchain comparisons because blockchain's architecture amplifies data movement costs in ways that centralized systems do not:
+
+- **Block propagation** — every new block must be transmitted to every full node in the network, multiplying network energy by the node count
+- **Transaction broadcasting** — each transaction is propagated to multiple nodes before inclusion in a block
+- **State synchronization** — new nodes joining the network must download and verify the entire chain history
+- **Consensus messaging** — BFT-style consensus requires multiple rounds of communication between validators, each consuming network energy
+
+By contrast, a centralized database processes a transaction with a single write to local storage and optional replication to a small number of backup nodes. The data movement energy for a centralized transaction is orders of magnitude smaller than for a blockchain transaction that must be propagated to thousands of nodes.
+
+To put the per-transaction comparison in perspective, including both computation and data movement:
+
+| System | CPU Energy per Tx | Data Movement Energy per Tx | Total Energy per Tx | TPS |
+|--------|------------------|---------------------------|-------------------|-----|
+| Bitcoin (PoW) | ~800 kWh (mining) | ~50 kWh (propagation to ~15K nodes) | ~850 kWh | ~7 |
+| Ethereum (PoS) | ~0.02 kWh | ~0.01 kWh (propagation to ~8K nodes) | ~0.03 kWh | ~15-30 |
+| Visa network | ~0.0005 kWh | ~0.0005 kWh (limited replication) | ~0.001 kWh | ~65,000 |
+| Traditional DB | ~0.00000005 kWh | ~0.00000005 kWh (local + 1-2 replicas) | ~0.0000001 kWh | ~100,000+ |
+
+Note: Bitcoin's data movement energy is dwarfed by its mining energy, but for proof-of-stake and permissioned systems, data movement can represent 30-50% of the total energy budget. As blockchains move away from PoW, the data movement overhead becomes relatively more significant — and it scales directly with the number of nodes.
 
 The energy-per-transaction metric has been criticized as misleading because Bitcoin's energy consumption is tied to security (block production), not transaction volume. A block with 1 transaction costs the same energy as a block with 4,000 transactions. However, this argument cuts both ways: it means Bitcoin's energy model cannot scale efficiently. The security cost is fixed per block regardless of economic activity within it.
 
@@ -338,6 +353,7 @@ Implementation: p5.js with logarithmic scale rendering, toggle views, tooltip ov
 - **Energy consumption** for Bitcoin exceeds that of many countries; a single transaction uses roughly 850 kWh compared to 0.001 kWh for Visa
 - **Transaction costs** include direct fees, waiting costs, opportunity costs, and finality risk — fees are market-driven and spike unpredictably during congestion
 - **Gas and fees** on Ethereum price computational complexity directly, creating economic pressure to minimize on-chain operations
+- **The CA alternative** — certificate authority systems validate transactions using digital signatures at a fraction of a cent per verification, with no mining, no energy overhead, and sub-second confirmation. The entire mining apparatus exists to replace trust in a central authority with trust in computational expenditure. Whether that substitution is worth the cost depends entirely on whether a trusted authority is available and acceptable for your use case
 
 !!! mascot-celebration "Excellent Analytical Work!"
     <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Rex celebrates">

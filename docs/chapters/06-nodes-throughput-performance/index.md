@@ -195,12 +195,13 @@ Implementation: p5.js with log-scale axes, hover detection, slider control
 For a blockchain deployment, infrastructure costs include:
 
 - **Server hardware** — compute, storage, memory, and networking equipment for each node
-- **Network bandwidth** — ongoing cost of data transfer between nodes
-- **Power and cooling** — electricity for operation and climate control
+- **Network bandwidth** — ongoing cost of data transfer between nodes, including cloud egress fees
+- **Data movement energy** — the energy consumed by network switches, routers, and inter-node communication. In modern data centers, data movement energy often equals or exceeds CPU computation energy. Blockchain amplifies this cost because every block and transaction must be propagated to every full node
+- **Power and cooling** — electricity for computation, data movement, storage I/O, and the cooling systems that support all three. Total energy cost is the sum of all these components, not just CPU power
 - **Facilities** — data center space or cloud hosting fees
 - **Personnel** — system administrators and security staff
 
-The total infrastructure cost scales with the number of nodes. In a centralized system, you pay for the infrastructure once. In a distributed blockchain, every participating organization pays for its own full node — multiplying the total system cost by the number of participants.
+The total infrastructure cost scales with the number of nodes across *all* cost components — compute, storage, bandwidth, and data movement energy all multiply by $n$ nodes. In a centralized system, you pay for the infrastructure once (plus modest replication). In a distributed blockchain, every participating organization pays for its own full node — multiplying the total system cost by the number of participants.
 
 !!! mascot-tip "Rex's Tip"
     <img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Rex shares a tip">
