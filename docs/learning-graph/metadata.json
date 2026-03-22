@@ -1,0 +1,10 @@
+{
+  "title": "Blockchain: A Skeptic's Guide to Trust Technologies",
+  "description": "A comprehensive, balanced examination of blockchain and related trust technologies from a critical, evidence-based perspective. Students explore trust fundamentals, non-repudiation technologies, cost analysis, architecture tradeoff methods, cognitive biases, and structured decision-making frameworks.",
+  "creator": "Dan McCreary",
+  "date": "2026-03-22",
+  "version": "1.0",
+  "format": "Learning Graph JSON v1.0",
+  "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
+  "license": "CC BY-NC-SA 4.0 DEED"
+}

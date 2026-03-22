@@ -1,3 +1,8 @@
+---
+title: Course Description
+description: A detailed course description for Blockchain - The Skeptic's Guide to Trust Technologies
+quality_score: 100
+---
 # Course Description
 
 ## Course Title

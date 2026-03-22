@@ -1,0 +1,2511 @@
+{
+  "metadata": {
+    "title": "Blockchain: A Skeptic's Guide to Trust Technologies",
+    "description": "A comprehensive, balanced examination of blockchain and related trust technologies from a critical, evidence-based perspective. Students explore trust fundamentals, non-repudiation technologies, cost analysis, architecture tradeoff methods, cognitive biases, and structured decision-making frameworks.",
+    "creator": "Dan McCreary",
+    "date": "2026-03-22",
+    "version": "1.0",
+    "format": "Learning Graph JSON v1.0",
+    "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
+    "license": "CC BY-NC-SA 4.0 DEED"
+  },
+  "groups": {
+    "FOUND": {
+      "classifierName": "Foundation Concepts",
+      "color": "LightCoral",
+      "font": {
+        "color": "white"
+      }
+    },
+    "CRYPT": {
+      "classifierName": "Cryptography Essentials",
+      "color": "PeachPuff",
+      "font": {
+        "color": "black"
+      }
+    },
+    "PKI": {
+      "classifierName": "Public Key Infrastructure",
+      "color": "LightYellow",
+      "font": {
+        "color": "black"
+      }
+    },
+    "DLT": {
+      "classifierName": "Distributed Ledger Technology",
+      "color": "PaleGreen",
+      "font": {
+        "color": "black"
+      }
+    },
+    "CONS": {
+      "classifierName": "Consensus and Mining",
+      "color": "PowderBlue",
+      "font": {
+        "color": "black"
+      }
+    },
+    "SCALE": {
+      "classifierName": "Scalability and Networks",
+      "color": "PaleTurquoise",
+      "font": {
+        "color": "black"
+      }
+    },
+    "ECOSS": {
+      "classifierName": "Blockchain Ecosystem",
+      "color": "Thistle",
+      "font": {
+        "color": "black"
+      }
+    },
+    "COST": {
+      "classifierName": "Cost and Economics",
+      "color": "MistyRose",
+      "font": {
+        "color": "black"
+      }
+    },
+    "ATAM": {
+      "classifierName": "Architecture Tradeoff Analysis",
+      "color": "LightSteelBlue",
+      "font": {
+        "color": "black"
+      }
+    },
+    "BIAS": {
+      "classifierName": "Cognitive Bias and Thinking",
+      "color": "Lavender",
+      "font": {
+        "color": "black"
+      }
+    },
+    "CASE": {
+      "classifierName": "Case Studies and Use Cases",
+      "color": "Honeydew",
+      "font": {
+        "color": "black"
+      }
+    },
+    "EMRG": {
+      "classifierName": "Emerging Technologies",
+      "color": "Aquamarine",
+      "font": {
+        "color": "black"
+      }
+    },
+    "DECIDE": {
+      "classifierName": "Decision and Implementation",
+      "color": "Plum",
+      "font": {
+        "color": "white"
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "label": "Trust",
+      "group": "FOUND",
+      "shape": "box"
+    },
+    {
+      "id": 2,
+      "label": "Digital Trust",
+      "group": "FOUND"
+    },
+    {
+      "id": 3,
+      "label": "Network Fundamentals",
+      "group": "FOUND",
+      "shape": "box"
+    },
+    {
+      "id": 4,
+      "label": "Internet Architecture",
+      "group": "FOUND"
+    },
+    {
+      "id": 5,
+      "label": "Client-Server Model",
+      "group": "FOUND"
+    },
+    {
+      "id": 6,
+      "label": "Peer-to-Peer Networks",
+      "group": "FOUND"
+    },
+    {
+      "id": 7,
+      "label": "Encryption",
+      "group": "CRYPT"
+    },
+    {
+      "id": 8,
+      "label": "Symmetric Encryption",
+      "group": "CRYPT"
+    },
+    {
+      "id": 9,
+      "label": "Asymmetric Encryption",
+      "group": "CRYPT"
+    },
+    {
+      "id": 10,
+      "label": "Public Key",
+      "group": "CRYPT"
+    },
+    {
+      "id": 11,
+      "label": "Private Key",
+      "group": "CRYPT"
+    },
+    {
+      "id": 12,
+      "label": "Key Pair Generation",
+      "group": "CRYPT"
+    },
+    {
+      "id": 13,
+      "label": "Digital Signature",
+      "group": "CRYPT"
+    },
+    {
+      "id": 14,
+      "label": "Hash Function",
+      "group": "CRYPT",
+      "shape": "box"
+    },
+    {
+      "id": 15,
+      "label": "Cryptographic Hash",
+      "group": "CRYPT"
+    },
+    {
+      "id": 16,
+      "label": "SHA-256",
+      "group": "CRYPT"
+    },
+    {
+      "id": 17,
+      "label": "Hash Chain",
+      "group": "CRYPT"
+    },
+    {
+      "id": 18,
+      "label": "Merkle Tree",
+      "group": "CRYPT"
+    },
+    {
+      "id": 19,
+      "label": "Data Integrity",
+      "group": "CRYPT"
+    },
+    {
+      "id": 20,
+      "label": "Tamper Evidence",
+      "group": "CRYPT"
+    },
+    {
+      "id": 21,
+      "label": "Non-Repudiation",
+      "group": "CRYPT"
+    },
+    {
+      "id": 22,
+      "label": "Authentication",
+      "group": "PKI"
+    },
+    {
+      "id": 23,
+      "label": "Authorization",
+      "group": "PKI"
+    },
+    {
+      "id": 24,
+      "label": "Identity Verification",
+      "group": "PKI"
+    },
+    {
+      "id": 25,
+      "label": "Certificate Authority",
+      "group": "PKI"
+    },
+    {
+      "id": 26,
+      "label": "Public Key Infrastructure",
+      "group": "PKI"
+    },
+    {
+      "id": 27,
+      "label": "X.509 Certificate",
+      "group": "PKI"
+    },
+    {
+      "id": 28,
+      "label": "Certificate Chain",
+      "group": "PKI"
+    },
+    {
+      "id": 29,
+      "label": "Root Certificate",
+      "group": "PKI"
+    },
+    {
+      "id": 30,
+      "label": "Certificate Revocation",
+      "group": "PKI"
+    },
+    {
+      "id": 31,
+      "label": "CA Vulnerabilities",
+      "group": "PKI"
+    },
+    {
+      "id": 32,
+      "label": "CA Compromise Scenarios",
+      "group": "PKI"
+    },
+    {
+      "id": 33,
+      "label": "Trust Anchor",
+      "group": "PKI"
+    },
+    {
+      "id": 34,
+      "label": "Centralized Trust",
+      "group": "PKI"
+    },
+    {
+      "id": 35,
+      "label": "Decentralized Trust",
+      "group": "DLT"
+    },
+    {
+      "id": 36,
+      "label": "Distributed System",
+      "group": "DLT"
+    },
+    {
+      "id": 37,
+      "label": "Distributed Ledger",
+      "group": "DLT"
+    },
+    {
+      "id": 38,
+      "label": "Ledger Replication",
+      "group": "DLT"
+    },
+    {
+      "id": 39,
+      "label": "Immutability",
+      "group": "DLT"
+    },
+    {
+      "id": 40,
+      "label": "Append-Only Data",
+      "group": "DLT"
+    },
+    {
+      "id": 41,
+      "label": "Blockchain Definition",
+      "group": "DLT"
+    },
+    {
+      "id": 42,
+      "label": "Block Structure",
+      "group": "DLT"
+    },
+    {
+      "id": 43,
+      "label": "Block Header",
+      "group": "DLT"
+    },
+    {
+      "id": 44,
+      "label": "Block Body",
+      "group": "DLT"
+    },
+    {
+      "id": 45,
+      "label": "Genesis Block",
+      "group": "DLT"
+    },
+    {
+      "id": 46,
+      "label": "Transaction",
+      "group": "DLT"
+    },
+    {
+      "id": 47,
+      "label": "Transaction Validation",
+      "group": "DLT"
+    },
+    {
+      "id": 48,
+      "label": "Transaction Throughput",
+      "group": "DLT"
+    },
+    {
+      "id": 49,
+      "label": "Mempool",
+      "group": "DLT"
+    },
+    {
+      "id": 50,
+      "label": "Node",
+      "group": "DLT"
+    },
+    {
+      "id": 51,
+      "label": "Full Node",
+      "group": "DLT"
+    },
+    {
+      "id": 52,
+      "label": "Light Node",
+      "group": "DLT"
+    },
+    {
+      "id": 53,
+      "label": "Mining",
+      "group": "CONS"
+    },
+    {
+      "id": 54,
+      "label": "Miner",
+      "group": "CONS"
+    },
+    {
+      "id": 55,
+      "label": "Mining Reward",
+      "group": "CONS"
+    },
+    {
+      "id": 56,
+      "label": "Difficulty Adjustment",
+      "group": "CONS"
+    },
+    {
+      "id": 57,
+      "label": "Nonce",
+      "group": "CONS"
+    },
+    {
+      "id": 58,
+      "label": "Consensus Mechanism",
+      "group": "CONS"
+    },
+    {
+      "id": 59,
+      "label": "Proof of Work",
+      "group": "CONS"
+    },
+    {
+      "id": 60,
+      "label": "Proof of Stake",
+      "group": "CONS"
+    },
+    {
+      "id": 61,
+      "label": "Delegated Proof of Stake",
+      "group": "CONS"
+    },
+    {
+      "id": 62,
+      "label": "Byzantine Fault Tolerance",
+      "group": "CONS"
+    },
+    {
+      "id": 63,
+      "label": "Byzantine Generals Problem",
+      "group": "CONS"
+    },
+    {
+      "id": 64,
+      "label": "Practical BFT",
+      "group": "CONS"
+    },
+    {
+      "id": 65,
+      "label": "Finality",
+      "group": "CONS"
+    },
+    {
+      "id": 66,
+      "label": "Fork",
+      "group": "CONS"
+    },
+    {
+      "id": 67,
+      "label": "Hard Fork",
+      "group": "CONS"
+    },
+    {
+      "id": 68,
+      "label": "Soft Fork",
+      "group": "CONS"
+    },
+    {
+      "id": 69,
+      "label": "Longest Chain Rule",
+      "group": "CONS"
+    },
+    {
+      "id": 70,
+      "label": "Network Latency",
+      "group": "SCALE"
+    },
+    {
+      "id": 71,
+      "label": "Scalability",
+      "group": "SCALE"
+    },
+    {
+      "id": 72,
+      "label": "Scalability Trilemma",
+      "group": "SCALE"
+    },
+    {
+      "id": 73,
+      "label": "Throughput vs Latency",
+      "group": "SCALE"
+    },
+    {
+      "id": 74,
+      "label": "On-Chain vs Off-Chain",
+      "group": "SCALE"
+    },
+    {
+      "id": 75,
+      "label": "Layer 1",
+      "group": "SCALE"
+    },
+    {
+      "id": 76,
+      "label": "Layer 2 Solutions",
+      "group": "SCALE"
+    },
+    {
+      "id": 77,
+      "label": "State Channel",
+      "group": "SCALE"
+    },
+    {
+      "id": 78,
+      "label": "Sidechain",
+      "group": "SCALE"
+    },
+    {
+      "id": 79,
+      "label": "Smart Contract",
+      "group": "ECOSS"
+    },
+    {
+      "id": 80,
+      "label": "Smart Contract Risks",
+      "group": "ECOSS"
+    },
+    {
+      "id": 81,
+      "label": "Oracle Problem",
+      "group": "ECOSS"
+    },
+    {
+      "id": 82,
+      "label": "Gas and Fees",
+      "group": "ECOSS"
+    },
+    {
+      "id": 83,
+      "label": "Token",
+      "group": "ECOSS"
+    },
+    {
+      "id": 84,
+      "label": "Fungible Token",
+      "group": "ECOSS"
+    },
+    {
+      "id": 85,
+      "label": "Non-Fungible Token",
+      "group": "ECOSS"
+    },
+    {
+      "id": 86,
+      "label": "Tokenization",
+      "group": "ECOSS"
+    },
+    {
+      "id": 87,
+      "label": "Wallet",
+      "group": "ECOSS"
+    },
+    {
+      "id": 88,
+      "label": "Cold Storage",
+      "group": "ECOSS"
+    },
+    {
+      "id": 89,
+      "label": "Hot Wallet",
+      "group": "ECOSS"
+    },
+    {
+      "id": 90,
+      "label": "Permissioned Blockchain",
+      "group": "ECOSS"
+    },
+    {
+      "id": 91,
+      "label": "Permissionless Blockchain",
+      "group": "ECOSS"
+    },
+    {
+      "id": 92,
+      "label": "Public Blockchain",
+      "group": "ECOSS"
+    },
+    {
+      "id": 93,
+      "label": "Private Blockchain",
+      "group": "ECOSS"
+    },
+    {
+      "id": 94,
+      "label": "Consortium Blockchain",
+      "group": "ECOSS"
+    },
+    {
+      "id": 95,
+      "label": "Hyperledger",
+      "group": "ECOSS"
+    },
+    {
+      "id": 96,
+      "label": "Ethereum Overview",
+      "group": "ECOSS"
+    },
+    {
+      "id": 97,
+      "label": "Bitcoin Overview",
+      "group": "ECOSS"
+    },
+    {
+      "id": 98,
+      "label": "Blockchain Generations",
+      "group": "ECOSS"
+    },
+    {
+      "id": 99,
+      "label": "Decentralized Application",
+      "group": "ECOSS"
+    },
+    {
+      "id": 100,
+      "label": "Governance",
+      "group": "ECOSS"
+    },
+    {
+      "id": 101,
+      "label": "On-Chain Governance",
+      "group": "ECOSS"
+    },
+    {
+      "id": 102,
+      "label": "Off-Chain Governance",
+      "group": "ECOSS"
+    },
+    {
+      "id": 103,
+      "label": "Interoperability",
+      "group": "ECOSS"
+    },
+    {
+      "id": 104,
+      "label": "Cross-Chain Bridge",
+      "group": "ECOSS"
+    },
+    {
+      "id": 105,
+      "label": "Computational Cost",
+      "group": "COST"
+    },
+    {
+      "id": 106,
+      "label": "Energy Consumption",
+      "group": "COST"
+    },
+    {
+      "id": 107,
+      "label": "Network Cost Analysis",
+      "group": "COST"
+    },
+    {
+      "id": 108,
+      "label": "Transaction Cost",
+      "group": "COST"
+    },
+    {
+      "id": 109,
+      "label": "Total Cost of Ownership",
+      "group": "COST"
+    },
+    {
+      "id": 110,
+      "label": "Cost Projection Model",
+      "group": "COST"
+    },
+    {
+      "id": 111,
+      "label": "Cost Simulation",
+      "group": "COST"
+    },
+    {
+      "id": 112,
+      "label": "Cost-Benefit Analysis",
+      "group": "COST"
+    },
+    {
+      "id": 113,
+      "label": "Break-Even Analysis",
+      "group": "COST"
+    },
+    {
+      "id": 114,
+      "label": "Operating Expense",
+      "group": "COST"
+    },
+    {
+      "id": 115,
+      "label": "Capital Expense",
+      "group": "COST"
+    },
+    {
+      "id": 116,
+      "label": "Infrastructure Cost",
+      "group": "COST"
+    },
+    {
+      "id": 117,
+      "label": "Cloud vs On-Premise",
+      "group": "COST"
+    },
+    {
+      "id": 118,
+      "label": "Vendor Lock-In",
+      "group": "COST"
+    },
+    {
+      "id": 119,
+      "label": "Architecture",
+      "group": "ATAM",
+      "shape": "box"
+    },
+    {
+      "id": 120,
+      "label": "Architecture Tradeoff",
+      "group": "ATAM"
+    },
+    {
+      "id": 121,
+      "label": "ATAM Overview",
+      "group": "ATAM"
+    },
+    {
+      "id": 122,
+      "label": "Quality Attribute",
+      "group": "ATAM"
+    },
+    {
+      "id": 123,
+      "label": "Quality Attribute Scenario",
+      "group": "ATAM"
+    },
+    {
+      "id": 124,
+      "label": "Utility Tree",
+      "group": "ATAM"
+    },
+    {
+      "id": 125,
+      "label": "Utility Tree Construction",
+      "group": "ATAM"
+    },
+    {
+      "id": 126,
+      "label": "Sensitivity Point",
+      "group": "ATAM"
+    },
+    {
+      "id": 127,
+      "label": "Tradeoff Point",
+      "group": "ATAM"
+    },
+    {
+      "id": 128,
+      "label": "Risk Theme",
+      "group": "ATAM"
+    },
+    {
+      "id": 129,
+      "label": "Architecture Risk",
+      "group": "ATAM"
+    },
+    {
+      "id": 130,
+      "label": "Risk Identification",
+      "group": "ATAM"
+    },
+    {
+      "id": 131,
+      "label": "Risk Mitigation",
+      "group": "ATAM"
+    },
+    {
+      "id": 132,
+      "label": "Scenario Generation",
+      "group": "ATAM"
+    },
+    {
+      "id": 133,
+      "label": "Stakeholder Analysis",
+      "group": "ATAM"
+    },
+    {
+      "id": 134,
+      "label": "Business Requirement",
+      "group": "ATAM",
+      "shape": "box"
+    },
+    {
+      "id": 135,
+      "label": "Functional Requirement",
+      "group": "ATAM"
+    },
+    {
+      "id": 136,
+      "label": "Non-Functional Requirement",
+      "group": "ATAM"
+    },
+    {
+      "id": 137,
+      "label": "Security Attribute",
+      "group": "ATAM"
+    },
+    {
+      "id": 138,
+      "label": "Performance Attribute",
+      "group": "ATAM"
+    },
+    {
+      "id": 139,
+      "label": "Availability Attribute",
+      "group": "ATAM"
+    },
+    {
+      "id": 140,
+      "label": "Modifiability",
+      "group": "ATAM"
+    },
+    {
+      "id": 141,
+      "label": "Reliability",
+      "group": "ATAM"
+    },
+    {
+      "id": 142,
+      "label": "Maintainability",
+      "group": "ATAM"
+    },
+    {
+      "id": 143,
+      "label": "Cognitive Bias",
+      "group": "BIAS",
+      "shape": "box"
+    },
+    {
+      "id": 144,
+      "label": "Confirmation Bias",
+      "group": "BIAS"
+    },
+    {
+      "id": 145,
+      "label": "Sunk Cost Fallacy",
+      "group": "BIAS"
+    },
+    {
+      "id": 146,
+      "label": "Bandwagon Effect",
+      "group": "BIAS"
+    },
+    {
+      "id": 147,
+      "label": "Appeal to Novelty",
+      "group": "BIAS"
+    },
+    {
+      "id": 148,
+      "label": "Anchoring Bias",
+      "group": "BIAS"
+    },
+    {
+      "id": 149,
+      "label": "Status Quo Bias",
+      "group": "BIAS"
+    },
+    {
+      "id": 150,
+      "label": "Dunning-Kruger Effect",
+      "group": "BIAS"
+    },
+    {
+      "id": 151,
+      "label": "Halo Effect",
+      "group": "BIAS"
+    },
+    {
+      "id": 152,
+      "label": "Survivorship Bias",
+      "group": "BIAS"
+    },
+    {
+      "id": 153,
+      "label": "Availability Heuristic",
+      "group": "BIAS"
+    },
+    {
+      "id": 154,
+      "label": "Groupthink",
+      "group": "BIAS"
+    },
+    {
+      "id": 155,
+      "label": "Bias Checklist",
+      "group": "BIAS"
+    },
+    {
+      "id": 156,
+      "label": "Debiasing Techniques",
+      "group": "BIAS"
+    },
+    {
+      "id": 157,
+      "label": "Critical Thinking",
+      "group": "BIAS"
+    },
+    {
+      "id": 158,
+      "label": "Evidence-Based Evaluation",
+      "group": "BIAS"
+    },
+    {
+      "id": 159,
+      "label": "Hype Cycle",
+      "group": "BIAS"
+    },
+    {
+      "id": 160,
+      "label": "Technology Readiness Level",
+      "group": "DECIDE"
+    },
+    {
+      "id": 161,
+      "label": "Supply Chain Use Case",
+      "group": "CASE"
+    },
+    {
+      "id": 162,
+      "label": "Healthcare Use Case",
+      "group": "CASE"
+    },
+    {
+      "id": 163,
+      "label": "Financial Services Use Case",
+      "group": "CASE"
+    },
+    {
+      "id": 164,
+      "label": "E-Commerce Use Case",
+      "group": "CASE"
+    },
+    {
+      "id": 165,
+      "label": "Retail Use Case",
+      "group": "CASE"
+    },
+    {
+      "id": 166,
+      "label": "Case Study Analysis",
+      "group": "CASE"
+    },
+    {
+      "id": 167,
+      "label": "Successful Adoption Factors",
+      "group": "CASE"
+    },
+    {
+      "id": 168,
+      "label": "Failed Project Analysis",
+      "group": "CASE"
+    },
+    {
+      "id": 169,
+      "label": "Blockchain Limitations",
+      "group": "CASE"
+    },
+    {
+      "id": 170,
+      "label": "When Not to Use Blockchain",
+      "group": "CASE"
+    },
+    {
+      "id": 171,
+      "label": "Decision Flowchart",
+      "group": "DECIDE"
+    },
+    {
+      "id": 172,
+      "label": "Alternative Technologies",
+      "group": "CASE"
+    },
+    {
+      "id": 173,
+      "label": "Centralized Database",
+      "group": "CASE"
+    },
+    {
+      "id": 174,
+      "label": "Traditional PKI vs DLT",
+      "group": "CASE"
+    },
+    {
+      "id": 175,
+      "label": "Hybrid Architecture",
+      "group": "DECIDE"
+    },
+    {
+      "id": 176,
+      "label": "Zero-Knowledge Proof",
+      "group": "EMRG"
+    },
+    {
+      "id": 177,
+      "label": "Verifiable Credential",
+      "group": "EMRG"
+    },
+    {
+      "id": 178,
+      "label": "Decentralized Identifier",
+      "group": "EMRG"
+    },
+    {
+      "id": 179,
+      "label": "Self-Sovereign Identity",
+      "group": "EMRG"
+    },
+    {
+      "id": 180,
+      "label": "Post-Blockchain Tech",
+      "group": "EMRG"
+    },
+    {
+      "id": 181,
+      "label": "Emerging Trust Tech",
+      "group": "EMRG"
+    },
+    {
+      "id": 182,
+      "label": "Privacy",
+      "group": "EMRG"
+    },
+    {
+      "id": 183,
+      "label": "Data Sovereignty",
+      "group": "EMRG"
+    },
+    {
+      "id": 184,
+      "label": "Regulatory Compliance",
+      "group": "EMRG"
+    },
+    {
+      "id": 185,
+      "label": "GDPR and Blockchain",
+      "group": "EMRG"
+    },
+    {
+      "id": 186,
+      "label": "Right to Be Forgotten",
+      "group": "EMRG"
+    },
+    {
+      "id": 187,
+      "label": "Consortium Governance",
+      "group": "ECOSS"
+    },
+    {
+      "id": 188,
+      "label": "Organizational Challenges",
+      "group": "DECIDE"
+    },
+    {
+      "id": 189,
+      "label": "Stakeholder Buy-In",
+      "group": "DECIDE"
+    },
+    {
+      "id": 190,
+      "label": "Change Management",
+      "group": "DECIDE"
+    },
+    {
+      "id": 191,
+      "label": "Technology Evaluation",
+      "group": "DECIDE"
+    },
+    {
+      "id": 192,
+      "label": "Vendor Assessment",
+      "group": "DECIDE"
+    },
+    {
+      "id": 193,
+      "label": "Proof of Concept",
+      "group": "DECIDE"
+    },
+    {
+      "id": 194,
+      "label": "Pilot Program",
+      "group": "DECIDE"
+    },
+    {
+      "id": 195,
+      "label": "Implementation Roadmap",
+      "group": "DECIDE"
+    },
+    {
+      "id": 196,
+      "label": "Architecture Report",
+      "group": "DECIDE"
+    },
+    {
+      "id": 197,
+      "label": "Decision Framework",
+      "group": "DECIDE"
+    },
+    {
+      "id": 198,
+      "label": "Recommendation Writing",
+      "group": "DECIDE"
+    },
+    {
+      "id": 199,
+      "label": "Presentation to Management",
+      "group": "DECIDE"
+    },
+    {
+      "id": 200,
+      "label": "Capstone Project",
+      "group": "DECIDE"
+    }
+  ],
+  "edges": [
+    {
+      "from": 2,
+      "to": 1
+    },
+    {
+      "from": 4,
+      "to": 3
+    },
+    {
+      "from": 5,
+      "to": 4
+    },
+    {
+      "from": 6,
+      "to": 4
+    },
+    {
+      "from": 7,
+      "to": 1
+    },
+    {
+      "from": 7,
+      "to": 3
+    },
+    {
+      "from": 8,
+      "to": 7
+    },
+    {
+      "from": 9,
+      "to": 7
+    },
+    {
+      "from": 10,
+      "to": 9
+    },
+    {
+      "from": 11,
+      "to": 9
+    },
+    {
+      "from": 12,
+      "to": 10
+    },
+    {
+      "from": 12,
+      "to": 11
+    },
+    {
+      "from": 13,
+      "to": 12
+    },
+    {
+      "from": 15,
+      "to": 14
+    },
+    {
+      "from": 16,
+      "to": 15
+    },
+    {
+      "from": 17,
+      "to": 15
+    },
+    {
+      "from": 17,
+      "to": 19
+    },
+    {
+      "from": 18,
+      "to": 15
+    },
+    {
+      "from": 18,
+      "to": 17
+    },
+    {
+      "from": 19,
+      "to": 14
+    },
+    {
+      "from": 19,
+      "to": 1
+    },
+    {
+      "from": 20,
+      "to": 17
+    },
+    {
+      "from": 20,
+      "to": 19
+    },
+    {
+      "from": 21,
+      "to": 13
+    },
+    {
+      "from": 21,
+      "to": 19
+    },
+    {
+      "from": 22,
+      "to": 2
+    },
+    {
+      "from": 22,
+      "to": 7
+    },
+    {
+      "from": 23,
+      "to": 22
+    },
+    {
+      "from": 24,
+      "to": 22
+    },
+    {
+      "from": 24,
+      "to": 13
+    },
+    {
+      "from": 25,
+      "to": 10
+    },
+    {
+      "from": 25,
+      "to": 24
+    },
+    {
+      "from": 26,
+      "to": 25
+    },
+    {
+      "from": 26,
+      "to": 12
+    },
+    {
+      "from": 27,
+      "to": 26
+    },
+    {
+      "from": 28,
+      "to": 27
+    },
+    {
+      "from": 28,
+      "to": 25
+    },
+    {
+      "from": 29,
+      "to": 28
+    },
+    {
+      "from": 30,
+      "to": 27
+    },
+    {
+      "from": 31,
+      "to": 25
+    },
+    {
+      "from": 31,
+      "to": 26
+    },
+    {
+      "from": 32,
+      "to": 31
+    },
+    {
+      "from": 33,
+      "to": 29
+    },
+    {
+      "from": 33,
+      "to": 1
+    },
+    {
+      "from": 34,
+      "to": 1
+    },
+    {
+      "from": 34,
+      "to": 5
+    },
+    {
+      "from": 35,
+      "to": 1
+    },
+    {
+      "from": 35,
+      "to": 6
+    },
+    {
+      "from": 36,
+      "to": 6
+    },
+    {
+      "from": 36,
+      "to": 3
+    },
+    {
+      "from": 37,
+      "to": 36
+    },
+    {
+      "from": 37,
+      "to": 19
+    },
+    {
+      "from": 38,
+      "to": 37
+    },
+    {
+      "from": 38,
+      "to": 36
+    },
+    {
+      "from": 39,
+      "to": 17
+    },
+    {
+      "from": 39,
+      "to": 37
+    },
+    {
+      "from": 40,
+      "to": 39
+    },
+    {
+      "from": 41,
+      "to": 37
+    },
+    {
+      "from": 41,
+      "to": 17
+    },
+    {
+      "from": 41,
+      "to": 39
+    },
+    {
+      "from": 42,
+      "to": 41
+    },
+    {
+      "from": 43,
+      "to": 42
+    },
+    {
+      "from": 43,
+      "to": 15
+    },
+    {
+      "from": 44,
+      "to": 42
+    },
+    {
+      "from": 44,
+      "to": 46
+    },
+    {
+      "from": 45,
+      "to": 42
+    },
+    {
+      "from": 46,
+      "to": 41
+    },
+    {
+      "from": 47,
+      "to": 46
+    },
+    {
+      "from": 47,
+      "to": 13
+    },
+    {
+      "from": 48,
+      "to": 46
+    },
+    {
+      "from": 48,
+      "to": 70
+    },
+    {
+      "from": 49,
+      "to": 46
+    },
+    {
+      "from": 49,
+      "to": 50
+    },
+    {
+      "from": 50,
+      "to": 41
+    },
+    {
+      "from": 50,
+      "to": 6
+    },
+    {
+      "from": 51,
+      "to": 50
+    },
+    {
+      "from": 52,
+      "to": 50
+    },
+    {
+      "from": 52,
+      "to": 51
+    },
+    {
+      "from": 53,
+      "to": 59
+    },
+    {
+      "from": 53,
+      "to": 50
+    },
+    {
+      "from": 54,
+      "to": 53
+    },
+    {
+      "from": 55,
+      "to": 53
+    },
+    {
+      "from": 55,
+      "to": 83
+    },
+    {
+      "from": 56,
+      "to": 53
+    },
+    {
+      "from": 56,
+      "to": 57
+    },
+    {
+      "from": 57,
+      "to": 15
+    },
+    {
+      "from": 58,
+      "to": 36
+    },
+    {
+      "from": 58,
+      "to": 41
+    },
+    {
+      "from": 59,
+      "to": 58
+    },
+    {
+      "from": 59,
+      "to": 15
+    },
+    {
+      "from": 60,
+      "to": 58
+    },
+    {
+      "from": 60,
+      "to": 83
+    },
+    {
+      "from": 61,
+      "to": 60
+    },
+    {
+      "from": 62,
+      "to": 36
+    },
+    {
+      "from": 62,
+      "to": 58
+    },
+    {
+      "from": 63,
+      "to": 36
+    },
+    {
+      "from": 64,
+      "to": 62
+    },
+    {
+      "from": 64,
+      "to": 63
+    },
+    {
+      "from": 65,
+      "to": 58
+    },
+    {
+      "from": 65,
+      "to": 46
+    },
+    {
+      "from": 66,
+      "to": 41
+    },
+    {
+      "from": 66,
+      "to": 58
+    },
+    {
+      "from": 67,
+      "to": 66
+    },
+    {
+      "from": 67,
+      "to": 100
+    },
+    {
+      "from": 68,
+      "to": 66
+    },
+    {
+      "from": 69,
+      "to": 59
+    },
+    {
+      "from": 69,
+      "to": 66
+    },
+    {
+      "from": 70,
+      "to": 3
+    },
+    {
+      "from": 70,
+      "to": 36
+    },
+    {
+      "from": 71,
+      "to": 41
+    },
+    {
+      "from": 71,
+      "to": 48
+    },
+    {
+      "from": 71,
+      "to": 70
+    },
+    {
+      "from": 72,
+      "to": 71
+    },
+    {
+      "from": 72,
+      "to": 35
+    },
+    {
+      "from": 72,
+      "to": 137
+    },
+    {
+      "from": 73,
+      "to": 48
+    },
+    {
+      "from": 73,
+      "to": 70
+    },
+    {
+      "from": 74,
+      "to": 41
+    },
+    {
+      "from": 74,
+      "to": 71
+    },
+    {
+      "from": 75,
+      "to": 41
+    },
+    {
+      "from": 75,
+      "to": 71
+    },
+    {
+      "from": 76,
+      "to": 75
+    },
+    {
+      "from": 76,
+      "to": 74
+    },
+    {
+      "from": 77,
+      "to": 76
+    },
+    {
+      "from": 78,
+      "to": 76
+    },
+    {
+      "from": 79,
+      "to": 41
+    },
+    {
+      "from": 79,
+      "to": 46
+    },
+    {
+      "from": 80,
+      "to": 79
+    },
+    {
+      "from": 81,
+      "to": 79
+    },
+    {
+      "from": 82,
+      "to": 46
+    },
+    {
+      "from": 82,
+      "to": 79
+    },
+    {
+      "from": 83,
+      "to": 41
+    },
+    {
+      "from": 84,
+      "to": 83
+    },
+    {
+      "from": 85,
+      "to": 83
+    },
+    {
+      "from": 86,
+      "to": 83
+    },
+    {
+      "from": 86,
+      "to": 84
+    },
+    {
+      "from": 87,
+      "to": 10
+    },
+    {
+      "from": 87,
+      "to": 11
+    },
+    {
+      "from": 87,
+      "to": 41
+    },
+    {
+      "from": 88,
+      "to": 87
+    },
+    {
+      "from": 89,
+      "to": 87
+    },
+    {
+      "from": 90,
+      "to": 41
+    },
+    {
+      "from": 90,
+      "to": 23
+    },
+    {
+      "from": 91,
+      "to": 41
+    },
+    {
+      "from": 91,
+      "to": 35
+    },
+    {
+      "from": 92,
+      "to": 91
+    },
+    {
+      "from": 93,
+      "to": 90
+    },
+    {
+      "from": 94,
+      "to": 90
+    },
+    {
+      "from": 94,
+      "to": 93
+    },
+    {
+      "from": 95,
+      "to": 90
+    },
+    {
+      "from": 95,
+      "to": 93
+    },
+    {
+      "from": 96,
+      "to": 41
+    },
+    {
+      "from": 96,
+      "to": 79
+    },
+    {
+      "from": 96,
+      "to": 60
+    },
+    {
+      "from": 97,
+      "to": 41
+    },
+    {
+      "from": 97,
+      "to": 59
+    },
+    {
+      "from": 98,
+      "to": 96
+    },
+    {
+      "from": 98,
+      "to": 97
+    },
+    {
+      "from": 99,
+      "to": 79
+    },
+    {
+      "from": 99,
+      "to": 92
+    },
+    {
+      "from": 100,
+      "to": 41
+    },
+    {
+      "from": 100,
+      "to": 133
+    },
+    {
+      "from": 101,
+      "to": 100
+    },
+    {
+      "from": 101,
+      "to": 79
+    },
+    {
+      "from": 102,
+      "to": 100
+    },
+    {
+      "from": 103,
+      "to": 41
+    },
+    {
+      "from": 103,
+      "to": 36
+    },
+    {
+      "from": 104,
+      "to": 103
+    },
+    {
+      "from": 105,
+      "to": 59
+    },
+    {
+      "from": 105,
+      "to": 53
+    },
+    {
+      "from": 106,
+      "to": 105
+    },
+    {
+      "from": 107,
+      "to": 105
+    },
+    {
+      "from": 107,
+      "to": 70
+    },
+    {
+      "from": 107,
+      "to": 108
+    },
+    {
+      "from": 108,
+      "to": 46
+    },
+    {
+      "from": 108,
+      "to": 82
+    },
+    {
+      "from": 109,
+      "to": 107
+    },
+    {
+      "from": 109,
+      "to": 114
+    },
+    {
+      "from": 109,
+      "to": 115
+    },
+    {
+      "from": 109,
+      "to": 116
+    },
+    {
+      "from": 110,
+      "to": 109
+    },
+    {
+      "from": 111,
+      "to": 110
+    },
+    {
+      "from": 112,
+      "to": 109
+    },
+    {
+      "from": 112,
+      "to": 134
+    },
+    {
+      "from": 113,
+      "to": 112
+    },
+    {
+      "from": 114,
+      "to": 105
+    },
+    {
+      "from": 114,
+      "to": 108
+    },
+    {
+      "from": 115,
+      "to": 116
+    },
+    {
+      "from": 116,
+      "to": 50
+    },
+    {
+      "from": 116,
+      "to": 3
+    },
+    {
+      "from": 117,
+      "to": 116
+    },
+    {
+      "from": 118,
+      "to": 117
+    },
+    {
+      "from": 120,
+      "to": 119
+    },
+    {
+      "from": 120,
+      "to": 122
+    },
+    {
+      "from": 121,
+      "to": 120
+    },
+    {
+      "from": 121,
+      "to": 133
+    },
+    {
+      "from": 122,
+      "to": 119
+    },
+    {
+      "from": 122,
+      "to": 134
+    },
+    {
+      "from": 123,
+      "to": 122
+    },
+    {
+      "from": 123,
+      "to": 132
+    },
+    {
+      "from": 124,
+      "to": 122
+    },
+    {
+      "from": 124,
+      "to": 134
+    },
+    {
+      "from": 125,
+      "to": 124
+    },
+    {
+      "from": 125,
+      "to": 123
+    },
+    {
+      "from": 126,
+      "to": 121
+    },
+    {
+      "from": 126,
+      "to": 123
+    },
+    {
+      "from": 127,
+      "to": 121
+    },
+    {
+      "from": 127,
+      "to": 126
+    },
+    {
+      "from": 128,
+      "to": 129
+    },
+    {
+      "from": 128,
+      "to": 130
+    },
+    {
+      "from": 129,
+      "to": 121
+    },
+    {
+      "from": 129,
+      "to": 119
+    },
+    {
+      "from": 130,
+      "to": 129
+    },
+    {
+      "from": 130,
+      "to": 132
+    },
+    {
+      "from": 131,
+      "to": 130
+    },
+    {
+      "from": 131,
+      "to": 128
+    },
+    {
+      "from": 132,
+      "to": 121
+    },
+    {
+      "from": 132,
+      "to": 133
+    },
+    {
+      "from": 133,
+      "to": 119
+    },
+    {
+      "from": 133,
+      "to": 134
+    },
+    {
+      "from": 135,
+      "to": 134
+    },
+    {
+      "from": 136,
+      "to": 134
+    },
+    {
+      "from": 136,
+      "to": 122
+    },
+    {
+      "from": 137,
+      "to": 122
+    },
+    {
+      "from": 137,
+      "to": 7
+    },
+    {
+      "from": 138,
+      "to": 122
+    },
+    {
+      "from": 138,
+      "to": 71
+    },
+    {
+      "from": 139,
+      "to": 122
+    },
+    {
+      "from": 139,
+      "to": 141
+    },
+    {
+      "from": 140,
+      "to": 122
+    },
+    {
+      "from": 141,
+      "to": 122
+    },
+    {
+      "from": 142,
+      "to": 122
+    },
+    {
+      "from": 142,
+      "to": 140
+    },
+    {
+      "from": 144,
+      "to": 143
+    },
+    {
+      "from": 145,
+      "to": 143
+    },
+    {
+      "from": 146,
+      "to": 143
+    },
+    {
+      "from": 147,
+      "to": 143
+    },
+    {
+      "from": 148,
+      "to": 143
+    },
+    {
+      "from": 149,
+      "to": 143
+    },
+    {
+      "from": 150,
+      "to": 143
+    },
+    {
+      "from": 151,
+      "to": 143
+    },
+    {
+      "from": 152,
+      "to": 143
+    },
+    {
+      "from": 153,
+      "to": 143
+    },
+    {
+      "from": 154,
+      "to": 143
+    },
+    {
+      "from": 154,
+      "to": 146
+    },
+    {
+      "from": 155,
+      "to": 143
+    },
+    {
+      "from": 155,
+      "to": 144
+    },
+    {
+      "from": 155,
+      "to": 145
+    },
+    {
+      "from": 155,
+      "to": 146
+    },
+    {
+      "from": 155,
+      "to": 147
+    },
+    {
+      "from": 155,
+      "to": 148
+    },
+    {
+      "from": 155,
+      "to": 149
+    },
+    {
+      "from": 156,
+      "to": 155
+    },
+    {
+      "from": 156,
+      "to": 157
+    },
+    {
+      "from": 157,
+      "to": 143
+    },
+    {
+      "from": 158,
+      "to": 157
+    },
+    {
+      "from": 158,
+      "to": 156
+    },
+    {
+      "from": 159,
+      "to": 143
+    },
+    {
+      "from": 159,
+      "to": 147
+    },
+    {
+      "from": 160,
+      "to": 159
+    },
+    {
+      "from": 160,
+      "to": 191
+    },
+    {
+      "from": 161,
+      "to": 41
+    },
+    {
+      "from": 161,
+      "to": 166
+    },
+    {
+      "from": 162,
+      "to": 41
+    },
+    {
+      "from": 162,
+      "to": 166
+    },
+    {
+      "from": 163,
+      "to": 41
+    },
+    {
+      "from": 163,
+      "to": 166
+    },
+    {
+      "from": 164,
+      "to": 41
+    },
+    {
+      "from": 164,
+      "to": 166
+    },
+    {
+      "from": 165,
+      "to": 41
+    },
+    {
+      "from": 165,
+      "to": 166
+    },
+    {
+      "from": 166,
+      "to": 41
+    },
+    {
+      "from": 166,
+      "to": 158
+    },
+    {
+      "from": 167,
+      "to": 166
+    },
+    {
+      "from": 168,
+      "to": 166
+    },
+    {
+      "from": 168,
+      "to": 169
+    },
+    {
+      "from": 169,
+      "to": 41
+    },
+    {
+      "from": 169,
+      "to": 71
+    },
+    {
+      "from": 169,
+      "to": 80
+    },
+    {
+      "from": 170,
+      "to": 169
+    },
+    {
+      "from": 170,
+      "to": 172
+    },
+    {
+      "from": 171,
+      "to": 170
+    },
+    {
+      "from": 171,
+      "to": 197
+    },
+    {
+      "from": 172,
+      "to": 41
+    },
+    {
+      "from": 172,
+      "to": 173
+    },
+    {
+      "from": 172,
+      "to": 174
+    },
+    {
+      "from": 173,
+      "to": 5
+    },
+    {
+      "from": 173,
+      "to": 34
+    },
+    {
+      "from": 174,
+      "to": 26
+    },
+    {
+      "from": 174,
+      "to": 37
+    },
+    {
+      "from": 175,
+      "to": 172
+    },
+    {
+      "from": 175,
+      "to": 174
+    },
+    {
+      "from": 175,
+      "to": 120
+    },
+    {
+      "from": 176,
+      "to": 15
+    },
+    {
+      "from": 176,
+      "to": 182
+    },
+    {
+      "from": 177,
+      "to": 176
+    },
+    {
+      "from": 177,
+      "to": 13
+    },
+    {
+      "from": 178,
+      "to": 177
+    },
+    {
+      "from": 178,
+      "to": 35
+    },
+    {
+      "from": 179,
+      "to": 178
+    },
+    {
+      "from": 179,
+      "to": 24
+    },
+    {
+      "from": 180,
+      "to": 176
+    },
+    {
+      "from": 180,
+      "to": 177
+    },
+    {
+      "from": 180,
+      "to": 178
+    },
+    {
+      "from": 181,
+      "to": 180
+    },
+    {
+      "from": 181,
+      "to": 160
+    },
+    {
+      "from": 182,
+      "to": 1
+    },
+    {
+      "from": 182,
+      "to": 7
+    },
+    {
+      "from": 183,
+      "to": 182
+    },
+    {
+      "from": 183,
+      "to": 184
+    },
+    {
+      "from": 184,
+      "to": 41
+    },
+    {
+      "from": 184,
+      "to": 182
+    },
+    {
+      "from": 185,
+      "to": 184
+    },
+    {
+      "from": 185,
+      "to": 39
+    },
+    {
+      "from": 185,
+      "to": 186
+    },
+    {
+      "from": 186,
+      "to": 39
+    },
+    {
+      "from": 186,
+      "to": 182
+    },
+    {
+      "from": 187,
+      "to": 94
+    },
+    {
+      "from": 187,
+      "to": 100
+    },
+    {
+      "from": 188,
+      "to": 187
+    },
+    {
+      "from": 188,
+      "to": 189
+    },
+    {
+      "from": 189,
+      "to": 133
+    },
+    {
+      "from": 189,
+      "to": 190
+    },
+    {
+      "from": 190,
+      "to": 143
+    },
+    {
+      "from": 190,
+      "to": 133
+    },
+    {
+      "from": 191,
+      "to": 158
+    },
+    {
+      "from": 191,
+      "to": 159
+    },
+    {
+      "from": 191,
+      "to": 112
+    },
+    {
+      "from": 192,
+      "to": 191
+    },
+    {
+      "from": 192,
+      "to": 118
+    },
+    {
+      "from": 193,
+      "to": 191
+    },
+    {
+      "from": 194,
+      "to": 193
+    },
+    {
+      "from": 195,
+      "to": 194
+    },
+    {
+      "from": 195,
+      "to": 197
+    },
+    {
+      "from": 196,
+      "to": 121
+    },
+    {
+      "from": 196,
+      "to": 125
+    },
+    {
+      "from": 196,
+      "to": 131
+    },
+    {
+      "from": 196,
+      "to": 198
+    },
+    {
+      "from": 197,
+      "to": 158
+    },
+    {
+      "from": 197,
+      "to": 121
+    },
+    {
+      "from": 197,
+      "to": 155
+    },
+    {
+      "from": 198,
+      "to": 197
+    },
+    {
+      "from": 198,
+      "to": 158
+    },
+    {
+      "from": 199,
+      "to": 196
+    },
+    {
+      "from": 199,
+      "to": 198
+    },
+    {
+      "from": 200,
+      "to": 196
+    },
+    {
+      "from": 200,
+      "to": 199
+    },
+    {
+      "from": 200,
+      "to": 111
+    },
+    {
+      "from": 200,
+      "to": 175
+    }
+  ]
+}
