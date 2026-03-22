@@ -2,7 +2,28 @@ site_name: Blockchain - The Skeptic's Guide
 nav:
   - Home: index.md
   - Course Description: course-description.md
-  - About: about.md
+  - Chapters:
+    - List of Chapters: chapters/index.md
+    - 1. Trust and Digital Networks: chapters/01-trust-and-digital-networks/index.md
+    - 2. Cryptographic Foundations: chapters/02-cryptographic-foundations/index.md
+    - 3. Keys, Signatures, and Identity: chapters/03-keys-signatures-identity/index.md
+    - 4. Certificate Authorities and PKI: chapters/04-certificate-authorities-pki/index.md
+    - 5. Distributed Systems and Ledgers: chapters/05-distributed-systems-ledgers/index.md
+    - 6. Nodes, Throughput, and Performance: chapters/06-nodes-throughput-performance/index.md
+    - 7. Consensus Mechanisms: chapters/07-consensus-mechanisms/index.md
+    - 8. Mining and Computational Economics: chapters/08-mining-computational-economics/index.md
+    - 9. Smart Contracts and Tokens: chapters/09-smart-contracts-tokens/index.md
+    - 10. Blockchain Types and Platforms: chapters/10-blockchain-types-platforms/index.md
+    - 11. Governance and Scalability: chapters/11-governance-and-scalability/index.md
+    - 12. Cost Analysis and TCO: chapters/12-cost-analysis-tco/index.md
+    - 13. Architecture Tradeoff Analysis: chapters/13-architecture-tradeoff-analysis/index.md
+    - 14. Risk Analysis and Quality Attributes: chapters/14-risk-analysis-quality-attributes/index.md
+    - 15. Cognitive Bias in Technology: chapters/15-cognitive-bias-technology/index.md
+    - 16. Evidence-Based Evaluation: chapters/16-evidence-based-evaluation/index.md
+    - 17. Industry Case Studies: chapters/17-industry-case-studies/index.md
+    - 18. Emerging Trust Technologies: chapters/18-emerging-trust-technologies/index.md
+    - 19. Alternative Architectures: chapters/19-alternative-architectures-decisions/index.md
+    - 20. Implementation and Capstone: chapters/20-implementation-capstone/index.md
   - Learning Graph:
     - Introduction: learning-graph/index.md
     - Course Description Assessment: learning-graph/course-description-assessment.md
@@ -10,3 +31,13 @@ nav:
     - Graph Quality Analysis: learning-graph/quality-metrics.md
     - Concept Taxonomy: learning-graph/concept-taxonomy.md
     - Taxonomy Distribution Report: learning-graph/taxonomy-distribution.md
+  - MicroSims:
+    - Graph Viewer: sims/graph-viewer/index.md
+  - About: about.md
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+extra_css:
+  - css/mascot.css
