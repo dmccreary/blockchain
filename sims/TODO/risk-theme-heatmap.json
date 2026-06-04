@@ -1,0 +1,14 @@
+{
+  "sim_id": "risk-theme-heatmap",
+  "diagram_name": "Risk Theme Heat Map",
+  "chapter_number": 14,
+  "chapter_title": "Risk Analysis and Quality Attributes",
+  "chapter_dir": "14-risk-analysis-quality-attributes",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** risk-theme-heatmap<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Analyze (L4) — Compare risk profiles across blockchain and traditional architectures by mapping identified risks to risk themes and visualizing their severity in a heat map format.\n\n**Description:** An interactive heat map with risk themes as rows (Immutability as Liability, Governance Fragility, Expertise Concentration, Single Point of Compromise, Opacity and Audit Resistance, Regulatory Uncertainty) and candidate architectures as columns (Public Blockchain, Private Blockchain, Consortium Blockchain, Centralized Database). Each cell is color-coded from green (low risk) to yellow (medium) to red (high risk). Clicking a cell reveals a panel listing the specific individual risks that contribute to that theme-architecture combination, along with recommended mitigation strategies. A summary row at the bottom shows an overall risk score for each architecture. Students can adjust individual cell ratings to explore how different risk assessments change the overall comparison.\n\n**Canvas:** Responsive width, 550px height. Background: aliceblue.\n\n**Controls:**\n\n- Click any cell to see detailed risk breakdown\n- Select dropdown: \"Weight by Likelihood\" or \"Weight by Impact\" or \"Weight by Expected Value\"\n- Button: \"Reset to Defaults\"\n- Checkbox: \"Show Mitigation Costs\"\n\n**Visual elements:**\n\n- Heat map grid with color-coded cells (green/yellow/orange/red)\n- Row and column headers with clear labels\n- Detail panel showing individual risks and mitigations\n- Summary row with weighted risk scores\n- Legend showing color-to-risk-level mapping\n\nImplementation: p5.js with responsive canvas, grid rendering, click-to-reveal panels"
+}

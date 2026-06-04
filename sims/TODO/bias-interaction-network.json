@@ -1,0 +1,14 @@
+{
+  "sim_id": "bias-interaction-network",
+  "diagram_name": "Bias Interaction Network",
+  "chapter_number": 15,
+  "chapter_title": "Cognitive Bias in Technology Decisions",
+  "chapter_dir": "15-cognitive-bias-technology",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: Diagram\n**sim-id:** bias-interaction-network<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Understand (L2) — Recognize how cognitive biases interact and reinforce each other in technology evaluation contexts, creating cascading distortions that are harder to detect than individual biases.\n\n**Description:** A network diagram showing the 12 cognitive biases covered in this chapter as labeled nodes arranged in a circle. Connecting edges between nodes represent reinforcement relationships (where one bias amplifies another). For example, bandwagon effect reinforces confirmation bias (when everyone is adopting blockchain, confirming evidence is easier to find). Edge thickness represents the strength of the reinforcement. Clicking a node highlights all its connections and displays a panel explaining how that bias interacts with each connected bias, with a blockchain-specific example for each interaction. A \"cascade simulation\" button animates how activating one bias can trigger a chain of reinforcing biases.\n\n**Canvas:** Responsive width, 550px height. Background: aliceblue.\n\n**Controls:**\n\n- Click any bias node to see its interaction panel\n- Button: \"Cascade Simulation\" — select a starting bias and watch reinforcement propagate\n- Button: \"Reset\"\n- Checkbox: \"Show debiasing interventions\" (adds green intervention nodes that break reinforcement chains)\n\n**Visual elements:**\n\n- 12 circular nodes with bias names\n- Directed edges showing reinforcement relationships with varying thickness\n- Highlighted node and connections on click\n- Interaction detail panel\n- Animation for cascade simulation (pulsing nodes and edges)\n- Optional green intervention nodes when checkbox is active\n\nImplementation: p5.js with responsive canvas, network layout, click detection, animation"
+}

@@ -1,0 +1,14 @@
+{
+  "sim_id": "evidence-evaluation-pipeline",
+  "diagram_name": "Evidence-Based Evaluation Process",
+  "chapter_number": 16,
+  "chapter_title": "Evidence-Based Evaluation",
+  "chapter_dir": "16-evidence-based-evaluation",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: Diagram\n**sim-id:** evidence-evaluation-pipeline<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Apply (L3) — Execute a structured evidence-based evaluation process that integrates cost analysis, architecture tradeoffs, bias checks, and stakeholder considerations.\n\n**Description:** An interactive pipeline diagram showing the five stages of evidence-based evaluation as connected rectangular blocks flowing left to right: Problem Definition, Evidence Cataloging, ATAM Analysis, Bias Check, and TCO Comparison. Each block is clickable and expands to show the key activities, inputs, outputs, and tools used at that stage. Arrows between stages indicate data flow. A progress indicator at the top shows which stages have been completed. Below the pipeline, a \"checklist\" panel accumulates items as the user clicks through each stage, building a complete evaluation checklist.\n\n**Canvas:** Responsive width, 500px height. Background: aliceblue.\n\n**Controls:**\n\n- Click each pipeline stage to expand details\n- \"Reset\" button to collapse all stages\n- \"Export Checklist\" button (shows accumulated checklist items)\n\n**Visual elements:**\n\n- 5 rectangular stage blocks with stage numbers and titles\n- Directional arrows between stages\n- Expanded view showing: key activities, inputs, outputs, tools\n- Progress bar at top\n- Checklist panel at bottom accumulating items from each stage\n- Color coding: gray (not visited), blue (current), green (completed)\n\nImplementation: p5.js with responsive canvas, expandable panels, state tracking"
+}

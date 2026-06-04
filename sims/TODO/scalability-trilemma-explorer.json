@@ -1,0 +1,14 @@
+{
+  "sim_id": "scalability-trilemma-explorer",
+  "diagram_name": "Scalability Trilemma Explorer",
+  "chapter_number": 11,
+  "chapter_title": "Governance and Scalability",
+  "chapter_dir": "11-governance-and-scalability",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** scalability-trilemma-explorer<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Evaluate (L5) — Analyze how different blockchain platforms position themselves within the scalability trilemma and assess the tradeoffs each makes between decentralization, security, and throughput.\n\n**Description:** A triangular visualization with Decentralization, Security, and Scalability at the three vertices. Each blockchain platform is plotted as a point within the triangle based on its position across the three dimensions. Students can drag platform points to see how changing one dimension affects the others (maintaining the constant constraint). Predefined positions for Bitcoin, Ethereum (L1), Ethereum + L2, Solana, Hyperledger Fabric, and other platforms are shown with details on hover. A \"What If\" panel lets students set target values for two dimensions and calculates the maximum achievable third dimension.\n\n**Canvas:** Responsive width, 550px height. Background: aliceblue.\n\n**Controls:**\n\n- Drag platform points within triangle\n- Hover for platform detail cards\n- Dropdown: Add/remove platforms\n- Slider: Adjust constraint constant (simulating technology improvements)\n- Button: Reset to empirical positions\n\n**Visual elements:**\n\n- Equilateral triangle with labeled vertices\n- Platform position dots (color-coded)\n- Dimension value readouts per platform\n- \"What If\" calculation panel\n- Trade-off zone highlighting (shaded regions)\n\nImplementation: p5.js with barycentric coordinate mapping, draggable points, dynamic constraint calculations"
+}

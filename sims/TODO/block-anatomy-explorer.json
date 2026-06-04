@@ -1,0 +1,14 @@
+{
+  "sim_id": "block-anatomy-explorer",
+  "diagram_name": "Block Anatomy",
+  "chapter_number": 5,
+  "chapter_title": "Distributed Systems and Ledgers",
+  "chapter_dir": "05-distributed-systems-ledgers",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** block-anatomy-explorer<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Remember (L1) — Identify and describe the components of a blockchain block including header fields (previous hash, Merkle root, timestamp, nonce) and body (transaction list).\n\n**Description:** An interactive diagram showing a single block as a large rectangle divided into header (top) and body (bottom) sections. Each field in the header is a clickable region that expands to show a description and example value. The body section shows a scrollable list of simplified transactions. A small Merkle tree visualization on the right shows how the transaction hashes roll up to the Merkle root in the header. Clicking the \"Previous Block Hash\" field animates an arrow pointing left to a ghosted previous block, illustrating the chain link. A toggle switches between \"Bitcoin-style\" and \"Ethereum-style\" block formats to show the differences.\n\n**Canvas:** Responsive width, 500px height. Background: aliceblue.\n\n**Controls:**\n\n- Click any header field to expand description\n- Toggle between Bitcoin and Ethereum block formats\n- \"Show Merkle Tree\" button to display transaction hash tree\n- \"Reset\" button\n\n**Visual elements:**\n\n- Block rectangle with header/body division\n- Header fields as labeled rows with values\n- Transaction list in body section\n- Mini Merkle tree on right side\n- Arrow to previous block ghost\n- Color coding: blue for header, green for body, orange for Merkle tree\n\nImplementation: p5.js with click regions, toggle state, Merkle tree rendering"
+}

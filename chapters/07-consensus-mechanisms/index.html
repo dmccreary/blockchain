@@ -1,232 +1,1551 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Proof of work, proof of stake, Byzantine fault tolerance, forks, finality, and how distributed networks achieve agreement.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/blockchain/chapters/07-consensus-mechanisms/">
+      
+      
+        <link rel="prev" href="../06-nodes-throughput-performance/">
+      
+      
+        <link rel="next" href="../08-mining-computational-economics/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Consensus Mechanisms - Blockchain - The Skeptic's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
         
-        
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>7. Consensus Mechanisms - Blockchain - The Skeptic's Guide</title>
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../../css/brands.min.css" rel="stylesheet">
-        <link href="../../css/solid.min.css" rel="stylesheet">
-        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <link href="../../css/mascot.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="../..">Blockchain - The Skeptic's Guide</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item">
-                                <a href="../.." class="nav-link">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../course-description/" class="nav-link">Course Description</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Chapters</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../" class="dropdown-item">List of Chapters</a>
-</li>
-                                    
-<li>
-    <a href="../01-trust-and-digital-networks/" class="dropdown-item">1. Trust and Digital Networks</a>
-</li>
-                                    
-<li>
-    <a href="../02-cryptographic-foundations/" class="dropdown-item">2. Cryptographic Foundations</a>
-</li>
-                                    
-<li>
-    <a href="../03-keys-signatures-identity/" class="dropdown-item">3. Keys, Signatures, and Identity</a>
-</li>
-                                    
-<li>
-    <a href="../04-certificate-authorities-pki/" class="dropdown-item">4. Certificate Authorities and PKI</a>
-</li>
-                                    
-<li>
-    <a href="../05-distributed-systems-ledgers/" class="dropdown-item">5. Distributed Systems and Ledgers</a>
-</li>
-                                    
-<li>
-    <a href="../06-nodes-throughput-performance/" class="dropdown-item">6. Nodes, Throughput, and Performance</a>
-</li>
-                                    
-<li>
-    <a href="./" class="dropdown-item active" aria-current="page">7. Consensus Mechanisms</a>
-</li>
-                                    
-<li>
-    <a href="../08-mining-computational-economics/" class="dropdown-item">8. Mining and Computational Economics</a>
-</li>
-                                    
-<li>
-    <a href="../09-smart-contracts-tokens/" class="dropdown-item">9. Smart Contracts and Tokens</a>
-</li>
-                                    
-<li>
-    <a href="../10-blockchain-types-platforms/" class="dropdown-item">10. Blockchain Types and Platforms</a>
-</li>
-                                    
-<li>
-    <a href="../11-governance-and-scalability/" class="dropdown-item">11. Governance and Scalability</a>
-</li>
-                                    
-<li>
-    <a href="../12-cost-analysis-tco/" class="dropdown-item">12. Cost Analysis and TCO</a>
-</li>
-                                    
-<li>
-    <a href="../13-architecture-tradeoff-analysis/" class="dropdown-item">13. Architecture Tradeoff Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../14-risk-analysis-quality-attributes/" class="dropdown-item">14. Risk Analysis and Quality Attributes</a>
-</li>
-                                    
-<li>
-    <a href="../15-cognitive-bias-technology/" class="dropdown-item">15. Cognitive Bias in Technology</a>
-</li>
-                                    
-<li>
-    <a href="../16-evidence-based-evaluation/" class="dropdown-item">16. Evidence-Based Evaluation</a>
-</li>
-                                    
-<li>
-    <a href="../17-industry-case-studies/" class="dropdown-item">17. Industry Case Studies</a>
-</li>
-                                    
-<li>
-    <a href="../18-emerging-trust-technologies/" class="dropdown-item">18. Emerging Trust Technologies</a>
-</li>
-                                    
-<li>
-    <a href="../19-alternative-architectures-decisions/" class="dropdown-item">19. Alternative Architectures</a>
-</li>
-                                    
-<li>
-    <a href="../20-implementation-capstone/" class="dropdown-item">20. Implementation and Capstone</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Learning Graph</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../learning-graph/" class="dropdown-item">Introduction</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/course-description-assessment/" class="dropdown-item">Course Description Assessment</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/concept-list/" class="dropdown-item">Concept Enumeration</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/quality-metrics/" class="dropdown-item">Graph Quality Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/concept-taxonomy/" class="dropdown-item">Concept Taxonomy</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/taxonomy-distribution/" class="dropdown-item">Taxonomy Distribution Report</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">MicroSims</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../sims/graph-viewer/" class="dropdown-item">Graph Viewer</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../about/" class="nav-link">About</a>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../06-nodes-throughput-performance/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../08-mining-computational-economics/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="1"><a href="#consensus-mechanisms" class="nav-link">Consensus Mechanisms</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#summary" class="nav-link">Summary</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#concepts-covered" class="nav-link">Concepts Covered</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Consensus Mechanisms - Blockchain - The Skeptic's Guide" >
+      
+        <meta  property="og:description"  content="Proof of work, proof of stake, Byzantine fault tolerance, forks, finality, and how distributed networks achieve agreement." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/blockchain/assets/images/social/chapters/07-consensus-mechanisms/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/blockchain/chapters/07-consensus-mechanisms/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Consensus Mechanisms - Blockchain - The Skeptic's Guide" >
+      
+        <meta  name="twitter:description"  content="Proof of work, proof of stake, Byzantine fault tolerance, forks, finality, and how distributed networks achieve agreement." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/blockchain/assets/images/social/chapters/07-consensus-mechanisms/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#consensus-mechanisms" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Blockchain - The Skeptic&#39;s Guide" class="md-header__button md-logo" aria-label="Blockchain - The Skeptic's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Blockchain - The Skeptic's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Consensus Mechanisms
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/blockchain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Blockchain - The Skeptic&#39;s Guide" class="md-nav__button md-logo" aria-label="Blockchain - The Skeptic's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Blockchain - The Skeptic's Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/blockchain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-trust-and-digital-networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Trust and Digital Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-cryptographic-foundations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Cryptographic Foundations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-keys-signatures-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Keys, Signatures, and Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-certificate-authorities-pki/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Certificate Authorities and PKI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-distributed-systems-ledgers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Distributed Systems and Ledgers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-nodes-throughput-performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Nodes, Throughput, and Performance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    7. Consensus Mechanisms
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    7. Consensus Mechanisms
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-byzantine-generals-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Byzantine Generals Problem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consensus-mechanisms_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consensus Mechanisms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proof-of-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proof of Work
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proof-of-stake" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proof of Stake
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-byzantine-fault-tolerance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Byzantine Fault Tolerance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finality
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forks-when-the-chain-splits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Forks: When the Chain Splits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blockchain-generations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blockchain Generations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Blockchain Generations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-consensus-mechanism-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Consensus Mechanism Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-mining-computational-economics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Mining and Computational Economics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-smart-contracts-tokens/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Smart Contracts and Tokens
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-blockchain-types-platforms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Blockchain Types and Platforms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-governance-and-scalability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Governance and Scalability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-cost-analysis-tco/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Cost Analysis and TCO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-architecture-tradeoff-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Architecture Tradeoff Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-risk-analysis-quality-attributes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Risk Analysis and Quality Attributes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-cognitive-bias-technology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Cognitive Bias in Technology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-evidence-based-evaluation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Evidence-Based Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-industry-case-studies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Industry Case Studies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-emerging-trust-technologies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Emerging Trust Technologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-alternative-architectures-decisions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Alternative Architectures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-implementation-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Implementation and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-byzantine-generals-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Byzantine Generals Problem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consensus-mechanisms_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consensus Mechanisms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proof-of-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proof of Work
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proof-of-stake" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proof of Stake
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-byzantine-fault-tolerance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Byzantine Fault Tolerance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finality
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forks-when-the-chain-splits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Forks: When the Chain Splits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blockchain-generations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blockchain Generations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Blockchain Generations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-consensus-mechanism-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Consensus Mechanism Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/blockchain/edit/master/docs/chapters/07-consensus-mechanisms/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
 
 <h1 id="consensus-mechanisms">Consensus Mechanisms</h1>
 <h2 id="summary">Summary</h2>
@@ -255,82 +1574,344 @@
 <li><a href="../06-nodes-throughput-performance/">Chapter 6: Nodes, Throughput, and Network Performance</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p></div>
-            </div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js"></script>
-        <script src="../../search/main.js"></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Rex Says: Trust, but Verify!</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Rex welcomes you">
+Welcome back, fellow analysts! In a centralized system, the server decides what's
+true. In a blockchain, thousands of nodes must agree — without trusting each other.
+How? Through consensus mechanisms — the most expensive and ingenious part of
+blockchain engineering. This is where most of the energy and computational cost
+originates. Trust, but verify — and watch the meter!</p>
+</div>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>After completing this chapter, you will be able to:</p>
+<ul>
+<li>Explain why consensus is the central challenge of distributed trust</li>
+<li>Describe the Byzantine Generals Problem and its relevance to blockchain</li>
+<li>Compare proof of work, proof of stake, and BFT-based consensus mechanisms</li>
+<li>Explain the concepts of finality, forks, and the longest chain rule</li>
+<li>Evaluate the security, performance, and energy tradeoffs of each consensus approach</li>
+<li>Trace the evolution of blockchain generations and their consensus innovations</li>
+</ul>
+<h2 id="the-byzantine-generals-problem">The Byzantine Generals Problem</h2>
+<p>The <strong>Byzantine Generals Problem</strong>, introduced by Lamport, Shostak, and Pease in 1982, describes a fundamental challenge in distributed computing: how can a group of independent agents, some of whom may be malicious, reach agreement on a coordinated action?</p>
+<p>The classic formulation involves several army generals surrounding a city. They must agree to either attack or retreat — a split decision will result in defeat. Some generals may be traitors who send conflicting messages to different allies. The problem asks: how can the loyal generals guarantee they all reach the same decision, despite the traitors?</p>
+<p>This maps directly to blockchain: nodes (generals) must agree on the next block (the battle plan), and some nodes may be malicious (traitors) — submitting invalid transactions, withholding blocks, or attempting to double-spend. <strong>Byzantine Fault Tolerance (BFT)</strong> refers to a system's ability to continue operating correctly even when some participants behave maliciously.</p>
+<p>The mathematical result is significant: a system can tolerate up to <span class="arithmatex">\(f\)</span> Byzantine faults among <span class="arithmatex">\(n\)</span> nodes only if <span class="arithmatex">\(n \geq 3f + 1\)</span>. This means the system must have at least three times plus one nodes as there are malicious ones — or equivalently, the system fails if more than one-third of nodes are compromised.</p>
+<h2 id="consensus-mechanisms_1">Consensus Mechanisms</h2>
+<p>A <strong>consensus mechanism</strong> is the protocol by which nodes in a distributed network agree on the current state of the ledger. It determines who gets to propose the next block, how the network validates that proposal, and what happens when nodes disagree.</p>
+<p>Every consensus mechanism makes tradeoffs across four dimensions:</p>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Security</strong></td>
+<td>Resistance to attacks (double-spending, censorship, Sybil attacks)</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Transaction throughput and confirmation latency</td>
+</tr>
+<tr>
+<td><strong>Decentralization</strong></td>
+<td>Number and diversity of participating validators</td>
+</tr>
+<tr>
+<td><strong>Energy efficiency</strong></td>
+<td>Computational and electrical cost of reaching consensus</td>
+</tr>
+</tbody>
+</table>
+<p>No consensus mechanism optimizes all four simultaneously. Understanding these tradeoffs is essential for evaluating blockchain architectures.</p>
+<h2 id="proof-of-work">Proof of Work</h2>
+<p><strong>Proof of Work (PoW)</strong> is the original consensus mechanism, introduced by Bitcoin in 2009. In PoW, nodes (called miners) compete to solve a computationally difficult cryptographic puzzle. The first miner to find a valid solution earns the right to propose the next block and receives a reward (newly minted cryptocurrency plus transaction fees).</p>
+<p>The puzzle involves finding a nonce value that, when combined with the block header and hashed, produces a hash below a target difficulty threshold. There is no shortcut — miners must try billions of nonce values through brute-force computation. This requires significant energy expenditure, which is both PoW's security feature and its most criticized characteristic.</p>
+<p><strong>Strengths:</strong></p>
+<ul>
+<li>Battle-tested — Bitcoin has operated securely for over 15 years</li>
+<li>Highly resistant to Sybil attacks — creating fake identities doesn't help without hash power</li>
+<li>Permissionless — anyone with hardware can participate</li>
+<li>Simple to understand and analyze</li>
+</ul>
+<p><strong>Weaknesses:</strong></p>
+<ul>
+<li>Enormous energy consumption (Bitcoin uses roughly as much electricity as a small country)</li>
+<li>Centralization of mining in pools and regions with cheap electricity</li>
+<li>Slow transaction confirmation (~10 minutes for Bitcoin)</li>
+<li>Environmental concerns</li>
+</ul>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+Proof of work converts electricity into trust. That's not a metaphor — it's the
+literal mechanism. The security guarantee is: "rewriting history would require
+spending more electricity than all honest miners combined." This works, but it
+means the cost of trust is directly proportional to energy consumption. When
+someone says blockchain provides "trustless" transactions, ask what the
+electricity bill looks like.</p>
+</div>
+<h2 id="proof-of-stake">Proof of Stake</h2>
+<p><strong>Proof of Stake (PoS)</strong> replaces computational competition with economic commitment. Instead of mining with hardware, validators "stake" (lock up) cryptocurrency as collateral. The protocol selects validators to propose and verify blocks based on the amount staked, and validators who misbehave lose their stake (a process called "slashing").</p>
+<p>Ethereum's transition from PoW to PoS in September 2022 ("The Merge") was the most significant consensus mechanism change in blockchain history, reducing Ethereum's energy consumption by approximately 99.95%.</p>
+<p><strong>Strengths:</strong></p>
+<ul>
+<li>Dramatically lower energy consumption than PoW</li>
+<li>Lower hardware requirements for participation</li>
+<li>Economic incentives align validators with network security</li>
+<li>Faster block times are achievable</li>
+</ul>
+<p><strong>Weaknesses:</strong></p>
+<ul>
+<li>"Rich get richer" — larger stakeholders earn proportionally more rewards, concentrating influence</li>
+<li>"Nothing at stake" problem — without careful protocol design, validators may validate conflicting chains simultaneously</li>
+<li>Less battle-tested than PoW at Bitcoin's scale and threat model</li>
+<li>Requires an initial distribution of tokens to bootstrap the system</li>
+</ul>
+<p><strong>Delegated Proof of Stake (DPoS)</strong> is a variant where token holders vote to elect a fixed number of delegates (typically 21-100) who take turns producing blocks. DPoS achieves higher throughput but with significantly reduced decentralization — the system operates more like a managed consortium than a permissionless network.</p>
+<h2 id="practical-byzantine-fault-tolerance">Practical Byzantine Fault Tolerance</h2>
+<p><strong>Practical BFT (PBFT)</strong> is a consensus algorithm designed for permissioned networks where participants are known. Unlike PoW or PoS, PBFT uses multiple rounds of voting between all validators to reach agreement. It provides absolute finality — once a block is confirmed, it cannot be reversed.</p>
+<p>PBFT is well-suited for consortium blockchains and enterprise deployments where:</p>
+<ul>
+<li>Participants are known and authenticated</li>
+<li>Node count is moderate (typically under 100)</li>
+<li>Immediate finality is required</li>
+<li>Energy efficiency matters</li>
+</ul>
+<p>The tradeoff is that PBFT communication overhead scales as <span class="arithmatex">\(O(n^2)\)</span> where <span class="arithmatex">\(n\)</span> is the number of nodes, making it impractical for large, open networks.</p>
+<table>
+<thead>
+<tr>
+<th>Mechanism</th>
+<th>Security Model</th>
+<th>Energy</th>
+<th>Finality</th>
+<th>Decentralization</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PoW</td>
+<td>Computational cost</td>
+<td>Very high</td>
+<td>Probabilistic</td>
+<td>High (permissionless)</td>
+<td>Public, high-value chains</td>
+</tr>
+<tr>
+<td>PoS</td>
+<td>Economic stake</td>
+<td>Low</td>
+<td>Probabilistic/fast</td>
+<td>Moderate</td>
+<td>Public chains, lower energy</td>
+</tr>
+<tr>
+<td>DPoS</td>
+<td>Elected delegates</td>
+<td>Low</td>
+<td>Fast</td>
+<td>Low (elected few)</td>
+<td>High-throughput applications</td>
+</tr>
+<tr>
+<td>PBFT</td>
+<td>Known validators</td>
+<td>Minimal</td>
+<td>Absolute</td>
+<td>Low (permissioned)</td>
+<td>Enterprise, consortium</td>
+</tr>
+</tbody>
+</table>
+<h2 id="finality">Finality</h2>
+<p><strong>Finality</strong> refers to the point at which a transaction is irreversible — once final, it cannot be altered, reversed, or double-spent. Different consensus mechanisms provide different types of finality:</p>
+<ul>
+<li><strong>Probabilistic finality</strong> (PoW, some PoS) — the probability of reversal decreases exponentially with each subsequent block but never reaches absolute zero. Bitcoin convention considers transactions "final" after 6 confirmations (~60 minutes).</li>
+<li><strong>Absolute finality</strong> (PBFT, some PoS) — once confirmed, the transaction is mathematically irreversible within the protocol rules.</li>
+</ul>
+<p>The distinction matters for real-world applications. A coffee shop can accept a transaction with one confirmation (probabilistic but fast). A real estate transfer worth millions may require absolute finality or dozens of confirmations.</p>
+<h2 id="forks-when-the-chain-splits">Forks: When the Chain Splits</h2>
+<p>A <strong>fork</strong> occurs when the blockchain diverges into two or more competing versions. Forks can be accidental (two miners produce valid blocks simultaneously) or intentional (the community disagrees on protocol changes).</p>
+<p>A <strong>soft fork</strong> is a backward-compatible protocol change. Nodes running the old software can still validate blocks produced under the new rules (though they may not understand the new features). Soft forks are less disruptive but limited in the changes they can introduce.</p>
+<p>A <strong>hard fork</strong> is a non-backward-compatible protocol change. Nodes running old software will reject blocks produced under new rules, and vice versa. A hard fork creates two separate chains unless one side is abandoned. Notable hard forks include Ethereum Classic (2016, after The DAO hack) and Bitcoin Cash (2017, over block size).</p>
+<p>The <strong>longest chain rule</strong> (also called Nakamoto consensus) resolves accidental forks in PoW systems: when two valid chains exist, nodes follow the chain with the most accumulated proof of work. The shorter chain is abandoned, and its transactions return to the mempool.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Bias Alert</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Rex warns you">
+Hard forks reveal a governance challenge that blockchain's design doesn't solve.
+When the community disagrees on the protocol's direction, the resolution mechanism
+is essentially political — whoever controls more hash power or stake wins, or the
+chain splits permanently. "Code is law" works only when everyone agrees on the code.
+When they don't, blockchain governance looks remarkably similar to traditional
+organizational politics.</p>
+</div>
+<h2 id="blockchain-generations">Blockchain Generations</h2>
+<p>The evolution of consensus mechanisms and blockchain capabilities is often described in terms of <strong>blockchain generations</strong>:</p>
+<ul>
+<li><strong>First generation (Bitcoin, 2009)</strong> — digital cash with simple scripting, PoW consensus, focus on value transfer</li>
+<li><strong>Second generation (Ethereum, 2015)</strong> — programmable smart contracts, initially PoW then PoS, enabling decentralized applications</li>
+<li><strong>Third generation (various, 2017+)</strong> — focus on scalability, interoperability, and governance, experimenting with DPoS, hybrid consensus, and Layer 2 solutions</li>
+</ul>
+<p>Each generation expanded capabilities but also introduced new tradeoffs and attack surfaces. The skeptic's perspective is that each generation has also expanded the gap between promises and delivered performance.</p>
+<p>It is worth noting that centralized trust systems — certificate authorities, managed databases, and traditional settlement networks — do not require consensus mechanisms at all. A single authoritative server can validate a transaction in milliseconds at near-zero marginal cost. The entire consensus machinery described in this chapter exists solely to solve the problem of agreement among untrusted parties. If your use case has a natural trusted authority (a regulator, a bank, an industry body), the cost and complexity of distributed consensus may be unnecessary overhead. Always evaluate whether the consensus mechanism's cost is justified by the specific trust deficit it addresses.</p>
+<h4 id="diagram-consensus-mechanism-comparison">Diagram: Consensus Mechanism Comparison</h4>
+<details>
+<summary>Interactive Consensus Mechanism Tradeoff Explorer</summary>
+<p>Type: MicroSim
+<strong>sim-id:</strong> consensus-tradeoff-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective:</strong> Evaluate (L5) — Assess the tradeoffs between consensus mechanisms across security, performance, decentralization, and energy efficiency dimensions, judging which mechanism best fits different use cases.</p>
+<p><strong>Description:</strong> A radar chart (spider diagram) showing four axes: Security, Performance, Decentralization, and Energy Efficiency. Students can select from 4 consensus mechanisms (PoW, PoS, DPoS, PBFT) and overlay their radar profiles for comparison. Each mechanism is represented by a different colored polygon. A sidebar shows detailed scores and explanations for each dimension. A "Use Case Matcher" lets students select a scenario (e.g., "public cryptocurrency," "supply chain consortium," "financial settlement") and highlights which mechanism scores best for that scenario.</p>
+<p><strong>Canvas:</strong> Responsive width, 500px height. Background: aliceblue.</p>
+<p><strong>Controls:</strong></p>
+<ul>
+<li>Checkboxes to show/hide each consensus mechanism</li>
+<li>Use case dropdown selector</li>
+<li>Hover for dimension explanations</li>
+<li>"Compare All" button to overlay all mechanisms</li>
+</ul>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>Radar chart with 4 axes</li>
+<li>Color-coded mechanism polygons with labels</li>
+<li>Score values at each axis intersection</li>
+<li>Use case recommendation panel</li>
+<li>Legend with mechanism colors</li>
+</ul>
+<p>Implementation: p5.js with radar chart rendering, overlay toggle, dropdown selector</p>
+</details>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li>The <strong>Byzantine Generals Problem</strong> formalizes the challenge of reaching agreement among untrusted participants — tolerance requires at least <span class="arithmatex">\(3f + 1\)</span> nodes to handle <span class="arithmatex">\(f\)</span> malicious actors</li>
+<li><strong>Proof of Work</strong> converts electricity into trust through computational competition — secure and battle-tested, but energy-intensive and slow</li>
+<li><strong>Proof of Stake</strong> replaces energy with economic collateral — dramatically more efficient, but with "rich get richer" dynamics and less operational history</li>
+<li><strong>Delegated Proof of Stake</strong> achieves high throughput by electing a small set of validators, sacrificing decentralization</li>
+<li><strong>Practical BFT</strong> provides absolute finality for permissioned networks but doesn't scale to large, open networks</li>
+<li><strong>Finality</strong> is either probabilistic (PoW — confidence grows with confirmations) or absolute (PBFT — mathematically irreversible)</li>
+<li><strong>Forks</strong> are resolved by the longest chain rule in PoW systems; hard forks reveal governance challenges that protocol design alone cannot solve</li>
+<li><strong>Blockchain generations</strong> have expanded capabilities while also expanding the gap between marketing claims and measured performance</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Excellent Analytical Work!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Rex celebrates">
+You now understand the engine room of blockchain — the consensus mechanisms that
+turn electricity and economics into distributed agreement. Each mechanism trades
+something for something else, and there is no free lunch. Next, we'll follow the
+money: mining economics, computational costs, and what trust actually costs in
+kilowatt-hours and dollars. Outstanding work, fellow analyst!</p>
 </div>
 
-    </body>
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../06-nodes-throughput-performance/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 6. Nodes, Throughput, and Performance">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                6. Nodes, Throughput, and Performance
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../08-mining-computational-economics/" class="md-footer__link md-footer__link--next" aria-label="Next: 8. Mining and Computational Economics">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                8. Mining and Computational Economics
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
 </html>

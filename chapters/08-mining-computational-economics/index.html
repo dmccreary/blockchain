@@ -1,232 +1,1617 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Mining process, difficulty adjustment, block rewards, computational costs, energy consumption, transaction fees, and the real economics of proof-of-work systems.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/blockchain/chapters/08-mining-computational-economics/">
+      
+      
+        <link rel="prev" href="../07-consensus-mechanisms/">
+      
+      
+        <link rel="next" href="../09-smart-contracts-tokens/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Mining and Computational Economics - Blockchain - The Skeptic's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
         
-        
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>8. Mining and Computational Economics - Blockchain - The Skeptic's Guide</title>
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../../css/brands.min.css" rel="stylesheet">
-        <link href="../../css/solid.min.css" rel="stylesheet">
-        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <link href="../../css/mascot.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="../..">Blockchain - The Skeptic's Guide</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item">
-                                <a href="../.." class="nav-link">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../course-description/" class="nav-link">Course Description</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Chapters</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../" class="dropdown-item">List of Chapters</a>
-</li>
-                                    
-<li>
-    <a href="../01-trust-and-digital-networks/" class="dropdown-item">1. Trust and Digital Networks</a>
-</li>
-                                    
-<li>
-    <a href="../02-cryptographic-foundations/" class="dropdown-item">2. Cryptographic Foundations</a>
-</li>
-                                    
-<li>
-    <a href="../03-keys-signatures-identity/" class="dropdown-item">3. Keys, Signatures, and Identity</a>
-</li>
-                                    
-<li>
-    <a href="../04-certificate-authorities-pki/" class="dropdown-item">4. Certificate Authorities and PKI</a>
-</li>
-                                    
-<li>
-    <a href="../05-distributed-systems-ledgers/" class="dropdown-item">5. Distributed Systems and Ledgers</a>
-</li>
-                                    
-<li>
-    <a href="../06-nodes-throughput-performance/" class="dropdown-item">6. Nodes, Throughput, and Performance</a>
-</li>
-                                    
-<li>
-    <a href="../07-consensus-mechanisms/" class="dropdown-item">7. Consensus Mechanisms</a>
-</li>
-                                    
-<li>
-    <a href="./" class="dropdown-item active" aria-current="page">8. Mining and Computational Economics</a>
-</li>
-                                    
-<li>
-    <a href="../09-smart-contracts-tokens/" class="dropdown-item">9. Smart Contracts and Tokens</a>
-</li>
-                                    
-<li>
-    <a href="../10-blockchain-types-platforms/" class="dropdown-item">10. Blockchain Types and Platforms</a>
-</li>
-                                    
-<li>
-    <a href="../11-governance-and-scalability/" class="dropdown-item">11. Governance and Scalability</a>
-</li>
-                                    
-<li>
-    <a href="../12-cost-analysis-tco/" class="dropdown-item">12. Cost Analysis and TCO</a>
-</li>
-                                    
-<li>
-    <a href="../13-architecture-tradeoff-analysis/" class="dropdown-item">13. Architecture Tradeoff Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../14-risk-analysis-quality-attributes/" class="dropdown-item">14. Risk Analysis and Quality Attributes</a>
-</li>
-                                    
-<li>
-    <a href="../15-cognitive-bias-technology/" class="dropdown-item">15. Cognitive Bias in Technology</a>
-</li>
-                                    
-<li>
-    <a href="../16-evidence-based-evaluation/" class="dropdown-item">16. Evidence-Based Evaluation</a>
-</li>
-                                    
-<li>
-    <a href="../17-industry-case-studies/" class="dropdown-item">17. Industry Case Studies</a>
-</li>
-                                    
-<li>
-    <a href="../18-emerging-trust-technologies/" class="dropdown-item">18. Emerging Trust Technologies</a>
-</li>
-                                    
-<li>
-    <a href="../19-alternative-architectures-decisions/" class="dropdown-item">19. Alternative Architectures</a>
-</li>
-                                    
-<li>
-    <a href="../20-implementation-capstone/" class="dropdown-item">20. Implementation and Capstone</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Learning Graph</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../learning-graph/" class="dropdown-item">Introduction</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/course-description-assessment/" class="dropdown-item">Course Description Assessment</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/concept-list/" class="dropdown-item">Concept Enumeration</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/quality-metrics/" class="dropdown-item">Graph Quality Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/concept-taxonomy/" class="dropdown-item">Concept Taxonomy</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/taxonomy-distribution/" class="dropdown-item">Taxonomy Distribution Report</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">MicroSims</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../sims/graph-viewer/" class="dropdown-item">Graph Viewer</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../about/" class="nav-link">About</a>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../07-consensus-mechanisms/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../09-smart-contracts-tokens/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="1"><a href="#mining-and-computational-economics" class="nav-link">Mining and Computational Economics</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#summary" class="nav-link">Summary</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#concepts-covered" class="nav-link">Concepts Covered</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Mining and Computational Economics - Blockchain - The Skeptic's Guide" >
+      
+        <meta  property="og:description"  content="Mining process, difficulty adjustment, block rewards, computational costs, energy consumption, transaction fees, and the real economics of proof-of-work systems." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/blockchain/assets/images/social/chapters/08-mining-computational-economics/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/blockchain/chapters/08-mining-computational-economics/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Mining and Computational Economics - Blockchain - The Skeptic's Guide" >
+      
+        <meta  name="twitter:description"  content="Mining process, difficulty adjustment, block rewards, computational costs, energy consumption, transaction fees, and the real economics of proof-of-work systems." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/blockchain/assets/images/social/chapters/08-mining-computational-economics/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mining-and-computational-economics" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Blockchain - The Skeptic&#39;s Guide" class="md-header__button md-logo" aria-label="Blockchain - The Skeptic's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Blockchain - The Skeptic's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Mining and Computational Economics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/blockchain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Blockchain - The Skeptic&#39;s Guide" class="md-nav__button md-logo" aria-label="Blockchain - The Skeptic's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Blockchain - The Skeptic's Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/blockchain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-trust-and-digital-networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Trust and Digital Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-cryptographic-foundations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Cryptographic Foundations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-keys-signatures-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Keys, Signatures, and Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-certificate-authorities-pki/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Certificate Authorities and PKI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-distributed-systems-ledgers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Distributed Systems and Ledgers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-nodes-throughput-performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Nodes, Throughput, and Performance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-consensus-mechanisms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Consensus Mechanisms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    8. Mining and Computational Economics
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    8. Mining and Computational Economics
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-mining" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Mining?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#who-are-miners" class="md-nav__link">
+    <span class="md-ellipsis">
+      Who Are Miners?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mining-rewards-following-the-money" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mining Rewards: Following the Money
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#difficulty-adjustment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Difficulty Adjustment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computational-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computational Cost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#energy-consumption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Energy Consumption
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Energy Consumption">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#total-energy-computation-plus-data-movement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Total Energy: Computation Plus Data Movement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transaction-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transaction Costs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gas-and-fees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gas and Fees
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-mining-economics-feedback-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Mining Economics Feedback Loop
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Mining Economics Feedback Loop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-mining-economics-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Mining Economics Dashboard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-energy-consumption-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Energy Consumption Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-smart-contracts-tokens/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Smart Contracts and Tokens
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-blockchain-types-platforms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Blockchain Types and Platforms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-governance-and-scalability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Governance and Scalability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-cost-analysis-tco/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Cost Analysis and TCO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-architecture-tradeoff-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Architecture Tradeoff Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-risk-analysis-quality-attributes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Risk Analysis and Quality Attributes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-cognitive-bias-technology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Cognitive Bias in Technology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-evidence-based-evaluation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Evidence-Based Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-industry-case-studies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Industry Case Studies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-emerging-trust-technologies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Emerging Trust Technologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-alternative-architectures-decisions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Alternative Architectures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-implementation-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Implementation and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-mining" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Mining?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#who-are-miners" class="md-nav__link">
+    <span class="md-ellipsis">
+      Who Are Miners?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mining-rewards-following-the-money" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mining Rewards: Following the Money
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#difficulty-adjustment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Difficulty Adjustment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computational-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computational Cost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#energy-consumption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Energy Consumption
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Energy Consumption">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#total-energy-computation-plus-data-movement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Total Energy: Computation Plus Data Movement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transaction-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transaction Costs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gas-and-fees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gas and Fees
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-mining-economics-feedback-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Mining Economics Feedback Loop
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Mining Economics Feedback Loop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-mining-economics-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Mining Economics Dashboard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-energy-consumption-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Energy Consumption Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/blockchain/edit/master/docs/chapters/08-mining-computational-economics/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
 
 <h1 id="mining-and-computational-economics">Mining and Computational Economics</h1>
 <h2 id="summary">Summary</h2>
@@ -249,82 +1634,530 @@
 <li><a href="../07-consensus-mechanisms/">Chapter 7: Consensus Mechanisms</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p></div>
-            </div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js"></script>
-        <script src="../../search/main.js"></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Rex Says: Trust, but Verify!</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Rex welcomes you">
+Welcome back, fellow analysts! Last chapter we learned how consensus mechanisms
+convert electricity and economics into trust. Now it's time to follow the money.
+Mining is the engine that powers proof-of-work blockchains, and like any engine,
+it runs on fuel — expensive fuel. Let's open the ledger on what blockchain
+trust actually costs. Trust, but verify — especially the invoice!</p>
+</div>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>After completing this chapter, you will be able to:</p>
+<ul>
+<li>Describe the mining process and how miners compete to validate blocks</li>
+<li>Explain the difficulty adjustment mechanism and why it exists</li>
+<li>Calculate the economic components of mining: hardware, electricity, and opportunity cost</li>
+<li>Analyze the energy consumption of proof-of-work networks and compare it to traditional systems</li>
+<li>Distinguish between transaction costs and gas fees across different blockchain platforms</li>
+<li>Evaluate whether mining economics are sustainable for a given blockchain proposal</li>
+</ul>
+<h2 id="what-is-mining">What Is Mining?</h2>
+<p><strong>Mining</strong> is the process by which new blocks are added to a proof-of-work blockchain. Despite the metaphor (borrowed from gold mining), the process has nothing to do with discovering scarce resources. Mining is competitive computation: nodes race to solve a cryptographic puzzle, and the winner earns the right to propose the next block.</p>
+<p>The puzzle itself is straightforward: find a nonce value such that the hash of the block header falls below a target threshold. Because cryptographic hash functions are unpredictable, the only strategy is brute force — try nonce values until one works. This is deliberately wasteful by design. The waste is the security mechanism.</p>
+<p>The mining process follows a consistent cycle:</p>
+<ol>
+<li>Collect unconfirmed transactions from the mempool</li>
+<li>Assemble a candidate block with a block header</li>
+<li>Repeatedly hash the block header with different nonce values</li>
+<li>If the hash meets the difficulty target, broadcast the block</li>
+<li>Other nodes verify the block and add it to their chain</li>
+<li>The winning miner receives the block reward plus transaction fees</li>
+</ol>
+<h2 id="who-are-miners">Who Are Miners?</h2>
+<p>A <strong>miner</strong> is any participant who dedicates computational resources to the mining process. In Bitcoin's early years (2009-2011), miners were hobbyists running the software on ordinary desktop computers. Those days are long gone.</p>
+<p>Modern Bitcoin mining is an industrial operation. The evolution of mining hardware followed a predictable escalation:</p>
+<table>
+<thead>
+<tr>
+<th>Era</th>
+<th>Hardware</th>
+<th>Hash Rate</th>
+<th>Power Draw</th>
+<th>Approx. Years</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU mining</td>
+<td>Intel/AMD processors</td>
+<td>~10 MH/s</td>
+<td>65-150W</td>
+<td>2009-2010</td>
+</tr>
+<tr>
+<td>GPU mining</td>
+<td>Graphics cards</td>
+<td>~500 MH/s</td>
+<td>200-300W</td>
+<td>2010-2013</td>
+</tr>
+<tr>
+<td>FPGA mining</td>
+<td>Field-programmable gates</td>
+<td>~1 GH/s</td>
+<td>40-80W</td>
+<td>2011-2013</td>
+</tr>
+<tr>
+<td>ASIC mining</td>
+<td>Application-specific chips</td>
+<td>100+ TH/s</td>
+<td>2,500-3,500W</td>
+<td>2013-present</td>
+</tr>
+</tbody>
+</table>
+<p>Today, a single ASIC miner produces more hashes per second than millions of CPUs combined. This hardware arms race has concentrated mining into large-scale operations in regions with cheap electricity — a dynamic with significant implications for decentralization claims.</p>
+<p>Mining pools further concentrate the economics. Because the probability of any single miner finding a valid block is extremely low, miners join <strong>pools</strong> that combine hash power and share rewards proportionally. As of 2025, the top five Bitcoin mining pools control approximately 75% of the network hash rate.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+Here's the uncomfortable math on decentralization. Bitcoin's whitepaper envisioned
+"one CPU, one vote." In practice, mining is dominated by a handful of industrial
+pools operating specialized hardware in jurisdictions with subsidized electricity.
+The system is permissionless in theory — anyone can mine — but the economics make
+meaningful participation impossible without millions in capital investment. When
+evaluating a PoW blockchain's "decentralization," look at the actual distribution
+of hash power, not the theoretical openness of the protocol.</p>
+</div>
+<h2 id="mining-rewards-following-the-money">Mining Rewards: Following the Money</h2>
+<p>The <strong>mining reward</strong> (also called the block reward) is the economic incentive that motivates miners to expend resources securing the network. It has two components:</p>
+<ul>
+<li><strong>Block subsidy</strong> — newly minted cryptocurrency created with each block</li>
+<li><strong>Transaction fees</strong> — fees paid by users to have their transactions included</li>
+</ul>
+<p>For Bitcoin, the block subsidy follows a predetermined halving schedule. The initial reward was 50 BTC per block. Every 210,000 blocks (approximately four years), the subsidy is cut in half:</p>
+<table>
+<thead>
+<tr>
+<th>Halving Event</th>
+<th>Year</th>
+<th>Block Subsidy</th>
+<th>Cumulative Supply (approx.)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Genesis</td>
+<td>2009</td>
+<td>50 BTC</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1st halving</td>
+<td>2012</td>
+<td>25 BTC</td>
+<td>10.5M BTC</td>
+</tr>
+<tr>
+<td>2nd halving</td>
+<td>2016</td>
+<td>12.5 BTC</td>
+<td>15.75M BTC</td>
+</tr>
+<tr>
+<td>3rd halving</td>
+<td>2020</td>
+<td>6.25 BTC</td>
+<td>18.375M BTC</td>
+</tr>
+<tr>
+<td>4th halving</td>
+<td>2024</td>
+<td>3.125 BTC</td>
+<td>19.6875M BTC</td>
+</tr>
+<tr>
+<td>Final (~2140)</td>
+<td>~2140</td>
+<td>0 BTC</td>
+<td>21M BTC</td>
+</tr>
+</tbody>
+</table>
+<p>The total supply of Bitcoin is capped at 21 million coins. This is enforced by the halving schedule, which follows a geometric series:</p>
+<div class="arithmatex">\[\text{Total Supply} = 210{,}000 \times (50 + 25 + 12.5 + \cdots) = 210{,}000 \times \frac{50}{1 - 0.5} = 21{,}000{,}000\]</div>
+<p>As the block subsidy shrinks, transaction fees must grow to sustain mining economics — a transition whose viability remains an open question in Bitcoin's long-term security model.</p>
+<h2 id="difficulty-adjustment">Difficulty Adjustment</h2>
+<p><strong>Difficulty adjustment</strong> is the self-regulating mechanism that keeps block production at a target rate regardless of how much or how little hash power the network has. Without it, adding more miners would produce blocks faster, and losing miners would slow the chain to a crawl.</p>
+<p>Bitcoin adjusts difficulty every 2,016 blocks (approximately two weeks). The algorithm is simple: compare the actual time to produce the last 2,016 blocks against the target time of 20,160 minutes (two weeks at one block per 10 minutes):</p>
+<div class="arithmatex">\[\text{New Difficulty} = \text{Old Difficulty} \times \frac{\text{Target Time (20,160 min)}}{\text{Actual Time}}\]</div>
+<p>If blocks came too fast (miners added hash power), difficulty increases. If blocks came too slowly (miners left), difficulty decreases. This creates a negative feedback loop that stabilizes the system.</p>
+<p>The implications are counterintuitive: adding more hash power to the network does not make Bitcoin process transactions faster. It merely increases the energy consumed per block. The difficulty ratchets up to maintain the 10-minute target, turning additional computational investment into additional electricity consumption with no throughput improvement.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+This is one of the most important facts about proof-of-work economics: more miners
+do not mean more performance. Difficulty adjustment ensures the block rate stays
+constant. The result is an arms race where miners compete to maintain their share
+of a fixed pie, spending ever-increasing amounts on hardware and electricity. From
+a systems perspective, this is a treadmill — enormous resources consumed to maintain
+a constant output rate. Understanding this dynamic is essential before evaluating
+any PoW-based blockchain proposal.</p>
+</div>
+<h2 id="computational-cost">Computational Cost</h2>
+<p>The <strong>computational cost</strong> of mining encompasses all resources consumed in the mining process. For a rigorous cost analysis, we must consider three categories:</p>
+<p><strong>Capital expenditure (CapEx):</strong></p>
+<ul>
+<li>ASIC mining hardware (<span class="arithmatex">\(2,000-\)</span>15,000 per unit)</li>
+<li>Cooling and ventilation infrastructure</li>
+<li>Facility construction or lease</li>
+<li>Networking equipment</li>
+</ul>
+<p><strong>Operational expenditure (OpEx):</strong></p>
+<ul>
+<li>Electricity (the dominant ongoing cost)</li>
+<li>Cooling energy (typically 30-40% of computing energy)</li>
+<li>Maintenance and hardware replacement</li>
+<li>Staff and management</li>
+<li>Internet connectivity</li>
+</ul>
+<p><strong>Opportunity cost:</strong></p>
+<ul>
+<li>Return on capital if invested elsewhere</li>
+<li>Land and facility alternative uses</li>
+<li>Environmental and regulatory compliance</li>
+</ul>
+<p>The profitability equation for a mining operation is:</p>
+<div class="arithmatex">\[\text{Daily Profit} = \left(\frac{\text{Miner Hash Rate}}{\text{Network Hash Rate}}\right) \times \text{Daily Block Rewards} - \text{Daily Electricity Cost} - \text{Daily OpEx}\]</div>
+<p>When the daily cost exceeds the daily revenue, rational miners shut down equipment. This creates a dynamic equilibrium: mining profitability hovers near zero for marginal miners, with only those with the cheapest electricity and most efficient hardware earning sustained profits.</p>
+<h2 id="energy-consumption">Energy Consumption</h2>
+<p><strong>Energy consumption</strong> is the most controversial aspect of proof-of-work mining. The numbers are staggering and well-documented:</p>
+<ul>
+<li>Bitcoin's annual electricity consumption: approximately 150-170 TWh (as of 2025)</li>
+<li>This exceeds the total electricity consumption of countries like Argentina or Norway</li>
+<li>A single Bitcoin transaction uses approximately 700-1,000 kWh of electricity</li>
+<li>By comparison, a Visa transaction uses approximately 0.001-0.002 kWh</li>
+</ul>
+<h3 id="total-energy-computation-plus-data-movement">Total Energy: Computation Plus Data Movement</h3>
+<p>A rigorous energy comparison must account for the <strong>total energy cost</strong> of each system, not just CPU computation. In modern data centers, the energy consumed by data movement — network switches, routers, inter-node communication, storage I/O, and memory bus transfers — is a significant and often dominant portion of total system energy. Some studies estimate that data movement accounts for 40-60% of total data center energy consumption.</p>
+<p>This distinction is critical for blockchain comparisons because blockchain's architecture amplifies data movement costs in ways that centralized systems do not:</p>
+<ul>
+<li><strong>Block propagation</strong> — every new block must be transmitted to every full node in the network, multiplying network energy by the node count</li>
+<li><strong>Transaction broadcasting</strong> — each transaction is propagated to multiple nodes before inclusion in a block</li>
+<li><strong>State synchronization</strong> — new nodes joining the network must download and verify the entire chain history</li>
+<li><strong>Consensus messaging</strong> — BFT-style consensus requires multiple rounds of communication between validators, each consuming network energy</li>
+</ul>
+<p>By contrast, a centralized database processes a transaction with a single write to local storage and optional replication to a small number of backup nodes. The data movement energy for a centralized transaction is orders of magnitude smaller than for a blockchain transaction that must be propagated to thousands of nodes.</p>
+<p>To put the per-transaction comparison in perspective, including both computation and data movement:</p>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>CPU Energy per Tx</th>
+<th>Data Movement Energy per Tx</th>
+<th>Total Energy per Tx</th>
+<th>TPS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bitcoin (PoW)</td>
+<td>~800 kWh (mining)</td>
+<td>~50 kWh (propagation to ~15K nodes)</td>
+<td>~850 kWh</td>
+<td>~7</td>
+</tr>
+<tr>
+<td>Ethereum (PoS)</td>
+<td>~0.02 kWh</td>
+<td>~0.01 kWh (propagation to ~8K nodes)</td>
+<td>~0.03 kWh</td>
+<td>~15-30</td>
+</tr>
+<tr>
+<td>Visa network</td>
+<td>~0.0005 kWh</td>
+<td>~0.0005 kWh (limited replication)</td>
+<td>~0.001 kWh</td>
+<td>~65,000</td>
+</tr>
+<tr>
+<td>Traditional DB</td>
+<td>~0.00000005 kWh</td>
+<td>~0.00000005 kWh (local + 1-2 replicas)</td>
+<td>~0.0000001 kWh</td>
+<td>~100,000+</td>
+</tr>
+</tbody>
+</table>
+<p>Note: Bitcoin's data movement energy is dwarfed by its mining energy, but for proof-of-stake and permissioned systems, data movement can represent 30-50% of the total energy budget. As blockchains move away from PoW, the data movement overhead becomes relatively more significant — and it scales directly with the number of nodes.</p>
+<p>The energy-per-transaction metric has been criticized as misleading because Bitcoin's energy consumption is tied to security (block production), not transaction volume. A block with 1 transaction costs the same energy as a block with 4,000 transactions. However, this argument cuts both ways: it means Bitcoin's energy model cannot scale efficiently. The security cost is fixed per block regardless of economic activity within it.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Skeptic's Toolkit</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Rex has a tip">
+When someone claims that "Bitcoin mining uses renewable energy" or "miners seek
+stranded energy," verify the claim against total network data. Studies from the
+Cambridge Centre for Alternative Finance estimate that 40-60% of Bitcoin mining
+energy comes from fossil fuels. Even the renewable portion represents an opportunity
+cost — that clean energy could power homes or displace fossil generation elsewhere.
+Energy use is not free just because the source is renewable.</p>
+</div>
+<h2 id="transaction-costs">Transaction Costs</h2>
+<p><strong>Transaction costs</strong> on a blockchain include more than just the fee you pay. The full cost of a blockchain transaction includes:</p>
+<ul>
+<li><strong>Direct fee</strong> — the amount paid to miners or validators for inclusion</li>
+<li><strong>Waiting cost</strong> — the time value of money during confirmation delays</li>
+<li><strong>Opportunity cost</strong> — what you could have earned or done during settlement</li>
+<li><strong>Finality risk</strong> — the cost of potential reversal before sufficient confirmations</li>
+</ul>
+<p>Bitcoin transaction fees are set by a market mechanism. Users attach a fee to their transaction, and miners prioritize higher-fee transactions. During periods of congestion, fees spike dramatically — Bitcoin fees exceeded $60 per transaction during peak periods in 2017 and 2021.</p>
+<p>This fee market creates a two-tier system: high-value transactions (moving thousands or millions of dollars) find the fees acceptable, while small transactions become economically unviable. A $5 coffee purchase with a $20 transaction fee makes no sense. This is why Bitcoin is better characterized as a settlement layer for large values than as a general-purpose payment system.</p>
+<h2 id="gas-and-fees">Gas and Fees</h2>
+<p><strong>Gas</strong> is Ethereum's unit for measuring computational effort required to execute operations on the blockchain. Every operation in the Ethereum Virtual Machine (EVM) has a fixed gas cost, and users pay for gas in ETH.</p>
+<p>The gas model separates computational pricing from ETH's market price:</p>
+<ul>
+<li><strong>Gas limit</strong> — the maximum gas a transaction can consume (set by the sender)</li>
+<li><strong>Gas price</strong> — the amount the sender is willing to pay per unit of gas (in gwei, where 1 gwei = <span class="arithmatex">\(10^{-9}\)</span> ETH)</li>
+<li><strong>Transaction fee</strong> = Gas Used <span class="arithmatex">\(\times\)</span> Gas Price</li>
+</ul>
+<p>After Ethereum's EIP-1559 (August 2021), the fee model changed to include:</p>
+<ul>
+<li><strong>Base fee</strong> — algorithmically determined based on network congestion (burned, not paid to validators)</li>
+<li><strong>Priority fee</strong> (tip) — optional additional payment to incentivize faster inclusion</li>
+</ul>
+<p>Common operations and their approximate gas costs:</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Gas Cost</th>
+<th>Approx. USD (at typical rates)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simple ETH transfer</td>
+<td>21,000</td>
+<td><span class="arithmatex">\(0.50-\)</span>5.00</td>
+</tr>
+<tr>
+<td>ERC-20 token transfer</td>
+<td>65,000</td>
+<td><span class="arithmatex">\(1.50-\)</span>15.00</td>
+</tr>
+<tr>
+<td>Uniswap token swap</td>
+<td>150,000-300,000</td>
+<td><span class="arithmatex">\(5.00-\)</span>50.00</td>
+</tr>
+<tr>
+<td>NFT mint</td>
+<td>100,000-200,000</td>
+<td><span class="arithmatex">\(3.00-\)</span>30.00</td>
+</tr>
+<tr>
+<td>Complex smart contract</td>
+<td>500,000+</td>
+<td><span class="arithmatex">\(15.00-\)</span>150.00+</td>
+</tr>
+</tbody>
+</table>
+<p>The gas model has an important implication: the cost of using a blockchain is directly proportional to the complexity of what you're doing on it. Simple transfers are cheap; complex smart contract interactions are expensive. This creates strong economic pressure to minimize on-chain computation — a design constraint that traditional databases do not impose.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Bias Alert</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Rex warns you">
+Be wary of blockchain proposals that assume low or stable transaction fees. Fees
+are market-driven and spike unpredictably during congestion. A system designed
+around $0.50 fees can become unusable when fees jump to $50 or $200. Always
+stress-test your cost model against historical fee spikes, not average conditions.
+The worst-case fee is the one that matters for system reliability.</p>
+</div>
+<h2 id="the-mining-economics-feedback-loop">The Mining Economics Feedback Loop</h2>
+<p>Mining economics creates a self-reinforcing cycle that has important implications for network security and sustainability:</p>
+<ol>
+<li><strong>Price rises</strong> <span class="arithmatex">\(\rightarrow\)</span> mining becomes more profitable</li>
+<li><strong>Profit attracts miners</strong> <span class="arithmatex">\(\rightarrow\)</span> hash rate increases</li>
+<li><strong>Difficulty adjusts upward</strong> <span class="arithmatex">\(\rightarrow\)</span> same block rate, more energy consumed</li>
+<li><strong>Marginal miners become unprofitable</strong> <span class="arithmatex">\(\rightarrow\)</span> some exit</li>
+<li><strong>Difficulty adjusts downward</strong> <span class="arithmatex">\(\rightarrow\)</span> equilibrium restored</li>
+</ol>
+<p>This feedback loop means that Bitcoin's energy consumption is directly correlated with its price. Higher prices attract more miners, which increases energy consumption without improving performance. The network's security budget (total miner revenue) must remain high enough to make a 51% attack prohibitively expensive, but this security comes at an ongoing energy cost.</p>
+<p>The long-term concern is what happens when block subsidies approach zero (around 2140). If transaction fees alone cannot sustain enough mining to keep the network secure, the security model breaks down. This is not an immediate threat but represents a structural uncertainty in Bitcoin's design.</p>
+<h4 id="diagram-mining-economics-dashboard">Diagram: Mining Economics Dashboard</h4>
+<details>
+<summary>Interactive Mining Profitability Calculator</summary>
+<p>Type: MicroSim
+<strong>sim-id:</strong> mining-economics-dashboard<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective:</strong> Analyze (L4) — Calculate the economic components of mining profitability and evaluate how changes in price, difficulty, and electricity cost affect miner behavior and network security.</p>
+<p><strong>Description:</strong> An interactive dashboard where students can adjust Bitcoin price, network difficulty, electricity cost ($/kWh), and hardware efficiency (TH/s per watt) using sliders. The display shows: daily revenue, daily electricity cost, daily profit/loss, breakeven electricity price, and payback period for hardware. A line chart shows projected profitability over 12 months with automatic difficulty adjustments. A secondary panel shows the network-level view: total hash rate, total energy consumption, and security budget (total miner revenue as a percentage of market cap).</p>
+<p><strong>Canvas:</strong> Responsive width, 600px height. Background: aliceblue.</p>
+<p><strong>Controls:</strong></p>
+<ul>
+<li>Slider: Bitcoin price ($10,000 - $200,000)</li>
+<li>Slider: Electricity cost ($0.01 - $0.20 per kWh)</li>
+<li>Slider: Hardware efficiency (20 - 200 TH/s)</li>
+<li>Slider: Hardware cost ($2,000 - $15,000)</li>
+<li>Button: Reset to current values</li>
+<li>Dropdown: Select miner model (presets)</li>
+</ul>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>Revenue/cost bar chart (daily, monthly)</li>
+<li>Profitability timeline (12-month projection)</li>
+<li>Breakeven indicator line</li>
+<li>Network hash rate and energy gauge</li>
+<li>Color-coded profit/loss zones (green/red)</li>
+</ul>
+<p>Implementation: p5.js with slider controls, real-time calculation, bar and line chart rendering</p>
+</details>
+<h4 id="diagram-energy-consumption-comparison">Diagram: Energy Consumption Comparison</h4>
+<details>
+<summary>Transaction Energy Comparison Visualizer</summary>
+<p>Type: MicroSim
+<strong>sim-id:</strong> energy-consumption-comparison<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective:</strong> Evaluate (L5) — Compare the energy cost per transaction across blockchain networks and traditional payment systems, assessing whether the tradeoff is justified for different use cases.</p>
+<p><strong>Description:</strong> A logarithmic-scale bar chart comparing energy per transaction across systems: Bitcoin (PoW), Ethereum (PoS), Visa, Mastercard, ACH, SWIFT, and a traditional database write. Each bar is color-coded by system type (PoW = red, PoS = yellow, traditional = green). A tooltip on hover shows the exact value and context (e.g., "equivalent to X hours of household electricity"). A toggle switches between per-transaction and annual network total views. A second panel lets students input a transaction volume and see the total energy cost for processing that volume on each system.</p>
+<p><strong>Canvas:</strong> Responsive width, 500px height. Background: aliceblue.</p>
+<p><strong>Controls:</strong></p>
+<ul>
+<li>Toggle: Per-transaction vs. annual total view</li>
+<li>Input: Custom transaction volume</li>
+<li>Hover: Detailed tooltips per system</li>
+<li>Checkbox: Show/hide individual systems</li>
+</ul>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>Logarithmic bar chart with labeled axes</li>
+<li>Color-coded bars by system category</li>
+<li>Household equivalency annotations</li>
+<li>Custom volume calculation panel</li>
+</ul>
+<p>Implementation: p5.js with logarithmic scale rendering, toggle views, tooltip overlays</p>
+</details>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong>Mining</strong> is competitive computation where miners race to solve cryptographic puzzles, earning block rewards and transaction fees for valid blocks</li>
+<li><strong>Miners</strong> have evolved from hobbyists with CPUs to industrial operations with specialized ASIC hardware, concentrating hash power in pools and regions with cheap electricity</li>
+<li><strong>Mining rewards</strong> consist of block subsidies (which halve approximately every four years) and transaction fees — the transition from subsidy-driven to fee-driven security is an open question</li>
+<li><strong>Difficulty adjustment</strong> maintains a constant block rate regardless of hash power, meaning more miners increase energy consumption without improving throughput</li>
+<li><strong>Computational cost</strong> includes capital expenditure (hardware), operational expenditure (primarily electricity), and opportunity cost — profitability hovers near zero for marginal miners</li>
+<li><strong>Energy consumption</strong> for Bitcoin exceeds that of many countries; a single transaction uses roughly 850 kWh compared to 0.001 kWh for Visa</li>
+<li><strong>Transaction costs</strong> include direct fees, waiting costs, opportunity costs, and finality risk — fees are market-driven and spike unpredictably during congestion</li>
+<li><strong>Gas and fees</strong> on Ethereum price computational complexity directly, creating economic pressure to minimize on-chain operations</li>
+<li><strong>The CA alternative</strong> — certificate authority systems validate transactions using digital signatures at a fraction of a cent per verification, with no mining, no energy overhead, and sub-second confirmation. The entire mining apparatus exists to replace trust in a central authority with trust in computational expenditure. Whether that substitution is worth the cost depends entirely on whether a trusted authority is available and acceptable for your use case</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Excellent Analytical Work!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Rex celebrates">
+You've now seen behind the curtain of blockchain economics. Mining is not magic —
+it's an industrial process with measurable costs in hardware, electricity, and
+environmental impact. Armed with these numbers, you can evaluate whether a
+blockchain proposal's trust benefits justify its computational price tag. Next,
+we'll explore smart contracts and tokens — the programmable layer that turns
+blockchains from ledgers into platforms. Outstanding analysis, fellow skeptic!</p>
 </div>
 
-    </body>
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../07-consensus-mechanisms/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 7. Consensus Mechanisms">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                7. Consensus Mechanisms
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../09-smart-contracts-tokens/" class="md-footer__link md-footer__link--next" aria-label="Next: 9. Smart Contracts and Tokens">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                9. Smart Contracts and Tokens
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
 </html>

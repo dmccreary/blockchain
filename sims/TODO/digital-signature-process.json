@@ -1,0 +1,14 @@
+{
+  "sim_id": "digital-signature-process",
+  "diagram_name": "Digital Signature Process",
+  "chapter_number": 3,
+  "chapter_title": "Keys, Signatures, and Identity",
+  "chapter_dir": "03-keys-signatures-identity",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** digital-signature-process<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Apply (L3) — Demonstrate the step-by-step process of creating and verifying a digital signature, showing how hashing and asymmetric encryption combine to provide authentication, integrity, and non-repudiation.\n\n**Description:** A two-panel interactive simulation. The left panel shows the \"Signing\" process: a text input field for a message, a visual representation of the private key, and an animated flow showing the message being hashed, then the hash being encrypted with the private key to produce the signature. The right panel shows \"Verification\": the received message and signature are processed — the message is re-hashed, the signature is decrypted with the public key, and the two digests are compared. Students can modify the message text and see the signature change. A \"Tamper\" button modifies the message after signing, causing verification to fail (red X). Hash values are shown as truncated hex strings.\n\n**Canvas:** Responsive width, 500px height. Background: aliceblue.\n\n**Controls:**\n\n- Text input for message content\n- \"Sign\" button to create signature\n- \"Verify\" button to check signature\n- \"Tamper\" button to modify message after signing\n- \"Reset\" button\n\n**Visual elements:**\n\n- Two-panel layout (Sign | Verify)\n- Animated arrows showing data flow\n- Key icons (lock for private, unlock for public)\n- Hash values displayed as truncated hex\n- Green checkmark for valid verification, red X for failed\n- Step numbers (1, 2, 3) labeling each stage\n\nImplementation: p5.js with text input, animation sequences, simplified hash display"
+}

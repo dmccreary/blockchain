@@ -1,232 +1,1641 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Extending ATAM with risk identification, risk themes, mitigation strategies, stakeholder analysis, and deep evaluation of security, availability, reliability, modifiability, and maintainability attributes.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/blockchain/chapters/14-risk-analysis-quality-attributes/">
+      
+      
+        <link rel="prev" href="../13-architecture-tradeoff-analysis/">
+      
+      
+        <link rel="next" href="../15-cognitive-bias-technology/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Risk Analysis and Quality Attributes - Blockchain - The Skeptic's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
         
-        
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>14. Risk Analysis and Quality Attributes - Blockchain - The Skeptic's Guide</title>
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../../css/brands.min.css" rel="stylesheet">
-        <link href="../../css/solid.min.css" rel="stylesheet">
-        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <link href="../../css/mascot.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="../..">Blockchain - The Skeptic's Guide</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item">
-                                <a href="../.." class="nav-link">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../course-description/" class="nav-link">Course Description</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Chapters</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../" class="dropdown-item">List of Chapters</a>
-</li>
-                                    
-<li>
-    <a href="../01-trust-and-digital-networks/" class="dropdown-item">1. Trust and Digital Networks</a>
-</li>
-                                    
-<li>
-    <a href="../02-cryptographic-foundations/" class="dropdown-item">2. Cryptographic Foundations</a>
-</li>
-                                    
-<li>
-    <a href="../03-keys-signatures-identity/" class="dropdown-item">3. Keys, Signatures, and Identity</a>
-</li>
-                                    
-<li>
-    <a href="../04-certificate-authorities-pki/" class="dropdown-item">4. Certificate Authorities and PKI</a>
-</li>
-                                    
-<li>
-    <a href="../05-distributed-systems-ledgers/" class="dropdown-item">5. Distributed Systems and Ledgers</a>
-</li>
-                                    
-<li>
-    <a href="../06-nodes-throughput-performance/" class="dropdown-item">6. Nodes, Throughput, and Performance</a>
-</li>
-                                    
-<li>
-    <a href="../07-consensus-mechanisms/" class="dropdown-item">7. Consensus Mechanisms</a>
-</li>
-                                    
-<li>
-    <a href="../08-mining-computational-economics/" class="dropdown-item">8. Mining and Computational Economics</a>
-</li>
-                                    
-<li>
-    <a href="../09-smart-contracts-tokens/" class="dropdown-item">9. Smart Contracts and Tokens</a>
-</li>
-                                    
-<li>
-    <a href="../10-blockchain-types-platforms/" class="dropdown-item">10. Blockchain Types and Platforms</a>
-</li>
-                                    
-<li>
-    <a href="../11-governance-and-scalability/" class="dropdown-item">11. Governance and Scalability</a>
-</li>
-                                    
-<li>
-    <a href="../12-cost-analysis-tco/" class="dropdown-item">12. Cost Analysis and TCO</a>
-</li>
-                                    
-<li>
-    <a href="../13-architecture-tradeoff-analysis/" class="dropdown-item">13. Architecture Tradeoff Analysis</a>
-</li>
-                                    
-<li>
-    <a href="./" class="dropdown-item active" aria-current="page">14. Risk Analysis and Quality Attributes</a>
-</li>
-                                    
-<li>
-    <a href="../15-cognitive-bias-technology/" class="dropdown-item">15. Cognitive Bias in Technology</a>
-</li>
-                                    
-<li>
-    <a href="../16-evidence-based-evaluation/" class="dropdown-item">16. Evidence-Based Evaluation</a>
-</li>
-                                    
-<li>
-    <a href="../17-industry-case-studies/" class="dropdown-item">17. Industry Case Studies</a>
-</li>
-                                    
-<li>
-    <a href="../18-emerging-trust-technologies/" class="dropdown-item">18. Emerging Trust Technologies</a>
-</li>
-                                    
-<li>
-    <a href="../19-alternative-architectures-decisions/" class="dropdown-item">19. Alternative Architectures</a>
-</li>
-                                    
-<li>
-    <a href="../20-implementation-capstone/" class="dropdown-item">20. Implementation and Capstone</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Learning Graph</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../learning-graph/" class="dropdown-item">Introduction</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/course-description-assessment/" class="dropdown-item">Course Description Assessment</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/concept-list/" class="dropdown-item">Concept Enumeration</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/quality-metrics/" class="dropdown-item">Graph Quality Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/concept-taxonomy/" class="dropdown-item">Concept Taxonomy</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/taxonomy-distribution/" class="dropdown-item">Taxonomy Distribution Report</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">MicroSims</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../sims/graph-viewer/" class="dropdown-item">Graph Viewer</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../about/" class="nav-link">About</a>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../13-architecture-tradeoff-analysis/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../15-cognitive-bias-technology/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="1"><a href="#risk-analysis-and-quality-attributes" class="nav-link">Risk Analysis and Quality Attributes</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#summary" class="nav-link">Summary</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#concepts-covered" class="nav-link">Concepts Covered</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Risk Analysis and Quality Attributes - Blockchain - The Skeptic's Guide" >
+      
+        <meta  property="og:description"  content="Extending ATAM with risk identification, risk themes, mitigation strategies, stakeholder analysis, and deep evaluation of security, availability, reliability, modifiability, and maintainability attributes." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/blockchain/assets/images/social/chapters/14-risk-analysis-quality-attributes/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/blockchain/chapters/14-risk-analysis-quality-attributes/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Risk Analysis and Quality Attributes - Blockchain - The Skeptic's Guide" >
+      
+        <meta  name="twitter:description"  content="Extending ATAM with risk identification, risk themes, mitigation strategies, stakeholder analysis, and deep evaluation of security, availability, reliability, modifiability, and maintainability attributes." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/blockchain/assets/images/social/chapters/14-risk-analysis-quality-attributes/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#risk-analysis-and-quality-attributes" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Blockchain - The Skeptic&#39;s Guide" class="md-header__button md-logo" aria-label="Blockchain - The Skeptic's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Blockchain - The Skeptic's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Risk Analysis and Quality Attributes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/blockchain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Blockchain - The Skeptic&#39;s Guide" class="md-nav__button md-logo" aria-label="Blockchain - The Skeptic's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Blockchain - The Skeptic's Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/blockchain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-trust-and-digital-networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Trust and Digital Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-cryptographic-foundations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Cryptographic Foundations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-keys-signatures-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Keys, Signatures, and Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-certificate-authorities-pki/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Certificate Authorities and PKI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-distributed-systems-ledgers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Distributed Systems and Ledgers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-nodes-throughput-performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Nodes, Throughput, and Performance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-consensus-mechanisms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Consensus Mechanisms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-mining-computational-economics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Mining and Computational Economics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-smart-contracts-tokens/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Smart Contracts and Tokens
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-blockchain-types-platforms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Blockchain Types and Platforms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-governance-and-scalability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Governance and Scalability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-cost-analysis-tco/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Cost Analysis and TCO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-architecture-tradeoff-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Architecture Tradeoff Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    14. Risk Analysis and Quality Attributes
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    14. Risk Analysis and Quality Attributes
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-risk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture Risk
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Risk Identification
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-themes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Risk Themes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-mitigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Risk Mitigation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stakeholder-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stakeholder Analysis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-functional-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-Functional Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Attribute
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#availability-attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      Availability Attribute
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reliability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifiability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modifiability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintainability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maintainability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stakeholder-buy-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stakeholder Buy-In
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stakeholder Buy-In">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-risk-theme-heat-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Risk Theme Heat Map
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-quality-attribute-radar-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Quality Attribute Radar Chart
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-cognitive-bias-technology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Cognitive Bias in Technology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-evidence-based-evaluation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Evidence-Based Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-industry-case-studies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Industry Case Studies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-emerging-trust-technologies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Emerging Trust Technologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-alternative-architectures-decisions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Alternative Architectures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-implementation-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Implementation and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-risk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture Risk
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Risk Identification
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-themes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Risk Themes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-mitigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Risk Mitigation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stakeholder-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stakeholder Analysis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-functional-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-Functional Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Attribute
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#availability-attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      Availability Attribute
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reliability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifiability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modifiability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintainability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maintainability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stakeholder-buy-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stakeholder Buy-In
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stakeholder Buy-In">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-risk-theme-heat-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Risk Theme Heat Map
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-quality-attribute-radar-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Quality Attribute Radar Chart
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/blockchain/edit/master/docs/chapters/14-risk-analysis-quality-attributes/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
 
 <h1 id="risk-analysis-and-quality-attributes">Risk Analysis and Quality Attributes</h1>
 <h2 id="summary">Summary</h2>
@@ -253,82 +1662,691 @@
 <li><a href="../13-architecture-tradeoff-analysis/">Chapter 13: Architecture Tradeoff Analysis Method</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p></div>
-            </div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js"></script>
-        <script src="../../search/main.js"></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Rex Says: Trust, but Verify!</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Rex welcomes you">
+Welcome back, fellow analysts! In the last chapter, we learned to compare architectures
+using quality attributes and utility trees. Now we add the critical complement: risk
+analysis. Every architecture carries risks — the question is whether you discover them
+during evaluation or during production. Trust, but verify — and identify the risks first!</p>
+</div>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>After completing this chapter, you will be able to:</p>
+<ul>
+<li>Define architecture risk and distinguish it from project risk and operational risk</li>
+<li>Apply systematic risk identification techniques to trust technology architectures</li>
+<li>Organize identified risks into risk themes that reveal systemic architecture weaknesses</li>
+<li>Develop risk mitigation strategies appropriate to the severity and likelihood of each risk</li>
+<li>Conduct stakeholder analysis to identify all parties affected by architecture decisions</li>
+<li>Explain why non-functional requirements drive architecture decisions more than functional requirements</li>
+<li>Evaluate trust architectures against security, availability, reliability, modifiability, and maintainability attributes</li>
+<li>Build stakeholder buy-in for evidence-based architecture recommendations</li>
+</ul>
+<h2 id="architecture-risk">Architecture Risk</h2>
+<p>An <strong>architecture risk</strong> is a potential problem inherent in an architecture decision that could prevent the system from meeting its quality attribute requirements. Architecture risks differ from project risks (schedule overruns, budget shortfalls) and operational risks (hardware failures, human errors) because they are embedded in the fundamental design choices and cannot be fixed without changing the architecture itself.</p>
+<p>In trust technology evaluations, architecture risks are particularly consequential because the choice between centralized and distributed architectures is difficult and expensive to reverse. Discovering that a blockchain architecture cannot meet performance requirements after 18 months of development is not a bug to be fixed — it is an architecture risk that should have been identified during evaluation.</p>
+<p>Architecture risks have two dimensions:</p>
+<ul>
+<li><strong>Likelihood</strong> — the probability that the risk will materialize, given realistic operating conditions</li>
+<li><strong>Impact</strong> — the severity of the consequence if the risk materializes</li>
+</ul>
+<p>The expected risk exposure is the product of these two dimensions:</p>
+<div class="arithmatex">\[E[\text{risk}] = P(\text{occurrence}) \times C(\text{impact})\]</div>
+<p>A risk with 20% probability and <span class="arithmatex">\(500,000 impact has the same expected exposure (\)</span>100,000) as a risk with 80% probability and $125,000 impact. However, the risk management strategies for these two cases differ substantially — the first calls for contingency planning, the second for active mitigation.</p>
+<table>
+<thead>
+<tr>
+<th>Risk Level</th>
+<th>Likelihood</th>
+<th>Impact</th>
+<th>Response Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Critical</td>
+<td>High</td>
+<td>High</td>
+<td>Mitigate immediately or reject architecture</td>
+</tr>
+<tr>
+<td>Major</td>
+<td>High</td>
+<td>Medium, or Medium/High</td>
+<td>Develop mitigation plan with timeline</td>
+</tr>
+<tr>
+<td>Moderate</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Monitor and prepare contingency</td>
+</tr>
+<tr>
+<td>Minor</td>
+<td>Low</td>
+<td>Low-Medium</td>
+<td>Accept and document</td>
+</tr>
+</tbody>
+</table>
+<h2 id="risk-identification">Risk Identification</h2>
+<p><strong>Risk identification</strong> is the systematic process of discovering architecture risks before they manifest as system failures. For trust technology evaluations, risk identification should examine risks specific to the candidate architecture type (blockchain-specific, centralized-specific) and risks common to both approaches.</p>
+<p>Effective risk identification techniques include:</p>
+<p><strong>Scenario-based risk identification</strong> leverages the quality attribute scenarios from the ATAM utility tree. For each (H,H) and (H,M) scenario, ask: "What could prevent this architecture from meeting this scenario's response measure?" The answers are architecture risks.</p>
+<p><strong>Checklist-based identification</strong> uses a catalog of known blockchain architecture risks:</p>
+<ul>
+<li>Smart contract vulnerabilities (reentrancy, integer overflow, front-running)</li>
+<li>Consensus mechanism failures (51% attacks, nothing-at-stake, long-range attacks)</li>
+<li>Key management failures (lost keys, stolen keys, inadequate key rotation)</li>
+<li>Oracle dependencies (external data feed manipulation, oracle downtime)</li>
+<li>Governance deadlocks (inability to agree on protocol upgrades)</li>
+<li>Regulatory risks (changing classification of tokens, privacy regulation conflicts)</li>
+<li>Platform risks (underlying blockchain platform abandoned, forked, or compromised)</li>
+</ul>
+<p><strong>Analogy-based identification</strong> examines failures in similar deployments. The history of blockchain projects provides abundant case studies:</p>
+<ul>
+<li>The DAO hack (2016) — $60M lost to a reentrancy vulnerability in a smart contract</li>
+<li>The Parity wallet freeze (2017) — $150M in ETH permanently locked due to a library contract bug</li>
+<li>Numerous DeFi exploits — flash loan attacks, oracle manipulation, bridge hacks</li>
+</ul>
+<p>Each historical failure suggests a category of architecture risk that should be evaluated for any new deployment.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+Risk identification is not about proving that blockchain is risky — every architecture
+has risks. The point is to ensure that blockchain-specific risks receive the same
+rigorous analysis as the risks in traditional architectures. A fair evaluation
+identifies risks in all candidate architectures and compares them against the same
+criteria.</p>
+</div>
+<p><strong>Assumption-based identification</strong> challenges the assumptions underlying each candidate architecture:</p>
+<ul>
+<li>"Consortium members will honestly participate in consensus" — what if one becomes an adversary?</li>
+<li>"Gas prices will remain stable enough for our budget" — what if they spike 10x?</li>
+<li>"The blockchain platform will continue to be maintained" — what if the core development team dissolves?</li>
+<li>"Our smart contracts are bug-free" — what if they are not, and the bugs are exploited?</li>
+</ul>
+<p>For the traditional centralized alternative, equivalent questions apply:</p>
+<ul>
+<li>"The database administrator will not be compromised" — what if they are?</li>
+<li>"The hosting provider will maintain uptime" — what if they have a catastrophic failure?</li>
+<li>"The regulatory environment will not require decentralization" — what if it does?</li>
+</ul>
+<h2 id="risk-themes">Risk Themes</h2>
+<p>A <strong>risk theme</strong> is a pattern that emerges when multiple individual risks share a common underlying cause or affect a common quality attribute. Organizing risks into themes reveals systemic weaknesses in an architecture that might not be apparent from examining individual risks in isolation.</p>
+<p>For blockchain architectures, common risk themes include:</p>
+<p><strong>Theme: Immutability as liability</strong>
+Individual risks in this theme include: inability to correct data entry errors, inability to comply with GDPR "right to be forgotten," inability to roll back fraudulent transactions, inability to upgrade data schemas without forking. The theme reveals that immutability — often presented as blockchain's greatest strength — creates a cluster of risks for systems that must handle real-world messiness.</p>
+<p><strong>Theme: Governance fragility</strong>
+Individual risks include: inability to agree on protocol upgrades, inability to resolve disputes between consortium members, inability to respond quickly to security incidents, inability to enforce participation commitments. The theme reveals that decentralized governance introduces coordination risks that scale with the number of participants.</p>
+<p><strong>Theme: Expertise concentration</strong>
+Individual risks include: difficulty hiring blockchain developers, dependency on specific team members' smart contract knowledge, inability to find auditors for the chosen platform, vendor support limitations. The theme reveals that emerging technology stacks create human capital risks that mature technology stacks do not.</p>
+<p>For centralized architectures, common risk themes include:</p>
+<p><strong>Theme: Single point of compromise</strong>
+Individual risks include: database administrator misconduct, hosting provider failure, DDoS attack on central infrastructure, insider threat. The theme reveals that centralized authority creates concentrated failure modes.</p>
+<p><strong>Theme: Opacity and audit resistance</strong>
+Individual risks include: difficulty proving data has not been tampered with, log manipulation by administrators, lack of independent verification, audit trail gaps. The theme reveals that centralized systems make independent verification harder.</p>
+<p>Documenting risk themes alongside individual risks provides decision-makers with both the detailed view (specific risks to mitigate) and the strategic view (systemic weaknesses to consider in architecture selection).</p>
+<h2 id="risk-mitigation">Risk Mitigation</h2>
+<p><strong>Risk mitigation</strong> is the set of strategies for reducing the likelihood or impact of identified architecture risks. For trust technology evaluations, mitigation strategies must be costed and incorporated into the TCO model from Chapter 12, since mitigation is not free.</p>
+<p>The four standard risk mitigation strategies, applied to blockchain architecture risks:</p>
+<p><strong>Avoidance</strong> — eliminate the risk by choosing a different architecture or design approach.</p>
+<ul>
+<li>Example: Avoid smart contract reentrancy risk by using a platform that does not support recursive calls</li>
+<li>Example: Avoid gas price volatility by choosing a private blockchain with fixed transaction costs</li>
+<li>Cost: May require choosing a less capable platform</li>
+</ul>
+<p><strong>Reduction</strong> — decrease the likelihood or impact of the risk.</p>
+<ul>
+<li>Example: Reduce smart contract vulnerability risk through formal verification and multiple independent audits</li>
+<li>Example: Reduce key management risk through hardware security modules and multi-signature schemes</li>
+<li>Cost: Audit and formal verification costs (<span class="arithmatex">\(50K-\)</span>200K per contract); HSM costs (<span class="arithmatex">\(10K-\)</span>50K per node)</li>
+</ul>
+<p><strong>Transfer</strong> — shift the risk to another party.</p>
+<ul>
+<li>Example: Purchase smart contract insurance (available through protocols like Nexus Mutual)</li>
+<li>Example: Use a managed blockchain service where the provider assumes infrastructure risk</li>
+<li>Cost: Insurance premiums (typically 2-5% of insured value annually); BaaS subscription fees</li>
+</ul>
+<p><strong>Acceptance</strong> — acknowledge the risk and prepare contingency plans.</p>
+<ul>
+<li>Example: Accept that consortium governance will occasionally be slow, and build buffer time into critical processes</li>
+<li>Example: Accept that the blockchain platform may require migration in 5 years, and budget for switching costs</li>
+<li>Cost: Contingency budget allocation (typically 10-20% of project budget)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Strategy</th>
+<th>Mitigation Action</th>
+<th>Estimated Cost</th>
+<th>Residual Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Smart contract vulnerability</td>
+<td>Reduce</td>
+<td>3 independent audits + formal verification</td>
+<td>$300K</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Consensus failure</td>
+<td>Reduce</td>
+<td>Byzantine fault tolerance + monitoring</td>
+<td>$50K/year</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Key management failure</td>
+<td>Reduce</td>
+<td>HSMs + multi-sig + key ceremony</td>
+<td>$100K setup</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Gas price spike</td>
+<td>Transfer</td>
+<td>Fixed-price BaaS or private chain</td>
+<td>$80K/year premium</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Governance deadlock</td>
+<td>Accept</td>
+<td>Escalation procedures + exit clause</td>
+<td>$20K legal</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Platform abandonment</td>
+<td>Avoid</td>
+<td>Choose platform with largest developer ecosystem</td>
+<td>$0 (selection criterion)</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<h2 id="stakeholder-analysis">Stakeholder Analysis</h2>
+<p><strong>Stakeholder analysis</strong> identifies all parties who are affected by or can influence the architecture decision, and maps their interests, concerns, and level of influence. In trust technology decisions, the stakeholder landscape is typically broader than for conventional IT projects because blockchain implementations often span organizational boundaries.</p>
+<p>Key stakeholder categories for a trust technology evaluation:</p>
+<ul>
+<li><strong>Business sponsors</strong> — executives who authorize funding and expect business value. They care about ROI, risk, and strategic alignment.</li>
+<li><strong>Technical architects</strong> — engineers who must design and implement the chosen architecture. They care about feasibility, maintainability, and technology maturity.</li>
+<li><strong>Operations teams</strong> — staff who must run the system day-to-day. They care about monitoring, incident response, and operational simplicity.</li>
+<li><strong>Compliance and legal</strong> — teams ensuring regulatory adherence. They care about data privacy, auditability, jurisdictional issues, and liability.</li>
+<li><strong>End users</strong> — individuals or systems that interact with the solution. They care about performance, usability, and reliability.</li>
+<li><strong>Consortium partners</strong> (for multi-party solutions) — external organizations that must participate. They care about cost sharing, governance, data ownership, and competitive implications.</li>
+<li><strong>Regulators</strong> — government or industry bodies that oversee the domain. They care about transparency, consumer protection, and systemic risk.</li>
+</ul>
+<p>A stakeholder power-interest matrix helps prioritize engagement:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Low Interest</th>
+<th>High Interest</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>High Power</strong></td>
+<td>Keep satisfied (Legal, Regulators)</td>
+<td>Manage closely (Business sponsors, Consortium partners)</td>
+</tr>
+<tr>
+<td><strong>Low Power</strong></td>
+<td>Monitor (End users of partner systems)</td>
+<td>Keep informed (Operations, Development team)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Bias Alert</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Rex warns you">
+Stakeholder analysis often reveals that the loudest voices in a technology decision
+are not the most affected parties. A CTO excited about blockchain may have strong
+influence but bears none of the operational burden. An operations team that must
+run the blockchain nodes has high interest but low decision-making power. Ensure
+the evaluation gives appropriate weight to stakeholders who must live with the
+consequences, not just those who make the announcement.</p>
+</div>
+<h2 id="non-functional-requirements">Non-Functional Requirements</h2>
+<p><strong>Non-functional requirements (NFRs)</strong> specify the quality constraints under which a system must operate, as distinct from functional requirements that specify what the system must do. In ATAM terminology, non-functional requirements map directly to quality attribute scenarios — they are testable statements about how well the system must perform along quality dimensions.</p>
+<p>The term "non-functional" is misleading because these requirements are deeply functional in practice. A system that records transactions correctly (functional requirement) but takes 30 minutes per transaction (failing a performance NFR) is useless. A system with perfect availability but no access control (failing a security NFR) is dangerous.</p>
+<p>For trust technology evaluations, NFRs serve as the primary discriminator between candidate architectures. Two architectures that satisfy identical functional requirements may differ dramatically in their ability to meet NFRs:</p>
+<table>
+<thead>
+<tr>
+<th>Non-Functional Requirement</th>
+<th>Public Blockchain</th>
+<th>Private Blockchain</th>
+<th>Centralized Database</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transaction latency &lt; 2 sec</td>
+<td>Difficult (block confirmation)</td>
+<td>Achievable (configurable)</td>
+<td>Easy (milliseconds)</td>
+</tr>
+<tr>
+<td>99.99% availability</td>
+<td>Achievable (redundancy)</td>
+<td>Challenging (consensus dependency)</td>
+<td>Achievable (standard HA)</td>
+</tr>
+<tr>
+<td>Tamper-evident audit trail</td>
+<td>Native capability</td>
+<td>Native capability</td>
+<td>Requires additional design</td>
+</tr>
+<tr>
+<td>GDPR data deletion</td>
+<td>Extremely difficult</td>
+<td>Difficult (requires design)</td>
+<td>Straightforward</td>
+</tr>
+<tr>
+<td>Schema evolution without downtime</td>
+<td>Very difficult (immutable contracts)</td>
+<td>Difficult (chaincode upgrade)</td>
+<td>Standard practice</td>
+</tr>
+<tr>
+<td>&lt; $0.01 per transaction</td>
+<td>Uncertain (gas volatility)</td>
+<td>Achievable (fixed costs)</td>
+<td>Achievable (amortized)</td>
+</tr>
+</tbody>
+</table>
+<p>This table demonstrates why NFR analysis is the most powerful tool for trust technology evaluation. The functional requirement "record supply chain transactions" says nothing about which architecture to choose. The NFRs determine which architectures are even viable.</p>
+<h2 id="security-attribute">Security Attribute</h2>
+<p>The <strong>security attribute</strong> measures a system's ability to resist unauthorized access, data manipulation, and service disruption while maintaining confidentiality, integrity, and availability for authorized parties. Security is often cited as blockchain's strongest quality attribute — and in some respects, this claim is justified. In others, it is misleading.</p>
+<p>Blockchain security strengths:</p>
+<ul>
+<li><strong>Cryptographic integrity</strong> — hash chains make undetected data modification computationally infeasible</li>
+<li><strong>Distributed redundancy</strong> — no single point of compromise can destroy or alter the entire dataset</li>
+<li><strong>Transparent verification</strong> — any participant can independently verify the chain's integrity</li>
+<li><strong>Immutable history</strong> — confirmed transactions cannot be retroactively altered (with sufficient confirmations)</li>
+</ul>
+<p>Blockchain security weaknesses:</p>
+<ul>
+<li><strong>Smart contract vulnerabilities</strong> — application-layer code can contain bugs that are exploitable and, once deployed, difficult to patch</li>
+<li><strong>Key management burden</strong> — the entire security model depends on private key secrecy; lost or stolen keys have irreversible consequences</li>
+<li><strong>51% attacks</strong> — on smaller proof-of-work networks, a majority hashrate attack is economically feasible</li>
+<li><strong>Bridge and oracle risks</strong> — interactions between the blockchain and external systems introduce trust assumptions that negate on-chain guarantees</li>
+<li><strong>Social engineering</strong> — blockchain cannot protect against users being tricked into signing malicious transactions</li>
+</ul>
+<p>A security quality attribute scenario for comparison:</p>
+<blockquote>
+<p>An external attacker (source) exploits a vulnerability in the transaction validation logic (stimulus) in the trust system (artifact) during normal operation (environment). The system detects the exploit and halts affected processing within 60 seconds (response), with zero unauthorized state changes committed to the permanent record (response measure).</p>
+</blockquote>
+<p>Against this scenario:</p>
+<ul>
+<li><strong>Public blockchain</strong>: Detection may occur, but halting processing requires community consensus (slow). However, on-chain state changes require block confirmation, providing a detection window.</li>
+<li><strong>Private blockchain</strong>: Network operators can halt processing quickly but must coordinate across organizations.</li>
+<li><strong>Centralized database</strong>: Can halt immediately and roll back. But if the attacker is the database administrator, detection depends on external monitoring.</li>
+</ul>
+<p>No architecture is universally "more secure." Security must be evaluated scenario by scenario.</p>
+<h2 id="availability-attribute">Availability Attribute</h2>
+<p>The <strong>availability attribute</strong> measures the proportion of time that a system is operational and accessible to authorized users. Availability is typically expressed as a percentage of uptime over a given period, with common targets expressed in "nines":</p>
+<table>
+<thead>
+<tr>
+<th>Availability</th>
+<th>Annual Downtime</th>
+<th>Classification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>99% (two nines)</td>
+<td>3.65 days</td>
+<td>Basic</td>
+</tr>
+<tr>
+<td>99.9% (three nines)</td>
+<td>8.76 hours</td>
+<td>Standard</td>
+</tr>
+<tr>
+<td>99.99% (four nines)</td>
+<td>52.6 minutes</td>
+<td>High availability</td>
+</tr>
+<tr>
+<td>99.999% (five nines)</td>
+<td>5.26 minutes</td>
+<td>Mission-critical</td>
+</tr>
+</tbody>
+</table>
+<p>Public blockchain networks like Bitcoin and Ethereum have remarkably high availability — the Bitcoin network has operated continuously since January 2009 with no complete outages. However, this headline availability figure masks important nuances:</p>
+<ul>
+<li><strong>Network availability versus application availability</strong> — the blockchain network may be up, but if gas prices are prohibitively high, the application is effectively unavailable to cost-constrained users</li>
+<li><strong>Confirmation availability</strong> — the network may accept transactions but take unpredictably long to confirm them during congestion</li>
+<li><strong>Smart contract availability</strong> — a paused or buggy smart contract is unavailable even if the underlying network is operational</li>
+<li><strong>Node availability</strong> — individual node failures may not affect network availability but do affect specific users or organizations</li>
+</ul>
+<p>For private and consortium blockchains, availability depends on:</p>
+<ul>
+<li>The consensus mechanism's fault tolerance (typically tolerates <span class="arithmatex">\(f\)</span> failures out of <span class="arithmatex">\(n = 3f + 1\)</span> nodes for BFT consensus)</li>
+<li>The hosting infrastructure's reliability</li>
+<li>The ability to detect and replace failed nodes quickly</li>
+</ul>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+When comparing availability between blockchain and centralized architectures, ensure
+you are comparing like with like. A centralized database's availability depends on its
+hosting and replication setup. A blockchain's availability depends on its node count
+and consensus mechanism. A well-designed centralized system with active-active
+replication may achieve higher effective availability than a poorly designed
+blockchain consortium with insufficient node diversity.</p>
+</div>
+<h2 id="reliability">Reliability</h2>
+<p><strong>Reliability</strong> measures the probability that a system performs its intended function without failure over a specified period under specified conditions. While availability measures whether the system is "up," reliability measures whether it produces correct results when it is up.</p>
+<p>For trust systems, reliability has specific dimensions:</p>
+<ul>
+<li><strong>Transaction reliability</strong> — the probability that a submitted transaction is correctly processed and permanently recorded</li>
+<li><strong>Ordering reliability</strong> — the guarantee that transactions are processed in a consistent, deterministic order</li>
+<li><strong>Finality reliability</strong> — the assurance that a confirmed transaction will not be reversed</li>
+</ul>
+<p>Blockchain protocols provide strong ordering and finality reliability through consensus mechanisms, but transaction reliability varies:</p>
+<ul>
+<li>On public blockchains, transactions may fail due to insufficient gas, nonce errors, or reverted smart contract execution — and the user still pays for the failed attempt</li>
+<li>On private blockchains, transaction failures are typically due to validation rule violations and are handled more gracefully</li>
+<li>On centralized databases, transaction failures trigger standard rollback mechanisms with clear error handling</li>
+</ul>
+<p>The mean time between failures (MTBF) for the transaction processing function can be compared across architectures:</p>
+<div class="arithmatex">\[\text{Reliability} = \frac{\text{MTBF}}{\text{MTBF} + \text{MTTR}}\]</div>
+<p>where MTTR is the mean time to repair. Blockchain systems tend to have long MTBF (failures are rare) but also long MTTR (recovering from consensus failures or smart contract bugs is complex and slow). Centralized systems may have shorter MTBF for some failure modes but much shorter MTTR due to simpler recovery procedures.</p>
+<h2 id="modifiability">Modifiability</h2>
+<p><strong>Modifiability</strong> measures the cost and effort required to change a system after deployment. In trust technology evaluation, modifiability is often the quality attribute where blockchain architectures are weakest — and where this weakness is most frequently underestimated during initial evaluation.</p>
+<p>Blockchain modifiability challenges include:</p>
+<ul>
+<li><strong>Immutable smart contracts</strong> — once deployed on most public blockchains, smart contract code cannot be changed. Upgradable proxy patterns exist but add complexity and introduce their own risks.</li>
+<li><strong>Schema rigidity</strong> — adding new fields to on-chain data structures often requires deploying new contracts and migrating data references.</li>
+<li><strong>Protocol dependency</strong> — changes to the underlying blockchain protocol can break applications. Hard forks may require choosing sides.</li>
+<li><strong>Multi-party coordination</strong> — in consortium networks, any change requires agreement from all (or a majority of) participants, introducing governance delay.</li>
+<li><strong>Audit cost of changes</strong> — every smart contract modification requires re-auditing, adding <span class="arithmatex">\(50K-\)</span>200K per significant change.</li>
+</ul>
+<p>By contrast, centralized database systems offer:</p>
+<ul>
+<li>Standard schema migration tools (ALTER TABLE, data migration scripts)</li>
+<li>Rolling deployment with zero-downtime updates</li>
+<li>Single-party decision authority for changes</li>
+<li>Mature version control and rollback procedures</li>
+</ul>
+<p>A modifiability quality attribute scenario:</p>
+<blockquote>
+<p>The product team (source) needs to add a new compliance data field to all transaction records (stimulus) in the smart contract / database schema (artifact) during a planned maintenance window (environment). The team implements, tests, and deploys the change (response) within 5 business days at a cost of under $15,000 (response measure).</p>
+</blockquote>
+<p>Comparative evaluation:</p>
+<ul>
+<li><strong>Public blockchain</strong>: Likely requires new contract deployment, data migration strategy, front-end updates, and security audit. Timeline: 2-8 weeks. Cost: <span class="arithmatex">\(50K-\)</span>150K.</li>
+<li><strong>Private blockchain</strong>: Chaincode upgrade with channel approval. Timeline: 1-3 weeks. Cost: <span class="arithmatex">\(15K-\)</span>50K.</li>
+<li><strong>Centralized database</strong>: Schema migration, API update, deployment. Timeline: 1-5 days. Cost: <span class="arithmatex">\(2K-\)</span>10K.</li>
+</ul>
+<p>This comparison reveals modifiability as a major tradeoff point: the immutability that makes blockchain valuable for data integrity makes it expensive for system evolution.</p>
+<h2 id="maintainability">Maintainability</h2>
+<p><strong>Maintainability</strong> measures the ease and cost of keeping a system operational over its full lifecycle, including bug fixes, performance tuning, infrastructure updates, and knowledge transfer between team members. Maintainability differs from modifiability in that it focuses on sustaining current functionality rather than adding new capabilities.</p>
+<p>Maintainability concerns for blockchain architectures include:</p>
+<ul>
+<li><strong>Node software updates</strong> — keeping blockchain node software current across all participants in a consortium</li>
+<li><strong>Monitoring complexity</strong> — monitoring a distributed network is inherently more complex than monitoring a single server or cluster</li>
+<li><strong>Incident response</strong> — diagnosing and resolving issues in a distributed system requires expertise that is scarce and expensive</li>
+<li><strong>Documentation and knowledge management</strong> — smart contract code, deployment configurations, and consensus parameters must be documented for operational continuity</li>
+<li><strong>Team turnover</strong> — replacing team members with blockchain-specific expertise is harder and more expensive than replacing team members with traditional database skills</li>
+</ul>
+<p>The maintainability cost differential between blockchain and traditional architectures tends to widen over time. In year one, when the development team is intact and the technology is fresh, maintainability costs may be comparable. By year three, as team members leave, the technology landscape shifts, and accumulated technical debt compounds, blockchain systems often require significantly higher maintenance investment.</p>
+<p>A useful maintainability metric is the <strong>maintenance cost ratio</strong> — the annual maintenance cost as a percentage of initial development cost:</p>
+<table>
+<thead>
+<tr>
+<th>Architecture</th>
+<th>Typical Maintenance Cost Ratio</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Centralized database</td>
+<td>15-20% annually</td>
+<td>Mature tooling, large talent pool</td>
+</tr>
+<tr>
+<td>Private blockchain</td>
+<td>25-40% annually</td>
+<td>Specialized skills, audit requirements</td>
+</tr>
+<tr>
+<td>Public blockchain integration</td>
+<td>20-35% annually</td>
+<td>Platform changes may force updates</td>
+</tr>
+<tr>
+<td>Consortium blockchain</td>
+<td>30-50% annually</td>
+<td>Governance overhead adds to maintenance</td>
+</tr>
+</tbody>
+</table>
+<h2 id="stakeholder-buy-in">Stakeholder Buy-In</h2>
+<p><strong>Stakeholder buy-in</strong> is the degree to which all affected parties accept, support, and commit to an architecture decision. In trust technology evaluations, buy-in is particularly challenging because the decision often spans organizational boundaries and affects parties with conflicting interests.</p>
+<p>Achieving stakeholder buy-in for an evidence-based architecture recommendation requires:</p>
+<p><strong>Transparent methodology</strong> — stakeholders who understand the ATAM process and participated in utility tree construction are more likely to accept the results, even if the recommended architecture differs from their initial preference. The methodology provides a shared language and a documented rationale.</p>
+<p><strong>Acknowledging tradeoffs</strong> — presenting the recommended architecture as "better in all respects" destroys credibility. Every architecture has weaknesses. Explicitly documenting the tradeoffs in the recommended architecture — and explaining why the prioritized quality attributes justify those tradeoffs — builds trust in the analysis.</p>
+<p><strong>Addressing emotional investment</strong> — stakeholders who have publicly advocated for blockchain (or against it) may resist evidence that contradicts their position. The ATAM output should be framed as "here is what the analysis shows" rather than "here is why you were wrong." Preserving face enables changed minds.</p>
+<p><strong>Phased commitment</strong> — rather than demanding an all-or-nothing architecture decision, propose a phased approach: proof of concept with clear success criteria, followed by pilot with defined metrics, followed by production rollout with exit criteria. This reduces the perceived risk of the decision and gives skeptics a structured way to validate (or challenge) the recommendation.</p>
+<p>A stakeholder buy-in checklist:</p>
+<ul>
+<li>All identified stakeholders participated in or reviewed the utility tree</li>
+<li>Risk analysis was conducted for all candidate architectures, not just the recommended one</li>
+<li>The cost analysis includes all architectures with equivalent rigor</li>
+<li>Tradeoff points are documented with explicit rationale for the chosen priority</li>
+<li>The recommendation includes a phased implementation plan with go/no-go criteria</li>
+<li>Exit criteria are defined in case the chosen architecture fails to meet expectations</li>
+</ul>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Rex's Tip</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Rex shares a tip">
+The most common reason architecture recommendations fail is not technical — it is
+political. A technically superior recommendation that key stakeholders do not support
+will be undermined, starved of resources, or overridden. Invest as much effort in
+stakeholder engagement as in technical analysis. The best architecture decision is
+one that is both evidence-based and organizationally viable.</p>
+</div>
+<h4 id="diagram-risk-theme-heat-map">Diagram: Risk Theme Heat Map</h4>
+<details>
+<summary>Interactive Risk Theme Heat Map for Trust Architecture Comparison</summary>
+<p>Type: MicroSim
+<strong>sim-id:</strong> risk-theme-heatmap<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective:</strong> Analyze (L4) — Compare risk profiles across blockchain and traditional architectures by mapping identified risks to risk themes and visualizing their severity in a heat map format.</p>
+<p><strong>Description:</strong> An interactive heat map with risk themes as rows (Immutability as Liability, Governance Fragility, Expertise Concentration, Single Point of Compromise, Opacity and Audit Resistance, Regulatory Uncertainty) and candidate architectures as columns (Public Blockchain, Private Blockchain, Consortium Blockchain, Centralized Database). Each cell is color-coded from green (low risk) to yellow (medium) to red (high risk). Clicking a cell reveals a panel listing the specific individual risks that contribute to that theme-architecture combination, along with recommended mitigation strategies. A summary row at the bottom shows an overall risk score for each architecture. Students can adjust individual cell ratings to explore how different risk assessments change the overall comparison.</p>
+<p><strong>Canvas:</strong> Responsive width, 550px height. Background: aliceblue.</p>
+<p><strong>Controls:</strong></p>
+<ul>
+<li>Click any cell to see detailed risk breakdown</li>
+<li>Select dropdown: "Weight by Likelihood" or "Weight by Impact" or "Weight by Expected Value"</li>
+<li>Button: "Reset to Defaults"</li>
+<li>Checkbox: "Show Mitigation Costs"</li>
+</ul>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>Heat map grid with color-coded cells (green/yellow/orange/red)</li>
+<li>Row and column headers with clear labels</li>
+<li>Detail panel showing individual risks and mitigations</li>
+<li>Summary row with weighted risk scores</li>
+<li>Legend showing color-to-risk-level mapping</li>
+</ul>
+<p>Implementation: p5.js with responsive canvas, grid rendering, click-to-reveal panels</p>
+</details>
+<h4 id="diagram-quality-attribute-radar-chart">Diagram: Quality Attribute Radar Chart</h4>
+<details>
+<summary>Quality Attribute Comparison Radar Chart</summary>
+<p>Type: Diagram
+<strong>sim-id:</strong> quality-attribute-radar<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective:</strong> Evaluate (L5) — Visually compare how different trust architectures perform across multiple quality attributes simultaneously, identifying where each architecture excels and where it falls short.</p>
+<p><strong>Description:</strong> A radar (spider) chart with 7 axes representing quality attributes: Security, Availability, Reliability, Performance, Modifiability, Maintainability, and Cost Efficiency. Three overlaid polygons represent three candidate architectures: Public Blockchain (blue), Consortium Blockchain (orange), and Centralized Database (green). Each polygon's vertices show the architecture's rating (1-5) on each attribute. Checkboxes allow toggling each architecture's polygon on/off for cleaner comparison. Hovering over a vertex shows a tooltip with the specific rating rationale. A "Customize" mode allows students to adjust ratings based on their own analysis and see how the polygons change.</p>
+<p><strong>Canvas:</strong> Responsive width, 550px height. Background: aliceblue.</p>
+<p><strong>Controls:</strong></p>
+<ul>
+<li>Checkbox: Show/hide each architecture polygon</li>
+<li>Button: "Customize Ratings" to enter edit mode</li>
+<li>Sliders (in edit mode): adjust each attribute rating (1-5) per architecture</li>
+<li>Button: "Reset to Defaults"</li>
+</ul>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>Radar chart with 7 labeled axes</li>
+<li>Three color-coded polygons with semi-transparent fill</li>
+<li>Axis labels at each spoke endpoint</li>
+<li>Tooltips on vertex hover</li>
+<li>Legend identifying each architecture</li>
+<li>Rating values displayed at each vertex</li>
+</ul>
+<p>Implementation: p5.js with responsive canvas, polar coordinate rendering, hover detection</p>
+</details>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>This chapter extended ATAM with risk analysis and deep quality attribute evaluation:</p>
+<ul>
+<li><strong>Architecture risks</strong> are embedded in design decisions and cannot be fixed without changing the architecture — they must be identified before commitment</li>
+<li><strong>Risk identification</strong> should use multiple techniques (scenario-based, checklist-based, analogy-based, assumption-based) to achieve comprehensive coverage</li>
+<li><strong>Risk themes</strong> reveal systemic architecture weaknesses by grouping related individual risks — blockchain themes include immutability-as-liability, governance fragility, and expertise concentration</li>
+<li><strong>Risk mitigation</strong> strategies (avoidance, reduction, transfer, acceptance) must be costed and included in the TCO model</li>
+<li><strong>Stakeholder analysis</strong> maps the interests, concerns, and influence of all parties affected by the architecture decision</li>
+<li><strong>Non-functional requirements</strong> are the primary discriminators between candidate trust architectures — systems with identical functionality can require fundamentally different architectures based on NFRs</li>
+<li><strong>Security</strong> in blockchain is strong for integrity and transparency but has specific weaknesses in smart contracts, key management, and cross-system interactions</li>
+<li><strong>Availability</strong> and <strong>reliability</strong> require nuanced comparison — headline network uptime figures can mask application-level availability problems</li>
+<li><strong>Modifiability</strong> is typically blockchain's weakest quality attribute, with change costs 5-15x higher than centralized alternatives</li>
+<li><strong>Maintainability</strong> costs for blockchain architectures tend to escalate over time due to specialized skill requirements and governance overhead</li>
+<li><strong>Stakeholder buy-in</strong> requires transparent methodology, acknowledged tradeoffs, and phased commitment — technical correctness alone is insufficient</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Exceptional Progress!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Rex celebrates">
+You now have the complete analytical toolkit: cost analysis, architecture tradeoff
+evaluation, risk assessment, and quality attribute comparison. But even the best
+analytical tools can be undermined by the biases in the analysts' own thinking. In the
+next chapter, we examine the cognitive biases that systematically distort technology
+decisions — and how to defend against them. Stay sharp, fellow analyst!</p>
 </div>
 
-    </body>
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../13-architecture-tradeoff-analysis/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 13. Architecture Tradeoff Analysis">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                13. Architecture Tradeoff Analysis
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../15-cognitive-bias-technology/" class="md-footer__link md-footer__link--next" aria-label="Next: 15. Cognitive Bias in Technology">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                15. Cognitive Bias in Technology
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
 </html>

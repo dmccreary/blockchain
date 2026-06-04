@@ -1,232 +1,1635 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A systematic framework for comparing trust architectures using ATAM, quality attributes, utility trees, sensitivity points, and tradeoff points.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/blockchain/chapters/13-architecture-tradeoff-analysis/">
+      
+      
+        <link rel="prev" href="../12-cost-analysis-tco/">
+      
+      
+        <link rel="next" href="../14-risk-analysis-quality-attributes/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Architecture Tradeoff Analysis Method - Blockchain - The Skeptic's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
         
-        
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>13. Architecture Tradeoff Analysis - Blockchain - The Skeptic's Guide</title>
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../../css/brands.min.css" rel="stylesheet">
-        <link href="../../css/solid.min.css" rel="stylesheet">
-        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <link href="../../css/mascot.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="../..">Blockchain - The Skeptic's Guide</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item">
-                                <a href="../.." class="nav-link">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../course-description/" class="nav-link">Course Description</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Chapters</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../" class="dropdown-item">List of Chapters</a>
-</li>
-                                    
-<li>
-    <a href="../01-trust-and-digital-networks/" class="dropdown-item">1. Trust and Digital Networks</a>
-</li>
-                                    
-<li>
-    <a href="../02-cryptographic-foundations/" class="dropdown-item">2. Cryptographic Foundations</a>
-</li>
-                                    
-<li>
-    <a href="../03-keys-signatures-identity/" class="dropdown-item">3. Keys, Signatures, and Identity</a>
-</li>
-                                    
-<li>
-    <a href="../04-certificate-authorities-pki/" class="dropdown-item">4. Certificate Authorities and PKI</a>
-</li>
-                                    
-<li>
-    <a href="../05-distributed-systems-ledgers/" class="dropdown-item">5. Distributed Systems and Ledgers</a>
-</li>
-                                    
-<li>
-    <a href="../06-nodes-throughput-performance/" class="dropdown-item">6. Nodes, Throughput, and Performance</a>
-</li>
-                                    
-<li>
-    <a href="../07-consensus-mechanisms/" class="dropdown-item">7. Consensus Mechanisms</a>
-</li>
-                                    
-<li>
-    <a href="../08-mining-computational-economics/" class="dropdown-item">8. Mining and Computational Economics</a>
-</li>
-                                    
-<li>
-    <a href="../09-smart-contracts-tokens/" class="dropdown-item">9. Smart Contracts and Tokens</a>
-</li>
-                                    
-<li>
-    <a href="../10-blockchain-types-platforms/" class="dropdown-item">10. Blockchain Types and Platforms</a>
-</li>
-                                    
-<li>
-    <a href="../11-governance-and-scalability/" class="dropdown-item">11. Governance and Scalability</a>
-</li>
-                                    
-<li>
-    <a href="../12-cost-analysis-tco/" class="dropdown-item">12. Cost Analysis and TCO</a>
-</li>
-                                    
-<li>
-    <a href="./" class="dropdown-item active" aria-current="page">13. Architecture Tradeoff Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../14-risk-analysis-quality-attributes/" class="dropdown-item">14. Risk Analysis and Quality Attributes</a>
-</li>
-                                    
-<li>
-    <a href="../15-cognitive-bias-technology/" class="dropdown-item">15. Cognitive Bias in Technology</a>
-</li>
-                                    
-<li>
-    <a href="../16-evidence-based-evaluation/" class="dropdown-item">16. Evidence-Based Evaluation</a>
-</li>
-                                    
-<li>
-    <a href="../17-industry-case-studies/" class="dropdown-item">17. Industry Case Studies</a>
-</li>
-                                    
-<li>
-    <a href="../18-emerging-trust-technologies/" class="dropdown-item">18. Emerging Trust Technologies</a>
-</li>
-                                    
-<li>
-    <a href="../19-alternative-architectures-decisions/" class="dropdown-item">19. Alternative Architectures</a>
-</li>
-                                    
-<li>
-    <a href="../20-implementation-capstone/" class="dropdown-item">20. Implementation and Capstone</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Learning Graph</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../learning-graph/" class="dropdown-item">Introduction</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/course-description-assessment/" class="dropdown-item">Course Description Assessment</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/concept-list/" class="dropdown-item">Concept Enumeration</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/quality-metrics/" class="dropdown-item">Graph Quality Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/concept-taxonomy/" class="dropdown-item">Concept Taxonomy</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/taxonomy-distribution/" class="dropdown-item">Taxonomy Distribution Report</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">MicroSims</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../sims/graph-viewer/" class="dropdown-item">Graph Viewer</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../about/" class="nav-link">About</a>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../12-cost-analysis-tco/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../14-risk-analysis-quality-attributes/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="1"><a href="#architecture-tradeoff-analysis-method" class="nav-link">Architecture Tradeoff Analysis Method</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#summary" class="nav-link">Summary</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#concepts-covered" class="nav-link">Concepts Covered</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Architecture Tradeoff Analysis Method - Blockchain - The Skeptic's Guide" >
+      
+        <meta  property="og:description"  content="A systematic framework for comparing trust architectures using ATAM, quality attributes, utility trees, sensitivity points, and tradeoff points." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/blockchain/assets/images/social/chapters/13-architecture-tradeoff-analysis/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/blockchain/chapters/13-architecture-tradeoff-analysis/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Architecture Tradeoff Analysis Method - Blockchain - The Skeptic's Guide" >
+      
+        <meta  name="twitter:description"  content="A systematic framework for comparing trust architectures using ATAM, quality attributes, utility trees, sensitivity points, and tradeoff points." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/blockchain/assets/images/social/chapters/13-architecture-tradeoff-analysis/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#architecture-tradeoff-analysis-method" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Blockchain - The Skeptic&#39;s Guide" class="md-header__button md-logo" aria-label="Blockchain - The Skeptic's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Blockchain - The Skeptic's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Architecture Tradeoff Analysis Method
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/blockchain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Blockchain - The Skeptic&#39;s Guide" class="md-nav__button md-logo" aria-label="Blockchain - The Skeptic's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Blockchain - The Skeptic's Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/blockchain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-trust-and-digital-networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Trust and Digital Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-cryptographic-foundations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Cryptographic Foundations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-keys-signatures-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Keys, Signatures, and Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-certificate-authorities-pki/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Certificate Authorities and PKI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-distributed-systems-ledgers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Distributed Systems and Ledgers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-nodes-throughput-performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Nodes, Throughput, and Performance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-consensus-mechanisms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Consensus Mechanisms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-mining-computational-economics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Mining and Computational Economics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-smart-contracts-tokens/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Smart Contracts and Tokens
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-blockchain-types-platforms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Blockchain Types and Platforms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-governance-and-scalability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Governance and Scalability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-cost-analysis-tco/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Cost Analysis and TCO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    13. Architecture Tradeoff Analysis
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    13. Architecture Tradeoff Analysis
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-software-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Software Architecture?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-tradeoffs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture Tradeoffs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atam-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      ATAM Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Attributes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-attribute-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Attribute Scenarios
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utility-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utility Trees
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utility-tree-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utility Tree Construction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensitivity-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensitivity Points
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tradeoff-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tradeoff Points
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario Generation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-atam-process-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: ATAM Process Flow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applying-atam-to-trust-technology-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applying ATAM to Trust Technology Decisions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Applying ATAM to Trust Technology Decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-utility-tree-builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Utility Tree Builder
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-risk-analysis-quality-attributes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Risk Analysis and Quality Attributes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-cognitive-bias-technology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Cognitive Bias in Technology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-evidence-based-evaluation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Evidence-Based Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-industry-case-studies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Industry Case Studies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-emerging-trust-technologies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Emerging Trust Technologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-alternative-architectures-decisions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Alternative Architectures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-implementation-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Implementation and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-software-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Software Architecture?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-tradeoffs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture Tradeoffs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atam-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      ATAM Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Attributes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-attribute-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Attribute Scenarios
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utility-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utility Trees
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utility-tree-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utility Tree Construction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensitivity-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensitivity Points
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tradeoff-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tradeoff Points
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario Generation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-atam-process-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: ATAM Process Flow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applying-atam-to-trust-technology-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applying ATAM to Trust Technology Decisions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Applying ATAM to Trust Technology Decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-utility-tree-builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Utility Tree Builder
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/blockchain/edit/master/docs/chapters/13-architecture-tradeoff-analysis/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
 
 <h1 id="architecture-tradeoff-analysis-method">Architecture Tradeoff Analysis Method</h1>
 <h2 id="summary">Summary</h2>
@@ -251,82 +1654,621 @@
 <li><a href="../12-cost-analysis-tco/">Chapter 12: Cost Analysis and Total Cost of Ownership</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p></div>
-            </div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js"></script>
-        <script src="../../search/main.js"></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Rex Says: Trust, but Verify!</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Rex welcomes you">
+Welcome, fellow analysts! We have crunched the numbers on cost — now it is time to
+evaluate architecture with the same rigor. The Architecture Tradeoff Analysis Method
+gives us a structured process for comparing blockchain against alternatives. No more
+"blockchain feels right" — let's make it systematic. Trust, but verify — with a utility tree!</p>
+</div>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>After completing this chapter, you will be able to:</p>
+<ul>
+<li>Define software architecture and explain why architecture decisions are the most consequential and hardest to reverse</li>
+<li>Identify architecture tradeoffs specific to trust technology decisions</li>
+<li>Describe the ATAM process and its four phases</li>
+<li>Define quality attributes and explain how they drive architecture decisions</li>
+<li>Write well-formed quality attribute scenarios with all six components</li>
+<li>Construct a utility tree that prioritizes quality attributes for a specific trust technology evaluation</li>
+<li>Identify sensitivity points where small architecture changes significantly affect a quality attribute</li>
+<li>Identify tradeoff points where improving one quality attribute degrades another</li>
+<li>Use scenario generation to systematically explore architecture risks and benefits</li>
+</ul>
+<h2 id="what-is-software-architecture">What Is Software Architecture?</h2>
+<p><strong>Architecture</strong> is the set of fundamental structural decisions about a software system — the decisions that are expensive to change once made and that constrain all subsequent design choices. Architecture determines which components exist, how they communicate, what data they share, and where authority and trust boundaries lie.</p>
+<p>In the context of trust technologies, architecture decisions include:</p>
+<ul>
+<li>Whether to use a centralized database, a distributed ledger, or a hybrid approach</li>
+<li>Which consensus mechanism to employ (or whether consensus is needed at all)</li>
+<li>Where to place trust boundaries — who must trust whom, and for what</li>
+<li>How to handle identity, access control, and data privacy</li>
+<li>Whether to build on an existing platform or create a custom solution</li>
+</ul>
+<p>These decisions are not merely technical. They determine cost structure, operational complexity, regulatory exposure, vendor dependencies, and organizational governance. A poor architecture decision for a trust system can lock an organization into years of elevated cost and constrained flexibility.</p>
+<p>The key insight from software architecture research is that architecture decisions are primarily driven by <strong>quality attributes</strong> — not by functional requirements. Two systems that provide identical functionality (recording supply chain transactions, for example) can have radically different architectures depending on whether they prioritize performance, security, modifiability, or auditability. The functional requirement says <em>what</em> the system does; the architecture says <em>how well</em> it does it along multiple quality dimensions.</p>
+<h2 id="architecture-tradeoffs">Architecture Tradeoffs</h2>
+<p>An <strong>architecture tradeoff</strong> occurs when improving one quality attribute of a system necessarily degrades another. Tradeoffs are not bugs or design failures — they are inherent properties of the solution space. Every architecture embodies a set of tradeoffs, whether the architect recognizes them or not.</p>
+<p>Blockchain architectures are particularly rich in tradeoffs:</p>
+<table>
+<thead>
+<tr>
+<th>Tradeoff</th>
+<th>Improving...</th>
+<th>Degrades...</th>
+<th>Blockchain Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Decentralization vs. Performance</td>
+<td>Decentralization</td>
+<td>Transaction throughput</td>
+<td>Bitcoin processes ~7 TPS vs. Visa's ~65,000 TPS</td>
+</tr>
+<tr>
+<td>Immutability vs. Modifiability</td>
+<td>Data integrity</td>
+<td>Ability to correct errors</td>
+<td>Immutable records cannot be updated if data entry was wrong</td>
+</tr>
+<tr>
+<td>Transparency vs. Privacy</td>
+<td>Auditability</td>
+<td>Confidentiality</td>
+<td>Public ledger exposes transaction patterns</td>
+</tr>
+<tr>
+<td>Security vs. Usability</td>
+<td>Cryptographic assurance</td>
+<td>User experience</td>
+<td>Private key management creates user burden</td>
+</tr>
+<tr>
+<td>Consistency vs. Availability</td>
+<td>Data accuracy</td>
+<td>System uptime</td>
+<td>Consensus delays reduce availability during network partitions</td>
+</tr>
+</tbody>
+</table>
+<p>The scalability trilemma introduced in Chapter 11 is a specific instance of architecture tradeoff: a blockchain can optimize for at most two of decentralization, security, and scalability. ATAM provides the methodology to make these tradeoffs explicit, quantifiable, and comparable across candidate architectures.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+The most dangerous architecture decisions are the ones made implicitly. When a team
+chooses "blockchain" without a structured tradeoff analysis, they are accepting a
+specific set of tradeoffs without acknowledging them. ATAM forces these hidden
+tradeoffs into the open where they can be evaluated against actual priorities.</p>
+</div>
+<p>Recognizing tradeoffs is the first step toward rational architecture selection. The next step is having a method for deciding which tradeoffs are acceptable for a given context. That method is ATAM.</p>
+<h2 id="atam-overview">ATAM Overview</h2>
+<p>The <strong>Architecture Tradeoff Analysis Method (ATAM)</strong> is a structured evaluation process developed at the Software Engineering Institute (SEI) at Carnegie Mellon University. ATAM does not prescribe which architecture to choose — it provides a repeatable process for evaluating candidate architectures against stakeholder priorities, identifying risks, and making tradeoffs explicit.</p>
+<p>ATAM was originally designed for evaluating enterprise software architectures, but its principles apply directly to trust technology decisions. The method proceeds through four phases:</p>
+<p><strong>Phase 1: Presentation</strong></p>
+<ul>
+<li>The evaluation team presents the ATAM process</li>
+<li>The project team presents the business drivers and context</li>
+<li>The architect presents the candidate architecture(s)</li>
+</ul>
+<p><strong>Phase 2: Investigation and Analysis</strong></p>
+<ul>
+<li>Identify quality attributes that matter most (via utility tree construction)</li>
+<li>Generate quality attribute scenarios</li>
+<li>Analyze architecture responses to high-priority scenarios</li>
+</ul>
+<p><strong>Phase 3: Testing</strong></p>
+<ul>
+<li>Broader stakeholder group generates additional scenarios</li>
+<li>Prioritize the full scenario set</li>
+<li>Analyze architecture responses to new high-priority scenarios</li>
+</ul>
+<p><strong>Phase 4: Reporting</strong></p>
+<ul>
+<li>Document architectural decisions and their rationale</li>
+<li>Catalog risks, sensitivity points, and tradeoff points</li>
+<li>Present findings to stakeholders for decision-making</li>
+</ul>
+<p>For trust technology evaluations, ATAM is particularly valuable because it forces the comparison of blockchain and non-blockchain approaches against the same criteria. Rather than asking "should we use blockchain?" the method asks "which architecture best satisfies our prioritized quality attributes?" — a question that may or may not have blockchain as the answer.</p>
+<p>The adapted ATAM process for trust technology evaluation compares at least two candidate architectures:</p>
+<ul>
+<li><strong>Candidate A</strong> — a blockchain-based approach (public, private, or consortium)</li>
+<li><strong>Candidate B</strong> — a traditional centralized approach (database with appropriate security controls)</li>
+<li><strong>Candidate C</strong> (optional) — a hybrid or alternative distributed approach</li>
+</ul>
+<p>Each candidate is evaluated against the same set of quality attribute scenarios, producing a structured comparison rather than a one-sided technology advocacy.</p>
+<h2 id="quality-attributes">Quality Attributes</h2>
+<p>A <strong>quality attribute</strong> is a measurable property of a system that indicates how well it satisfies stakeholder needs beyond basic functionality. Quality attributes are sometimes called "non-functional requirements" or "-ilities" (scalability, reliability, availability, etc.), though neither term is entirely accurate — quality attributes are very much functional in the sense that they determine whether a system is fit for purpose.</p>
+<p>The quality attributes most relevant to trust technology evaluation include:</p>
+<ul>
+<li><strong>Performance</strong> — response time, throughput, and resource utilization under specified conditions</li>
+<li><strong>Security</strong> — the system's ability to resist unauthorized access, data breaches, and manipulation</li>
+<li><strong>Availability</strong> — the proportion of time the system is operational and accessible</li>
+<li><strong>Reliability</strong> — the probability of failure-free operation over a specified period</li>
+<li><strong>Modifiability</strong> — the cost and ease of making changes to the system after deployment</li>
+<li><strong>Maintainability</strong> — the cost and ease of keeping the system operational over its lifetime</li>
+<li><strong>Scalability</strong> — the system's ability to handle increased load without degradation</li>
+<li><strong>Auditability</strong> — the ease with which system operations can be verified by authorized parties</li>
+<li><strong>Interoperability</strong> — the system's ability to exchange data with other systems</li>
+</ul>
+<p>Different stakeholders prioritize these attributes differently. A compliance officer may prioritize auditability and security. A business owner may prioritize performance and scalability. A development team may prioritize modifiability and maintainability. ATAM makes these competing priorities explicit and provides a mechanism for resolving them.</p>
+<h2 id="quality-attribute-scenarios">Quality Attribute Scenarios</h2>
+<p>A <strong>quality attribute scenario</strong> is a precise, testable description of how a system should respond to a specific stimulus. Well-formed scenarios prevent vague requirements like "the system should be secure" from driving architecture decisions. Instead, they specify exactly what "secure" means in a particular context.</p>
+<p>Every quality attribute scenario has six components:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Source</strong></td>
+<td>Who or what generates the stimulus</td>
+<td>External attacker</td>
+</tr>
+<tr>
+<td><strong>Stimulus</strong></td>
+<td>The event or condition that triggers a response</td>
+<td>Attempts to modify a recorded transaction</td>
+</tr>
+<tr>
+<td><strong>Artifact</strong></td>
+<td>The part of the system that is affected</td>
+<td>Transaction ledger</td>
+</tr>
+<tr>
+<td><strong>Environment</strong></td>
+<td>The conditions under which the stimulus occurs</td>
+<td>Normal operation, peak load</td>
+</tr>
+<tr>
+<td><strong>Response</strong></td>
+<td>How the system should respond</td>
+<td>Detect and reject the modification attempt</td>
+</tr>
+<tr>
+<td><strong>Response measure</strong></td>
+<td>How to verify the response is adequate</td>
+<td>Modification detected within 1 block confirmation; zero successful modifications in audit log</td>
+</tr>
+</tbody>
+</table>
+<p>Here are three complete quality attribute scenarios relevant to a supply chain trust technology evaluation:</p>
+<p><strong>Scenario 1 — Performance:</strong>
+A supply chain partner (source) submits a batch of 500 transaction records (stimulus) to the shared ledger (artifact) during peak seasonal processing (environment). The system confirms all transactions (response) within 30 seconds with 99.9% success rate (response measure).</p>
+<p><strong>Scenario 2 — Security:</strong>
+A compromised consortium member (source) attempts to alter a historical shipment record (stimulus) in the shared ledger (artifact) during normal operations (environment). The system rejects the alteration and alerts all other members (response) within one consensus round, with zero successful undetected modifications over a 12-month audit period (response measure).</p>
+<p><strong>Scenario 3 — Modifiability:</strong>
+The regulatory team (source) requires adding a new data field to transaction records (stimulus) in the smart contract logic (artifact) during a scheduled maintenance window (environment). The development team implements and deploys the change (response) within 5 business days at a cost of under $10,000 (response measure).</p>
+<p>These scenarios become the basis for comparing architectures. A public blockchain might score excellently on Scenario 2 (security/immutability) but poorly on Scenario 1 (performance) and Scenario 3 (modifiability). A centralized database might show the opposite pattern. The utility tree, described next, provides the mechanism for weighting these differences.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Rex's Tip</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Rex shares a tip">
+The quality of an ATAM evaluation depends entirely on the quality of the scenarios.
+Vague scenarios produce vague evaluations. Always insist that every scenario includes
+all six components, with specific, measurable response measures. If a stakeholder
+says "it needs to be fast," respond with: "For whom, under what conditions, doing
+what, and how fast exactly?"</p>
+</div>
+<h2 id="utility-trees">Utility Trees</h2>
+<p>A <strong>utility tree</strong> is a hierarchical structure that organizes and prioritizes quality attributes for a specific architecture evaluation. The tree has "overall utility" at its root, quality attributes as major branches, refinements as sub-branches, and specific quality attribute scenarios as leaves. Each scenario leaf is annotated with two ratings: its importance to stakeholders and the difficulty of achieving it architecturally.</p>
+<p>The utility tree serves three critical purposes:</p>
+<ol>
+<li><strong>Prioritization</strong> — it forces stakeholders to rank quality attributes against each other, preventing the common failure mode of treating everything as equally important</li>
+<li><strong>Focus</strong> — it directs the evaluation team's limited time toward the scenarios that matter most</li>
+<li><strong>Traceability</strong> — it creates a documented link from business priorities to specific, testable quality requirements</li>
+</ol>
+<p>A simplified utility tree for a supply chain trust technology evaluation might look like:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code>Overall Utility
+├── Security (H)
+│   ├── Tamper resistance (H,H) → Scenario: Compromised member alters record
+│   ├── Access control (H,M) → Scenario: Unauthorized party reads private data
+│   └── Key management (M,H) → Scenario: Participant loses private key
+├── Performance (H)
+│   ├── Throughput (H,M) → Scenario: 500 transactions in 30 seconds
+│   ├── Latency (M,L) → Scenario: Single transaction confirmed in &lt;2 seconds
+│   └── Scalability (H,H) → Scenario: Double transaction volume in Year 2
+├── Modifiability (M)
+│   ├── Schema changes (M,H) → Scenario: Add new data field in 5 days
+│   ├── Business logic changes (M,H) → Scenario: Update validation rules
+│   └── Platform migration (L,H) → Scenario: Switch blockchain platforms
+├── Auditability (H)
+│   ├── Transaction tracing (H,L) → Scenario: Trace any item to origin
+│   └── Compliance reporting (H,M) → Scenario: Generate regulatory report
+└── Cost (H)
+    ├── Operating cost (H,M) → Scenario: Per-transaction cost under $0.10
+    └── Scaling cost (M,H) → Scenario: Cost increase &lt;50% when volume doubles
+</code></pre></div></td></tr></table></div>
+<p>In this notation, the pair (X,Y) represents (Importance, Difficulty), where H=High, M=Medium, L=Low. Scenarios rated (H,H) — high importance, high difficulty — are the most critical for the architecture evaluation because they represent areas where the stakes are high and the architecture choice matters most.</p>
+<h2 id="utility-tree-construction">Utility Tree Construction</h2>
+<p><strong>Utility tree construction</strong> is the collaborative process of building the utility tree with stakeholder input. This process is often the most valuable part of an ATAM evaluation because it surfaces disagreements about priorities that would otherwise remain hidden until deployment.</p>
+<p>The construction process follows these steps:</p>
+<ol>
+<li><strong>Identify quality attributes</strong> — brainstorm the full list of quality attributes relevant to the system</li>
+<li><strong>Refine into sub-attributes</strong> — break each quality attribute into specific, measurable aspects</li>
+<li><strong>Generate scenarios</strong> — write at least one quality attribute scenario for each sub-attribute</li>
+<li><strong>Rate importance</strong> — stakeholders collectively rate each scenario's importance (H/M/L)</li>
+<li><strong>Rate difficulty</strong> — the architecture team rates each scenario's technical difficulty (H/M/L)</li>
+<li><strong>Prioritize</strong> — select the (H,H) and (H,M) scenarios for detailed architecture analysis</li>
+</ol>
+<p>Common pitfalls in utility tree construction include:</p>
+<ul>
+<li><strong>Everything is "High"</strong> — if stakeholders rate every attribute as high importance, the tree provides no prioritization. Force ranking by limiting "High" ratings to no more than 40% of scenarios</li>
+<li><strong>Missing stakeholders</strong> — the tree reflects only the priorities of those in the room. Absent stakeholders (regulators, end users, operations staff) may have critical priorities that are overlooked</li>
+<li><strong>Technology bias</strong> — participants who have already decided on blockchain may unconsciously rate blockchain-friendly attributes higher. Use blind scenario evaluation when possible</li>
+<li><strong>Ignoring difficulty</strong> — a scenario that is important but trivially easy for all candidate architectures does not help distinguish between them. Focus analysis time on scenarios where difficulty varies across candidates</li>
+</ul>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Bias Alert</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Rex warns you">
+Watch for "utility tree gaming" — the practice of constructing a utility tree that
+guarantees a predetermined architecture wins. If the tree is built by blockchain
+advocates who rate immutability and decentralization as the only "High" attributes,
+the evaluation is rigged. Ensure the construction team includes skeptics and
+representatives from all stakeholder groups.</p>
+</div>
+<h2 id="sensitivity-points">Sensitivity Points</h2>
+<p>A <strong>sensitivity point</strong> is an architecture decision where a small change significantly affects a quality attribute. Identifying sensitivity points reveals where the architecture is fragile — where a minor design choice can make the difference between meeting and failing a quality requirement.</p>
+<p>In trust technology architectures, common sensitivity points include:</p>
+<table>
+<thead>
+<tr>
+<th>Sensitivity Point</th>
+<th>Small Change</th>
+<th>Large Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Block size</td>
+<td>Increase block size by 2x</td>
+<td>Throughput doubles but propagation delay increases, risking chain forks</td>
+</tr>
+<tr>
+<td>Consensus threshold</td>
+<td>Change from 2/3 to 3/4 agreement</td>
+<td>Security improves but latency and failure sensitivity increase significantly</td>
+</tr>
+<tr>
+<td>Node count</td>
+<td>Add 5 nodes to a 10-node consortium</td>
+<td>Consensus latency increases ~50%, but fault tolerance improves</td>
+</tr>
+<tr>
+<td>Smart contract complexity</td>
+<td>Add one external data dependency</td>
+<td>Introduces oracle risk, changes security model fundamentally</td>
+</tr>
+<tr>
+<td>Key management approach</td>
+<td>Move from software to hardware key storage</td>
+<td>Security improves dramatically but operational complexity and cost increase</td>
+</tr>
+</tbody>
+</table>
+<p>Sensitivity points are critical for architecture comparison because they reveal where candidate architectures diverge most. If a blockchain architecture has a sensitivity point at "number of consortium members" (where adding members dramatically degrades performance), and the business plan calls for growing the consortium from 5 to 50 members over three years, that sensitivity point represents a significant architecture risk.</p>
+<p>The formal identification of sensitivity points involves:</p>
+<ol>
+<li>For each high-priority quality attribute scenario, identify the architecture decisions that most affect the system's ability to meet that scenario</li>
+<li>For each identified decision, estimate the impact of small changes (typically +/- 20% parameter variation)</li>
+<li>Decisions where small changes produce large effects (disproportionate to the input change) are sensitivity points</li>
+</ol>
+<p>Sensitivity analysis often reveals that blockchain architectures have more sensitivity points than centralized alternatives, because distributed systems have more interacting parameters (node count, block size, consensus timeout, gas limits, replication factor) than centralized systems (server capacity, database configuration, cache size).</p>
+<h2 id="tradeoff-points">Tradeoff Points</h2>
+<p>A <strong>tradeoff point</strong> is an architecture decision that is simultaneously a sensitivity point for two or more quality attributes — where improving one attribute necessarily degrades another. Tradeoff points are the most important findings in an ATAM evaluation because they represent irreducible design tensions that cannot be resolved through better engineering, only through conscious prioritization.</p>
+<p>Classic blockchain tradeoff points include:</p>
+<p><strong>Block time tradeoff:</strong> Reducing block confirmation time (improving latency/performance) increases the probability of chain forks (degrading consistency/reliability). Bitcoin's 10-minute block time is a conservative choice that prioritizes consistency; Ethereum's ~12-second block time accepts more frequent reorganizations in exchange for faster confirmation.</p>
+<p><strong>Replication tradeoff:</strong> Increasing the number of full nodes (improving decentralization and fault tolerance) increases consensus latency, bandwidth consumption, and storage costs (degrading performance and cost efficiency). This is not a problem that can be solved — it is a property of distributed systems that must be accepted and managed.</p>
+<p><strong>Privacy-transparency tradeoff:</strong> Making transactions visible to all participants (improving auditability and transparency) directly conflicts with keeping business data confidential (privacy/security). Solutions like zero-knowledge proofs mitigate but do not eliminate this tradeoff, and they introduce their own costs in computational overhead and implementation complexity.</p>
+<p>Tradeoff points can be documented in a tradeoff matrix:</p>
+<table>
+<thead>
+<tr>
+<th>Decision</th>
+<th>Attribute A (Effect)</th>
+<th>Attribute B (Effect)</th>
+<th>Tradeoff Direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Decrease block time</td>
+<td>Performance (+)</td>
+<td>Consistency (-)</td>
+<td>Cannot improve both</td>
+</tr>
+<tr>
+<td>Add consortium members</td>
+<td>Fault tolerance (+)</td>
+<td>Consensus latency (-)</td>
+<td>Cannot improve both</td>
+</tr>
+<tr>
+<td>Enable on-chain privacy</td>
+<td>Security (+)</td>
+<td>Auditability (-)</td>
+<td>Cannot improve both</td>
+</tr>
+<tr>
+<td>Increase block size</td>
+<td>Throughput (+)</td>
+<td>Decentralization (-)</td>
+<td>Cannot improve both</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+A tradeoff point where the competing attributes have different priority levels in
+the utility tree is easy to resolve — favor the higher-priority attribute. The hard
+cases are tradeoff points where both competing attributes are rated (H) by stakeholders.
+These are the decisions that define the architecture and require explicit executive
+sponsorship, not technical committee consensus.</p>
+</div>
+<h2 id="scenario-generation">Scenario Generation</h2>
+<p><strong>Scenario generation</strong> is the systematic process of creating quality attribute scenarios that explore the full range of conditions a trust architecture must handle. While utility tree construction produces scenarios from the evaluation team's existing knowledge, scenario generation techniques help uncover scenarios that might otherwise be missed.</p>
+<p>Three complementary approaches to scenario generation are:</p>
+<p><strong>Growth scenarios</strong> explore how the system must evolve:</p>
+<ul>
+<li>What happens when transaction volume grows 10x?</li>
+<li>What happens when 5 new consortium members join?</li>
+<li>What happens when regulatory requirements change?</li>
+<li>What happens when the underlying blockchain platform releases a breaking upgrade?</li>
+</ul>
+<p><strong>Exploratory scenarios</strong> probe unusual or extreme conditions:</p>
+<ul>
+<li>What happens if the longest-running node goes offline for 48 hours?</li>
+<li>What happens if gas prices spike 100x during a critical business process?</li>
+<li>What happens if a smart contract vulnerability is discovered?</li>
+<li>What happens if a consortium member is acquired by a competitor?</li>
+</ul>
+<p><strong>Failure scenarios</strong> examine system behavior under adverse conditions:</p>
+<ul>
+<li>What happens if the consensus mechanism fails to reach agreement?</li>
+<li>What happens if a participant deliberately submits invalid transactions?</li>
+<li>What happens if the network is partitioned by a connectivity failure?</li>
+<li>What happens if the development team maintaining the smart contracts disbands?</li>
+</ul>
+<p>Each generated scenario should be evaluated against all candidate architectures. The architecture that handles the most high-priority scenarios well — not the architecture that excels at one scenario at the expense of others — is generally the strongest choice.</p>
+<h4 id="diagram-atam-process-flow">Diagram: ATAM Process Flow</h4>
+<details>
+<summary>Interactive ATAM Process Flow for Trust Technology Evaluation</summary>
+<p>Type: Diagram
+<strong>sim-id:</strong> atam-process-flow<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective:</strong> Apply (L3) — Walk through the four phases of ATAM as applied to a trust technology evaluation, understanding the inputs, activities, and outputs of each phase.</p>
+<p><strong>Description:</strong> An interactive flowchart showing the four ATAM phases as large horizontal swim lanes. Each phase contains activity boxes connected by arrows. Phase 1 shows "Present Business Drivers" and "Present Candidate Architectures" (blockchain and traditional). Phase 2 shows "Construct Utility Tree," "Generate Scenarios," and "Analyze Architecture Responses." Phase 3 shows "Stakeholder Scenario Generation" and "Scenario Prioritization." Phase 4 shows "Document Risks," "Document Sensitivity Points," "Document Tradeoff Points," and "Present Recommendations." Clicking on any activity box reveals a tooltip with a trust-technology-specific example. A "Step Through" button advances through the phases one at a time, highlighting the current phase and dimming completed ones.</p>
+<p><strong>Canvas:</strong> Responsive width, 550px height. Background: aliceblue.</p>
+<p><strong>Controls:</strong></p>
+<ul>
+<li>Button: "Step Through" to advance phases</li>
+<li>Button: "Reset" to return to overview</li>
+<li>Click any activity box for detailed tooltip</li>
+</ul>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>4 horizontal swim lanes with phase labels</li>
+<li>Activity boxes with rounded corners</li>
+<li>Connecting arrows showing process flow</li>
+<li>Highlighted current phase with subtle animation</li>
+<li>Tooltip panels with trust technology examples</li>
+<li>Progress indicator showing current phase</li>
+</ul>
+<p>Implementation: p5.js with responsive canvas, click detection, phase animation</p>
+</details>
+<h2 id="applying-atam-to-trust-technology-decisions">Applying ATAM to Trust Technology Decisions</h2>
+<p>The real power of ATAM emerges when it is applied to a concrete trust technology decision. Consider an organization evaluating three candidate architectures for a multi-party invoice reconciliation system:</p>
+<p><strong>Candidate A: Public Blockchain (Ethereum Layer 2)</strong></p>
+<ul>
+<li>Transactions recorded on an Ethereum rollup</li>
+<li>Smart contracts enforce validation rules</li>
+<li>All participants run light clients</li>
+</ul>
+<p><strong>Candidate B: Consortium Blockchain (Hyperledger Fabric)</strong></p>
+<ul>
+<li>Private network with member organizations as peers</li>
+<li>Chaincode implements business logic</li>
+<li>Ordering service managed by a neutral party</li>
+</ul>
+<p><strong>Candidate C: Shared Database with Cryptographic Proofs</strong></p>
+<ul>
+<li>PostgreSQL database hosted by a neutral operator</li>
+<li>Merkle tree proofs provide tamper evidence</li>
+<li>API access controlled by mutual TLS</li>
+</ul>
+<p>Evaluating the (H,H) scenario "500 transactions in 30 seconds during peak load":</p>
+<ul>
+<li>Candidate A: Depends on L2 throughput; likely achievable but gas costs spike under load</li>
+<li>Candidate B: Achievable with proper network sizing; latency is predictable</li>
+<li>Candidate C: Easily achievable; standard database performance</li>
+</ul>
+<p>Evaluating the (H,H) scenario "compromised member attempts to alter historical record":</p>
+<ul>
+<li>Candidate A: Cryptographically impossible once finalized on L1; strongest guarantee</li>
+<li>Candidate B: Requires consensus collusion; strong but not as absolute as public chain</li>
+<li>Candidate C: Detectable via Merkle proof verification; requires trust in database operator for prevention</li>
+</ul>
+<p>This structured comparison — same scenarios, same criteria, different architectures — is what ATAM provides that ad hoc technology evaluation cannot.</p>
+<h4 id="diagram-utility-tree-builder">Diagram: Utility Tree Builder</h4>
+<details>
+<summary>Interactive Utility Tree Builder for Trust Architecture Evaluation</summary>
+<p>Type: MicroSim
+<strong>sim-id:</strong> utility-tree-builder<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective:</strong> Create (L6) — Construct a utility tree for a trust technology evaluation by selecting quality attributes, adding scenario leaves, and assigning importance/difficulty ratings.</p>
+<p><strong>Description:</strong> An interactive tree-building tool where students construct a utility tree from scratch. The root node "Overall Utility" is pre-placed at the top. Students click "Add Branch" to create quality attribute branches (selecting from a predefined list: Performance, Security, Availability, Modifiability, Auditability, Cost). Under each branch, they can add sub-attribute nodes and attach scenario leaves. Each leaf node has dropdown selectors for Importance (H/M/L) and Difficulty (H/M/L). Nodes rated (H,H) are highlighted in red; (H,M) in orange; others in gray. A summary panel on the right lists all (H,H) and (H,M) scenarios that should receive detailed architecture analysis. The tree is displayed as an expandable/collapsible hierarchy.</p>
+<p><strong>Canvas:</strong> Responsive width, 600px height. Background: aliceblue.</p>
+<p><strong>Controls:</strong></p>
+<ul>
+<li>Button: "Add Quality Attribute Branch"</li>
+<li>Button: "Add Sub-Attribute" (when branch is selected)</li>
+<li>Button: "Add Scenario" (when sub-attribute is selected)</li>
+<li>Select dropdowns: Importance (H/M/L), Difficulty (H/M/L)</li>
+<li>Button: "Reset Tree"</li>
+<li>Button: "Show Priority Summary"</li>
+</ul>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>Tree nodes as rounded rectangles with labels</li>
+<li>Color coding by priority: red (H,H), orange (H,M), gray (other)</li>
+<li>Connecting lines between parent and child nodes</li>
+<li>Selected node highlighted with border</li>
+<li>Summary panel listing high-priority scenarios</li>
+<li>Expand/collapse indicators on branch nodes</li>
+</ul>
+<p>Implementation: p5.js with responsive canvas, tree layout algorithm, click-to-select interaction</p>
+</details>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>This chapter introduced ATAM as a systematic framework for trust technology architecture evaluation:</p>
+<ul>
+<li><strong>Architecture</strong> decisions are the most consequential and hardest to reverse — they deserve structured analysis, not gut instinct</li>
+<li><strong>Architecture tradeoffs</strong> are inherent in every design — blockchain architectures are particularly rich in tradeoffs between decentralization, performance, privacy, and cost</li>
+<li><strong>ATAM</strong> provides a four-phase process that transforms subjective technology preferences into evidence-based comparisons</li>
+<li><strong>Quality attributes</strong> (performance, security, availability, modifiability, auditability) drive architecture decisions more than functional requirements</li>
+<li><strong>Quality attribute scenarios</strong> with all six components (source, stimulus, artifact, environment, response, response measure) prevent vague requirements from distorting evaluations</li>
+<li><strong>Utility trees</strong> prioritize quality attributes and focus evaluation on the scenarios that matter most — especially (H,H) scenarios where importance and difficulty are both high</li>
+<li><strong>Sensitivity points</strong> reveal where small architecture changes produce large quality attribute effects</li>
+<li><strong>Tradeoff points</strong> identify irreducible tensions where improving one attribute necessarily degrades another</li>
+<li><strong>Scenario generation</strong> (growth, exploratory, failure) systematically uncovers architecture risks that initial analysis might miss</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Excellent Analytical Work!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Rex celebrates">
+You now have a structured methodology for comparing trust architectures on equal
+terms. No more "blockchain because blockchain" — now it is "this architecture because
+it best satisfies our prioritized quality attributes as demonstrated through scenario
+analysis." In the next chapter, we will extend ATAM with risk analysis and dive deeper
+into individual quality attributes. Outstanding progress, fellow analyst!</p>
 </div>
 
-    </body>
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../12-cost-analysis-tco/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 12. Cost Analysis and TCO">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                12. Cost Analysis and TCO
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../14-risk-analysis-quality-attributes/" class="md-footer__link md-footer__link--next" aria-label="Next: 14. Risk Analysis and Quality Attributes">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                14. Risk Analysis and Quality Attributes
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
 </html>

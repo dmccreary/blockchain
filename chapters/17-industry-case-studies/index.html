@@ -1,232 +1,1551 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Real-world blockchain deployments across supply chain, healthcare, financial services, e-commerce, and retail, analyzing factors that led to successful adoption or project failure.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/blockchain/chapters/17-industry-case-studies/">
+      
+      
+        <link rel="prev" href="../16-evidence-based-evaluation/">
+      
+      
+        <link rel="next" href="../18-emerging-trust-technologies/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Industry Case Studies - Blockchain - The Skeptic's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
         
-        
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>17. Industry Case Studies - Blockchain - The Skeptic's Guide</title>
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../../css/brands.min.css" rel="stylesheet">
-        <link href="../../css/solid.min.css" rel="stylesheet">
-        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <link href="../../css/mascot.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="../..">Blockchain - The Skeptic's Guide</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item">
-                                <a href="../.." class="nav-link">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../course-description/" class="nav-link">Course Description</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Chapters</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../" class="dropdown-item">List of Chapters</a>
-</li>
-                                    
-<li>
-    <a href="../01-trust-and-digital-networks/" class="dropdown-item">1. Trust and Digital Networks</a>
-</li>
-                                    
-<li>
-    <a href="../02-cryptographic-foundations/" class="dropdown-item">2. Cryptographic Foundations</a>
-</li>
-                                    
-<li>
-    <a href="../03-keys-signatures-identity/" class="dropdown-item">3. Keys, Signatures, and Identity</a>
-</li>
-                                    
-<li>
-    <a href="../04-certificate-authorities-pki/" class="dropdown-item">4. Certificate Authorities and PKI</a>
-</li>
-                                    
-<li>
-    <a href="../05-distributed-systems-ledgers/" class="dropdown-item">5. Distributed Systems and Ledgers</a>
-</li>
-                                    
-<li>
-    <a href="../06-nodes-throughput-performance/" class="dropdown-item">6. Nodes, Throughput, and Performance</a>
-</li>
-                                    
-<li>
-    <a href="../07-consensus-mechanisms/" class="dropdown-item">7. Consensus Mechanisms</a>
-</li>
-                                    
-<li>
-    <a href="../08-mining-computational-economics/" class="dropdown-item">8. Mining and Computational Economics</a>
-</li>
-                                    
-<li>
-    <a href="../09-smart-contracts-tokens/" class="dropdown-item">9. Smart Contracts and Tokens</a>
-</li>
-                                    
-<li>
-    <a href="../10-blockchain-types-platforms/" class="dropdown-item">10. Blockchain Types and Platforms</a>
-</li>
-                                    
-<li>
-    <a href="../11-governance-and-scalability/" class="dropdown-item">11. Governance and Scalability</a>
-</li>
-                                    
-<li>
-    <a href="../12-cost-analysis-tco/" class="dropdown-item">12. Cost Analysis and TCO</a>
-</li>
-                                    
-<li>
-    <a href="../13-architecture-tradeoff-analysis/" class="dropdown-item">13. Architecture Tradeoff Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../14-risk-analysis-quality-attributes/" class="dropdown-item">14. Risk Analysis and Quality Attributes</a>
-</li>
-                                    
-<li>
-    <a href="../15-cognitive-bias-technology/" class="dropdown-item">15. Cognitive Bias in Technology</a>
-</li>
-                                    
-<li>
-    <a href="../16-evidence-based-evaluation/" class="dropdown-item">16. Evidence-Based Evaluation</a>
-</li>
-                                    
-<li>
-    <a href="./" class="dropdown-item active" aria-current="page">17. Industry Case Studies</a>
-</li>
-                                    
-<li>
-    <a href="../18-emerging-trust-technologies/" class="dropdown-item">18. Emerging Trust Technologies</a>
-</li>
-                                    
-<li>
-    <a href="../19-alternative-architectures-decisions/" class="dropdown-item">19. Alternative Architectures</a>
-</li>
-                                    
-<li>
-    <a href="../20-implementation-capstone/" class="dropdown-item">20. Implementation and Capstone</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Learning Graph</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../learning-graph/" class="dropdown-item">Introduction</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/course-description-assessment/" class="dropdown-item">Course Description Assessment</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/concept-list/" class="dropdown-item">Concept Enumeration</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/quality-metrics/" class="dropdown-item">Graph Quality Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/concept-taxonomy/" class="dropdown-item">Concept Taxonomy</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/taxonomy-distribution/" class="dropdown-item">Taxonomy Distribution Report</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">MicroSims</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../sims/graph-viewer/" class="dropdown-item">Graph Viewer</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../about/" class="nav-link">About</a>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../16-evidence-based-evaluation/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../18-emerging-trust-technologies/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="1"><a href="#industry-case-studies" class="nav-link">Industry Case Studies</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#summary" class="nav-link">Summary</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#concepts-covered" class="nav-link">Concepts Covered</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Industry Case Studies - Blockchain - The Skeptic's Guide" >
+      
+        <meta  property="og:description"  content="Real-world blockchain deployments across supply chain, healthcare, financial services, e-commerce, and retail, analyzing factors that led to successful adoption or project failure." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/blockchain/assets/images/social/chapters/17-industry-case-studies/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/blockchain/chapters/17-industry-case-studies/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Industry Case Studies - Blockchain - The Skeptic's Guide" >
+      
+        <meta  name="twitter:description"  content="Real-world blockchain deployments across supply chain, healthcare, financial services, e-commerce, and retail, analyzing factors that led to successful adoption or project failure." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/blockchain/assets/images/social/chapters/17-industry-case-studies/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#industry-case-studies" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Blockchain - The Skeptic&#39;s Guide" class="md-header__button md-logo" aria-label="Blockchain - The Skeptic's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Blockchain - The Skeptic's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Industry Case Studies
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/blockchain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Blockchain - The Skeptic&#39;s Guide" class="md-nav__button md-logo" aria-label="Blockchain - The Skeptic's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Blockchain - The Skeptic's Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/blockchain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-trust-and-digital-networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Trust and Digital Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-cryptographic-foundations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Cryptographic Foundations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-keys-signatures-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Keys, Signatures, and Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-certificate-authorities-pki/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Certificate Authorities and PKI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-distributed-systems-ledgers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Distributed Systems and Ledgers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-nodes-throughput-performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Nodes, Throughput, and Performance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-consensus-mechanisms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Consensus Mechanisms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-mining-computational-economics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Mining and Computational Economics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-smart-contracts-tokens/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Smart Contracts and Tokens
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-blockchain-types-platforms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Blockchain Types and Platforms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-governance-and-scalability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Governance and Scalability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-cost-analysis-tco/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Cost Analysis and TCO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-architecture-tradeoff-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Architecture Tradeoff Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-risk-analysis-quality-attributes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Risk Analysis and Quality Attributes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-cognitive-bias-technology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Cognitive Bias in Technology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-evidence-based-evaluation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Evidence-Based Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    17. Industry Case Studies
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    17. Industry Case Studies
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#case-study-analysis-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Case Study Analysis Method
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supply-chain-use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supply Chain Use Case
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#healthcare-use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Healthcare Use Case
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#financial-services-use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Financial Services Use Case
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-commerce-use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      E-Commerce Use Case
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retail-use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retail Use Case
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#successful-adoption-factors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Successful Adoption Factors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failed-project-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Failed Project Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failed Project Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-case-study-analysis-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Case Study Analysis Dashboard
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-emerging-trust-technologies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Emerging Trust Technologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-alternative-architectures-decisions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Alternative Architectures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-implementation-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Implementation and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#case-study-analysis-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Case Study Analysis Method
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supply-chain-use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supply Chain Use Case
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#healthcare-use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Healthcare Use Case
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#financial-services-use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Financial Services Use Case
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-commerce-use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      E-Commerce Use Case
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retail-use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retail Use Case
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#successful-adoption-factors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Successful Adoption Factors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failed-project-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Failed Project Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failed Project Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-case-study-analysis-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Case Study Analysis Dashboard
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/blockchain/edit/master/docs/chapters/17-industry-case-studies/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
 
 <h1 id="industry-case-studies">Industry Case Studies</h1>
 <h2 id="summary">Summary</h2>
@@ -251,82 +1570,531 @@
 <li><a href="../16-evidence-based-evaluation/">Chapter 16: Evidence-Based Evaluation</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p></div>
-            </div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js"></script>
-        <script src="../../search/main.js"></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Rex Says: Trust, but Verify!</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Rex welcomes you">
+Welcome, fellow analysts! Theory is important, but the real test of any
+framework is how it holds up against reality. In this chapter, we examine
+actual blockchain deployments — the successes, the failures, and the messy
+middle ground. No cherry-picking: we look at what the evidence actually
+shows. Trust, but verify — especially when millions of dollars are at stake!</p>
+</div>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>After completing this chapter, you will be able to:</p>
+<ul>
+<li>Apply a structured case study analysis method to evaluate real-world blockchain deployments</li>
+<li>Assess blockchain use cases in supply chain, healthcare, financial services, e-commerce, and retail using evidence-based criteria</li>
+<li>Identify the common factors that distinguish successful blockchain adoptions from failed projects</li>
+<li>Analyze failed blockchain projects to extract transferable lessons about technology selection and organizational readiness</li>
+<li>Determine when centralized alternatives provide superior value compared to blockchain solutions</li>
+</ul>
+<h2 id="case-study-analysis-method">Case Study Analysis Method</h2>
+<p><strong>Case study analysis</strong> is a structured approach to examining real-world technology deployments to extract generalizable lessons. Unlike anecdotes or vendor success stories, rigorous case study analysis requires examining multiple data sources, identifying confounding factors, and distinguishing between outcomes attributable to the technology itself and outcomes attributable to the organizational changes that accompanied it.</p>
+<p>For each case study in this chapter, we apply a consistent analytical framework:</p>
+<ol>
+<li><strong>Problem context</strong> — What business problem was the organization trying to solve?</li>
+<li><strong>Architecture decision</strong> — Why was blockchain selected over alternatives? What alternatives were considered?</li>
+<li><strong>Implementation details</strong> — What platform, consensus mechanism, and integration approach were used?</li>
+<li><strong>Measured outcomes</strong> — What quantifiable results were reported? By whom? Were they independently verified?</li>
+<li><strong>Counterfactual analysis</strong> — Could the same outcomes have been achieved with a simpler architecture?</li>
+<li><strong>Lessons extracted</strong> — What transferable insights does this case provide for other organizations?</li>
+</ol>
+<p>The counterfactual question is the most important and the most frequently omitted. When Walmart reports that blockchain reduced food traceability time from 7 days to 2.2 seconds, the evidence-based analyst asks: how much of that improvement came from the blockchain specifically, and how much came from the process standardization and digitization that the blockchain project forced suppliers to adopt? If the same supplier standardization had been implemented with a centralized database, would the result have been materially different?</p>
+<table>
+<thead>
+<tr>
+<th>Analysis Dimension</th>
+<th>Questions to Ask</th>
+<th>Common Pitfalls</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Problem context</td>
+<td>Was the problem clearly defined before the solution?</td>
+<td>Solution-first thinking; vague problem statements</td>
+</tr>
+<tr>
+<td>Architecture decision</td>
+<td>Were non-blockchain alternatives evaluated?</td>
+<td>Blockchain assumed without comparative analysis</td>
+</tr>
+<tr>
+<td>Implementation</td>
+<td>What was the actual scale (users, transactions, nodes)?</td>
+<td>Conflating pilot scale with production claims</td>
+</tr>
+<tr>
+<td>Outcomes</td>
+<td>Are outcomes independently verified or self-reported?</td>
+<td>Accepting vendor-reported metrics uncritically</td>
+</tr>
+<tr>
+<td>Counterfactual</td>
+<td>Could a simpler system produce the same result?</td>
+<td>Attributing all benefits to blockchain specifically</td>
+</tr>
+</tbody>
+</table>
+<h2 id="supply-chain-use-case">Supply Chain Use Case</h2>
+<p>The <strong>supply chain use case</strong> is the most frequently cited success story for enterprise blockchain, and it has the strongest evidence base of any blockchain application domain. Supply chains involve multiple independent parties — manufacturers, shippers, distributors, retailers — who need to share data without a single natural trusted intermediary.</p>
+<p><strong>Case Study: Walmart and IBM Food Trust</strong></p>
+<p>Walmart's food traceability initiative, built on IBM's Hyperledger Fabric platform, is the most thoroughly documented enterprise blockchain deployment. The initiative began in 2016 with a pilot tracking mangoes from farm to store and expanded to require all suppliers of leafy greens to upload traceability data by September 2019.</p>
+<ul>
+<li><strong>Problem:</strong> Following multiple food contamination incidents (including a 2018 romaine lettuce E. coli outbreak), Walmart needed to trace the origin of food products across its supply chain in hours rather than days</li>
+<li><strong>Architecture:</strong> Hyperledger Fabric permissioned blockchain with IBM Food Trust platform; suppliers upload data at each supply chain stage</li>
+<li><strong>Measured outcome:</strong> Traceability time for mangoes reduced from 6 days 18 hours to 2.2 seconds (Walmart-reported)</li>
+<li><strong>Scale:</strong> Over 25,000 products tracked by 2023, involving hundreds of suppliers</li>
+<li><strong>Counterfactual:</strong> The dramatic improvement came primarily from requiring suppliers to digitize and standardize their record-keeping. A centralized database with supplier API integration could potentially achieve similar traceability speed. The blockchain's value proposition is in providing a shared infrastructure that no single party controls — important when multiple competing retailers may eventually share the same platform.</li>
+</ul>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+Walmart's food traceability case shows something important: the biggest
+benefit often comes from the process change, not the technology. Requiring
+suppliers to digitize their records at every stage was transformative —
+the blockchain provided the incentive structure for that transformation,
+but a centralized database might have provided the same traceability speed.</p>
+</div>
+<p><strong>Case Study: Maersk and TradeLens</strong></p>
+<p>TradeLens, a blockchain platform developed by IBM and shipping giant Maersk, aimed to digitize global trade documentation and reduce the estimated $1.8 trillion in annual supply chain friction costs. Launched in 2018, TradeLens was shut down in late 2022.</p>
+<ul>
+<li><strong>Problem:</strong> Global shipping involves dozens of paper documents per container, processed by multiple parties (shippers, ports, customs, banks)</li>
+<li><strong>Architecture:</strong> Hyperledger Fabric permissioned blockchain for shared document management</li>
+<li><strong>Outcome:</strong> Despite processing over 2 billion shipping events and integrating with several major carriers, TradeLens failed to achieve critical mass. Key competitors (MSC, CMA CGM) refused to join a platform controlled by their largest rival.</li>
+<li><strong>Failure factor:</strong> The governance problem — competitors would not participate in a network where Maersk had architectural influence. The technology worked; the organizational incentives did not.</li>
+</ul>
+<p>This case illustrates a principle that recurs throughout enterprise blockchain: the technology is rarely the bottleneck. Governance, incentive alignment, and competitive dynamics determine success or failure far more often than consensus mechanism performance or smart contract capability.</p>
+<h2 id="healthcare-use-case">Healthcare Use Case</h2>
+<p>The <strong>healthcare use case</strong> involves sharing patient records, clinical trial data, and insurance claims across organizations that operate under strict regulatory requirements including HIPAA (in the United States) and GDPR (in Europe). Healthcare is often cited as a promising blockchain domain because it involves multiple untrusting parties (hospitals, insurers, pharmacies, patients) who need to share sensitive data.</p>
+<p><strong>Case Study: MedRec (MIT Research Project)</strong></p>
+<p>MedRec, developed at MIT, proposed using an Ethereum-based blockchain to give patients control over their medical records and provide a unified view of their health data across providers.</p>
+<ul>
+<li><strong>Problem:</strong> Patient medical records are fragmented across providers, making care coordination difficult and creating data integrity risks</li>
+<li><strong>Architecture:</strong> Ethereum blockchain storing metadata and access permissions; actual medical data stored off-chain in provider systems</li>
+<li><strong>Outcome:</strong> MedRec demonstrated technical feasibility in a research context but has not achieved production deployment at scale</li>
+<li><strong>Counterfactual:</strong> Health information exchanges (HIEs) using centralized or federated database architectures already facilitate cross-provider data sharing in many regions, operating under established regulatory frameworks</li>
+</ul>
+<p><strong>Case Study: Hashed Health and Change Healthcare</strong></p>
+<p>Several companies have pursued blockchain for healthcare claims processing and provider credentialing.</p>
+<ul>
+<li><strong>Problem:</strong> Provider credentialing (verifying a doctor's qualifications) takes an average of 90-120 days due to manual verification across multiple sources</li>
+<li><strong>Architecture:</strong> Permissioned blockchain storing verified credential attestations that multiple organizations can query</li>
+<li><strong>Outcome:</strong> Pilot programs demonstrated reduced credentialing time, but widespread adoption remains limited due to regulatory uncertainty and integration complexity with existing systems</li>
+<li><strong>Critical issue:</strong> HIPAA's strict data handling requirements create significant compliance challenges for blockchain architectures where data, even encrypted, is replicated across nodes</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Healthcare Blockchain Challenge</th>
+<th>Explanation</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HIPAA compliance</td>
+<td>Patient data on shared ledgers raises data handling questions</td>
+<td>High — potential regulatory violation</td>
+</tr>
+<tr>
+<td>Right to deletion</td>
+<td>GDPR/state laws may require data deletion; blockchain is immutable</td>
+<td>High — fundamental architecture conflict</td>
+</tr>
+<tr>
+<td>Data volume</td>
+<td>Medical imaging and genomic data are too large for blockchain storage</td>
+<td>Medium — forces off-chain storage patterns</td>
+</tr>
+<tr>
+<td>Interoperability standards</td>
+<td>HL7 FHIR already provides healthcare data exchange standards</td>
+<td>Medium — blockchain must integrate with existing standards</td>
+</tr>
+<tr>
+<td>Organizational inertia</td>
+<td>Hospitals have massive sunk costs in existing EHR systems</td>
+<td>High — adoption barrier</td>
+</tr>
+</tbody>
+</table>
+<p>The evidence suggests that healthcare blockchain's primary value may be limited to specific niches — credential verification, clinical trial audit trails, and consent management — rather than the wholesale transformation of health data exchange that early proponents envisioned.</p>
+<h2 id="financial-services-use-case">Financial Services Use Case</h2>
+<p><strong>Financial services</strong> was one of the earliest target industries for blockchain, driven by the premise that distributed ledgers could reduce settlement times, lower transaction costs, and eliminate intermediaries. The evidence from actual deployments is mixed.</p>
+<p><strong>Case Study: JPMorgan's Onyx and JPM Coin</strong></p>
+<p>JPMorgan launched its Onyx blockchain platform and JPM Coin stablecoin for institutional payments in 2020.</p>
+<ul>
+<li><strong>Problem:</strong> Cross-border wholesale payments between institutional clients involve multiple intermediaries, multi-day settlement, and significant trapped liquidity</li>
+<li><strong>Architecture:</strong> Quorum-based (Ethereum fork) permissioned blockchain for institutional transactions; JPM Coin represents fiat deposits for settlement</li>
+<li><strong>Measured outcome:</strong> By 2023, Onyx processed over $700 billion in short-term loan transactions and facilitated around $1 billion per day in JPM Coin transfers</li>
+<li><strong>Counterfactual:</strong> The success of JPM Coin relies heavily on JPMorgan's institutional relationships and regulatory standing — it is essentially a digital payment rail operated by a trusted bank. Whether the blockchain component provides significant advantages over a traditional real-time gross settlement system operated by the same bank remains debated.</li>
+</ul>
+<p><strong>Case Study: Australian Securities Exchange (ASX) CHESS Replacement</strong></p>
+<p>The ASX announced in 2017 that it would replace its equity clearing and settlement system (CHESS) with a blockchain-based system developed by Digital Asset Holdings.</p>
+<ul>
+<li><strong>Problem:</strong> CHESS, built in the 1990s, needed modernization to support faster settlement and better data access for participants</li>
+<li><strong>Architecture:</strong> Digital Asset's DAML smart contract language on a permissioned distributed ledger</li>
+<li><strong>Outcome:</strong> After multiple delays and over $170 million in development costs, the ASX abandoned the blockchain replacement in November 2022, writing off the entire investment. An independent review by Accenture found "significant technology, governance and delivery shortcomings."</li>
+<li><strong>Lesson:</strong> This is the most expensive documented blockchain failure. The project attempted to replace a functioning, mission-critical system with an immature technology at enterprise scale — violating the principle of incremental adoption.</li>
+</ul>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Bias Alert</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Rex warns you">
+The ASX CHESS failure cost over $170 million. When evaluating blockchain
+proposals for mission-critical systems, remember: the risk of replacing a
+working system with unproven technology is not just the cost of the new
+system — it is the cost of failure of the old system during transition.
+Always ask: "What happens if this does not work?"</p>
+</div>
+<p><strong>Case Study: Central Bank Digital Currencies (CBDCs)</strong></p>
+<p>Over 130 countries are exploring or piloting CBDCs as of 2025. While not all CBDCs use blockchain technology, many incorporate distributed ledger elements.</p>
+<ul>
+<li><strong>China's e-CNY</strong> has processed over $250 billion in transactions through pilots in multiple cities, but uses a centralized architecture with distributed elements rather than a true blockchain</li>
+<li><strong>The Bahamas' Sand Dollar</strong> launched in 2020 as the first national CBDC, built on a private blockchain, but adoption remains low due to limited merchant acceptance</li>
+<li><strong>The European Central Bank's digital euro</strong> is in its preparation phase, with decisions about the underlying technology still under evaluation</li>
+</ul>
+<p>The CBDC evidence suggests that central banks consistently choose centralized or hybrid architectures over fully decentralized designs — reinforcing the pattern that institutions with existing trust authority rarely need the full cost of decentralization.</p>
+<h2 id="e-commerce-use-case">E-Commerce Use Case</h2>
+<p>The <strong>e-commerce use case</strong> typically focuses on product authenticity verification, provenance tracking, and decentralized marketplaces. The evidence for blockchain in e-commerce is thinner than in supply chain or finance.</p>
+<p><strong>Case Study: VeChain and Luxury Goods Authentication</strong></p>
+<p>VeChain has partnered with luxury brands to provide blockchain-based product authentication.</p>
+<ul>
+<li><strong>Problem:</strong> Counterfeit luxury goods represent an estimated $450 billion annual market; consumers need assurance of authenticity</li>
+<li><strong>Architecture:</strong> VeChainThor public blockchain with NFC chips embedded in products that link to blockchain-stored provenance records</li>
+<li><strong>Outcome:</strong> Multiple partnerships announced (including with LVMH's Aura platform), but independently verified scale data is limited. The core challenge remains the "oracle problem" — the blockchain can verify that a record exists, but it cannot verify that the physical product with the NFC chip is genuine</li>
+<li><strong>Counterfactual:</strong> Centralized authentication services (such as serial number databases maintained by brands) provide similar functionality at lower cost. The blockchain adds value primarily when multiple brands share an authentication platform without wanting a competitor to control it.</li>
+</ul>
+<p><strong>Case Study: Decentralized Marketplaces (OpenBazaar)</strong></p>
+<p>OpenBazaar launched in 2014 as a decentralized, peer-to-peer marketplace with no fees and no central authority, using Bitcoin for payments.</p>
+<ul>
+<li><strong>Problem:</strong> Centralized e-commerce platforms (Amazon, eBay) charge significant seller fees and can remove listings arbitrarily</li>
+<li><strong>Architecture:</strong> Peer-to-peer network with blockchain-based payments and reputation</li>
+<li><strong>Outcome:</strong> OpenBazaar shut down in 2021 due to insufficient adoption. The platform struggled with user experience, product discovery, buyer protection, and the practical reality that most buyers prefer the convenience and trust guarantees of centralized platforms</li>
+<li><strong>Lesson:</strong> Decentralization as a feature appeals to a narrow audience. Most consumers value convenience, buyer protection, and easy dispute resolution more than censorship resistance and fee elimination.</li>
+</ul>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Rex's Tip</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Rex shares a tip">
+When evaluating any blockchain case study, always ask the counterfactual
+question: "Could the same outcome have been achieved with a centralized
+database or an existing platform?" If the answer is yes, the case study
+demonstrates the value of digitization and process improvement — not
+the value of blockchain specifically. Separating these two effects is
+the hallmark of rigorous analysis.</p>
+</div>
+<h2 id="retail-use-case">Retail Use Case</h2>
+<p>The <strong>retail use case</strong> encompasses loyalty programs, inventory management, and customer data sharing. Retailers have explored blockchain primarily for supply chain integration (covered above) and customer-facing applications.</p>
+<p><strong>Case Study: Starbucks Odyssey (Loyalty NFTs)</strong></p>
+<p>Starbucks launched Odyssey in late 2022, integrating NFT-based "journey stamps" into its existing loyalty program on the Polygon blockchain.</p>
+<ul>
+<li><strong>Problem:</strong> Traditional loyalty programs offer limited engagement mechanics; Starbucks wanted to create collectible, tradeable loyalty assets</li>
+<li><strong>Architecture:</strong> Polygon blockchain for NFT minting and trading; integrated with existing Starbucks Rewards app</li>
+<li><strong>Outcome:</strong> Starbucks shut down the Odyssey program in March 2024, citing a need to "evolve the program." Some NFT stamps sold for over $1,000 on secondary markets initially, but trading volume declined steadily. The company has since shifted focus to integrating some digital collectible concepts into its core loyalty program without blockchain.</li>
+<li><strong>Lesson:</strong> Adding blockchain to a loyalty program does not necessarily improve customer engagement. The core loyalty proposition — earn points, get free products — does not require decentralization or tradeable tokens.</li>
+</ul>
+<p><strong>Case Study: Carrefour Food Traceability</strong></p>
+<p>European retailer Carrefour launched blockchain-based food traceability in 2018 across multiple product lines.</p>
+<ul>
+<li><strong>Problem:</strong> European consumers increasingly demand transparency about food origins, farming practices, and supply chain handling</li>
+<li><strong>Architecture:</strong> IBM Food Trust platform (same as Walmart); QR codes on products link to blockchain-stored traceability data</li>
+<li><strong>Measured outcome:</strong> Carrefour reported that products with blockchain traceability saw sales increases of up to 20% for certain product categories. However, this result conflates the effect of transparency itself with the effect of blockchain specifically — the same sales improvement might result from any system that provides consumers with detailed provenance information.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Industry</th>
+<th>Most Cited Use Case</th>
+<th>Evidence Strength</th>
+<th>Blockchain Value-Add</th>
+<th>Simpler Alternative</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Supply chain</td>
+<td>Traceability</td>
+<td>Strong (Walmart)</td>
+<td>Multi-party data sharing</td>
+<td>Centralized database with supplier APIs</td>
+</tr>
+<tr>
+<td>Healthcare</td>
+<td>Record sharing</td>
+<td>Weak (mostly pilots)</td>
+<td>Credential verification</td>
+<td>Health information exchanges</td>
+</tr>
+<tr>
+<td>Financial services</td>
+<td>Settlement</td>
+<td>Mixed (JPM success, ASX failure)</td>
+<td>Institutional payment rails</td>
+<td>RTGS systems</td>
+</tr>
+<tr>
+<td>E-commerce</td>
+<td>Authentication</td>
+<td>Weak (oracle problem)</td>
+<td>Cross-brand authentication</td>
+<td>Brand-operated serial databases</td>
+</tr>
+<tr>
+<td>Retail</td>
+<td>Loyalty/traceability</td>
+<td>Moderate (Carrefour)</td>
+<td>Consumer-facing transparency</td>
+<td>QR codes linking to centralized database</td>
+</tr>
+</tbody>
+</table>
+<h2 id="successful-adoption-factors">Successful Adoption Factors</h2>
+<p>Analyzing the case studies above, along with broader industry data, reveals a pattern of common factors present in successful blockchain deployments:</p>
+<ol>
+<li>
+<p><strong>Genuine multi-party requirement</strong> — The business problem involves multiple independent organizations that need to share data without a natural trusted intermediary. Walmart's food traceability succeeds because hundreds of independent suppliers need a shared platform.</p>
+</li>
+<li>
+<p><strong>Clear problem-solution fit</strong> — The project started with a well-defined business problem, not with a mandate to "use blockchain." Organizations that began with "how can we use blockchain?" consistently produced weaker outcomes than those that began with "how can we solve this specific problem?"</p>
+</li>
+<li>
+<p><strong>Incremental deployment</strong> — Successful projects started with limited pilots (one product line, one region, a few partners) and expanded based on measured results. The ASX failure attempted an enterprise-scale replacement from the outset.</p>
+</li>
+<li>
+<p><strong>Governance resolution</strong> — Successful deployments resolved governance questions — who controls the network, how are rules changed, how are disputes resolved — before scaling. TradeLens failed because governance was never resolved to competitors' satisfaction.</p>
+</li>
+<li>
+<p><strong>Hybrid architecture</strong> — Most successful deployments use blockchain selectively for specific trust functions while relying on centralized systems for performance-sensitive operations.</p>
+</li>
+</ol>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+Notice what is absent from the success factors list: technological
+sophistication. No project succeeded because it used a better consensus
+mechanism or a more capable smart contract language. Success was determined
+by problem definition, governance, and organizational execution — not by
+the technology itself.</p>
+</div>
+<h2 id="failed-project-analysis">Failed Project Analysis</h2>
+<p><strong>Failed project analysis</strong> examines blockchain deployments that were abandoned, written down, or failed to deliver promised outcomes. Studying failures is at least as instructive as studying successes, because failures reveal the hidden assumptions and organizational dynamics that success stories often obscure.</p>
+<p>Common failure patterns include:</p>
+<ul>
+<li><strong>Solution-first approach</strong> — The organization decided to "do something with blockchain" before identifying a suitable business problem. This leads to forced use cases where blockchain adds complexity without corresponding value.</li>
+<li><strong>Governance deadlock</strong> — In multi-party deployments, participants could not agree on who controls the network, how disputes are resolved, or how rules are updated. TradeLens is the canonical example.</li>
+<li><strong>Regulatory collision</strong> — The project encountered regulatory requirements (data deletion rights, jurisdictional data residency, KYC/AML obligations) that conflicted with blockchain's architectural properties.</li>
+<li><strong>Scale mismatch</strong> — The project attempted enterprise-scale deployment of immature technology without adequate piloting. The ASX CHESS replacement exemplifies this pattern.</li>
+<li><strong>Incentive misalignment</strong> — The project required participation from parties who had no economic incentive to join, or who perceived the platform as benefiting a competitor more than themselves.</li>
+</ul>
+<p>The following table summarizes notable blockchain failures and their primary failure modes:</p>
+<table>
+<thead>
+<tr>
+<th>Project</th>
+<th>Industry</th>
+<th>Investment</th>
+<th>Year Ended</th>
+<th>Primary Failure Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ASX CHESS replacement</td>
+<td>Finance</td>
+<td>$170M+</td>
+<td>2022</td>
+<td>Scale mismatch, governance</td>
+</tr>
+<tr>
+<td>TradeLens</td>
+<td>Supply chain</td>
+<td>Undisclosed (significant)</td>
+<td>2022</td>
+<td>Governance deadlock</td>
+</tr>
+<tr>
+<td>Starbucks Odyssey</td>
+<td>Retail</td>
+<td>Undisclosed</td>
+<td>2024</td>
+<td>Weak problem-solution fit</td>
+</tr>
+<tr>
+<td>OpenBazaar</td>
+<td>E-commerce</td>
+<td>$9.3M raised</td>
+<td>2021</td>
+<td>Incentive misalignment</td>
+</tr>
+<tr>
+<td>Marco Polo trade finance</td>
+<td>Finance</td>
+<td>$60M+</td>
+<td>2023</td>
+<td>Insufficient adoption</td>
+</tr>
+<tr>
+<td>We.trade</td>
+<td>Finance</td>
+<td>Undisclosed</td>
+<td>2022</td>
+<td>Governance disputes among bank partners</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-case-study-analysis-dashboard">Diagram: Case Study Analysis Dashboard</h4>
+<details>
+<summary>Interactive Case Study Comparison Dashboard</summary>
+<p>Type: MicroSim
+<strong>sim-id:</strong> case-study-dashboard<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective:</strong> Evaluate (L5) — Assess real-world blockchain deployments against evidence-based criteria, comparing outcomes across industries and identifying patterns that predict success or failure.</p>
+<p><strong>Description:</strong> An interactive dashboard that presents the case studies from this chapter in a visual comparison format. The top section displays a scatter plot with "Evidence Strength" on the X-axis and "Blockchain Value-Add" on the Y-axis, with each case study plotted as a labeled dot color-coded by industry. Clicking a dot reveals a detail panel below showing the full case study summary: problem, architecture, outcome, counterfactual, and lessons. A filter panel on the right allows filtering by industry, outcome (success/mixed/failure), and deployment scale. A toggle switches between "Blockchain Deployments" and "Alternative Approaches" to compare outcomes.</p>
+<p><strong>Canvas:</strong> Responsive width, 600px height. Background: aliceblue.</p>
+<p><strong>Controls:</strong></p>
+<ul>
+<li>Click case study dots to show detail panel</li>
+<li>Industry filter checkboxes (supply chain, healthcare, finance, e-commerce, retail)</li>
+<li>Outcome filter radio buttons (all, success, mixed, failure)</li>
+<li>Toggle between blockchain deployments and alternative approaches</li>
+</ul>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>Scatter plot with labeled dots</li>
+<li>Color-coded dots by industry (blue=supply chain, green=healthcare, red=finance, purple=e-commerce, orange=retail)</li>
+<li>Detail panel with structured case study summary</li>
+<li>Filter panel with checkboxes and radio buttons</li>
+<li>Quadrant labels on scatter plot (e.g., "Strong Evidence + High Value" upper right)</li>
+</ul>
+<p>Implementation: p5.js with responsive canvas, interactive scatter plot, click-to-reveal detail panels, filter state management</p>
+</details>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>This chapter applied evidence-based evaluation frameworks to real-world blockchain deployments, revealing consistent patterns across industries:</p>
+<ul>
+<li><strong>Case study analysis</strong> requires structured examination of problem context, architecture decisions, measured outcomes, and counterfactual alternatives — not just success stories</li>
+<li><strong>Supply chain</strong> has the strongest evidence base for blockchain value, particularly where multiple independent parties share traceability data, though the process standardization may matter more than the blockchain itself</li>
+<li><strong>Healthcare</strong> blockchain faces fundamental conflicts with data privacy regulations and has not progressed significantly beyond pilot stage for most use cases</li>
+<li><strong>Financial services</strong> shows mixed results — institutional payment rails show promise, but mission-critical system replacements carry catastrophic risk as the ASX CHESS case demonstrates</li>
+<li><strong>E-commerce and retail</strong> use cases generally show weak evidence for blockchain value-add, with the oracle problem and user experience challenges limiting adoption</li>
+<li><strong>Successful adoptions</strong> share common factors: genuine multi-party requirements, clear problem definition, incremental deployment, resolved governance, and hybrid architectures</li>
+<li><strong>Failed projects</strong> consistently exhibit solution-first thinking, governance deadlock, regulatory collision, scale mismatch, or incentive misalignment</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Excellent Analytical Work!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Rex celebrates">
+You have now examined the evidence from real-world deployments across five
+major industries. The pattern is clear: blockchain adds genuine value in
+specific multi-party trust scenarios, but the majority of proposed use cases
+are better served by simpler alternatives. That is not a negative conclusion —
+it is a precise one. In the next chapter, we look beyond blockchain to
+emerging trust technologies. Keep analyzing, fellow analyst!</p>
 </div>
 
-    </body>
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../16-evidence-based-evaluation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 16. Evidence-Based Evaluation">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                16. Evidence-Based Evaluation
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../18-emerging-trust-technologies/" class="md-footer__link md-footer__link--next" aria-label="Next: 18. Emerging Trust Technologies">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                18. Emerging Trust Technologies
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
 </html>

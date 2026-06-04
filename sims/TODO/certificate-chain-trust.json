@@ -1,0 +1,14 @@
+{
+  "sim_id": "certificate-chain-trust",
+  "diagram_name": "Certificate Chain of Trust",
+  "chapter_number": 4,
+  "chapter_title": "Certificate Authorities and PKI",
+  "chapter_dir": "04-certificate-authorities-pki",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** certificate-chain-trust<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Understand (L2) — Explain how certificate chains create hierarchies of trust from root certificates to end-entity certificates, and how verification traverses the chain.\n\n**Description:** An interactive vertical visualization showing a three-level certificate chain: Root CA at the top, Intermediate CA in the middle, End-Entity (website) at the bottom. Each certificate is shown as a card displaying: subject, issuer, public key (abbreviated), and digital signature. Animated arrows show the signing relationships (downward) and verification path (upward). Clicking any certificate card expands it to show full details. A \"Verify Chain\" button animates the verification process step by step from end-entity up to root, showing green checkmarks at each successful step. A \"Break Chain\" button simulates an invalid intermediate certificate, showing where verification fails.\n\n**Canvas:** Responsive width, 550px height. Background: aliceblue.\n\n**Controls:**\n\n- Click certificate cards to expand details\n- \"Verify Chain\" button for step-by-step animation\n- \"Break Chain\" button to simulate invalid certificate\n- \"Reset\" button\n\n**Visual elements:**\n\n- 3 certificate cards stacked vertically with connecting arrows\n- Each card: subject, issuer, key icon, signature icon\n- Green glow on verified certificates, red glow on failed\n- Animation showing signature verification at each step\n- Legend explaining each certificate field\n\nImplementation: p5.js with card layout, click expansion, animation sequence"
+}

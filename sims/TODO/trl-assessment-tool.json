@@ -1,0 +1,14 @@
+{
+  "sim_id": "trl-assessment-tool",
+  "diagram_name": "Technology Readiness Level Assessment Tool",
+  "chapter_number": 18,
+  "chapter_title": "Emerging Trust Technologies",
+  "chapter_dir": "18-emerging-trust-technologies",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** trl-assessment-tool<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Evaluate (L5) — Assess the technology readiness level of emerging trust technologies and use TRL assessment to inform architecture decisions with appropriate risk budgeting.\n\n**Description:** An interactive vertical thermometer-style TRL gauge for each of five trust technologies (blockchain, ZKPs, VCs, DIDs, SSI). Each thermometer fills to the technology's current TRL level, color-coded from red (TRL 1-3) through yellow (4-6) to green (7-9). Clicking a thermometer reveals a detail panel showing: current TRL with justification, key milestones needed to advance, estimated timeline to TRL 9, and risk assessment for adopting at current TRL. A comparison mode allows selecting two technologies to display a side-by-side maturity comparison. A slider control labeled \"Your Risk Tolerance\" (Low/Medium/High) highlights which technologies fall within the acceptable TRL range.\n\n**Canvas:** Responsive width, 550px height. Background: aliceblue.\n\n**Controls:**\n\n- Click thermometers to see detail panels\n- \"Compare\" toggle for side-by-side view\n- Risk tolerance slider (Low/Medium/High)\n- \"Show All Details\" toggle\n\n**Visual elements:**\n\n- 5 vertical thermometer gauges with TRL scales (1-9)\n- Color gradient fills (red→yellow→green)\n- Technology labels below each thermometer\n- Detail panel with TRL justification, milestones, timeline, risk\n- Risk tolerance overlay highlighting acceptable TRL range\n- Comparison panel for side-by-side analysis\n\nImplementation: p5.js with responsive canvas, interactive thermometer gauges, click-to-reveal panels, slider control"
+}

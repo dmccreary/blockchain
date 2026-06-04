@@ -1,0 +1,14 @@
+{
+  "sim_id": "throughput-latency-compare",
+  "diagram_name": "Throughput vs Latency Comparison",
+  "chapter_number": 6,
+  "chapter_title": "Nodes, Throughput, and Network Performance",
+  "chapter_dir": "06-nodes-throughput-performance",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** throughput-latency-compare<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Analyze (L4) — Compare throughput and latency characteristics across different blockchain platforms and traditional payment systems, identifying the tradeoffs each design makes.\n\n**Description:** A scatter plot with throughput (TPS, log scale) on the X-axis and confirmation latency (seconds, log scale) on the Y-axis. Plotted points represent: Bitcoin, Ethereum, Solana, Hyperledger Fabric, Visa, and a traditional database. Each point is labeled and color-coded. Hovering over a point shows detailed specs (block time, block size, node count, cost per transaction). A \"decentralization\" dimension is shown through point size (larger = more nodes). Quadrant labels: top-left \"Fast but Low Volume,\" top-right \"Fast and High Volume (traditional),\" bottom-left \"Slow and Low Volume,\" bottom-right \"Slow but High Volume.\" Students can drag a slider to add/remove a \"decentralization requirement\" filter that grays out platforms below a node threshold.\n\n**Canvas:** Responsive width, 500px height. Background: aliceblue.\n\n**Controls:**\n\n- Hover for detail tooltip\n- Decentralization threshold slider (minimum node count)\n- Toggle labels on/off\n- \"Reset View\" button\n\n**Visual elements:**\n\n- Scatter plot with log-log axes\n- Color-coded points with labels\n- Point size proportional to node count\n- Quadrant labels and background shading\n- Detail tooltip panel\n- Slider for decentralization filter\n\nImplementation: p5.js with log-scale axes, hover detection, slider control"
+}

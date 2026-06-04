@@ -1,232 +1,1677 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Public, private, permissioned, and consortium blockchains; Bitcoin, Ethereum, and Hyperledger platforms; interoperability; and on-chain, off-chain, and consortium governance models.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/blockchain/chapters/10-blockchain-types-platforms/">
+      
+      
+        <link rel="prev" href="../09-smart-contracts-tokens/">
+      
+      
+        <link rel="next" href="../11-governance-and-scalability/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Blockchain Types and Platforms - Blockchain - The Skeptic's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
         
-        
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>10. Blockchain Types and Platforms - Blockchain - The Skeptic's Guide</title>
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../../css/brands.min.css" rel="stylesheet">
-        <link href="../../css/solid.min.css" rel="stylesheet">
-        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <link href="../../css/mascot.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="../..">Blockchain - The Skeptic's Guide</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item">
-                                <a href="../.." class="nav-link">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../course-description/" class="nav-link">Course Description</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Chapters</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../" class="dropdown-item">List of Chapters</a>
-</li>
-                                    
-<li>
-    <a href="../01-trust-and-digital-networks/" class="dropdown-item">1. Trust and Digital Networks</a>
-</li>
-                                    
-<li>
-    <a href="../02-cryptographic-foundations/" class="dropdown-item">2. Cryptographic Foundations</a>
-</li>
-                                    
-<li>
-    <a href="../03-keys-signatures-identity/" class="dropdown-item">3. Keys, Signatures, and Identity</a>
-</li>
-                                    
-<li>
-    <a href="../04-certificate-authorities-pki/" class="dropdown-item">4. Certificate Authorities and PKI</a>
-</li>
-                                    
-<li>
-    <a href="../05-distributed-systems-ledgers/" class="dropdown-item">5. Distributed Systems and Ledgers</a>
-</li>
-                                    
-<li>
-    <a href="../06-nodes-throughput-performance/" class="dropdown-item">6. Nodes, Throughput, and Performance</a>
-</li>
-                                    
-<li>
-    <a href="../07-consensus-mechanisms/" class="dropdown-item">7. Consensus Mechanisms</a>
-</li>
-                                    
-<li>
-    <a href="../08-mining-computational-economics/" class="dropdown-item">8. Mining and Computational Economics</a>
-</li>
-                                    
-<li>
-    <a href="../09-smart-contracts-tokens/" class="dropdown-item">9. Smart Contracts and Tokens</a>
-</li>
-                                    
-<li>
-    <a href="./" class="dropdown-item active" aria-current="page">10. Blockchain Types and Platforms</a>
-</li>
-                                    
-<li>
-    <a href="../11-governance-and-scalability/" class="dropdown-item">11. Governance and Scalability</a>
-</li>
-                                    
-<li>
-    <a href="../12-cost-analysis-tco/" class="dropdown-item">12. Cost Analysis and TCO</a>
-</li>
-                                    
-<li>
-    <a href="../13-architecture-tradeoff-analysis/" class="dropdown-item">13. Architecture Tradeoff Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../14-risk-analysis-quality-attributes/" class="dropdown-item">14. Risk Analysis and Quality Attributes</a>
-</li>
-                                    
-<li>
-    <a href="../15-cognitive-bias-technology/" class="dropdown-item">15. Cognitive Bias in Technology</a>
-</li>
-                                    
-<li>
-    <a href="../16-evidence-based-evaluation/" class="dropdown-item">16. Evidence-Based Evaluation</a>
-</li>
-                                    
-<li>
-    <a href="../17-industry-case-studies/" class="dropdown-item">17. Industry Case Studies</a>
-</li>
-                                    
-<li>
-    <a href="../18-emerging-trust-technologies/" class="dropdown-item">18. Emerging Trust Technologies</a>
-</li>
-                                    
-<li>
-    <a href="../19-alternative-architectures-decisions/" class="dropdown-item">19. Alternative Architectures</a>
-</li>
-                                    
-<li>
-    <a href="../20-implementation-capstone/" class="dropdown-item">20. Implementation and Capstone</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Learning Graph</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../learning-graph/" class="dropdown-item">Introduction</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/course-description-assessment/" class="dropdown-item">Course Description Assessment</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/concept-list/" class="dropdown-item">Concept Enumeration</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/quality-metrics/" class="dropdown-item">Graph Quality Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/concept-taxonomy/" class="dropdown-item">Concept Taxonomy</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/taxonomy-distribution/" class="dropdown-item">Taxonomy Distribution Report</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">MicroSims</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../sims/graph-viewer/" class="dropdown-item">Graph Viewer</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../about/" class="nav-link">About</a>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../09-smart-contracts-tokens/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../11-governance-and-scalability/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="1"><a href="#blockchain-types-and-platforms" class="nav-link">Blockchain Types and Platforms</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#summary" class="nav-link">Summary</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#concepts-covered" class="nav-link">Concepts Covered</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Blockchain Types and Platforms - Blockchain - The Skeptic's Guide" >
+      
+        <meta  property="og:description"  content="Public, private, permissioned, and consortium blockchains; Bitcoin, Ethereum, and Hyperledger platforms; interoperability; and on-chain, off-chain, and consortium governance models." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/blockchain/assets/images/social/chapters/10-blockchain-types-platforms/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/blockchain/chapters/10-blockchain-types-platforms/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Blockchain Types and Platforms - Blockchain - The Skeptic's Guide" >
+      
+        <meta  name="twitter:description"  content="Public, private, permissioned, and consortium blockchains; Bitcoin, Ethereum, and Hyperledger platforms; interoperability; and on-chain, off-chain, and consortium governance models." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/blockchain/assets/images/social/chapters/10-blockchain-types-platforms/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#blockchain-types-and-platforms" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Blockchain - The Skeptic&#39;s Guide" class="md-header__button md-logo" aria-label="Blockchain - The Skeptic's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Blockchain - The Skeptic's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Blockchain Types and Platforms
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/blockchain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Blockchain - The Skeptic&#39;s Guide" class="md-nav__button md-logo" aria-label="Blockchain - The Skeptic's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Blockchain - The Skeptic's Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/blockchain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-trust-and-digital-networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Trust and Digital Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-cryptographic-foundations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Cryptographic Foundations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-keys-signatures-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Keys, Signatures, and Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-certificate-authorities-pki/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Certificate Authorities and PKI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-distributed-systems-ledgers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Distributed Systems and Ledgers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-nodes-throughput-performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Nodes, Throughput, and Performance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-consensus-mechanisms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Consensus Mechanisms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-mining-computational-economics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Mining and Computational Economics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-smart-contracts-tokens/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Smart Contracts and Tokens
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    10. Blockchain Types and Platforms
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    10. Blockchain Types and Platforms
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-blockchain-spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Blockchain Spectrum
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permissionless-blockchains" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permissionless Blockchains
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permissioned-blockchains" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permissioned Blockchains
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-blockchains" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public Blockchains
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#private-blockchains" class="md-nav__link">
+    <span class="md-ellipsis">
+      Private Blockchains
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consortium-blockchains" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consortium Blockchains
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bitcoin-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bitcoin Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ethereum-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ethereum Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hyperledger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hyperledger
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interoperability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interoperability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Governance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#on-chain-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      On-Chain Governance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#off-chain-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Off-Chain Governance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consortium-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consortium Governance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consortium Governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-blockchain-type-decision-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Blockchain Type Decision Matrix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-governance-model-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Governance Model Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-governance-and-scalability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Governance and Scalability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-cost-analysis-tco/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Cost Analysis and TCO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-architecture-tradeoff-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Architecture Tradeoff Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-risk-analysis-quality-attributes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Risk Analysis and Quality Attributes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-cognitive-bias-technology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Cognitive Bias in Technology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-evidence-based-evaluation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Evidence-Based Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-industry-case-studies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Industry Case Studies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-emerging-trust-technologies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Emerging Trust Technologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-alternative-architectures-decisions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Alternative Architectures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-implementation-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Implementation and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-blockchain-spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Blockchain Spectrum
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permissionless-blockchains" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permissionless Blockchains
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permissioned-blockchains" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permissioned Blockchains
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-blockchains" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public Blockchains
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#private-blockchains" class="md-nav__link">
+    <span class="md-ellipsis">
+      Private Blockchains
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consortium-blockchains" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consortium Blockchains
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bitcoin-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bitcoin Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ethereum-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ethereum Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hyperledger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hyperledger
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interoperability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interoperability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Governance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#on-chain-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      On-Chain Governance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#off-chain-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Off-Chain Governance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consortium-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consortium Governance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consortium Governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-blockchain-type-decision-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Blockchain Type Decision Matrix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-governance-model-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Governance Model Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/blockchain/edit/master/docs/chapters/10-blockchain-types-platforms/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
 
 <h1 id="blockchain-types-and-platforms">Blockchain Types and Platforms</h1>
 <h2 id="summary">Summary</h2>
@@ -256,82 +1701,512 @@
 <li><a href="../09-smart-contracts-tokens/">Chapter 9: Smart Contracts and Tokens</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p></div>
-            </div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js"></script>
-        <script src="../../search/main.js"></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Rex Says: Trust, but Verify!</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Rex welcomes you">
+Welcome back, fellow analysts! Not all blockchains are created equal — and that's
+actually the point. Bitcoin, Ethereum, Hyperledger, and dozens of other platforms
+each make fundamentally different design choices about who can participate, who
+validates, and who governs. Choosing the wrong blockchain type for your use case
+is like choosing a submarine when you needed a bicycle. Let's map the landscape.
+Trust, but verify — especially the vendor's platform recommendation!</p>
+</div>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>After completing this chapter, you will be able to:</p>
+<ul>
+<li>Distinguish between permissioned and permissionless blockchains and their trust models</li>
+<li>Compare public, private, and consortium blockchain architectures</li>
+<li>Describe the key characteristics of Bitcoin, Ethereum, and Hyperledger platforms</li>
+<li>Explain interoperability challenges between blockchain networks</li>
+<li>Differentiate between on-chain, off-chain, and consortium governance models</li>
+<li>Select the appropriate blockchain type for a given use case based on requirements analysis</li>
+</ul>
+<h2 id="the-blockchain-spectrum">The Blockchain Spectrum</h2>
+<p>The blockchain ecosystem is not monolithic. Different implementations make fundamentally different tradeoffs along two key axes: <strong>access control</strong> (who can participate) and <strong>validation authority</strong> (who can write blocks). These choices determine the trust model, performance characteristics, and governance structure of the entire system.</p>
+<p>Understanding these axes is the foundation for platform selection:</p>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Open</th>
+<th>Restricted</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Who can read?</strong></td>
+<td>Public</td>
+<td>Private</td>
+</tr>
+<tr>
+<td><strong>Who can write/validate?</strong></td>
+<td>Permissionless</td>
+<td>Permissioned</td>
+</tr>
+</tbody>
+</table>
+<p>These dimensions are independent. A blockchain can be public but permissioned (anyone can read, but only approved validators can write) or private and permissionless (only members can access, but any member can validate). In practice, four common combinations dominate the landscape.</p>
+<h2 id="permissionless-blockchains">Permissionless Blockchains</h2>
+<p>A <strong>permissionless blockchain</strong> allows anyone to participate in the network — reading data, submitting transactions, and validating blocks — without obtaining approval from any authority. There are no gatekeepers, no registration requirements, and no identity verification.</p>
+<p>Key properties of permissionless systems:</p>
+<ul>
+<li><strong>Open participation</strong> — anyone with internet access and appropriate software can join</li>
+<li><strong>Pseudonymous</strong> — participants are identified by cryptographic addresses, not real-world identities</li>
+<li><strong>Censorship resistant</strong> — no single entity can prevent a valid transaction from being included</li>
+<li><strong>Sybil resistance through economics</strong> — PoW (computational cost) or PoS (staked capital) prevents fake identity attacks</li>
+</ul>
+<p>The tradeoff for this openness is performance. Permissionless blockchains must assume adversarial participants, which requires expensive consensus mechanisms and limits throughput. Bitcoin processes approximately 7 transactions per second; even Ethereum manages only 15-30 TPS on its base layer. These are not temporary engineering limitations — they are architectural consequences of the trust model.</p>
+<h2 id="permissioned-blockchains">Permissioned Blockchains</h2>
+<p>A <strong>permissioned blockchain</strong> restricts who can validate blocks, submit transactions, or both. Participants must be approved by an authority or consortium before joining the network. Identity is known, and participants can be held accountable through legal and contractual means.</p>
+<p>Key properties of permissioned systems:</p>
+<ul>
+<li><strong>Known validators</strong> — participants are identified and vetted</li>
+<li><strong>Higher throughput</strong> — because adversarial assumptions are relaxed, consensus is faster</li>
+<li><strong>Configurable privacy</strong> — transaction data can be restricted to relevant parties</li>
+<li><strong>Accountability</strong> — misbehavior can be addressed through legal channels, not just protocol penalties</li>
+</ul>
+<p>The skeptic's question: if participants are known and accountable, what does the blockchain add over a shared database with access controls? The honest answer is: sometimes very little. Permissioned blockchains provide value when multiple organizations need a shared record but do not fully trust each other's database administration — a genuine but narrow use case.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+The distinction between permissioned and permissionless blockchains is more than
+technical — it's philosophical. Permissionless systems embody the cypherpunk ideal:
+trustless, censorship-resistant, open to all. Permissioned systems embody enterprise
+pragmatism: identified participants, legal accountability, regulatory compliance.
+Most enterprise blockchain projects that started with permissionless ambitions
+eventually migrated to permissioned architectures when they encountered regulatory
+reality. When evaluating a blockchain proposal, ask whether the trust model matches
+the actual operating environment — not the aspirational one.</p>
+</div>
+<h2 id="public-blockchains">Public Blockchains</h2>
+<p>A <strong>public blockchain</strong> makes all transaction data visible to anyone. Every transaction, balance (at the address level), and smart contract interaction is recorded on a ledger that anyone can inspect. Bitcoin and Ethereum are the most prominent public blockchains.</p>
+<p>Public visibility enables:</p>
+<ul>
+<li><strong>Auditability</strong> — anyone can verify the chain's integrity</li>
+<li><strong>Transparency</strong> — all transactions are observable (though participants are pseudonymous)</li>
+<li><strong>Research and analysis</strong> — blockchain analytics firms can trace fund flows</li>
+</ul>
+<p>Public visibility also creates challenges:</p>
+<ul>
+<li><strong>Privacy concerns</strong> — once an address is linked to an identity, all transactions are exposed</li>
+<li><strong>Competitive intelligence</strong> — businesses' transaction patterns are visible to competitors</li>
+<li><strong>Regulatory complications</strong> — immutable public records may conflict with data protection laws like GDPR's "right to be forgotten"</li>
+</ul>
+<h2 id="private-blockchains">Private Blockchains</h2>
+<p>A <strong>private blockchain</strong> restricts data visibility to authorized participants. Transaction details, balances, and contract states are accessible only to members of the network. A single organization or tightly controlled group typically operates the network.</p>
+<p>When critics argue that "a private blockchain is just a database," they have a point worth examining:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Private Blockchain</th>
+<th>Traditional Shared Database</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Multi-party writes</td>
+<td>Yes, with consensus</td>
+<td>Yes, with access control</td>
+</tr>
+<tr>
+<td>Immutable audit trail</td>
+<td>Yes (cryptographic)</td>
+<td>Yes (append-only logs)</td>
+</tr>
+<tr>
+<td>Known participants</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Trusted administrator</td>
+<td>Often yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Throughput</td>
+<td>Hundreds to thousands TPS</td>
+<td>Tens of thousands TPS</td>
+</tr>
+<tr>
+<td>Operational complexity</td>
+<td>High</td>
+<td>Moderate</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>High</td>
+<td>Lower</td>
+</tr>
+</tbody>
+</table>
+<p>The private blockchain's advantage narrows to scenarios where: (1) multiple organizations share the database, (2) no single organization is trusted as the administrator, and (3) the cryptographic audit trail provides regulatory or legal value beyond what traditional database logs offer.</p>
+<h2 id="consortium-blockchains">Consortium Blockchains</h2>
+<p>A <strong>consortium blockchain</strong> is operated by a group of organizations that collectively manage the network. No single member controls the infrastructure, and governance decisions require agreement among consortium participants. This model occupies the middle ground between fully public and fully private blockchains.</p>
+<p>Consortium blockchains are the most common enterprise deployment model. Notable examples include:</p>
+<ul>
+<li><strong>R3 Corda</strong> — financial services consortium for trade finance and banking</li>
+<li><strong>Hyperledger Fabric</strong> — modular framework used across industries</li>
+<li><strong>TradeLens</strong> (IBM/Maersk) — supply chain tracking (discontinued 2022)</li>
+<li><strong>We.trade</strong> — trade finance platform (discontinued 2022)</li>
+<li><strong>Marco Polo</strong> — trade finance network (filed for insolvency 2023)</li>
+</ul>
+<p>The discontinuation of several high-profile consortium blockchains deserves attention. TradeLens, We.trade, and Marco Polo were each backed by major corporations, had significant investment, and addressed real business problems. Their failures were not technical — they were governance, adoption, and business model failures. Getting competitors to cooperate on shared infrastructure is an organizational challenge that technology alone cannot solve.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Bias Alert</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Rex warns you">
+When a vendor presents a consortium blockchain as "decentralized," ask: decentralized
+among how many organizations? If five banks run a blockchain together, it's
+distributed among five known parties with legal agreements — not decentralized in
+the way Bitcoin is decentralized. This is a legitimate architecture, but calling
+it "decentralized" borrows credibility from the permissionless blockchain narrative
+while operating under a completely different trust model. Precision in language
+matters when millions of dollars are at stake.</p>
+</div>
+<h2 id="bitcoin-overview">Bitcoin Overview</h2>
+<p><strong>Bitcoin</strong> is the first and most widely recognized blockchain, launched in 2009 by the pseudonymous Satoshi Nakamoto. It remains the reference implementation against which all other blockchains are compared.</p>
+<p>Key architectural characteristics:</p>
+<ul>
+<li><strong>Consensus:</strong> Proof of Work (SHA-256 mining)</li>
+<li><strong>Block time:</strong> ~10 minutes</li>
+<li><strong>Throughput:</strong> ~7 TPS (base layer)</li>
+<li><strong>Smart contracts:</strong> Limited scripting (Bitcoin Script — not Turing-complete)</li>
+<li><strong>Supply:</strong> Capped at 21 million BTC</li>
+<li><strong>Governance:</strong> Off-chain (informal developer consensus, BIPs)</li>
+</ul>
+<p>Bitcoin's design philosophy prioritizes security and decentralization above all else. It deliberately sacrifices throughput, programmability, and upgrade agility to maintain the simplest possible trust model. Bitcoin's scripting language is intentionally limited to reduce the attack surface — a design choice that Ethereum explicitly rejected.</p>
+<p>The Bitcoin network's track record is remarkable: it has operated continuously since January 3, 2009, with no successful double-spend on the main chain and no extended downtime. This operational resilience, achieved without any central operator, is Bitcoin's strongest empirical argument.</p>
+<h2 id="ethereum-overview">Ethereum Overview</h2>
+<p><strong>Ethereum</strong>, launched in 2015 by Vitalik Buterin and others, extended Bitcoin's concept from a payment network to a programmable platform. Its key innovation was the Ethereum Virtual Machine (EVM) — a Turing-complete execution environment that runs smart contracts.</p>
+<p>Key architectural characteristics:</p>
+<ul>
+<li><strong>Consensus:</strong> Proof of Stake (since September 2022, previously PoW)</li>
+<li><strong>Block time:</strong> ~12 seconds</li>
+<li><strong>Throughput:</strong> ~15-30 TPS (base layer), higher with Layer 2 solutions</li>
+<li><strong>Smart contracts:</strong> Full Turing-complete programming (Solidity, Vyper)</li>
+<li><strong>Supply:</strong> No hard cap (but net issuance reduced post-merge and EIP-1559)</li>
+<li><strong>Governance:</strong> Off-chain (EIPs, core developer calls, community rough consensus)</li>
+</ul>
+<p>Ethereum's programmability enabled the explosion of DeFi, NFTs, and dApps. It also introduced smart contract risks, gas fee volatility, and a dramatically larger attack surface than Bitcoin. Every smart contract deployed on Ethereum is a potential vulnerability.</p>
+<p>The Ethereum ecosystem's approach to scalability centers on <strong>Layer 2 solutions</strong> — rollups (Optimistic and ZK) that process transactions off-chain and post compressed proofs to the Ethereum base layer. This strategy explicitly acknowledges that the base layer cannot scale to meet demand and instead positions Ethereum as a settlement and security layer.</p>
+<h2 id="hyperledger">Hyperledger</h2>
+<p><strong>Hyperledger</strong> is not a single blockchain but an umbrella project hosted by the Linux Foundation, comprising multiple enterprise blockchain frameworks and tools. The most prominent is <strong>Hyperledger Fabric</strong>.</p>
+<p>Key characteristics of Hyperledger Fabric:</p>
+<ul>
+<li><strong>Consensus:</strong> Pluggable (Raft, Kafka — not PoW or PoS)</li>
+<li><strong>Permissions:</strong> Fully permissioned with certificate-based identity</li>
+<li><strong>Privacy:</strong> Channel architecture isolates data between participant subgroups</li>
+<li><strong>Smart contracts:</strong> "Chaincode" written in Go, Java, or JavaScript</li>
+<li><strong>No native cryptocurrency</strong> — designed for enterprise use without speculative tokens</li>
+<li><strong>Governance:</strong> Consortium-based with membership service providers</li>
+</ul>
+<p>Hyperledger Fabric's architecture differs fundamentally from public blockchains:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Bitcoin/Ethereum</th>
+<th>Hyperledger Fabric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identity</td>
+<td>Pseudonymous</td>
+<td>Known (certificate-based)</td>
+</tr>
+<tr>
+<td>Consensus</td>
+<td>PoW/PoS (adversarial)</td>
+<td>Raft/Kafka (crash-fault tolerant)</td>
+</tr>
+<tr>
+<td>Smart contracts</td>
+<td>Public, permissionless deployment</td>
+<td>Private, authorized deployment</td>
+</tr>
+<tr>
+<td>Data visibility</td>
+<td>All transactions public</td>
+<td>Channel-based privacy</td>
+</tr>
+<tr>
+<td>Cryptocurrency</td>
+<td>Required (incentive mechanism)</td>
+<td>Optional/none</td>
+</tr>
+<tr>
+<td>Throughput</td>
+<td>7-30 TPS</td>
+<td>1,000-3,000 TPS</td>
+</tr>
+</tbody>
+</table>
+<p>Hyperledger Fabric is best suited for scenarios where: organizations know each other, regulatory compliance is required, data privacy between participants is essential, and no public token economics are desired.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+Comparing Bitcoin, Ethereum, and Hyperledger directly is like comparing a tank,
+a sports car, and a delivery truck. They serve fundamentally different purposes
+with fundamentally different design constraints. Bitcoin optimizes for censorship
+resistance and sound money. Ethereum optimizes for programmability and a developer
+ecosystem. Hyperledger optimizes for enterprise compliance and privacy. Evaluating
+any of them outside their intended use case will yield misleading conclusions.
+Always start with requirements, not platforms.</p>
+</div>
+<h2 id="interoperability">Interoperability</h2>
+<p><strong>Interoperability</strong> is the ability of different blockchain networks to communicate, share data, and transfer assets between each other. It remains one of the most significant unsolved challenges in the blockchain ecosystem.</p>
+<p>The blockchain landscape today resembles the early internet before standardized protocols — isolated networks that cannot natively exchange information. Each blockchain has its own data format, consensus mechanism, finality model, and address scheme.</p>
+<p>Approaches to interoperability include:</p>
+<ul>
+<li><strong>Cross-chain bridges</strong> — lock assets on one chain, mint equivalents on another (see Chapter 9)</li>
+<li><strong>Relay chains</strong> — intermediary blockchains that validate cross-chain messages (Polkadot, Cosmos)</li>
+<li><strong>Atomic swaps</strong> — cryptographic protocols for trustless cross-chain exchange</li>
+<li><strong>Sidechains</strong> — separate blockchains pegged to a main chain</li>
+<li><strong>Standardization efforts</strong> — common interfaces and protocols (still nascent)</li>
+</ul>
+<p>The interoperability challenge is not purely technical. It also involves governance (who decides the rules of cross-chain communication?), economics (who pays for cross-chain operations?), and security (the weakest chain in an interoperable network may compromise the strongest).</p>
+<p>For enterprise architects, the interoperability question has a practical implication: choosing a blockchain platform today may lock you into an ecosystem, much as choosing an ERP vendor does. The switching costs and integration complexity are real and should be factored into platform selection.</p>
+<h2 id="governance">Governance</h2>
+<p><strong>Governance</strong> in the blockchain context refers to the processes and structures by which decisions about protocol changes, upgrades, parameter adjustments, and dispute resolution are made. Despite blockchain's "decentralized" narrative, every blockchain has a governance structure — the question is whether it is formal or informal, transparent or opaque.</p>
+<h2 id="on-chain-governance">On-Chain Governance</h2>
+<p><strong>On-chain governance</strong> encodes decision-making rules directly into the blockchain protocol. Token holders vote on proposals, and approved changes are implemented automatically without requiring manual intervention or social coordination.</p>
+<p>Examples include:</p>
+<ul>
+<li><strong>Tezos</strong> — token holders vote on protocol amendments; approved changes are auto-deployed</li>
+<li><strong>MakerDAO</strong> — MKR token holders vote on risk parameters and protocol changes</li>
+<li><strong>Compound</strong> — COMP token holders propose and vote on protocol upgrades</li>
+</ul>
+<p>Advantages of on-chain governance:</p>
+<ul>
+<li>Transparent — all votes are recorded on the blockchain</li>
+<li>Deterministic — outcomes are executed automatically</li>
+<li>Inclusive — any token holder can participate</li>
+</ul>
+<p>Criticisms of on-chain governance:</p>
+<ul>
+<li><strong>Plutocratic</strong> — voting power proportional to token holdings (wealth = influence)</li>
+<li><strong>Low participation</strong> — typical voter turnout in DAOs is 5-15% of eligible tokens</li>
+<li><strong>Whale dominance</strong> — a small number of large holders often control outcomes</li>
+<li><strong>Attack surface</strong> — governance mechanisms themselves can be exploited (flash loan governance attacks)</li>
+</ul>
+<h2 id="off-chain-governance">Off-Chain Governance</h2>
+<p><strong>Off-chain governance</strong> relies on social processes, community discussion, and informal consensus outside the blockchain protocol. Bitcoin and Ethereum both use off-chain governance.</p>
+<p>Bitcoin's governance process:</p>
+<ol>
+<li>A developer proposes a Bitcoin Improvement Proposal (BIP)</li>
+<li>Community discusses the proposal on mailing lists, forums, and social media</li>
+<li>Core developers evaluate technical merits and security implications</li>
+<li>If rough consensus forms, the change is implemented in reference software</li>
+<li>Miners and nodes choose whether to upgrade</li>
+</ol>
+<p>Ethereum follows a similar process through Ethereum Improvement Proposals (EIPs) and AllCoreDev calls.</p>
+<p>Off-chain governance is often criticized as opaque and dominated by a small group of core developers. The counterargument is that it allows for nuanced technical discussion, avoids the plutocratic dynamics of token-weighted voting, and has proven resilient over more than a decade of operation.</p>
+<h2 id="consortium-governance">Consortium Governance</h2>
+<p><strong>Consortium governance</strong> applies to permissioned blockchains operated by a group of organizations. Governance decisions — who can join, what consensus rules apply, how upgrades are deployed, how disputes are resolved — are typically governed by legal agreements and organizational structures outside the blockchain.</p>
+<p>Common consortium governance mechanisms:</p>
+<ul>
+<li><strong>Membership agreements</strong> — legal contracts defining participation rules</li>
+<li><strong>Steering committees</strong> — representative bodies from member organizations</li>
+<li><strong>Voting structures</strong> — one-member-one-vote or weighted voting</li>
+<li><strong>Exit provisions</strong> — how members leave and what happens to their data</li>
+<li><strong>Dispute resolution</strong> — arbitration, mediation, or legal proceedings</li>
+</ul>
+<p>The irony of consortium governance is that it looks remarkably similar to traditional inter-organizational governance — committees, votes, legal agreements, and arbitration. The blockchain infrastructure does not eliminate the need for human governance; it merely provides a shared technical platform on which that governance operates.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Skeptic's Toolkit</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Rex has a tip">
+When evaluating any blockchain platform, create a requirements matrix before
+looking at vendor materials. Define your needs across these dimensions: throughput
+requirements, privacy requirements, regulatory constraints, participant trust
+level, governance model, interoperability needs, and total cost tolerance. Then
+evaluate platforms against your matrix — not the other way around. Many failed
+blockchain projects started with a platform and went looking for a problem.</p>
+</div>
+<h4 id="diagram-blockchain-type-decision-matrix">Diagram: Blockchain Type Decision Matrix</h4>
+<details>
+<summary>Interactive Blockchain Platform Selector</summary>
+<p>Type: MicroSim
+<strong>sim-id:</strong> blockchain-platform-selector<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective:</strong> Evaluate (L5) — Select the appropriate blockchain type and platform for a given set of requirements by analyzing tradeoffs across trust, performance, privacy, and governance dimensions.</p>
+<p><strong>Description:</strong> An interactive decision-tree and comparison tool. Students answer a series of questions about their use case: Do participants trust each other? Is regulatory compliance required? What throughput is needed? Is public transparency important? Based on answers, the tool recommends a blockchain type (public permissionless, public permissioned, consortium, private) and highlights matching platforms. A comparison table dynamically shows how selected platforms score across key dimensions. A "Scenario Library" offers pre-built use cases (supply chain, DeFi, identity management, cross-border payments) that students can explore.</p>
+<p><strong>Canvas:</strong> Responsive width, 550px height. Background: aliceblue.</p>
+<p><strong>Controls:</strong></p>
+<ul>
+<li>Radio buttons for decision-tree questions</li>
+<li>Dropdown: Select from scenario library</li>
+<li>Button: Reset and start over</li>
+<li>Hover: Platform detail tooltips</li>
+</ul>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>Decision tree with highlighted path</li>
+<li>Platform comparison radar chart</li>
+<li>Recommendation panel with justification</li>
+<li>Scenario description sidebar</li>
+<li>Color-coded platform categories</li>
+</ul>
+<p>Implementation: p5.js with decision-tree navigation, dynamic radar chart, scenario presets</p>
+</details>
+<h4 id="diagram-governance-model-comparison">Diagram: Governance Model Comparison</h4>
+<details>
+<summary>Governance Models Visual Comparison</summary>
+<p>Type: MicroSim
+<strong>sim-id:</strong> governance-model-comparison<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective:</strong> Analyze (L4) — Compare on-chain, off-chain, and consortium governance models by examining their decision-making processes, power distributions, and historical outcomes.</p>
+<p><strong>Description:</strong> A three-panel visualization showing how governance works in practice for on-chain (Tezos/MakerDAO), off-chain (Bitcoin/Ethereum), and consortium (Hyperledger) models. Each panel shows the decision-making flow from proposal to implementation. An overlay shows power distribution — who actually influences outcomes — using proportional bubble charts. A timeline at the bottom shows major governance decisions and their outcomes for each model (e.g., The DAO fork, Bitcoin block size debate, Tezos protocol upgrades). Students can click on historical events to see the governance process that produced the outcome.</p>
+<p><strong>Canvas:</strong> Responsive width, 600px height. Background: aliceblue.</p>
+<p><strong>Controls:</strong></p>
+<ul>
+<li>Click on governance events in timeline</li>
+<li>Toggle between flow diagram and power distribution views</li>
+<li>Dropdown: Select specific governance decision to explore</li>
+<li>Hover: Detail tooltips on process steps</li>
+</ul>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>Three-panel governance flow diagrams</li>
+<li>Power distribution bubble charts</li>
+<li>Historical event timeline</li>
+<li>Decision detail pop-up panels</li>
+<li>Color-coded governance model categories</li>
+</ul>
+<p>Implementation: p5.js with multi-panel layout, timeline navigation, bubble chart rendering</p>
+</details>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong>Permissionless blockchains</strong> allow anyone to participate without approval — they are censorship-resistant but performance-limited by adversarial consensus requirements</li>
+<li><strong>Permissioned blockchains</strong> restrict participation to approved entities — they achieve higher throughput but require asking whether a blockchain adds value over a shared database</li>
+<li><strong>Public blockchains</strong> make all data visible, enabling transparency and auditability but creating privacy and regulatory challenges (GDPR conflicts)</li>
+<li><strong>Private blockchains</strong> restrict data visibility; their value proposition narrows to multi-organization scenarios where no single administrator is trusted</li>
+<li><strong>Consortium blockchains</strong> are the most common enterprise model, but high-profile failures (TradeLens, We.trade, Marco Polo) demonstrate that governance and adoption challenges exceed technical ones</li>
+<li><strong>Bitcoin</strong> prioritizes security and decentralization with minimal programmability — a tank, not a sports car</li>
+<li><strong>Ethereum</strong> prioritizes programmability with a growing Layer 2 ecosystem — powerful but with a larger attack surface</li>
+<li><strong>Hyperledger Fabric</strong> optimizes for enterprise compliance and privacy — no native cryptocurrency, fully permissioned, channel-based data isolation</li>
+<li><strong>Interoperability</strong> remains an unsolved challenge; platform choice may create ecosystem lock-in comparable to ERP vendor selection</li>
+<li><strong>On-chain governance</strong> is transparent but plutocratic; <strong>off-chain governance</strong> is flexible but opaque; <strong>consortium governance</strong> resembles traditional organizational governance with a blockchain substrate</li>
+<li><strong>The PKI baseline</strong> — before selecting any blockchain platform, evaluate whether a well-designed PKI deployment with certificate authorities, mutual TLS, and digitally signed audit logs meets your requirements. PKI provides authentication, non-repudiation, and data integrity through standards that are mature, legally recognized, and supported by vast tooling ecosystems. Many use cases framed as "blockchain problems" are actually identity and integrity problems that PKI already solves at lower cost and higher throughput</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Excellent Analytical Work!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Rex celebrates">
+You've now surveyed the full landscape of blockchain types and platforms — from
+Bitcoin's fortress-like simplicity to Hyperledger's enterprise pragmatism. The key
+insight is that there is no "best" blockchain — only the best fit for specific
+requirements. Next, we'll tackle governance in depth and the scalability trilemma —
+the fundamental constraint that no blockchain can optimize for security,
+decentralization, and performance simultaneously. Excellent mapping work, analyst!</p>
 </div>
 
-    </body>
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../09-smart-contracts-tokens/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 9. Smart Contracts and Tokens">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                9. Smart Contracts and Tokens
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../11-governance-and-scalability/" class="md-footer__link md-footer__link--next" aria-label="Next: 11. Governance and Scalability">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                11. Governance and Scalability
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
 </html>

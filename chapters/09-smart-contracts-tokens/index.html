@@ -1,232 +1,1653 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Programmable blockchain logic, smart contract risks, the oracle problem, fungible and non-fungible tokens, tokenization, wallets, dApps, and cross-chain bridges.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/blockchain/chapters/09-smart-contracts-tokens/">
+      
+      
+        <link rel="prev" href="../08-mining-computational-economics/">
+      
+      
+        <link rel="next" href="../10-blockchain-types-platforms/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Smart Contracts and Tokens - Blockchain - The Skeptic's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
         
-        
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>9. Smart Contracts and Tokens - Blockchain - The Skeptic's Guide</title>
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../../css/brands.min.css" rel="stylesheet">
-        <link href="../../css/solid.min.css" rel="stylesheet">
-        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <link href="../../css/mascot.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="../..">Blockchain - The Skeptic's Guide</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item">
-                                <a href="../.." class="nav-link">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../course-description/" class="nav-link">Course Description</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Chapters</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../" class="dropdown-item">List of Chapters</a>
-</li>
-                                    
-<li>
-    <a href="../01-trust-and-digital-networks/" class="dropdown-item">1. Trust and Digital Networks</a>
-</li>
-                                    
-<li>
-    <a href="../02-cryptographic-foundations/" class="dropdown-item">2. Cryptographic Foundations</a>
-</li>
-                                    
-<li>
-    <a href="../03-keys-signatures-identity/" class="dropdown-item">3. Keys, Signatures, and Identity</a>
-</li>
-                                    
-<li>
-    <a href="../04-certificate-authorities-pki/" class="dropdown-item">4. Certificate Authorities and PKI</a>
-</li>
-                                    
-<li>
-    <a href="../05-distributed-systems-ledgers/" class="dropdown-item">5. Distributed Systems and Ledgers</a>
-</li>
-                                    
-<li>
-    <a href="../06-nodes-throughput-performance/" class="dropdown-item">6. Nodes, Throughput, and Performance</a>
-</li>
-                                    
-<li>
-    <a href="../07-consensus-mechanisms/" class="dropdown-item">7. Consensus Mechanisms</a>
-</li>
-                                    
-<li>
-    <a href="../08-mining-computational-economics/" class="dropdown-item">8. Mining and Computational Economics</a>
-</li>
-                                    
-<li>
-    <a href="./" class="dropdown-item active" aria-current="page">9. Smart Contracts and Tokens</a>
-</li>
-                                    
-<li>
-    <a href="../10-blockchain-types-platforms/" class="dropdown-item">10. Blockchain Types and Platforms</a>
-</li>
-                                    
-<li>
-    <a href="../11-governance-and-scalability/" class="dropdown-item">11. Governance and Scalability</a>
-</li>
-                                    
-<li>
-    <a href="../12-cost-analysis-tco/" class="dropdown-item">12. Cost Analysis and TCO</a>
-</li>
-                                    
-<li>
-    <a href="../13-architecture-tradeoff-analysis/" class="dropdown-item">13. Architecture Tradeoff Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../14-risk-analysis-quality-attributes/" class="dropdown-item">14. Risk Analysis and Quality Attributes</a>
-</li>
-                                    
-<li>
-    <a href="../15-cognitive-bias-technology/" class="dropdown-item">15. Cognitive Bias in Technology</a>
-</li>
-                                    
-<li>
-    <a href="../16-evidence-based-evaluation/" class="dropdown-item">16. Evidence-Based Evaluation</a>
-</li>
-                                    
-<li>
-    <a href="../17-industry-case-studies/" class="dropdown-item">17. Industry Case Studies</a>
-</li>
-                                    
-<li>
-    <a href="../18-emerging-trust-technologies/" class="dropdown-item">18. Emerging Trust Technologies</a>
-</li>
-                                    
-<li>
-    <a href="../19-alternative-architectures-decisions/" class="dropdown-item">19. Alternative Architectures</a>
-</li>
-                                    
-<li>
-    <a href="../20-implementation-capstone/" class="dropdown-item">20. Implementation and Capstone</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Learning Graph</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../learning-graph/" class="dropdown-item">Introduction</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/course-description-assessment/" class="dropdown-item">Course Description Assessment</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/concept-list/" class="dropdown-item">Concept Enumeration</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/quality-metrics/" class="dropdown-item">Graph Quality Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/concept-taxonomy/" class="dropdown-item">Concept Taxonomy</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/taxonomy-distribution/" class="dropdown-item">Taxonomy Distribution Report</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">MicroSims</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../sims/graph-viewer/" class="dropdown-item">Graph Viewer</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../about/" class="nav-link">About</a>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../08-mining-computational-economics/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../10-blockchain-types-platforms/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="1"><a href="#smart-contracts-and-tokens" class="nav-link">Smart Contracts and Tokens</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#summary" class="nav-link">Summary</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#concepts-covered" class="nav-link">Concepts Covered</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Smart Contracts and Tokens - Blockchain - The Skeptic's Guide" >
+      
+        <meta  property="og:description"  content="Programmable blockchain logic, smart contract risks, the oracle problem, fungible and non-fungible tokens, tokenization, wallets, dApps, and cross-chain bridges." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/blockchain/assets/images/social/chapters/09-smart-contracts-tokens/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/blockchain/chapters/09-smart-contracts-tokens/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Smart Contracts and Tokens - Blockchain - The Skeptic's Guide" >
+      
+        <meta  name="twitter:description"  content="Programmable blockchain logic, smart contract risks, the oracle problem, fungible and non-fungible tokens, tokenization, wallets, dApps, and cross-chain bridges." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/blockchain/assets/images/social/chapters/09-smart-contracts-tokens/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#smart-contracts-and-tokens" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Blockchain - The Skeptic&#39;s Guide" class="md-header__button md-logo" aria-label="Blockchain - The Skeptic's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Blockchain - The Skeptic's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Smart Contracts and Tokens
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/blockchain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Blockchain - The Skeptic&#39;s Guide" class="md-nav__button md-logo" aria-label="Blockchain - The Skeptic's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Blockchain - The Skeptic's Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/blockchain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-trust-and-digital-networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Trust and Digital Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-cryptographic-foundations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Cryptographic Foundations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-keys-signatures-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Keys, Signatures, and Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-certificate-authorities-pki/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Certificate Authorities and PKI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-distributed-systems-ledgers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Distributed Systems and Ledgers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-nodes-throughput-performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Nodes, Throughput, and Performance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-consensus-mechanisms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Consensus Mechanisms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-mining-computational-economics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Mining and Computational Economics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    9. Smart Contracts and Tokens
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    9. Smart Contracts and Tokens
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-smart-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is a Smart Contract?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smart-contract-risks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Smart Contract Risks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-oracle-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Oracle Problem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tokens-digital-representations-of-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tokens: Digital Representations of Value
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fungible-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fungible Tokens
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-fungible-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-Fungible Tokens
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tokenization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tokenization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wallets-managing-digital-assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wallets: Managing Digital Assets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wallets: Managing Digital Assets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hot-wallets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hot Wallets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cold-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cold Storage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decentralized-applications-dapps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decentralized Applications (dApps)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-chain-bridges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cross-Chain Bridges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cross-Chain Bridges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-smart-contract-risk-taxonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Smart Contract Risk Taxonomy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-token-types-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Token Types Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-blockchain-types-platforms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Blockchain Types and Platforms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-governance-and-scalability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Governance and Scalability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-cost-analysis-tco/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Cost Analysis and TCO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-architecture-tradeoff-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Architecture Tradeoff Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-risk-analysis-quality-attributes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Risk Analysis and Quality Attributes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-cognitive-bias-technology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Cognitive Bias in Technology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-evidence-based-evaluation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Evidence-Based Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-industry-case-studies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Industry Case Studies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-emerging-trust-technologies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Emerging Trust Technologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-alternative-architectures-decisions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Alternative Architectures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-implementation-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Implementation and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-smart-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is a Smart Contract?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smart-contract-risks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Smart Contract Risks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-oracle-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Oracle Problem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tokens-digital-representations-of-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tokens: Digital Representations of Value
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fungible-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fungible Tokens
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-fungible-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-Fungible Tokens
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tokenization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tokenization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wallets-managing-digital-assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wallets: Managing Digital Assets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wallets: Managing Digital Assets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hot-wallets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hot Wallets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cold-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cold Storage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decentralized-applications-dapps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decentralized Applications (dApps)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-chain-bridges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cross-Chain Bridges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cross-Chain Bridges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-smart-contract-risk-taxonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Smart Contract Risk Taxonomy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-token-types-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Token Types Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/blockchain/edit/master/docs/chapters/09-smart-contracts-tokens/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
 
 <h1 id="smart-contracts-and-tokens">Smart Contracts and Tokens</h1>
 <h2 id="summary">Summary</h2>
@@ -254,82 +1675,493 @@
 <li><a href="../07-consensus-mechanisms/">Chapter 7: Consensus Mechanisms</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p></div>
-            </div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js"></script>
-        <script src="../../search/main.js"></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Rex Says: Trust, but Verify!</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Rex welcomes you">
+Welcome back, fellow analysts! We've covered how blockchains store data and reach
+consensus. Now we enter the programmable layer — smart contracts that execute
+automatically and tokens that represent digital (and physical) assets. Sounds
+powerful, right? It is — but "code is law" means bugs are also law. Let's
+examine both the promise and the peril. Trust, but verify — especially the code!</p>
+</div>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>After completing this chapter, you will be able to:</p>
+<ul>
+<li>Define smart contracts and explain how they execute on blockchain networks</li>
+<li>Identify the major categories of smart contract risks and vulnerabilities</li>
+<li>Explain the oracle problem and why it limits smart contract capabilities</li>
+<li>Distinguish between fungible tokens, non-fungible tokens, and tokenized assets</li>
+<li>Compare hot wallets and cold storage in terms of security and usability</li>
+<li>Describe how decentralized applications and cross-chain bridges extend blockchain functionality</li>
+<li>Evaluate smart contract proposals with appropriate skepticism about security and reliability</li>
+</ul>
+<h2 id="what-is-a-smart-contract">What Is a Smart Contract?</h2>
+<p>A <strong>smart contract</strong> is a program stored on a blockchain that executes automatically when predetermined conditions are met. The term was coined by Nick Szabo in 1994, but the concept gained practical implementation with Ethereum's launch in 2015.</p>
+<p>Despite the name, smart contracts are neither smart nor contracts in the legal sense. They are deterministic programs — given the same inputs, they always produce the same outputs. They cannot access external information, exercise judgment, or adapt to circumstances not anticipated by their programmers. The word "contract" is misleading because they lack the flexibility, interpretation, and enforceability mechanisms of legal contracts.</p>
+<p>A smart contract works as follows:</p>
+<ol>
+<li>A developer writes code defining the contract's logic</li>
+<li>The code is compiled to bytecode and deployed to the blockchain</li>
+<li>The contract receives a unique address on the blockchain</li>
+<li>Users interact with the contract by sending transactions to that address</li>
+<li>The contract executes deterministically on every node in the network</li>
+<li>Results (state changes) are recorded on the blockchain permanently</li>
+</ol>
+<p>The most important property of smart contracts is <strong>immutability</strong>: once deployed, the code cannot be changed. This is presented as a feature — "code is law" — but it is also a profound limitation. If the code contains a bug, that bug is permanent and may be exploitable.</p>
+<h2 id="smart-contract-risks">Smart Contract Risks</h2>
+<p><strong>Smart contract risks</strong> encompass a broad category of vulnerabilities that are unique to blockchain-based programs. Unlike traditional software where bugs can be patched with updates, smart contract bugs exist on an immutable ledger managing real money.</p>
+<p>The major risk categories include:</p>
+<table>
+<thead>
+<tr>
+<th>Risk Category</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Coding errors</strong></td>
+<td>Logic bugs in the contract code</td>
+<td>The DAO hack (2016) — $60M stolen via reentrancy bug</td>
+</tr>
+<tr>
+<td><strong>Reentrancy</strong></td>
+<td>A contract calls back into the calling contract before state updates</td>
+<td>Attacker drains funds by recursively calling withdraw()</td>
+</tr>
+<tr>
+<td><strong>Integer overflow/underflow</strong></td>
+<td>Arithmetic exceeds variable bounds</td>
+<td>Token balances wrap around, creating tokens from nothing</td>
+</tr>
+<tr>
+<td><strong>Access control failures</strong></td>
+<td>Missing or incorrect permission checks</td>
+<td>Anyone can call administrative functions</td>
+</tr>
+<tr>
+<td><strong>Front-running</strong></td>
+<td>Miners or bots see pending transactions and act first</td>
+<td>MEV extraction by sandwich attacks on DEX trades</td>
+</tr>
+<tr>
+<td><strong>Upgrade risks</strong></td>
+<td>Proxy patterns introduce centralization</td>
+<td>Admin key compromised, contract logic replaced maliciously</td>
+</tr>
+</tbody>
+</table>
+<p>The financial impact of smart contract vulnerabilities is staggering. Between 2016 and 2025, over $10 billion has been lost to smart contract exploits, hacks, and rug pulls across DeFi protocols. This is not a theoretical risk — it is a recurring, empirically documented pattern.</p>
+<p><strong>Formal verification</strong> — mathematically proving that code behaves as intended — offers partial mitigation, but it is expensive, limited to simple properties, and cannot verify that the specification itself is correct. <strong>Audits</strong> by specialized security firms are standard practice, but audits are point-in-time assessments that cannot guarantee the absence of all vulnerabilities.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+"Code is law" sounds empowering until the code has a bug. Traditional legal
+contracts have ambiguity, but they also have courts, arbitration, and the ability
+to correct errors after the fact. Smart contracts trade all of that flexibility for
+deterministic execution. When The DAO was exploited in 2016, the Ethereum community
+had to hard-fork the entire blockchain to reverse the theft — a decision that
+contradicted the very immutability principle smart contracts are built on. The
+lesson: immutable code managing mutable real-world situations creates a
+fundamental tension that no amount of auditing fully resolves.</p>
+</div>
+<h2 id="the-oracle-problem">The Oracle Problem</h2>
+<p>The <strong>oracle problem</strong> is one of the most fundamental limitations of smart contracts. Because blockchains are deterministic, closed systems, smart contracts cannot natively access information from the outside world — stock prices, weather data, sports scores, delivery confirmations, or any other off-chain data.</p>
+<p>An <strong>oracle</strong> is a service that feeds external data into a blockchain so that smart contracts can use it. However, this introduces a critical trust dependency: the entire smart contract's reliability now depends on the oracle's accuracy and honesty.</p>
+<p>This creates a paradox: blockchain's value proposition is removing trusted intermediaries, but smart contracts that depend on real-world data must trust an oracle — reintroducing the very intermediary the system was designed to eliminate.</p>
+<p>Oracle solutions attempt to mitigate this through various approaches:</p>
+<ul>
+<li><strong>Decentralized oracle networks</strong> (e.g., Chainlink) — aggregate data from multiple sources and use economic incentives to discourage dishonesty</li>
+<li><strong>Prediction markets</strong> — use economic bets to crowdsource data accuracy</li>
+<li><strong>Trusted hardware</strong> (e.g., Intel SGX) — use hardware enclaves to guarantee computation integrity</li>
+</ul>
+<p>None of these fully solves the problem. Decentralized oracles reduce single points of failure but introduce their own consensus overhead, cost, and attack surfaces. The oracle problem means that any smart contract claiming to automate real-world processes must be evaluated on the trustworthiness of its data sources, not just its code.</p>
+<h2 id="tokens-digital-representations-of-value">Tokens: Digital Representations of Value</h2>
+<p>A <strong>token</strong> is a digital asset created and managed by a smart contract on a blockchain. Unlike native cryptocurrencies (ETH, BTC) which are integral to the protocol, tokens are application-layer constructs that can represent almost anything — currency, assets, rights, identity, or access.</p>
+<p>Tokens are defined by token standards — agreed-upon interfaces that ensure interoperability between wallets, exchanges, and applications.</p>
+<p>The two primary categories are:</p>
+<ul>
+<li><strong>Fungible tokens</strong> — interchangeable, like currency</li>
+<li><strong>Non-fungible tokens</strong> — unique, like a deed or certificate</li>
+</ul>
+<h2 id="fungible-tokens">Fungible Tokens</h2>
+<p>A <strong>fungible token</strong> is one where every unit is identical and interchangeable. One token of a given type is worth exactly the same as any other token of that type. The dominant standard is Ethereum's <strong>ERC-20</strong>, which defines a common interface for creating and transferring fungible tokens.</p>
+<p>ERC-20 tokens power much of the blockchain ecosystem:</p>
+<ul>
+<li><strong>Stablecoins</strong> (USDC, USDT) — tokens pegged to fiat currency values</li>
+<li><strong>Governance tokens</strong> — tokens that grant voting rights in a protocol</li>
+<li><strong>Utility tokens</strong> — tokens that provide access to a service or platform</li>
+<li><strong>Wrapped tokens</strong> — tokens representing assets from other blockchains</li>
+</ul>
+<p>The ease of creating ERC-20 tokens is both a strength and a risk. Anyone can deploy a new token contract in minutes for less than $100 in gas fees. This has enabled legitimate innovation but also rampant fraud — thousands of tokens have been created solely to extract money from buyers through "rug pulls" (where creators sell their holdings after attracting buyers).</p>
+<h2 id="non-fungible-tokens">Non-Fungible Tokens</h2>
+<p>A <strong>Non-Fungible Token (NFT)</strong> is a unique digital asset with a distinct identifier that cannot be interchanged with any other token. The dominant standard is Ethereum's <strong>ERC-721</strong>. Each NFT has a unique token ID and can carry metadata pointing to associated content.</p>
+<p>Critical distinctions about NFTs:</p>
+<ul>
+<li>An NFT is a record on a blockchain — it is not the digital file itself</li>
+<li>Most NFT metadata and media files are stored off-chain (on IPFS, Arweave, or centralized servers)</li>
+<li>Owning an NFT does not necessarily confer copyright, intellectual property rights, or legal ownership of the underlying asset</li>
+<li>If the off-chain storage goes offline, the NFT may point to nothing</li>
+</ul>
+<p>The NFT market experienced extreme speculation in 2021-2022, with some individual tokens selling for millions of dollars. By 2024, the market had contracted by over 90%, with many NFT collections effectively valueless. This cycle illustrates a recurring pattern in blockchain markets: technology capability is conflated with investment value, leading to speculative bubbles.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Bias Alert</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Rex warns you">
+The phrase "you own it on the blockchain" is technically true and practically
+misleading. An NFT proves you control a token ID in a smart contract. It does not
+prove you own the artwork, the intellectual property, or any real-world asset
+unless a separate legal framework enforces that connection. Blockchain proves
+possession of a token. Legal systems prove ownership of property. These are
+different things, and conflating them has cost people significant money.</p>
+</div>
+<h2 id="tokenization">Tokenization</h2>
+<p><strong>Tokenization</strong> is the process of representing real-world assets as tokens on a blockchain. Proponents argue this enables fractional ownership, 24/7 trading, and reduced settlement times for traditionally illiquid assets like real estate, fine art, or private equity.</p>
+<p>Potential benefits of tokenization:</p>
+<ul>
+<li><strong>Fractional ownership</strong> — dividing expensive assets into affordable shares</li>
+<li><strong>Liquidity</strong> — enabling trading of traditionally illiquid assets</li>
+<li><strong>Transparency</strong> — on-chain ownership records visible to all participants</li>
+<li><strong>Automation</strong> — smart contracts can automate dividend distribution, compliance, and transfers</li>
+</ul>
+<p>However, tokenization faces significant challenges:</p>
+<ul>
+<li><strong>Legal enforceability</strong> — a token representing a building has no legal meaning unless the jurisdiction recognizes it</li>
+<li><strong>Regulatory compliance</strong> — most tokenized assets are securities under existing law, requiring registration and compliance</li>
+<li><strong>Off-chain dependency</strong> — the token's value depends on the real-world asset being maintained, insured, and legally protected through traditional means</li>
+<li><strong>Oracle dependency</strong> — price feeds, appraisals, and status updates require trusted oracles</li>
+</ul>
+<p>The skeptic's question for any tokenization proposal: what does the token add that a traditional database entry with proper legal documentation cannot provide? If the answer requires trusting the same intermediaries either way, the blockchain layer may add cost without adding value.</p>
+<h2 id="wallets-managing-digital-assets">Wallets: Managing Digital Assets</h2>
+<p>A <strong>wallet</strong> is software (or hardware) that manages the cryptographic keys needed to interact with blockchain networks. Despite the name, a wallet does not "contain" cryptocurrency — it contains the private keys that authorize transactions. The actual token balances exist on the blockchain.</p>
+<p>Wallets exist on a spectrum between convenience and security:</p>
+<h3 id="hot-wallets">Hot Wallets</h3>
+<p>A <strong>hot wallet</strong> is connected to the internet and ready for immediate transactions. Examples include browser extensions (MetaMask), mobile apps (Trust Wallet), and exchange-hosted wallets.</p>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Instant access for transactions</li>
+<li>Easy to use for daily interactions</li>
+<li>Supports dApp connectivity</li>
+</ul>
+<p><strong>Risks:</strong></p>
+<ul>
+<li>Vulnerable to malware, phishing, and remote exploits</li>
+<li>Exchange-hosted wallets mean a third party controls your keys ("not your keys, not your coins")</li>
+<li>Browser extension wallets can be compromised by malicious websites</li>
+</ul>
+<h3 id="cold-storage">Cold Storage</h3>
+<p><strong>Cold storage</strong> refers to keeping private keys on devices or media that are never connected to the internet. Hardware wallets (Ledger, Trezor), paper wallets, and air-gapped computers are common forms.</p>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Immune to remote attacks and malware</li>
+<li>Suitable for long-term storage of significant holdings</li>
+<li>Physical control over keys</li>
+</ul>
+<p><strong>Risks:</strong></p>
+<ul>
+<li>Physical loss or damage means permanent loss of funds</li>
+<li>Less convenient for frequent transactions</li>
+<li>Supply chain attacks on hardware wallets (tampered devices)</li>
+<li>Social engineering attacks targeting wallet recovery phrases</li>
+</ul>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Skeptic's Toolkit</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Rex has a tip">
+When evaluating a blockchain project's wallet architecture, ask: who controls the
+private keys? If users control their own keys, they bear full responsibility for
+security — and key management is hard for average users. If a custodian controls
+the keys, you've reintroduced a trusted intermediary, which undermines the
+decentralization argument. There is no free lunch in key management: either
+the user bears the risk or a trusted party does.</p>
+</div>
+<h2 id="decentralized-applications-dapps">Decentralized Applications (dApps)</h2>
+<p>A <strong>Decentralized Application (dApp)</strong> is an application that uses smart contracts as its backend logic instead of (or in addition to) traditional servers. The term suggests full decentralization, but the reality is more nuanced.</p>
+<p>A typical dApp architecture includes:</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Component</th>
+<th>Actually Decentralized?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Frontend</strong></td>
+<td>Website/mobile app</td>
+<td>No — hosted on traditional servers or CDNs</td>
+</tr>
+<tr>
+<td><strong>API layer</strong></td>
+<td>Backend services, indexing</td>
+<td>No — centralized services (e.g., Infura, Alchemy)</td>
+</tr>
+<tr>
+<td><strong>Smart contract</strong></td>
+<td>On-chain logic</td>
+<td>Yes — executed by blockchain nodes</td>
+</tr>
+<tr>
+<td><strong>Storage</strong></td>
+<td>Media, large data</td>
+<td>Partially — IPFS is distributed but not guaranteed</td>
+</tr>
+<tr>
+<td><strong>Data feeds</strong></td>
+<td>Oracles, price feeds</td>
+<td>Partially — decentralized oracle networks</td>
+</tr>
+</tbody>
+</table>
+<p>The uncomfortable truth: most "decentralized" applications have significant centralized dependencies. If the frontend goes down, users can still interact with the smart contract directly, but most lack the technical ability to do so. If the API provider (like Infura) experiences an outage, dApps built on that provider become inaccessible — as happened during notable Infura outages affecting the Ethereum ecosystem.</p>
+<p>Major dApp categories include:</p>
+<ul>
+<li><strong>Decentralized Finance (DeFi)</strong> — lending, borrowing, trading without traditional intermediaries</li>
+<li><strong>Decentralized Exchanges (DEXs)</strong> — token trading via automated market makers</li>
+<li><strong>DAOs</strong> — organizations governed by smart contract voting</li>
+<li><strong>Gaming and metaverse</strong> — blockchain-based virtual worlds and economies</li>
+</ul>
+<h2 id="cross-chain-bridges">Cross-Chain Bridges</h2>
+<p>A <strong>cross-chain bridge</strong> is a protocol that enables the transfer of assets or data between different blockchain networks. Because blockchains are isolated by design — Bitcoin cannot natively communicate with Ethereum — bridges fill the interoperability gap.</p>
+<p>Bridges typically work through one of these mechanisms:</p>
+<ul>
+<li><strong>Lock and mint</strong> — lock assets on the source chain, mint equivalent tokens on the destination chain</li>
+<li><strong>Burn and mint</strong> — burn assets on the source chain, mint on the destination</li>
+<li><strong>Atomic swaps</strong> — cryptographic protocols enabling simultaneous exchange across chains</li>
+<li><strong>Relay chains</strong> — intermediary blockchains that validate cross-chain messages</li>
+</ul>
+<p>Cross-chain bridges have proven to be among the most vulnerable components in the blockchain ecosystem. Bridge exploits include:</p>
+<table>
+<thead>
+<tr>
+<th>Bridge</th>
+<th>Year</th>
+<th>Amount Lost</th>
+<th>Vulnerability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ronin (Axie Infinity)</td>
+<td>2022</td>
+<td>$625M</td>
+<td>Compromised validator keys</td>
+</tr>
+<tr>
+<td>Wormhole</td>
+<td>2022</td>
+<td>$326M</td>
+<td>Smart contract vulnerability</td>
+</tr>
+<tr>
+<td>Nomad</td>
+<td>2022</td>
+<td>$190M</td>
+<td>Verification bypass</td>
+</tr>
+<tr>
+<td>Harmony Horizon</td>
+<td>2022</td>
+<td>$100M</td>
+<td>Compromised multisig keys</td>
+</tr>
+</tbody>
+</table>
+<p>The pattern is clear: bridges concentrate risk at the interface between chains. They must hold or control large pools of locked assets, making them high-value targets. Their security often depends on a small set of validators or multisig holders — precisely the centralized trust model that blockchain was designed to avoid.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+Cross-chain bridges reveal a fundamental design tension. Blockchains achieve security
+through isolation — each chain validates its own state independently. Bridges break
+that isolation, creating trust dependencies between chains. The result is that bridge
+security is typically weaker than either chain's native security. Vitalik Buterin
+himself has warned about the "fundamental limits of bridge security." When evaluating
+multi-chain architectures, treat bridges as the weakest link in the security chain.</p>
+</div>
+<h4 id="diagram-smart-contract-risk-taxonomy">Diagram: Smart Contract Risk Taxonomy</h4>
+<details>
+<summary>Interactive Smart Contract Vulnerability Explorer</summary>
+<p>Type: MicroSim
+<strong>sim-id:</strong> smart-contract-risk-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective:</strong> Analyze (L4) — Categorize smart contract vulnerabilities by type, severity, and historical financial impact, and evaluate mitigation strategies for each risk category.</p>
+<p><strong>Description:</strong> A visual taxonomy of smart contract risks displayed as an interactive tree diagram. The root node branches into categories: Coding Errors, Economic Exploits, Oracle Failures, Access Control, and Upgrade Risks. Each category expands to show specific vulnerabilities with real-world examples. Clicking a node shows a detail panel with: description, historical examples with dollar amounts lost, mitigation strategies, and a severity rating. A timeline view at the bottom shows major smart contract exploits chronologically with cumulative losses.</p>
+<p><strong>Canvas:</strong> Responsive width, 550px height. Background: aliceblue.</p>
+<p><strong>Controls:</strong></p>
+<ul>
+<li>Click to expand/collapse tree branches</li>
+<li>Hover for quick tooltip descriptions</li>
+<li>Toggle: Tree view vs. timeline view</li>
+<li>Dropdown: Filter by risk category</li>
+<li>Button: Show cumulative losses chart</li>
+</ul>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>Interactive tree diagram with color-coded categories</li>
+<li>Detail panel with example and mitigation info</li>
+<li>Cumulative loss timeline chart</li>
+<li>Severity rating indicators (color-coded)</li>
+<li>Dollar amount annotations on exploit nodes</li>
+</ul>
+<p>Implementation: p5.js with tree layout, click/hover interactions, timeline chart rendering</p>
+</details>
+<h4 id="diagram-token-types-comparison">Diagram: Token Types Comparison</h4>
+<details>
+<summary>Fungible vs. Non-Fungible Token Comparison</summary>
+<p>Type: MicroSim
+<strong>sim-id:</strong> token-types-comparison<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective:</strong> Understand (L2) — Distinguish between fungible and non-fungible tokens, explaining the properties, standards, and use cases for each type.</p>
+<p><strong>Description:</strong> A side-by-side visual comparison of fungible tokens (ERC-20) and non-fungible tokens (ERC-721). The left panel shows fungible tokens as identical, interchangeable coins that can be divided and combined. The right panel shows NFTs as unique cards with distinct properties. Students can click to "transfer" tokens between wallets, observing how fungible tokens split and merge while NFTs transfer as whole units. A properties panel below each type lists the key characteristics: divisibility, interchangeability, uniqueness, and common standards. A "Real World Analogy" section maps each type to familiar concepts (dollars vs. baseball cards).</p>
+<p><strong>Canvas:</strong> Responsive width, 500px height. Background: aliceblue.</p>
+<p><strong>Controls:</strong></p>
+<ul>
+<li>Click to transfer tokens between wallet visualizations</li>
+<li>Toggle: Show/hide token metadata</li>
+<li>Dropdown: Select token example (USDC, CryptoKitty, etc.)</li>
+<li>Button: Reset wallets</li>
+</ul>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>Fungible token visualization (identical coins/bars)</li>
+<li>NFT visualization (unique cards with metadata)</li>
+<li>Wallet containers showing balances</li>
+<li>Transfer animations</li>
+<li>Properties comparison table</li>
+<li>Real-world analogy illustrations</li>
+</ul>
+<p>Implementation: p5.js with drag-and-drop token interactions, wallet state management, animated transfers</p>
+</details>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong>Smart contracts</strong> are deterministic programs on a blockchain — they are not smart, not legal contracts, and once deployed, their code cannot be changed</li>
+<li><strong>Smart contract risks</strong> are severe and empirically documented: over $10 billion lost to exploits between 2016 and 2025, with reentrancy, access control, and logic errors as recurring vulnerability patterns</li>
+<li><strong>The oracle problem</strong> reintroduces trusted intermediaries into systems designed to eliminate them — any smart contract relying on real-world data is only as trustworthy as its data source</li>
+<li><strong>Fungible tokens</strong> (ERC-20) are interchangeable digital assets used for currencies, governance, and utility; their ease of creation enables both innovation and fraud</li>
+<li><strong>Non-fungible tokens</strong> (ERC-721) are unique digital records, not the assets themselves — owning an NFT is not equivalent to owning intellectual property or legal rights</li>
+<li><strong>Tokenization</strong> promises fractional ownership and liquidity for real-world assets, but depends on legal frameworks and off-chain systems that blockchain does not control</li>
+<li><strong>Wallets</strong> manage keys, not coins — the tradeoff between hot wallets (convenient, vulnerable) and cold storage (secure, inconvenient) has no costless solution</li>
+<li><strong>Decentralized applications</strong> typically have significant centralized dependencies in their frontend, API, and storage layers</li>
+<li><strong>Cross-chain bridges</strong> are the weakest link in multi-chain architectures, with billions lost to bridge exploits that concentrate risk at chain boundaries</li>
+<li><strong>The traditional alternative</strong> — many functions attributed to smart contracts (escrow, conditional payments, automated compliance) can be implemented through traditional server-side business logic with database transactions, legal contracts, and established dispute resolution. Smart contracts add value primarily when multiple untrusting parties need automated enforcement without a shared intermediary. For single-organization workflows or scenarios with a trusted operator, traditional application code is simpler, cheaper, auditable, and patchable</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Excellent Analytical Work!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Rex celebrates">
+You've now mapped the programmable layer of blockchain — smart contracts, tokens,
+wallets, and dApps. The capabilities are real, but so are the risks. "Code is law"
+sounds clean until you realize that law without courts, appeals, or corrections is
+a harsh system. Next, we'll survey the landscape of blockchain platforms and
+types — public, private, and consortium — and examine the tradeoffs each makes.
+Outstanding critical thinking, fellow analyst!</p>
 </div>
 
-    </body>
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../08-mining-computational-economics/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 8. Mining and Computational Economics">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                8. Mining and Computational Economics
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../10-blockchain-types-platforms/" class="md-footer__link md-footer__link--next" aria-label="Next: 10. Blockchain Types and Platforms">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                10. Blockchain Types and Platforms
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
 </html>

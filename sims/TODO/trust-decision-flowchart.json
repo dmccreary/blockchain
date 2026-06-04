@@ -1,0 +1,14 @@
+{
+  "sim_id": "trust-decision-flowchart",
+  "diagram_name": "Trust Architecture Decision Flowchart",
+  "chapter_number": 16,
+  "chapter_title": "Evidence-Based Evaluation",
+  "chapter_dir": "16-evidence-based-evaluation",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** trust-decision-flowchart<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Apply (L3) — Use a structured decision flowchart to determine the appropriate trust architecture for a given business scenario.\n\n**Description:** An interactive flowchart that guides users through the trust architecture decision process. Each decision node is displayed as a diamond shape with a yes/no question. Users click \"Yes\" or \"No\" buttons at each node to navigate down the tree. Terminal nodes display the recommended architecture with a brief justification. A sidebar shows the path taken and the cumulative requirements that led to the recommendation. A \"Start Over\" button resets the flowchart. Color coding indicates the complexity level of each recommended architecture (green for simplest, yellow for moderate, orange for complex).\n\n**Canvas:** Responsive width, 600px height. Background: aliceblue.\n\n**Controls:**\n\n- \"Yes\" and \"No\" buttons at each decision node\n- \"Start Over\" button to reset\n- \"Show All Paths\" toggle to reveal the complete flowchart\n\n**Visual elements:**\n\n- Diamond-shaped decision nodes with question text\n- Rectangular terminal nodes with architecture recommendations\n- Directional arrows connecting nodes\n- Color-coded complexity indicators (green/yellow/orange/red)\n- Sidebar panel showing decision path and accumulated requirements\n- Animated transitions between nodes\n\nImplementation: p5.js with responsive canvas, state machine for navigation, animated transitions"
+}

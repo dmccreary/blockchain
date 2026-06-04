@@ -1,0 +1,14 @@
+{
+  "sim_id": "internet-trust-gaps",
+  "diagram_name": "Internet Protocol Stack and Trust Gaps",
+  "chapter_number": 1,
+  "chapter_title": "Trust and Digital Networks",
+  "chapter_dir": "01-trust-and-digital-networks",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: Diagram\n**sim-id:** internet-trust-gaps<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Understand (L2) — Explain how the layered internet architecture creates specific trust gaps at each layer that must be addressed by additional security mechanisms.\n\n**Description:** An interactive diagram showing the four-layer TCP/IP protocol stack as stacked horizontal bars. Each layer is color-coded and labeled with its protocol name, function, and a specific trust gap annotation (e.g., \"IP layer: packets can be intercepted at any routing hop\"). Hovering over each layer reveals a tooltip with a real-world attack example (e.g., \"Man-in-the-middle attack\" for the network layer). A toggle button switches between \"Without Trust Overlay\" (showing the raw stack with red warning icons) and \"With Trust Overlay\" (showing TLS/certificates layered on top with green check icons).\n\n**Canvas:** Responsive width, 500px height. Background: aliceblue.\n\n**Controls:** Toggle button for \"Without Trust\" / \"With Trust\" view.\n\n**Visual elements:**\n- 4 stacked rectangular bars (Link, Network, Transport, Application)\n- Each bar shows: layer name, protocol examples, trust gap description\n- Red warning icons on each layer in \"Without Trust\" view\n- Green overlay bars showing TLS, certificates, digital signatures in \"With Trust\" view\n- Hover tooltips with attack examples\n\nImplementation: p5.js with responsive canvas, hover detection for tooltips"
+}

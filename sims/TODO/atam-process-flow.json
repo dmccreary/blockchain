@@ -1,0 +1,14 @@
+{
+  "sim_id": "atam-process-flow",
+  "diagram_name": "ATAM Process Flow",
+  "chapter_number": 13,
+  "chapter_title": "Architecture Tradeoff Analysis Method",
+  "chapter_dir": "13-architecture-tradeoff-analysis",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: Diagram\n**sim-id:** atam-process-flow<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Apply (L3) — Walk through the four phases of ATAM as applied to a trust technology evaluation, understanding the inputs, activities, and outputs of each phase.\n\n**Description:** An interactive flowchart showing the four ATAM phases as large horizontal swim lanes. Each phase contains activity boxes connected by arrows. Phase 1 shows \"Present Business Drivers\" and \"Present Candidate Architectures\" (blockchain and traditional). Phase 2 shows \"Construct Utility Tree,\" \"Generate Scenarios,\" and \"Analyze Architecture Responses.\" Phase 3 shows \"Stakeholder Scenario Generation\" and \"Scenario Prioritization.\" Phase 4 shows \"Document Risks,\" \"Document Sensitivity Points,\" \"Document Tradeoff Points,\" and \"Present Recommendations.\" Clicking on any activity box reveals a tooltip with a trust-technology-specific example. A \"Step Through\" button advances through the phases one at a time, highlighting the current phase and dimming completed ones.\n\n**Canvas:** Responsive width, 550px height. Background: aliceblue.\n\n**Controls:**\n\n- Button: \"Step Through\" to advance phases\n- Button: \"Reset\" to return to overview\n- Click any activity box for detailed tooltip\n\n**Visual elements:**\n\n- 4 horizontal swim lanes with phase labels\n- Activity boxes with rounded corners\n- Connecting arrows showing process flow\n- Highlighted current phase with subtle animation\n- Tooltip panels with trust technology examples\n- Progress indicator showing current phase\n\nImplementation: p5.js with responsive canvas, click detection, phase animation"
+}

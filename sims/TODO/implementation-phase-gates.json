@@ -1,0 +1,14 @@
+{
+  "sim_id": "implementation-phase-gates",
+  "diagram_name": "Implementation Phase Gate Dashboard",
+  "chapter_number": 20,
+  "chapter_title": "Implementation and Capstone",
+  "chapter_dir": "20-implementation-capstone",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** implementation-phase-gates<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Apply (L3) — Design a phased implementation roadmap with decision gates, cost tracking, and TRL-appropriate contingency budgeting for a trust architecture deployment.\n\n**Description:** An interactive dashboard showing the four implementation phases as a horizontal timeline with vertical gate markers between each phase. Each phase is represented as a colored block showing: phase name, duration, budget, key deliverables, and status indicator (not started, in progress, completed, blocked). Clicking a gate marker opens a detail panel showing the gate criteria, actual vs. projected metrics, and the go/no-go decision. A cost tracking chart below the timeline shows projected vs. actual cost curves over time. A TRL indicator in the upper right shows the current technology TRL with corresponding contingency recommendation. Users can simulate different scenarios by adjusting a \"TRL at Selection\" slider and observing how the recommended contingency changes.\n\n**Canvas:** Responsive width, 600px height. Background: aliceblue.\n\n**Controls:**\n\n- Click phase blocks to see detail panels\n- Click gate markers to see gate criteria and metrics\n- TRL slider (3-9) to adjust contingency recommendations\n- \"Simulate Cost Overrun\" toggle to show impact of under-budgeted contingency\n- \"Reset\" button to restore default view\n\n**Visual elements:**\n\n- Horizontal timeline with 4 phase blocks and 4 gate markers\n- Phase blocks with status colors (gray/blue/green/red)\n- Gate markers with pass/fail indicators\n- Cost tracking line chart (projected vs. actual)\n- TRL thermometer gauge with contingency recommendation\n- Detail panels with metrics and criteria\n\nImplementation: p5.js with responsive canvas, interactive timeline, cost chart, slider control"
+}

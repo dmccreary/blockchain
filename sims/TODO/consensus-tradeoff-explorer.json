@@ -1,0 +1,14 @@
+{
+  "sim_id": "consensus-tradeoff-explorer",
+  "diagram_name": "Consensus Mechanism Comparison",
+  "chapter_number": 7,
+  "chapter_title": "Consensus Mechanisms",
+  "chapter_dir": "07-consensus-mechanisms",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** consensus-tradeoff-explorer<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Evaluate (L5) — Assess the tradeoffs between consensus mechanisms across security, performance, decentralization, and energy efficiency dimensions, judging which mechanism best fits different use cases.\n\n**Description:** A radar chart (spider diagram) showing four axes: Security, Performance, Decentralization, and Energy Efficiency. Students can select from 4 consensus mechanisms (PoW, PoS, DPoS, PBFT) and overlay their radar profiles for comparison. Each mechanism is represented by a different colored polygon. A sidebar shows detailed scores and explanations for each dimension. A \"Use Case Matcher\" lets students select a scenario (e.g., \"public cryptocurrency,\" \"supply chain consortium,\" \"financial settlement\") and highlights which mechanism scores best for that scenario.\n\n**Canvas:** Responsive width, 500px height. Background: aliceblue.\n\n**Controls:**\n\n- Checkboxes to show/hide each consensus mechanism\n- Use case dropdown selector\n- Hover for dimension explanations\n- \"Compare All\" button to overlay all mechanisms\n\n**Visual elements:**\n\n- Radar chart with 4 axes\n- Color-coded mechanism polygons with labels\n- Score values at each axis intersection\n- Use case recommendation panel\n- Legend with mechanism colors\n\nImplementation: p5.js with radar chart rendering, overlay toggle, dropdown selector"
+}

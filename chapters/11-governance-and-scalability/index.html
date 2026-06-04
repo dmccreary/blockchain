@@ -1,232 +1,1605 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Scalability trilemma, on-chain vs off-chain processing, Layer 1 and Layer 2 solutions, state channels, sidechains, performance attributes, blockchain limitations, and when not to use blockchain.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/blockchain/chapters/11-governance-and-scalability/">
+      
+      
+        <link rel="prev" href="../10-blockchain-types-platforms/">
+      
+      
+        <link rel="next" href="../12-cost-analysis-tco/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Governance and Scalability - Blockchain - The Skeptic's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
         
-        
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>11. Governance and Scalability - Blockchain - The Skeptic's Guide</title>
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../../css/brands.min.css" rel="stylesheet">
-        <link href="../../css/solid.min.css" rel="stylesheet">
-        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <link href="../../css/mascot.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="../..">Blockchain - The Skeptic's Guide</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item">
-                                <a href="../.." class="nav-link">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../course-description/" class="nav-link">Course Description</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Chapters</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../" class="dropdown-item">List of Chapters</a>
-</li>
-                                    
-<li>
-    <a href="../01-trust-and-digital-networks/" class="dropdown-item">1. Trust and Digital Networks</a>
-</li>
-                                    
-<li>
-    <a href="../02-cryptographic-foundations/" class="dropdown-item">2. Cryptographic Foundations</a>
-</li>
-                                    
-<li>
-    <a href="../03-keys-signatures-identity/" class="dropdown-item">3. Keys, Signatures, and Identity</a>
-</li>
-                                    
-<li>
-    <a href="../04-certificate-authorities-pki/" class="dropdown-item">4. Certificate Authorities and PKI</a>
-</li>
-                                    
-<li>
-    <a href="../05-distributed-systems-ledgers/" class="dropdown-item">5. Distributed Systems and Ledgers</a>
-</li>
-                                    
-<li>
-    <a href="../06-nodes-throughput-performance/" class="dropdown-item">6. Nodes, Throughput, and Performance</a>
-</li>
-                                    
-<li>
-    <a href="../07-consensus-mechanisms/" class="dropdown-item">7. Consensus Mechanisms</a>
-</li>
-                                    
-<li>
-    <a href="../08-mining-computational-economics/" class="dropdown-item">8. Mining and Computational Economics</a>
-</li>
-                                    
-<li>
-    <a href="../09-smart-contracts-tokens/" class="dropdown-item">9. Smart Contracts and Tokens</a>
-</li>
-                                    
-<li>
-    <a href="../10-blockchain-types-platforms/" class="dropdown-item">10. Blockchain Types and Platforms</a>
-</li>
-                                    
-<li>
-    <a href="./" class="dropdown-item active" aria-current="page">11. Governance and Scalability</a>
-</li>
-                                    
-<li>
-    <a href="../12-cost-analysis-tco/" class="dropdown-item">12. Cost Analysis and TCO</a>
-</li>
-                                    
-<li>
-    <a href="../13-architecture-tradeoff-analysis/" class="dropdown-item">13. Architecture Tradeoff Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../14-risk-analysis-quality-attributes/" class="dropdown-item">14. Risk Analysis and Quality Attributes</a>
-</li>
-                                    
-<li>
-    <a href="../15-cognitive-bias-technology/" class="dropdown-item">15. Cognitive Bias in Technology</a>
-</li>
-                                    
-<li>
-    <a href="../16-evidence-based-evaluation/" class="dropdown-item">16. Evidence-Based Evaluation</a>
-</li>
-                                    
-<li>
-    <a href="../17-industry-case-studies/" class="dropdown-item">17. Industry Case Studies</a>
-</li>
-                                    
-<li>
-    <a href="../18-emerging-trust-technologies/" class="dropdown-item">18. Emerging Trust Technologies</a>
-</li>
-                                    
-<li>
-    <a href="../19-alternative-architectures-decisions/" class="dropdown-item">19. Alternative Architectures</a>
-</li>
-                                    
-<li>
-    <a href="../20-implementation-capstone/" class="dropdown-item">20. Implementation and Capstone</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Learning Graph</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../learning-graph/" class="dropdown-item">Introduction</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/course-description-assessment/" class="dropdown-item">Course Description Assessment</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/concept-list/" class="dropdown-item">Concept Enumeration</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/quality-metrics/" class="dropdown-item">Graph Quality Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/concept-taxonomy/" class="dropdown-item">Concept Taxonomy</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/taxonomy-distribution/" class="dropdown-item">Taxonomy Distribution Report</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">MicroSims</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../sims/graph-viewer/" class="dropdown-item">Graph Viewer</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../about/" class="nav-link">About</a>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../10-blockchain-types-platforms/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../12-cost-analysis-tco/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="1"><a href="#governance-and-scalability" class="nav-link">Governance and Scalability</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#summary" class="nav-link">Summary</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#concepts-covered" class="nav-link">Concepts Covered</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Governance and Scalability - Blockchain - The Skeptic's Guide" >
+      
+        <meta  property="og:description"  content="Scalability trilemma, on-chain vs off-chain processing, Layer 1 and Layer 2 solutions, state channels, sidechains, performance attributes, blockchain limitations, and when not to use blockchain." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/blockchain/assets/images/social/chapters/11-governance-and-scalability/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/blockchain/chapters/11-governance-and-scalability/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Governance and Scalability - Blockchain - The Skeptic's Guide" >
+      
+        <meta  name="twitter:description"  content="Scalability trilemma, on-chain vs off-chain processing, Layer 1 and Layer 2 solutions, state channels, sidechains, performance attributes, blockchain limitations, and when not to use blockchain." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/blockchain/assets/images/social/chapters/11-governance-and-scalability/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#governance-and-scalability" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Blockchain - The Skeptic&#39;s Guide" class="md-header__button md-logo" aria-label="Blockchain - The Skeptic's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Blockchain - The Skeptic's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Governance and Scalability
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/blockchain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Blockchain - The Skeptic&#39;s Guide" class="md-nav__button md-logo" aria-label="Blockchain - The Skeptic's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Blockchain - The Skeptic's Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/blockchain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-trust-and-digital-networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Trust and Digital Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-cryptographic-foundations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Cryptographic Foundations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-keys-signatures-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Keys, Signatures, and Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-certificate-authorities-pki/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Certificate Authorities and PKI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-distributed-systems-ledgers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Distributed Systems and Ledgers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-nodes-throughput-performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Nodes, Throughput, and Performance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-consensus-mechanisms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Consensus Mechanisms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-mining-computational-economics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Mining and Computational Economics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-smart-contracts-tokens/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Smart Contracts and Tokens
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-blockchain-types-platforms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Blockchain Types and Platforms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    11. Governance and Scalability
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    11. Governance and Scalability
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scalability-the-central-challenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scalability: The Central Challenge
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-scalability-trilemma" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Scalability Trilemma
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#on-chain-vs-off-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      On-Chain vs. Off-Chain
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-1-base-layer-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 1: Base Layer Scaling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-2-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 2 Solutions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#state-channels" class="md-nav__link">
+    <span class="md-ellipsis">
+      State Channels
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sidechains" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sidechains
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Attributes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blockchain-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blockchain Limitations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-not-to-use-blockchain" class="md-nav__link">
+    <span class="md-ellipsis">
+      When Not to Use Blockchain
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="When Not to Use Blockchain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-scalability-trilemma-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Scalability Trilemma Explorer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-when-to-use-blockchain-decision-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: When to Use Blockchain Decision Tree
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-cost-analysis-tco/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Cost Analysis and TCO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-architecture-tradeoff-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Architecture Tradeoff Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-risk-analysis-quality-attributes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Risk Analysis and Quality Attributes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-cognitive-bias-technology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Cognitive Bias in Technology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-evidence-based-evaluation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Evidence-Based Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-industry-case-studies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Industry Case Studies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-emerging-trust-technologies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Emerging Trust Technologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-alternative-architectures-decisions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Alternative Architectures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-implementation-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Implementation and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scalability-the-central-challenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scalability: The Central Challenge
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-scalability-trilemma" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Scalability Trilemma
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#on-chain-vs-off-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      On-Chain vs. Off-Chain
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-1-base-layer-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 1: Base Layer Scaling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-2-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 2 Solutions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#state-channels" class="md-nav__link">
+    <span class="md-ellipsis">
+      State Channels
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sidechains" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sidechains
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Attributes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blockchain-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blockchain Limitations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-not-to-use-blockchain" class="md-nav__link">
+    <span class="md-ellipsis">
+      When Not to Use Blockchain
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="When Not to Use Blockchain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-scalability-trilemma-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Scalability Trilemma Explorer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-when-to-use-blockchain-decision-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: When to Use Blockchain Decision Tree
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/blockchain/edit/master/docs/chapters/11-governance-and-scalability/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
 
 <h1 id="governance-and-scalability">Governance and Scalability</h1>
 <h2 id="summary">Summary</h2>
@@ -253,82 +1626,515 @@
 <li><a href="../10-blockchain-types-platforms/">Chapter 10: Blockchain Types and Platforms</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p></div>
-            </div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js"></script>
-        <script src="../../search/main.js"></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Rex Says: Trust, but Verify!</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Rex welcomes you">
+Welcome back, fellow analysts! We've explored what blockchains are, how they
+work, and the platforms available. Now comes the hard part: can they actually
+scale? And who decides what happens when they can't? Scalability and governance
+are where blockchain's grand promises meet engineering reality. Spoiler: there
+are no free lunches. Trust, but verify — especially the throughput claims!</p>
+</div>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>After completing this chapter, you will be able to:</p>
+<ul>
+<li>Explain the scalability trilemma and why it constrains all blockchain designs</li>
+<li>Compare on-chain and off-chain processing approaches and their tradeoffs</li>
+<li>Describe Layer 1 scaling strategies and their limitations</li>
+<li>Evaluate Layer 2 solutions including state channels, sidechains, and rollups</li>
+<li>Assess blockchain performance attributes using quantifiable metrics</li>
+<li>Identify blockchain's fundamental limitations and determine when not to use blockchain</li>
+</ul>
+<h2 id="scalability-the-central-challenge">Scalability: The Central Challenge</h2>
+<p><strong>Scalability</strong> is the ability of a system to handle increasing workload without proportional degradation in performance. For blockchain networks, scalability is measured primarily by:</p>
+<ul>
+<li><strong>Throughput</strong> — transactions processed per second (TPS)</li>
+<li><strong>Latency</strong> — time from transaction submission to finality</li>
+<li><strong>Cost</strong> — fee per transaction under load</li>
+<li><strong>State growth</strong> — rate at which the blockchain's stored data increases</li>
+</ul>
+<p>To contextualize blockchain's scalability challenge, consider the demands of global-scale systems:</p>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>Throughput</th>
+<th>Finality</th>
+<th>Cost per Transaction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Visa network</td>
+<td>~65,000 TPS (peak)</td>
+<td>Seconds (settlement in days)</td>
+<td>~<span class="arithmatex">\(0.05-\)</span>0.10</td>
+</tr>
+<tr>
+<td>PayPal</td>
+<td>~1,000 TPS</td>
+<td>Seconds</td>
+<td>~$0.30</td>
+</tr>
+<tr>
+<td>Bitcoin</td>
+<td>~7 TPS</td>
+<td>~60 minutes (6 confirmations)</td>
+<td><span class="arithmatex">\(1-\)</span>60 (variable)</td>
+</tr>
+<tr>
+<td>Ethereum (L1)</td>
+<td>~15-30 TPS</td>
+<td>~12 minutes (64 blocks)</td>
+<td><span class="arithmatex">\(0.50-\)</span>200 (variable)</td>
+</tr>
+<tr>
+<td>Solana</td>
+<td>~4,000 TPS (theoretical)</td>
+<td>~0.4 seconds</td>
+<td>~$0.001</td>
+</tr>
+<tr>
+<td>Hyperledger Fabric</td>
+<td>~1,000-3,000 TPS</td>
+<td>Seconds</td>
+<td>Minimal (private network)</td>
+</tr>
+</tbody>
+</table>
+<p>The gap between blockchain throughput and traditional payment networks is not a matter of engineering immaturity — it reflects fundamental architectural tradeoffs. Understanding why this gap exists requires understanding the scalability trilemma.</p>
+<h2 id="the-scalability-trilemma">The Scalability Trilemma</h2>
+<p>The <strong>scalability trilemma</strong>, articulated by Vitalik Buterin, states that a blockchain system can optimize for at most two of three properties simultaneously:</p>
+<ul>
+<li><strong>Decentralization</strong> — the degree to which the network avoids concentration of control</li>
+<li><strong>Security</strong> — resistance to attacks (double-spending, censorship, network takeover)</li>
+<li><strong>Scalability</strong> — the ability to process a high volume of transactions</li>
+</ul>
+<p>The trilemma is not a proven theorem but an observed engineering constraint. No blockchain has convincingly achieved all three at production scale. The tradeoffs manifest as follows:</p>
+<p><strong>Decentralization + Security (sacrifice Scalability):</strong>
+Bitcoin and Ethereum (base layer). Every node validates every transaction. The network is highly decentralized and secure, but throughput is limited because the bottleneck is the slowest honest node.</p>
+<p><strong>Scalability + Security (sacrifice Decentralization):</strong>
+Solana, DPoS chains, and permissioned networks. High throughput achieved by reducing the validator set — fewer nodes means faster consensus. But fewer validators means greater concentration of power.</p>
+<p><strong>Scalability + Decentralization (sacrifice Security):</strong>
+Some experimental sharding approaches. Dividing the network into subgroups (shards) that process transactions in parallel. Each shard has fewer validators, potentially weakening security guarantees for individual shards.</p>
+<p>The trilemma can be expressed as an impossibility condition. Let <span class="arithmatex">\(D\)</span>, <span class="arithmatex">\(S\)</span>, and <span class="arithmatex">\(T\)</span> represent decentralization, security, and throughput respectively. The constraint is:</p>
+<div class="arithmatex">\[D \times S \times T \leq C\]</div>
+<p>where <span class="arithmatex">\(C\)</span> is a constant determined by network physics (bandwidth, latency, computation). Increasing any one dimension requires decreasing at least one other.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+When a blockchain project claims to have "solved" the scalability trilemma, the
+skeptic's first question should be: which dimension did they quietly sacrifice?
+High throughput claims almost always come with reduced decentralization (fewer
+validators, higher hardware requirements) or weakened security assumptions (shorter
+finality, smaller validator sets per shard). The trilemma is not a problem to be
+solved — it is a constraint to be managed. Every design decision is a tradeoff.</p>
+</div>
+<h2 id="on-chain-vs-off-chain">On-Chain vs. Off-Chain</h2>
+<p><strong>On-chain processing</strong> means that every computation and data storage occurs directly on the blockchain, validated by all nodes. <strong>Off-chain processing</strong> moves some computation or data storage outside the blockchain, using the chain only for final settlement or dispute resolution.</p>
+<p>This distinction is fundamental to every scaling strategy:</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>On-Chain</th>
+<th>Off-Chain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Validation</strong></td>
+<td>All nodes validate</td>
+<td>Subset of parties validate</td>
+</tr>
+<tr>
+<td><strong>Data availability</strong></td>
+<td>Guaranteed (on every node)</td>
+<td>Depends on off-chain infrastructure</td>
+</tr>
+<tr>
+<td><strong>Cost</strong></td>
+<td>Full gas/transaction fees</td>
+<td>Reduced (only settlement fees)</td>
+</tr>
+<tr>
+<td><strong>Throughput</strong></td>
+<td>Constrained by block size/time</td>
+<td>Can be much higher</td>
+</tr>
+<tr>
+<td><strong>Security</strong></td>
+<td>Full blockchain security</td>
+<td>Inherited partially; may have weaker guarantees</td>
+</tr>
+<tr>
+<td><strong>Finality</strong></td>
+<td>Determined by consensus</td>
+<td>Delayed until settlement on-chain</td>
+</tr>
+</tbody>
+</table>
+<p>The trend across the blockchain ecosystem is clear: move computation off-chain and use the blockchain as a settlement and verification layer. This is an implicit acknowledgment that blockchains are too slow and expensive for general-purpose computation. The blockchain becomes the court of last resort — not where business happens, but where disputes are settled.</p>
+<h2 id="layer-1-base-layer-scaling">Layer 1: Base Layer Scaling</h2>
+<p><strong>Layer 1</strong> refers to the base blockchain protocol itself. Layer 1 scaling strategies attempt to increase throughput by modifying the fundamental protocol parameters or architecture.</p>
+<p>Common Layer 1 approaches include:</p>
+<p><strong>Increasing block size</strong> — larger blocks contain more transactions. Bitcoin Cash (BCH) forked from Bitcoin in 2017 specifically to increase the block size from 1 MB to 8 MB (later 32 MB). The tradeoff: larger blocks require more bandwidth and storage, increasing the hardware requirements to run a full node, which reduces decentralization. This is the trilemma in action.</p>
+<p><strong>Reducing block time</strong> — shorter intervals between blocks increase throughput. Ethereum's ~12-second block time versus Bitcoin's ~10-minute block time represents this approach. The tradeoff: shorter block times increase the rate of orphaned blocks (blocks produced simultaneously by different miners) and require faster network propagation.</p>
+<p><strong>Sharding</strong> — partitioning the network into subgroups (shards) that process transactions in parallel. Ethereum's roadmap includes danksharding as a key scaling component. Each shard processes a subset of transactions, and the results are aggregated on the main chain (beacon chain). The tradeoff: individual shards have fewer validators, potentially weakening security guarantees. Cross-shard communication adds complexity and latency.</p>
+<p><strong>Alternative consensus mechanisms</strong> — replacing PoW with faster consensus algorithms (PoS, DPoS, BFT variants). Ethereum's move from PoW to PoS was partly motivated by scalability. DPoS chains like EOS achieve higher throughput by limiting validators to 21 elected block producers — a direct sacrifice of decentralization.</p>
+<p>The fundamental limitation of Layer 1 scaling: every improvement to the base layer must be adopted by the entire network through a governance process (soft fork, hard fork, or upgrade). This makes Layer 1 changes slow, politically contentious, and risky. The Bitcoin block size debate, which lasted years and resulted in a permanent chain split (Bitcoin Cash), illustrates the governance cost of Layer 1 changes.</p>
+<h2 id="layer-2-solutions">Layer 2 Solutions</h2>
+<p><strong>Layer 2 solutions</strong> are protocols built on top of an existing blockchain (Layer 1) that handle transactions off the main chain while inheriting the security guarantees of the base layer. Layer 2 is the dominant scaling strategy for both Bitcoin and Ethereum.</p>
+<p>The core idea: process many transactions off-chain, then post a compressed summary or proof to the base layer. This amortizes the cost of on-chain validation across many off-chain transactions.</p>
+<p>Major Layer 2 categories:</p>
+<table>
+<thead>
+<tr>
+<th>Solution</th>
+<th>Mechanism</th>
+<th>Throughput</th>
+<th>Finality</th>
+<th>Trust Assumption</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>State Channels</strong></td>
+<td>Direct off-chain exchanges between parties</td>
+<td>Very high</td>
+<td>Instant (off-chain)</td>
+<td>Parties must be online; disputes go to L1</td>
+</tr>
+<tr>
+<td><strong>Sidechains</strong></td>
+<td>Separate blockchain with bridge to main chain</td>
+<td>High</td>
+<td>Own consensus</td>
+<td>Sidechain validators (weaker than L1)</td>
+</tr>
+<tr>
+<td><strong>Optimistic Rollups</strong></td>
+<td>Batch transactions, assume valid, challenge period</td>
+<td>100-2,000 TPS</td>
+<td>7-day challenge window</td>
+<td>Fraud proofs (at least one honest watcher)</td>
+</tr>
+<tr>
+<td><strong>ZK Rollups</strong></td>
+<td>Batch transactions with cryptographic validity proofs</td>
+<td>100-10,000 TPS</td>
+<td>Minutes (proof generation)</td>
+<td>Math (validity proofs are self-verifying)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="state-channels">State Channels</h2>
+<p>A <strong>state channel</strong> is a two-party (or multi-party) off-chain communication channel that allows participants to transact directly with each other, settling only the final result on the blockchain. Bitcoin's Lightning Network is the most prominent state channel implementation.</p>
+<p>How a state channel works:</p>
+<ol>
+<li><strong>Open</strong> — participants lock funds in a smart contract on the main chain</li>
+<li><strong>Transact</strong> — participants exchange signed transactions off-chain (instant, free)</li>
+<li><strong>Close</strong> — the final state is submitted to the main chain, and funds are distributed</li>
+</ol>
+<p>The key properties of state channels:</p>
+<ul>
+<li><strong>Instant finality</strong> for off-chain transactions (both parties sign)</li>
+<li><strong>Near-zero fees</strong> during channel operation</li>
+<li><strong>Privacy</strong> — intermediate transactions are not visible on the main chain</li>
+<li><strong>Blockchain security</strong> — either party can submit the latest state to the main chain if the other party cheats or goes offline</li>
+</ul>
+<p>Limitations of state channels:</p>
+<ul>
+<li><strong>Both parties must be online</strong> (or delegate to a watchtower service)</li>
+<li><strong>Capital lockup</strong> — funds are locked in the channel for its duration</li>
+<li><strong>Routing complexity</strong> — multi-hop payments (paying someone you don't have a channel with) require finding a path through the network</li>
+<li><strong>Not general-purpose</strong> — state channels work well for payments but are complex for arbitrary smart contract interactions</li>
+</ul>
+<p>The Lightning Network processes Bitcoin payments at speeds and costs comparable to traditional payment networks, but adoption has been limited. As of 2025, the Lightning Network's total capacity is approximately $500 million — significant for a scaling solution but small compared to Bitcoin's total market capitalization.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+Layer 2 solutions reveal an important truth about blockchain architecture: the
+base layer is not where most activity should happen. This is analogous to how the
+internet works — TCP/IP is the base protocol, but most users interact with HTTP,
+email, and application-layer protocols built on top. The blockchain base layer
+provides security and settlement; Layer 2 provides usability and throughput.
+Evaluating a blockchain's scalability solely by its Layer 1 throughput is like
+evaluating the internet by measuring raw TCP packet rates.</p>
+</div>
+<h2 id="sidechains">Sidechains</h2>
+<p>A <strong>sidechain</strong> is a separate blockchain that runs in parallel to a main chain (parent chain) and is connected through a two-way bridge (or "peg"). Assets can be transferred between the main chain and sidechain, but the sidechain operates its own consensus mechanism independently.</p>
+<p>Key characteristics of sidechains:</p>
+<ul>
+<li><strong>Independent consensus</strong> — the sidechain has its own validators and consensus rules</li>
+<li><strong>Customizable</strong> — can optimize for specific use cases (speed, privacy, programmability)</li>
+<li><strong>Two-way peg</strong> — assets move between chains through lock-and-release mechanisms</li>
+<li><strong>Risk isolation</strong> — bugs or attacks on the sidechain do not directly affect the main chain (though bridged assets may be at risk)</li>
+</ul>
+<p>Notable sidechain implementations:</p>
+<ul>
+<li><strong>Liquid Network</strong> (Bitcoin) — a federated sidechain for faster, more confidential Bitcoin transactions among exchanges and traders</li>
+<li><strong>Polygon PoS</strong> (Ethereum) — originally positioned as a sidechain, now evolving toward a ZK-based architecture</li>
+<li><strong>Rootstock (RSK)</strong> (Bitcoin) — a sidechain adding smart contract capability to Bitcoin</li>
+</ul>
+<p>The critical risk with sidechains is that they do <strong>not</strong> inherit the security of the parent chain. A sidechain's security depends on its own validator set, which is typically smaller and less decentralized than the main chain. The two-way bridge is a concentrated point of failure — if bridge validators are compromised, assets locked in the bridge can be stolen.</p>
+<h2 id="performance-attributes">Performance Attributes</h2>
+<p><strong>Performance attributes</strong> for blockchain systems extend beyond simple throughput numbers. A rigorous evaluation requires measuring multiple dimensions:</p>
+<ul>
+<li><strong>Throughput (TPS)</strong> — transactions processed per second under normal and peak load</li>
+<li><strong>Latency</strong> — time from transaction submission to inclusion in a block</li>
+<li><strong>Finality time</strong> — time until a transaction is irreversible (not just included)</li>
+<li><strong>Cost per transaction</strong> — direct fee plus the economic cost of waiting</li>
+<li><strong>State growth rate</strong> — how fast the blockchain's data footprint grows (GB/year)</li>
+<li><strong>Node requirements</strong> — minimum hardware to run a validating node</li>
+<li><strong>Recovery time</strong> — how quickly the network recovers from a partition or outage</li>
+</ul>
+<p>These attributes are interconnected. Improving throughput often increases state growth rate and node requirements. Reducing finality time may weaken security guarantees. The relationships can be summarized:</p>
+<div class="arithmatex">\[\text{Throughput} = \frac{\text{Block Size} \times \text{Transactions per Block}}{\text{Block Time}}\]</div>
+<div class="arithmatex">\[\text{Annual State Growth} = \text{Throughput} \times \text{Avg. Transaction Size} \times 31{,}536{,}000 \text{ seconds/year}\]</div>
+<p>For Bitcoin at 7 TPS with an average transaction size of 500 bytes, annual state growth is approximately:</p>
+<div class="arithmatex">\[7 \times 500 \times 31{,}536{,}000 \approx 110 \text{ GB/year}\]</div>
+<p>For a system targeting 10,000 TPS with similar transaction sizes, annual state growth would be approximately 157 TB/year — requiring enterprise-grade storage infrastructure just to maintain a full node. This illustrates why high-throughput blockchains inevitably push toward fewer, more powerful nodes.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Skeptic's Toolkit</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Rex has a tip">
+When a blockchain project advertises its TPS number, ask five follow-up questions:
+(1) Is that theoretical maximum or measured under real-world conditions?
+(2) What is the finality time — not block inclusion time, but irreversibility?
+(3) What hardware is required to run a validating node?
+(4) How many validators are there, and who controls them?
+(5) What is the annual state growth rate, and how is it managed?
+A blockchain claiming 100,000 TPS with 21 validators on high-end servers is a
+very different system than one claiming 30 TPS with 10,000 validators on
+consumer hardware. Both claims can be technically honest while describing
+fundamentally different trust models.</p>
+</div>
+<h2 id="blockchain-limitations">Blockchain Limitations</h2>
+<p><strong>Blockchain limitations</strong> are inherent constraints that cannot be eliminated through better engineering — they are consequences of the fundamental design choices that define blockchain.</p>
+<p><strong>Storage limitations:</strong> Every full node must store the entire history of all transactions. Bitcoin's blockchain is approximately 550 GB and growing. Ethereum's state data exceeds 1 TB. Scaling throughput linearly increases storage requirements.</p>
+<p><strong>Computation limitations:</strong> On-chain computation is replicated across all validating nodes. This means the network's total computational capacity is equal to the capacity of a single node — parallelism happens through sharding, not through adding more nodes to the same shard.</p>
+<p><strong>Latency limitations:</strong> Transactions must propagate across a global network and achieve consensus. Physical network latency imposes a floor on confirmation times that cannot be reduced below the speed of light across the network diameter.</p>
+<p><strong>Privacy limitations:</strong> Public blockchains provide pseudonymity, not anonymity. On-chain data is permanently visible. Even with encryption, metadata (transaction timing, amounts, addresses) can reveal information. Compliance with privacy regulations like GDPR is structurally difficult because blockchain's immutability conflicts with the "right to erasure."</p>
+<p><strong>Governance limitations:</strong> Protocol changes require coordinated action across a decentralized network. This makes blockchains slow to adapt, difficult to upgrade, and vulnerable to governance deadlocks (as seen in the Bitcoin block size debate).</p>
+<p><strong>The immutability paradox:</strong> Blockchain's defining feature — immutable records — is also its greatest limitation. Errors, fraud, legal judgments requiring data modification, and regulatory requirements for data deletion all conflict with immutability. In practice, "immutable" blockchains have been modified through hard forks (Ethereum/The DAO), demonstrating that immutability is a social agreement, not a physical law.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Bias Alert</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Rex warns you">
+Beware the "blockchain can solve anything" narrative. Blockchains are specialized
+tools optimized for a narrow set of problems: situations requiring trustless
+consensus among untrusted parties where the cost of that consensus is justified
+by the value of removing a trusted intermediary. Outside that narrow band,
+blockchains add cost and complexity without proportional benefit. The hammer-nail
+fallacy is endemic in the blockchain industry — if you sell blockchains, every
+problem looks like it needs decentralized consensus.</p>
+</div>
+<h2 id="when-not-to-use-blockchain">When Not to Use Blockchain</h2>
+<p>The most valuable skill for a technology evaluator is knowing <strong>when not to use blockchain</strong>. The following decision criteria help identify situations where blockchain is likely the wrong choice:</p>
+<p><strong>Do not use blockchain when:</strong></p>
+<ul>
+<li><strong>A trusted party already exists and is acceptable</strong> — if participants trust a central authority (a bank, a government registry, an industry body), a traditional database is simpler, faster, and cheaper</li>
+<li><strong>All participants are within one organization</strong> — intra-company processes do not benefit from distributed consensus; use a database</li>
+<li><strong>High throughput is required</strong> — if the application needs more than a few hundred TPS with low latency, centralized systems outperform by orders of magnitude</li>
+<li><strong>Data must be modifiable or deletable</strong> — regulatory requirements for data correction (GDPR, HIPAA) conflict with blockchain immutability</li>
+<li><strong>Transactions require confidentiality</strong> — even permissioned blockchains have weaker privacy guarantees than properly secured centralized databases</li>
+<li><strong>The problem is non-digital</strong> — blockchain tracks records, not physical goods; the "garbage in, garbage out" problem means on-chain data is only as good as the off-chain processes that feed it</li>
+<li><strong>Cost is a primary concern</strong> — blockchain infrastructure is more expensive to operate than equivalent centralized systems for most workloads</li>
+</ul>
+<p>A useful decision flowchart:</p>
+<ol>
+<li>Do you need to store data? (If no, blockchain won't help)</li>
+<li>Do multiple parties need to write to the data? (If no, use a database)</li>
+<li>Do you trust a single party to maintain the data? (If yes, use a database)</li>
+<li>Do all writers know and trust each other? (If yes, consider a shared database with access controls)</li>
+<li>Do you need a public, verifiable record? (If no, a permissioned shared database may suffice)</li>
+<li>Only if you answered "yes" to questions 1-2, "no" to questions 3-4, and "yes" to question 5, is a blockchain a strong candidate</li>
+</ol>
+<p>The evidence base supports this narrow framing. A 2023 McKinsey study found that of the blockchain projects announced across industries, fewer than 10% had progressed beyond pilot stage. The most common failure modes were not technical — they were overestimation of blockchain's value-add relative to traditional alternatives.</p>
+<h4 id="diagram-scalability-trilemma-explorer">Diagram: Scalability Trilemma Explorer</h4>
+<details>
+<summary>Interactive Scalability Trilemma Visualizer</summary>
+<p>Type: MicroSim
+<strong>sim-id:</strong> scalability-trilemma-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective:</strong> Evaluate (L5) — Analyze how different blockchain platforms position themselves within the scalability trilemma and assess the tradeoffs each makes between decentralization, security, and throughput.</p>
+<p><strong>Description:</strong> A triangular visualization with Decentralization, Security, and Scalability at the three vertices. Each blockchain platform is plotted as a point within the triangle based on its position across the three dimensions. Students can drag platform points to see how changing one dimension affects the others (maintaining the constant constraint). Predefined positions for Bitcoin, Ethereum (L1), Ethereum + L2, Solana, Hyperledger Fabric, and other platforms are shown with details on hover. A "What If" panel lets students set target values for two dimensions and calculates the maximum achievable third dimension.</p>
+<p><strong>Canvas:</strong> Responsive width, 550px height. Background: aliceblue.</p>
+<p><strong>Controls:</strong></p>
+<ul>
+<li>Drag platform points within triangle</li>
+<li>Hover for platform detail cards</li>
+<li>Dropdown: Add/remove platforms</li>
+<li>Slider: Adjust constraint constant (simulating technology improvements)</li>
+<li>Button: Reset to empirical positions</li>
+</ul>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>Equilateral triangle with labeled vertices</li>
+<li>Platform position dots (color-coded)</li>
+<li>Dimension value readouts per platform</li>
+<li>"What If" calculation panel</li>
+<li>Trade-off zone highlighting (shaded regions)</li>
+</ul>
+<p>Implementation: p5.js with barycentric coordinate mapping, draggable points, dynamic constraint calculations</p>
+</details>
+<h4 id="diagram-when-to-use-blockchain-decision-tree">Diagram: When to Use Blockchain Decision Tree</h4>
+<details>
+<summary>Blockchain Decision Flowchart</summary>
+<p>Type: MicroSim
+<strong>sim-id:</strong> blockchain-decision-flowchart<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective:</strong> Apply (L3) — Apply the blockchain decision framework to real-world scenarios, determining whether blockchain is an appropriate solution based on trust requirements, performance needs, and regulatory constraints.</p>
+<p><strong>Description:</strong> An interactive decision flowchart that guides students through the "should you use blockchain?" evaluation. Each decision node poses a question (e.g., "Do multiple untrusted parties need write access?") with yes/no branches. The path highlights as students make choices, leading to a recommendation: "Use a database," "Consider a permissioned blockchain," "Consider a public blockchain," or "Blockchain is a strong candidate." A scenario panel provides pre-built use cases (hospital records, supply chain tracking, cryptocurrency exchange, voting system, land registry) that auto-navigate the flowchart with explanations at each step. A summary panel shows the reasoning chain for the final recommendation.</p>
+<p><strong>Canvas:</strong> Responsive width, 600px height. Background: aliceblue.</p>
+<p><strong>Controls:</strong></p>
+<ul>
+<li>Click yes/no at each decision node</li>
+<li>Dropdown: Select pre-built scenario</li>
+<li>Button: Reset flowchart</li>
+<li>Button: Show all paths simultaneously</li>
+<li>Hover: Explanation tooltips at each node</li>
+</ul>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>Flowchart with decision diamonds and outcome rectangles</li>
+<li>Highlighted active path (green for yes, red for no)</li>
+<li>Scenario description sidebar</li>
+<li>Reasoning chain summary panel</li>
+<li>Color-coded outcome categories</li>
+</ul>
+<p>Implementation: p5.js with flowchart layout, path highlighting, scenario auto-navigation</p>
+</details>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong>Scalability</strong> is measured by throughput, latency, cost, and state growth — blockchain networks lag traditional systems by orders of magnitude on throughput</li>
+<li><strong>The scalability trilemma</strong> constrains all blockchain designs: decentralization, security, and scalability cannot all be maximized simultaneously — every platform trades one for the others</li>
+<li><strong>On-chain processing</strong> provides full security at high cost; <strong>off-chain processing</strong> provides throughput at the cost of weaker security guarantees — the trend is toward using blockchain as a settlement layer, not a computation layer</li>
+<li><strong>Layer 1 scaling</strong> (larger blocks, faster times, sharding, alternative consensus) modifies the base protocol but is limited by governance costs and the trilemma</li>
+<li><strong>Layer 2 solutions</strong> (state channels, sidechains, rollups) move activity off the base layer while inheriting varying degrees of Layer 1 security</li>
+<li><strong>State channels</strong> enable instant, near-free transactions between parties but require both parties online and capital lockup</li>
+<li><strong>Sidechains</strong> offer customizable parallel chains but do not inherit main chain security — bridge vulnerabilities are a critical risk</li>
+<li><strong>Performance attributes</strong> must be evaluated holistically: TPS alone is misleading without context on finality, node requirements, validator count, and state growth</li>
+<li><strong>Blockchain limitations</strong> include storage scaling, computation replication, latency floors, privacy conflicts, and the immutability paradox</li>
+<li><strong>When not to use blockchain:</strong> if a trusted party is acceptable, if data must be modifiable, if high throughput is essential, or if the problem is fundamentally non-digital — a traditional database is almost always simpler, faster, and cheaper</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Excellent Analytical Work!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Rex celebrates">
+You've now confronted the hardest questions in blockchain engineering: can it
+scale, who decides how, and when should you walk away entirely? The scalability
+trilemma is not a puzzle to be solved — it's a constraint to be managed. And
+knowing when NOT to use blockchain may be the most valuable skill in your
+analytical toolkit. Next, we'll put numbers on everything: total cost of
+ownership, cost-benefit analysis, and the economics of build-versus-buy.
+Truly outstanding work, fellow skeptic!</p>
 </div>
 
-    </body>
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../10-blockchain-types-platforms/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 10. Blockchain Types and Platforms">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                10. Blockchain Types and Platforms
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../12-cost-analysis-tco/" class="md-footer__link md-footer__link--next" aria-label="Next: 12. Cost Analysis and TCO">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                12. Cost Analysis and TCO
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
 </html>

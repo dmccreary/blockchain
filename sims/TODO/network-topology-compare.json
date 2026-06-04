@@ -1,0 +1,14 @@
+{
+  "sim_id": "network-topology-compare",
+  "diagram_name": "Client-Server vs. Peer-to-Peer Network Topology",
+  "chapter_number": 1,
+  "chapter_title": "Trust and Digital Networks",
+  "chapter_dir": "01-trust-and-digital-networks",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** network-topology-compare<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Analyze (L4) — Compare and contrast the structural differences between client-server and peer-to-peer network architectures, identifying how topology affects trust, resilience, and coordination.\n\n**Description:** A split-screen interactive simulation showing two network topologies side by side. On the left, a client-server network with one large central node (server) connected to 8-12 smaller nodes (clients). On the right, a peer-to-peer network with 8-12 equal-sized nodes interconnected with multiple links. Students can click on any node to \"remove\" it (simulating failure) and observe the impact on the network. In the client-server view, removing the server disconnects all clients. In the P2P view, removing one node only eliminates direct links to that node while the rest remain connected.\n\n**Canvas:** Responsive width, 500px height. Background: aliceblue. Split into two equal halves with labels.\n\n**Controls:**\n\n- Click any node to toggle it on/off (simulate failure)\n- \"Reset\" button to restore all nodes\n- \"Animate Data Flow\" button to show packets traveling between nodes\n\n**Visual elements:**\n\n- Server node: large blue circle with \"S\" label\n- Client nodes: smaller green circles with numbers\n- P2P nodes: medium teal circles with numbers\n- Active connections: solid gray lines\n- Data flow: small orange dots moving along connections\n- Failed node: red X overlay, connections become dashed red\n- Counter showing: \"Active nodes: X/Y\" and \"Connected clients: X/Y\" for each side\n\nImplementation: p5.js with responsive canvas, node click detection, animation loop for data flow"
+}

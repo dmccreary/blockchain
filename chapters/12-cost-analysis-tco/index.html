@@ -1,232 +1,1671 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Quantitative tools for evaluating trust technology costs objectively, including network cost analysis, TCO modeling, cost projections, simulations, and break-even analysis.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/blockchain/chapters/12-cost-analysis-tco/">
+      
+      
+        <link rel="prev" href="../11-governance-and-scalability/">
+      
+      
+        <link rel="next" href="../13-architecture-tradeoff-analysis/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Cost Analysis and Total Cost of Ownership - Blockchain - The Skeptic's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
         
-        
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>12. Cost Analysis and TCO - Blockchain - The Skeptic's Guide</title>
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../../css/brands.min.css" rel="stylesheet">
-        <link href="../../css/solid.min.css" rel="stylesheet">
-        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <link href="../../css/mascot.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="../..">Blockchain - The Skeptic's Guide</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item">
-                                <a href="../.." class="nav-link">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../course-description/" class="nav-link">Course Description</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Chapters</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../" class="dropdown-item">List of Chapters</a>
-</li>
-                                    
-<li>
-    <a href="../01-trust-and-digital-networks/" class="dropdown-item">1. Trust and Digital Networks</a>
-</li>
-                                    
-<li>
-    <a href="../02-cryptographic-foundations/" class="dropdown-item">2. Cryptographic Foundations</a>
-</li>
-                                    
-<li>
-    <a href="../03-keys-signatures-identity/" class="dropdown-item">3. Keys, Signatures, and Identity</a>
-</li>
-                                    
-<li>
-    <a href="../04-certificate-authorities-pki/" class="dropdown-item">4. Certificate Authorities and PKI</a>
-</li>
-                                    
-<li>
-    <a href="../05-distributed-systems-ledgers/" class="dropdown-item">5. Distributed Systems and Ledgers</a>
-</li>
-                                    
-<li>
-    <a href="../06-nodes-throughput-performance/" class="dropdown-item">6. Nodes, Throughput, and Performance</a>
-</li>
-                                    
-<li>
-    <a href="../07-consensus-mechanisms/" class="dropdown-item">7. Consensus Mechanisms</a>
-</li>
-                                    
-<li>
-    <a href="../08-mining-computational-economics/" class="dropdown-item">8. Mining and Computational Economics</a>
-</li>
-                                    
-<li>
-    <a href="../09-smart-contracts-tokens/" class="dropdown-item">9. Smart Contracts and Tokens</a>
-</li>
-                                    
-<li>
-    <a href="../10-blockchain-types-platforms/" class="dropdown-item">10. Blockchain Types and Platforms</a>
-</li>
-                                    
-<li>
-    <a href="../11-governance-and-scalability/" class="dropdown-item">11. Governance and Scalability</a>
-</li>
-                                    
-<li>
-    <a href="./" class="dropdown-item active" aria-current="page">12. Cost Analysis and TCO</a>
-</li>
-                                    
-<li>
-    <a href="../13-architecture-tradeoff-analysis/" class="dropdown-item">13. Architecture Tradeoff Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../14-risk-analysis-quality-attributes/" class="dropdown-item">14. Risk Analysis and Quality Attributes</a>
-</li>
-                                    
-<li>
-    <a href="../15-cognitive-bias-technology/" class="dropdown-item">15. Cognitive Bias in Technology</a>
-</li>
-                                    
-<li>
-    <a href="../16-evidence-based-evaluation/" class="dropdown-item">16. Evidence-Based Evaluation</a>
-</li>
-                                    
-<li>
-    <a href="../17-industry-case-studies/" class="dropdown-item">17. Industry Case Studies</a>
-</li>
-                                    
-<li>
-    <a href="../18-emerging-trust-technologies/" class="dropdown-item">18. Emerging Trust Technologies</a>
-</li>
-                                    
-<li>
-    <a href="../19-alternative-architectures-decisions/" class="dropdown-item">19. Alternative Architectures</a>
-</li>
-                                    
-<li>
-    <a href="../20-implementation-capstone/" class="dropdown-item">20. Implementation and Capstone</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Learning Graph</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../learning-graph/" class="dropdown-item">Introduction</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/course-description-assessment/" class="dropdown-item">Course Description Assessment</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/concept-list/" class="dropdown-item">Concept Enumeration</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/quality-metrics/" class="dropdown-item">Graph Quality Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/concept-taxonomy/" class="dropdown-item">Concept Taxonomy</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/taxonomy-distribution/" class="dropdown-item">Taxonomy Distribution Report</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">MicroSims</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../sims/graph-viewer/" class="dropdown-item">Graph Viewer</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../about/" class="nav-link">About</a>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../11-governance-and-scalability/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../13-architecture-tradeoff-analysis/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="1"><a href="#cost-analysis-and-total-cost-of-ownership" class="nav-link">Cost Analysis and Total Cost of Ownership</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#summary" class="nav-link">Summary</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#concepts-covered" class="nav-link">Concepts Covered</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Cost Analysis and Total Cost of Ownership - Blockchain - The Skeptic's Guide" >
+      
+        <meta  property="og:description"  content="Quantitative tools for evaluating trust technology costs objectively, including network cost analysis, TCO modeling, cost projections, simulations, and break-even analysis." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/blockchain/assets/images/social/chapters/12-cost-analysis-tco/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/blockchain/chapters/12-cost-analysis-tco/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Cost Analysis and Total Cost of Ownership - Blockchain - The Skeptic's Guide" >
+      
+        <meta  name="twitter:description"  content="Quantitative tools for evaluating trust technology costs objectively, including network cost analysis, TCO modeling, cost projections, simulations, and break-even analysis." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/blockchain/assets/images/social/chapters/12-cost-analysis-tco/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cost-analysis-and-total-cost-of-ownership" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Blockchain - The Skeptic&#39;s Guide" class="md-header__button md-logo" aria-label="Blockchain - The Skeptic's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Blockchain - The Skeptic's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cost Analysis and Total Cost of Ownership
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/blockchain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Blockchain - The Skeptic&#39;s Guide" class="md-nav__button md-logo" aria-label="Blockchain - The Skeptic's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Blockchain - The Skeptic's Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/blockchain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-trust-and-digital-networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Trust and Digital Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-cryptographic-foundations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Cryptographic Foundations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-keys-signatures-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Keys, Signatures, and Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-certificate-authorities-pki/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Certificate Authorities and PKI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-distributed-systems-ledgers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Distributed Systems and Ledgers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-nodes-throughput-performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Nodes, Throughput, and Performance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-consensus-mechanisms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Consensus Mechanisms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-mining-computational-economics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Mining and Computational Economics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-smart-contracts-tokens/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Smart Contracts and Tokens
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-blockchain-types-platforms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Blockchain Types and Platforms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-governance-and-scalability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Governance and Scalability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    12. Cost Analysis and TCO
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    12. Cost Analysis and TCO
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-cost-analysis-matters-for-trust-technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Cost Analysis Matters for Trust Technologies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-cost-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Cost Analysis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operating-expense" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operating Expense
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-vs-on-premise" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud vs On-Premise
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vendor-lock-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vendor Lock-In
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#total-cost-of-ownership" class="md-nav__link">
+    <span class="md-ellipsis">
+      Total Cost of Ownership
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-projection-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Projection Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Simulation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cost Simulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-monte-carlo-cost-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Monte Carlo Cost Simulation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-benefit-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost-Benefit Analysis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#break-even-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Break-Even Analysis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#business-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Business Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functional-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functional Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functional Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-tco-comparison-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: TCO Comparison Dashboard
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together-a-cost-analysis-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It All Together: A Cost Analysis Framework
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-architecture-tradeoff-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Architecture Tradeoff Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-risk-analysis-quality-attributes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Risk Analysis and Quality Attributes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-cognitive-bias-technology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Cognitive Bias in Technology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-evidence-based-evaluation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Evidence-Based Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-industry-case-studies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Industry Case Studies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-emerging-trust-technologies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Emerging Trust Technologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-alternative-architectures-decisions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Alternative Architectures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-implementation-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Implementation and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-cost-analysis-matters-for-trust-technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Cost Analysis Matters for Trust Technologies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-cost-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Cost Analysis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operating-expense" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operating Expense
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-vs-on-premise" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud vs On-Premise
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vendor-lock-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vendor Lock-In
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#total-cost-of-ownership" class="md-nav__link">
+    <span class="md-ellipsis">
+      Total Cost of Ownership
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-projection-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Projection Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Simulation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cost Simulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-monte-carlo-cost-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Monte Carlo Cost Simulation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-benefit-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost-Benefit Analysis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#break-even-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Break-Even Analysis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#business-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Business Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functional-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functional Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functional Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-tco-comparison-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: TCO Comparison Dashboard
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together-a-cost-analysis-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It All Together: A Cost Analysis Framework
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/blockchain/edit/master/docs/chapters/12-cost-analysis-tco/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
 
 <h1 id="cost-analysis-and-total-cost-of-ownership">Cost Analysis and Total Cost of Ownership</h1>
 <h2 id="summary">Summary</h2>
@@ -253,82 +1692,650 @@
 <li><a href="../08-mining-computational-economics/">Chapter 8: Mining and Computational Economics</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p></div>
-            </div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js"></script>
-        <script src="../../search/main.js"></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Rex Says: Trust, but Verify!</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Rex welcomes you">
+Welcome back, fellow analysts! Today we tackle the question that separates serious
+technology evaluation from hype: how much does it actually cost? Marketing brochures
+promise "trustless" transactions, but every node, every validator, every smart contract
+execution has a price tag. Trust, but verify — with a spreadsheet!</p>
+</div>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>After completing this chapter, you will be able to:</p>
+<ul>
+<li>Perform a network cost analysis that accounts for node infrastructure, bandwidth, and operational overhead</li>
+<li>Distinguish between operating expenses and capital expenses in blockchain deployment models</li>
+<li>Compare cloud-based and on-premise deployment options with their respective cost structures</li>
+<li>Identify vendor lock-in risks and calculate switching costs for trust technology platforms</li>
+<li>Build a total cost of ownership model that captures direct, indirect, and hidden costs</li>
+<li>Construct cost projection models that account for growth, scaling, and technology changes</li>
+<li>Run cost simulations to model uncertainty in key cost drivers</li>
+<li>Perform cost-benefit analysis comparing blockchain solutions to traditional alternatives</li>
+<li>Calculate break-even points for blockchain implementations</li>
+<li>Translate business requirements into functional requirements with cost implications</li>
+</ul>
+<h2 id="why-cost-analysis-matters-for-trust-technologies">Why Cost Analysis Matters for Trust Technologies</h2>
+<p>Every trust technology has a cost. Traditional databases backed by a trusted institution have one cost profile. Public blockchain networks have another. Consortium chains, private chains, and hybrid architectures each carry distinct financial characteristics. The challenge is that these costs are frequently obscured, underestimated, or ignored entirely during technology selection.</p>
+<p>Consider a common scenario: a team proposes migrating a supply chain tracking system from a centralized database to a blockchain. The proposal emphasizes immutability, transparency, and elimination of intermediaries. What it often fails to mention is the per-transaction gas cost, the infrastructure required to run full nodes, the developer premium for Solidity expertise over SQL, and the ongoing governance overhead of maintaining a consortium network.</p>
+<p>Cost analysis is not anti-blockchain. It is anti-wishful-thinking. A rigorous cost analysis might well conclude that a blockchain solution is the most cost-effective approach for a given use case. But that conclusion must be supported by evidence, not assumptions.</p>
+<table>
+<thead>
+<tr>
+<th>Cost Category</th>
+<th>Traditional Database</th>
+<th>Public Blockchain</th>
+<th>Private/Consortium Blockchain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Infrastructure</td>
+<td>Server/cloud hosting</td>
+<td>Gas fees + node hosting</td>
+<td>Node hosting for all participants</td>
+</tr>
+<tr>
+<td>Development</td>
+<td>Standard (SQL, REST)</td>
+<td>Premium (Solidity, Web3)</td>
+<td>Premium (platform-specific)</td>
+</tr>
+<tr>
+<td>Operations</td>
+<td>DBA team</td>
+<td>Node operators + monitoring</td>
+<td>Consortium governance + operations</td>
+</tr>
+<tr>
+<td>Transaction cost</td>
+<td>Near zero (internal)</td>
+<td>Variable gas fees</td>
+<td>Lower gas fees, fixed node costs</td>
+</tr>
+<tr>
+<td>Scaling cost</td>
+<td>Vertical/horizontal scaling</td>
+<td>Layer 2 solutions</td>
+<td>Network expansion negotiation</td>
+</tr>
+<tr>
+<td>Compliance</td>
+<td>Mature tooling</td>
+<td>Emerging/uncertain</td>
+<td>Custom integration required</td>
+</tr>
+</tbody>
+</table>
+<h2 id="network-cost-analysis">Network Cost Analysis</h2>
+<p><strong>Network cost analysis</strong> is the systematic assessment of all costs associated with operating, maintaining, and securing a network of nodes that participate in a distributed system. For blockchain networks, this analysis must account for several categories of expense that do not exist in centralized architectures.</p>
+<p>The fundamental cost driver in any blockchain network is redundancy. In a traditional database, one server (with backups) stores the authoritative copy of data. In a blockchain network, every full node stores a complete copy of the ledger. If a network has <span class="arithmatex">\(n\)</span> full nodes, the storage cost is approximately <span class="arithmatex">\(n\)</span> times the cost of storing the ledger once, yielding:</p>
+<div class="arithmatex">\[C_{\text{storage}} = n \times S \times p_s\]</div>
+<p>where <span class="arithmatex">\(S\)</span> is the ledger size in gigabytes and <span class="arithmatex">\(p_s\)</span> is the per-gigabyte storage cost. This simple formula reveals why blockchain storage costs scale differently from centralized systems — and why storing large files directly on-chain is economically impractical.</p>
+<p>Beyond storage, network costs include:</p>
+<ul>
+<li><strong>Compute costs</strong> — the processing power required for transaction validation, consensus participation, and smart contract execution</li>
+<li><strong>Data movement costs</strong> — the energy and bandwidth consumed by propagating transactions and blocks to all nodes. In data center environments, data movement (network switches, routers, inter-node communication, storage I/O) can account for 40-60% of total energy consumption. Blockchain architectures amplify this cost because every transaction and block must reach every full node — multiplying data movement energy by <span class="arithmatex">\(n\)</span></li>
+<li><strong>Bandwidth costs</strong> — the direct monetary cost of network traffic, including cloud egress charges that can be surprisingly expensive for high-replication systems</li>
+<li><strong>Latency costs</strong> — the business impact of slower transaction confirmation compared to centralized alternatives</li>
+<li><strong>Energy costs</strong> — the total energy including computation, data movement, and cooling. For PoW networks, mining energy dominates. For PoS and permissioned networks, data movement becomes a proportionally larger share of total energy and must not be ignored in cost comparisons</li>
+</ul>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+The cost of running a blockchain network is not just the sum of node costs. It includes
+the coordination overhead — the time and money spent getting independent organizations
+to agree on network parameters, upgrades, and governance rules. This "soft cost" often
+exceeds the infrastructure cost and is almost always omitted from vendor proposals.</p>
+</div>
+<p>A practical network cost analysis should produce a cost-per-transaction figure that can be compared directly against alternatives. For a network processing <span class="arithmatex">\(T\)</span> transactions per month with total monthly costs <span class="arithmatex">\(C_{\text{total}}\)</span>, the unit economics are:</p>
+<div class="arithmatex">\[C_{\text{per-tx}} = \frac{C_{\text{total}}}{T}\]</div>
+<p>When Ethereum mainnet gas fees exceeded $50 per transaction during peak congestion in 2021-2022, this simple metric made the cost comparison against traditional payment processing (typically <span class="arithmatex">\(0.20-\)</span>0.30 per transaction) painfully clear. Layer 2 solutions have since reduced these costs substantially, but the principle remains: always calculate the per-transaction cost.</p>
+<h2 id="operating-expense">Operating Expense</h2>
+<p><strong>Operating expense (OpEx)</strong> refers to the ongoing, recurring costs of running a system. In contrast, <strong>capital expense (CapEx)</strong> refers to one-time investments in infrastructure or development. This distinction matters enormously for blockchain deployments because it affects budgeting, accounting treatment, and decision-making authority.</p>
+<p>Blockchain systems tend to shift costs from CapEx to OpEx in several ways:</p>
+<ul>
+<li><strong>Gas fees</strong> are pure OpEx — they recur with every transaction and scale with usage</li>
+<li><strong>Node hosting</strong> on cloud infrastructure is OpEx (versus purchasing physical servers, which is CapEx)</li>
+<li><strong>Subscription-based blockchain platforms</strong> (Blockchain-as-a-Service) convert what might be infrastructure CapEx into monthly OpEx</li>
+<li><strong>Smart contract audits</strong> recur with every contract update, creating ongoing OpEx</li>
+</ul>
+<p>This shift has organizational implications. Many enterprises have separate approval processes for capital investments (which require C-suite or board approval above certain thresholds) and operating expenditures (which can often be approved at the department level). A blockchain solution structured as OpEx may face fewer internal approval hurdles — but may also create ongoing budget obligations that are harder to control than a one-time capital investment.</p>
+<table>
+<thead>
+<tr>
+<th>Expense Type</th>
+<th>Blockchain Examples</th>
+<th>Traditional System Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Capital (CapEx)</td>
+<td>Custom chain development, hardware security modules</td>
+<td>Server hardware, software licenses, initial development</td>
+</tr>
+<tr>
+<td>Operating (OpEx)</td>
+<td>Gas fees, node hosting, monitoring, audits</td>
+<td>Cloud hosting, maintenance, DBA salaries</td>
+</tr>
+<tr>
+<td>Hidden OpEx</td>
+<td>Governance meetings, developer retraining, incident response</td>
+<td>Vendor support renewals, technical debt servicing</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cloud-vs-on-premise">Cloud vs On-Premise</h2>
+<p>The <strong>cloud versus on-premise</strong> decision for blockchain infrastructure introduces tradeoffs that differ significantly from the same decision for traditional applications. When deploying blockchain nodes, organizations must choose between running nodes on their own hardware or using cloud-hosted infrastructure, and this choice has implications beyond pure cost.</p>
+<p>Cloud deployment advantages for blockchain nodes include:</p>
+<ul>
+<li><strong>Rapid provisioning</strong> — spinning up new nodes in minutes rather than weeks</li>
+<li><strong>Elastic scaling</strong> — adjusting resources as network demands change</li>
+<li><strong>Global distribution</strong> — deploying nodes in multiple geographic regions for latency and resilience</li>
+<li><strong>Managed services</strong> — blockchain-as-a-service (BaaS) offerings from AWS, Azure, and others reduce operational complexity</li>
+</ul>
+<p>On-premise deployment advantages include:</p>
+<ul>
+<li><strong>Data sovereignty</strong> — maintaining physical control over cryptographic keys and ledger data</li>
+<li><strong>Predictable costs</strong> — avoiding cloud pricing fluctuations and egress charges</li>
+<li><strong>Regulatory compliance</strong> — satisfying requirements that data never leave specific jurisdictions or physical facilities</li>
+<li><strong>Network independence</strong> — ensuring that your blockchain node does not depend on a cloud provider's availability</li>
+</ul>
+<p>The irony of running "decentralized" blockchain nodes on centralized cloud infrastructure is not lost on critics. When a significant portion of Ethereum nodes run on Amazon Web Services, the network's decentralization guarantees are weaker than the protocol design implies. An AWS outage in December 2020 temporarily took a measurable percentage of Ethereum nodes offline, demonstrating this concentration risk.</p>
+<p>For cost analysis purposes, the key consideration is the total deployment cost over the analysis horizon. Cloud costs tend to be lower initially but grow linearly (or worse) with usage. On-premise costs require higher upfront investment but may be cheaper over a 3-5 year horizon for stable workloads.</p>
+<h2 id="vendor-lock-in">Vendor Lock-In</h2>
+<p><strong>Vendor lock-in</strong> occurs when switching from one technology provider to another becomes prohibitively expensive, creating a dependency that limits future flexibility. In blockchain contexts, vendor lock-in takes several forms that are often more severe than in traditional software:</p>
+<ul>
+<li><strong>Platform lock-in</strong> — building on a specific blockchain platform (Hyperledger Fabric, Ethereum, Corda) creates dependencies on that platform's smart contract language, SDK, and consensus mechanism</li>
+<li><strong>BaaS lock-in</strong> — using a managed blockchain service (Amazon Managed Blockchain, Azure Blockchain Service) couples your deployment to a specific cloud provider's tooling and APIs</li>
+<li><strong>Data lock-in</strong> — migrating transaction history from one blockchain to another is technically complex and may be impossible without compromising chain integrity</li>
+<li><strong>Skill lock-in</strong> — investing in team expertise with a specific blockchain stack creates organizational switching costs</li>
+</ul>
+<p>The switching cost for blockchain platforms can be estimated as:</p>
+<div class="arithmatex">\[C_{\text{switch}} = C_{\text{redevelop}} + C_{\text{migrate}} + C_{\text{retrain}} + C_{\text{downtime}} + C_{\text{reaudit}}\]</div>
+<p>where each component can be substantial. Redeveloping smart contracts for a new platform may require rewriting business logic from scratch if moving between incompatible languages (Solidity to Chaincode, for example). Data migration may require replaying all historical transactions. Retraining developers carries both direct costs and productivity losses during the learning period. Security audits must be repeated from scratch on the new platform.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Bias Alert</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Rex warns you">
+Vendors who claim their blockchain platform "eliminates vendor lock-in" are often
+creating a different kind of lock-in. Open-source blockchain platforms reduce license
+lock-in but still create skill lock-in, ecosystem lock-in, and data format lock-in.
+Always map all five dimensions of lock-in before accepting the "open-source means
+no lock-in" argument.</p>
+</div>
+<p>When building a TCO model, vendor lock-in should be quantified as a risk-adjusted cost: the probability of needing to switch multiplied by the estimated switching cost, added to the base cost of the current platform.</p>
+<h2 id="total-cost-of-ownership">Total Cost of Ownership</h2>
+<p><strong>Total cost of ownership (TCO)</strong> is a comprehensive financial estimate that captures all direct and indirect costs associated with a technology over its entire lifecycle. For blockchain implementations, TCO must extend well beyond the obvious infrastructure and development costs to include categories that are frequently overlooked.</p>
+<p>A complete blockchain TCO model includes:</p>
+<ul>
+<li><strong>Direct costs</strong> — infrastructure, development, licensing, transaction fees</li>
+<li><strong>Indirect costs</strong> — training, integration with existing systems, process redesign</li>
+<li><strong>Opportunity costs</strong> — what the team could have built instead with the same resources</li>
+<li><strong>Risk costs</strong> — expected losses from smart contract vulnerabilities, network disruptions, regulatory changes</li>
+<li><strong>Governance costs</strong> — the ongoing effort of coordinating with consortium partners (for permissioned networks)</li>
+<li><strong>Exit costs</strong> — the cost of migrating away from the solution if it fails or requirements change</li>
+</ul>
+<p>The TCO formula for a blockchain implementation over a planning horizon of <span class="arithmatex">\(Y\)</span> years can be expressed as:</p>
+<div class="arithmatex">\[TCO = C_{\text{initial}} + \sum_{y=1}^{Y} \frac{C_{\text{annual}}(y)}{(1 + r)^y} + C_{\text{exit}} \times P_{\text{exit}}\]</div>
+<p>where <span class="arithmatex">\(C_{\text{initial}}\)</span> is the upfront investment, <span class="arithmatex">\(C_{\text{annual}}(y)\)</span> is the operating cost in year <span class="arithmatex">\(y\)</span> (which may increase with scale), <span class="arithmatex">\(r\)</span> is the discount rate, and <span class="arithmatex">\(C_{\text{exit}} \times P_{\text{exit}}\)</span> represents the risk-adjusted exit cost.</p>
+<table>
+<thead>
+<tr>
+<th>TCO Component</th>
+<th>Year 0</th>
+<th>Year 1</th>
+<th>Year 2</th>
+<th>Year 3</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Infrastructure setup</td>
+<td>$150K</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>Nodes, HSMs, network config</td>
+</tr>
+<tr>
+<td>Development</td>
+<td>$300K</td>
+<td>$50K</td>
+<td>$50K</td>
+<td>$50K</td>
+<td>Initial build + maintenance</td>
+</tr>
+<tr>
+<td>Cloud hosting</td>
+<td>—</td>
+<td>$60K</td>
+<td>$72K</td>
+<td>$86K</td>
+<td>20% annual growth assumed</td>
+</tr>
+<tr>
+<td>Transaction fees</td>
+<td>—</td>
+<td>$24K</td>
+<td>$36K</td>
+<td>$48K</td>
+<td>Scaling with transaction volume</td>
+</tr>
+<tr>
+<td>Training</td>
+<td>$40K</td>
+<td>$10K</td>
+<td>$10K</td>
+<td>$10K</td>
+<td>Initial + ongoing</td>
+</tr>
+<tr>
+<td>Governance</td>
+<td>—</td>
+<td>$30K</td>
+<td>$30K</td>
+<td>$30K</td>
+<td>Consortium coordination</td>
+</tr>
+<tr>
+<td>Security audits</td>
+<td>$80K</td>
+<td>$40K</td>
+<td>$40K</td>
+<td>$40K</td>
+<td>Initial + annual</td>
+</tr>
+<tr>
+<td><strong>Annual Total</strong></td>
+<td><strong>$570K</strong></td>
+<td><strong>$214K</strong></td>
+<td><strong>$238K</strong></td>
+<td><strong>$264K</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>This example, based on a simplified consortium blockchain deployment, produces a three-year TCO of approximately $1.29 million. The comparable centralized database solution might have a three-year TCO of <span class="arithmatex">\(400K-\)</span>600K. Whether the blockchain premium is justified depends entirely on the value of the specific properties (immutability, multi-party transparency, etc.) that the blockchain provides and the traditional solution cannot.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+The most expensive component of a blockchain TCO is rarely infrastructure. It is the
+human cost — development, governance, training, and the ongoing coordination required
+to keep a multi-party network functioning. These costs are hardest to estimate and
+easiest to undercount. When a vendor quote looks surprisingly affordable, check whether
+it includes these human costs.</p>
+</div>
+<h2 id="cost-projection-model">Cost Projection Model</h2>
+<p>A <strong>cost projection model</strong> estimates how costs will evolve over time as the system scales, technology changes, and organizational needs shift. Unlike a static TCO calculation, a cost projection model captures the dynamic relationship between usage growth and cost growth.</p>
+<p>For blockchain systems, cost projections must account for several non-linear effects:</p>
+<ul>
+<li><strong>Ledger growth</strong> — storage costs increase as the chain grows, and growth accelerates with transaction volume</li>
+<li><strong>Gas price volatility</strong> — on public networks, transaction costs can spike unpredictably during periods of high demand</li>
+<li><strong>Network effects</strong> — adding participants to a consortium network increases both value and coordination costs</li>
+<li><strong>Technology evolution</strong> — protocol upgrades (like Ethereum's transition from PoW to PoS) can dramatically change cost structures</li>
+</ul>
+<p>A basic cost projection model for year <span class="arithmatex">\(y\)</span> can be structured as:</p>
+<div class="arithmatex">\[C(y) = C_{\text{fixed}} + C_{\text{variable}} \times V(y) + C_{\text{growth}} \times (1 + g)^y\]</div>
+<p>where <span class="arithmatex">\(C_{\text{fixed}}\)</span> represents costs that do not change with usage (minimum node hosting, governance overhead), <span class="arithmatex">\(C_{\text{variable}} \times V(y)\)</span> represents costs that scale with transaction volume <span class="arithmatex">\(V(y)\)</span>, and <span class="arithmatex">\(C_{\text{growth}} \times (1 + g)^y\)</span> represents costs that grow independently of usage (storage, compliance burden, team growth).</p>
+<p>Responsible cost projection requires modeling multiple scenarios:</p>
+<ul>
+<li><strong>Base case</strong> — expected growth in transactions and participants</li>
+<li><strong>High-growth case</strong> — what happens if adoption exceeds expectations (paradoxically, this can be the most expensive scenario for blockchain systems due to gas price increases)</li>
+<li><strong>Low-growth case</strong> — what happens if adoption is slower than expected, and fixed costs must be spread across fewer transactions</li>
+<li><strong>Disruption case</strong> — what happens if a major technology shift (new platform, regulatory change) requires significant rework</li>
+</ul>
+<h2 id="cost-simulation">Cost Simulation</h2>
+<p><strong>Cost simulation</strong> uses probabilistic modeling to account for uncertainty in cost projections. Rather than producing a single cost estimate, a simulation generates a distribution of possible outcomes, allowing decision-makers to understand not just the expected cost but the range of likely costs and the probability of extreme outcomes.</p>
+<p>Monte Carlo simulation is the most common approach. The method works by:</p>
+<ol>
+<li>Identifying key cost variables with uncertainty (gas prices, transaction volumes, development timelines)</li>
+<li>Assigning probability distributions to each variable (normal, uniform, triangular, or based on historical data)</li>
+<li>Running thousands of random samples, calculating total cost for each combination</li>
+<li>Analyzing the resulting distribution of outcomes</li>
+</ol>
+<p>For a blockchain cost simulation, key uncertain variables typically include:</p>
+<ul>
+<li>Transaction volume growth rate: uniform distribution between 10% and 50% annually</li>
+<li>Gas price multiplier: log-normal distribution based on historical volatility</li>
+<li>Development timeline overrun: triangular distribution with mode at 1.5x estimated time</li>
+<li>Consortium partner attrition: binomial distribution based on historical consortium stability</li>
+</ul>
+<p>The output of a Monte Carlo simulation is typically expressed as confidence intervals:</p>
+<ul>
+<li><strong>P50 (median)</strong> — the cost that will be exceeded 50% of the time</li>
+<li><strong>P75</strong> — the cost that will be exceeded 25% of the time (a common planning threshold)</li>
+<li><strong>P90</strong> — the cost that will be exceeded only 10% of the time (a conservative planning threshold)</li>
+</ul>
+<p>If the P50 cost of a blockchain solution is $1.2M over three years but the P90 cost is $2.8M, that range tells decision-makers something a single-point estimate never could: there is meaningful risk of costs more than doubling the expected amount.</p>
+<h4 id="diagram-monte-carlo-cost-simulation">Diagram: Monte Carlo Cost Simulation</h4>
+<details>
+<summary>Interactive Monte Carlo Cost Simulation for Blockchain TCO</summary>
+<p>Type: MicroSim
+<strong>sim-id:</strong> blockchain-cost-monte-carlo<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective:</strong> Apply (L3) — Use Monte Carlo simulation to model uncertainty in blockchain deployment costs and interpret the resulting probability distributions for decision-making.</p>
+<p><strong>Description:</strong> An interactive simulation that runs Monte Carlo trials on blockchain TCO. The left panel shows sliders for key input parameters: number of nodes (5-50), annual transaction growth rate (10%-100%), gas price volatility (low/medium/high), and development timeline uncertainty (1x-3x). A "Run Simulation" button executes 1,000 trials and displays a histogram of total 3-year costs on the right panel. The histogram shows P50, P75, and P90 lines annotated with dollar values. A comparison line shows the equivalent centralized system cost. Students can adjust parameters and re-run to see how uncertainty affects the cost distribution.</p>
+<p><strong>Canvas:</strong> Responsive width, 550px height. Background: aliceblue.</p>
+<p><strong>Controls:</strong></p>
+<ul>
+<li>Slider: Number of nodes (5-50, default 10)</li>
+<li>Slider: Transaction growth rate (10%-100%, default 30%)</li>
+<li>Select: Gas price volatility (Low, Medium, High)</li>
+<li>Slider: Development uncertainty multiplier (1.0-3.0, default 1.5)</li>
+<li>Button: "Run 1,000 Trials"</li>
+<li>Checkbox: "Show centralized comparison line"</li>
+</ul>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>Histogram with 20 bins showing cost distribution</li>
+<li>Vertical dashed lines for P50 (blue), P75 (orange), P90 (red)</li>
+<li>Green vertical line for centralized system cost comparison</li>
+<li>Summary statistics panel: mean, median, std dev, P90</li>
+<li>Parameter display showing current input values</li>
+</ul>
+<p>Implementation: p5.js with responsive canvas, random sampling, histogram rendering</p>
+</details>
+<h2 id="cost-benefit-analysis">Cost-Benefit Analysis</h2>
+<p><strong>Cost-benefit analysis (CBA)</strong> is a systematic method for comparing the total costs of a solution against its total benefits, both expressed in monetary terms. For blockchain evaluations, the challenge is not in calculating costs (which are concrete) but in quantifying benefits (which are often speculative).</p>
+<p>The net benefit of a blockchain implementation is:</p>
+<div class="arithmatex">\[\text{Net Benefit} = \sum_{y=0}^{Y} \frac{B(y) - C(y)}{(1 + r)^y}\]</div>
+<p>where <span class="arithmatex">\(B(y)\)</span> represents the monetary value of benefits in year <span class="arithmatex">\(y\)</span>, <span class="arithmatex">\(C(y)\)</span> represents costs, and <span class="arithmatex">\(r\)</span> is the discount rate. A positive net benefit indicates the project is financially justified; a negative net benefit indicates it is not.</p>
+<p>The critical discipline in blockchain CBA is rigorously classifying benefits:</p>
+<ul>
+<li><strong>Quantifiable, certain benefits</strong> — reduced reconciliation headcount, eliminated intermediary fees, lower insurance premiums due to improved auditability</li>
+<li><strong>Quantifiable, uncertain benefits</strong> — revenue from new business models enabled by tokenization, cost savings from automation via smart contracts</li>
+<li><strong>Qualitative benefits</strong> — improved brand perception, regulatory goodwill, strategic positioning</li>
+<li><strong>Speculative benefits</strong> — "blockchain-ready for the future," network effects that may or may not materialize</li>
+</ul>
+<p>A skeptic's CBA assigns full weight only to quantifiable, certain benefits. Uncertain benefits should be probability-weighted. Qualitative benefits should be noted but excluded from the financial calculation. Speculative benefits should be flagged and challenged.</p>
+<table>
+<thead>
+<tr>
+<th>Benefit Category</th>
+<th>Example</th>
+<th>Estimated Annual Value</th>
+<th>Certainty</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reconciliation savings</td>
+<td>Eliminate 3 FTEs in reconciliation</td>
+<td>$360,000</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Intermediary fee reduction</td>
+<td>Remove payment processor</td>
+<td>$120,000</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Audit cost reduction</td>
+<td>Automated compliance reporting</td>
+<td>$80,000</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>New revenue</td>
+<td>Tokenized asset marketplace</td>
+<td>$500,000</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Strategic positioning</td>
+<td>"Blockchain-enabled" marketing</td>
+<td>Not quantified</td>
+<td>Speculative</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Rex's Tip</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Rex shares a tip">
+When reviewing a blockchain proposal's cost-benefit analysis, check the ratio of
+certain benefits to total claimed benefits. If more than half the financial justification
+depends on uncertain or speculative benefits, the proposal is a bet, not an investment.
+That does not mean it is wrong — but it should be evaluated as a bet, with appropriate
+risk management.</p>
+</div>
+<h2 id="break-even-analysis">Break-Even Analysis</h2>
+<p><strong>Break-even analysis</strong> determines the point at which a blockchain investment's cumulative benefits equal its cumulative costs. This is particularly valuable for blockchain projects because they typically require significant upfront investment with benefits that materialize gradually.</p>
+<p>The break-even point <span class="arithmatex">\(t^*\)</span> is the time at which:</p>
+<div class="arithmatex">\[\sum_{y=0}^{t^*} \frac{B(y)}{(1+r)^y} = \sum_{y=0}^{t^*} \frac{C(y)}{(1+r)^y}\]</div>
+<p>For blockchain implementations, break-even periods are typically longer than for traditional IT projects:</p>
+<ul>
+<li><strong>Traditional database project</strong> — typical break-even at 6-18 months</li>
+<li><strong>Private blockchain deployment</strong> — typical break-even at 18-36 months</li>
+<li><strong>Consortium blockchain</strong> — typical break-even at 24-48 months (longer due to governance overhead and multi-party coordination)</li>
+<li><strong>Public blockchain integration</strong> — highly variable, from months (for DeFi applications with immediate transaction volume) to never (for enterprise pilots that fail to achieve adoption)</li>
+</ul>
+<p>Break-even analysis also reveals sensitivity to assumptions. If the break-even calculation depends on achieving a specific transaction volume, the analyst should determine the minimum viable volume — the transaction threshold below which the project never breaks even. This is the project's financial kill line.</p>
+<p>A useful extension is the <strong>payback period with risk adjustment</strong>, which incorporates the probability that the project will be abandoned before reaching break-even:</p>
+<div class="arithmatex">\[E[\text{payback}] = t^* + \frac{P_{\text{abandon}} \times C_{\text{sunk}}}{1 - P_{\text{abandon}}}\]</div>
+<p>where <span class="arithmatex">\(P_{\text{abandon}}\)</span> is the probability of project abandonment and <span class="arithmatex">\(C_{\text{sunk}}\)</span> represents sunk costs at the point of abandonment.</p>
+<h2 id="business-requirements">Business Requirements</h2>
+<p>A <strong>business requirement</strong> describes what the organization needs to achieve from a business perspective, independent of any specific technology. Business requirements answer the question "what problem are we solving?" before anyone asks "should we use blockchain?"</p>
+<p>Well-formed business requirements for a trust technology evaluation might include:</p>
+<ul>
+<li>"We need to share supply chain provenance data with 12 partner organizations in a way that no single partner can unilaterally alter records"</li>
+<li>"We need to reduce payment settlement time from T+2 days to T+0 while maintaining regulatory compliance"</li>
+<li>"We need to provide auditors with tamper-evident transaction logs without giving them access to transaction details"</li>
+</ul>
+<p>Each of these requirements can be evaluated against multiple technology approaches. The first might be addressed by a consortium blockchain, a shared database with multi-party signing, or a distributed ledger with selective disclosure. The second might use blockchain settlement, real-time gross settlement (RTGS) systems, or enhanced payment networks. The third might leverage blockchain's inherent auditability, or it might be accomplished with traditional append-only databases and zero-knowledge proofs.</p>
+<p>The critical error in technology evaluation is starting with the solution ("we should use blockchain") rather than the business requirement. When business requirements are clearly defined first, the cost analysis can compare equivalent solutions rather than assuming a specific technology.</p>
+<h2 id="functional-requirements">Functional Requirements</h2>
+<p><strong>Functional requirements</strong> specify the detailed behaviors a system must exhibit to satisfy the business requirements. While business requirements describe <em>what</em> the organization needs, functional requirements describe <em>how</em> the system must behave. Functional requirements have direct cost implications because they constrain the solution space and drive development effort.</p>
+<p>For blockchain evaluations, functional requirements must be specific enough to enable cost comparison:</p>
+<table>
+<thead>
+<tr>
+<th>Business Requirement</th>
+<th>Functional Requirement</th>
+<th>Cost Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tamper-evident records</td>
+<td>Cryptographic hash chain with merkle proofs</td>
+<td>Moderate (standard in most platforms)</td>
+</tr>
+<tr>
+<td>Multi-party write access</td>
+<td>Consensus mechanism for transaction validation</td>
+<td>High (drives node count and network design)</td>
+</tr>
+<tr>
+<td>Privacy between participants</td>
+<td>Zero-knowledge proofs or private channels</td>
+<td>Very high (complex cryptography, limited platform support)</td>
+</tr>
+<tr>
+<td>Regulatory reporting</td>
+<td>On-demand query of historical transactions</td>
+<td>Moderate to high (depends on chain analytics tooling)</td>
+</tr>
+<tr>
+<td>High throughput</td>
+<td>&gt;10,000 transactions per second</td>
+<td>Very high (may eliminate public blockchain options)</td>
+</tr>
+</tbody>
+</table>
+<p>The functional requirements table above illustrates how specific requirements can eliminate entire categories of blockchain solutions. A throughput requirement above 10,000 TPS effectively rules out most public blockchains, narrowing the field to private chains or hybrid architectures — which in turn changes the cost profile dramatically.</p>
+<h4 id="diagram-tco-comparison-dashboard">Diagram: TCO Comparison Dashboard</h4>
+<details>
+<summary>Interactive TCO Comparison: Blockchain vs. Traditional Architecture</summary>
+<p>Type: MicroSim
+<strong>sim-id:</strong> tco-comparison-dashboard<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective:</strong> Evaluate (L5) — Compare total cost of ownership between blockchain and traditional architectures across multiple cost categories and time horizons, identifying the conditions under which each approach is more cost-effective.</p>
+<p><strong>Description:</strong> A dashboard-style simulation comparing blockchain TCO against traditional database TCO over a configurable time horizon. The main display shows two stacked area charts (one for blockchain, one for traditional) breaking down costs into categories: infrastructure, development, operations, governance, and transaction fees. Below the charts, a cumulative cost comparison line graph shows where (if ever) the blockchain solution's cumulative cost advantage materializes. Input sliders allow adjusting transaction volume, number of consortium partners, and gas price assumptions. A summary panel shows break-even year (or "Never" if costs never converge), 3-year TCO for each approach, and cost-per-transaction comparison.</p>
+<p><strong>Canvas:</strong> Responsive width, 600px height. Background: aliceblue.</p>
+<p><strong>Controls:</strong></p>
+<ul>
+<li>Slider: Annual transaction volume (10K-10M, log scale)</li>
+<li>Slider: Number of consortium partners (2-20)</li>
+<li>Slider: Planning horizon (1-7 years)</li>
+<li>Select: Blockchain type (Public, Private, Consortium)</li>
+<li>Button: "Calculate TCO"</li>
+</ul>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>Two stacked area charts with color-coded cost categories</li>
+<li>Cumulative cost comparison line graph</li>
+<li>Break-even point marker (if applicable)</li>
+<li>Summary statistics panel</li>
+<li>Cost-per-transaction comparison bar</li>
+</ul>
+<p>Implementation: p5.js with responsive canvas, dynamic chart rendering, parameter-driven calculations</p>
+</details>
+<h2 id="putting-it-all-together-a-cost-analysis-framework">Putting It All Together: A Cost Analysis Framework</h2>
+<p>The concepts in this chapter form a systematic framework for evaluating trust technology costs. The recommended sequence is:</p>
+<ol>
+<li><strong>Define business requirements</strong> — what problem are you solving, independent of technology?</li>
+<li><strong>Specify functional requirements</strong> — what behaviors must the system exhibit, and what constraints exist?</li>
+<li><strong>Identify candidate architectures</strong> — which approaches (blockchain and non-blockchain) could satisfy the requirements?</li>
+<li><strong>Perform network cost analysis</strong> — what does each architecture cost to operate at the required scale?</li>
+<li><strong>Build TCO models</strong> — what is the full lifecycle cost, including hidden and indirect costs?</li>
+<li><strong>Run cost projections</strong> — how do costs evolve as the system scales over 3-5 years?</li>
+<li><strong>Simulate uncertainty</strong> — what is the range of likely costs given uncertainty in key variables?</li>
+<li><strong>Conduct cost-benefit analysis</strong> — do the quantifiable benefits exceed the costs?</li>
+<li><strong>Calculate break-even</strong> — when does the investment pay for itself, and what must be true for that to happen?</li>
+</ol>
+<p>This framework does not produce a simple "use blockchain" or "don't use blockchain" answer. It produces evidence that supports a defensible decision. Sometimes that evidence will favor blockchain. Often it will not. The value of the framework is in the rigor of the analysis, not the direction of the conclusion.</p>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>This chapter provided the quantitative toolkit for evaluating trust technology costs:</p>
+<ul>
+<li><strong>Network cost analysis</strong> reveals the true per-transaction cost of blockchain networks, including redundancy, consensus, and coordination overhead</li>
+<li><strong>Operating expense</strong> models help organizations understand the ongoing financial commitment of blockchain deployments versus one-time capital investments</li>
+<li><strong>Cloud vs. on-premise</strong> decisions involve tradeoffs between flexibility and control, with ironic implications for decentralization claims</li>
+<li><strong>Vendor lock-in</strong> in blockchain contexts spans platform, data, skill, and ecosystem dimensions — "open source" does not mean "no lock-in"</li>
+<li><strong>Total cost of ownership</strong> must capture direct costs, indirect costs, opportunity costs, risk costs, governance costs, and exit costs</li>
+<li><strong>Cost projection models</strong> and <strong>cost simulations</strong> account for growth, uncertainty, and non-linear scaling effects</li>
+<li><strong>Cost-benefit analysis</strong> requires disciplined classification of benefits — separating quantifiable from speculative</li>
+<li><strong>Break-even analysis</strong> reveals the minimum conditions under which a blockchain investment pays for itself</li>
+<li><strong>Business requirements</strong> and <strong>functional requirements</strong> must be defined before technology selection, not after, to enable honest cost comparison</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Outstanding Analysis!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Rex celebrates">
+You now have the quantitative tools to cut through cost claims and evaluate trust
+technology investments with evidence. Remember: a technology that cannot survive a
+rigorous cost analysis probably cannot survive deployment either. Next, we will learn
+how to evaluate the architectural tradeoffs beyond cost — using the Architecture
+Tradeoff Analysis Method. Excellent work, fellow analyst!</p>
 </div>
 
-    </body>
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../11-governance-and-scalability/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 11. Governance and Scalability">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                11. Governance and Scalability
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../13-architecture-tradeoff-analysis/" class="md-footer__link md-footer__link--next" aria-label="Next: 13. Architecture Tradeoff Analysis">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                13. Architecture Tradeoff Analysis
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
 </html>

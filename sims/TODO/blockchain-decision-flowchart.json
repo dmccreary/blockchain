@@ -1,0 +1,14 @@
+{
+  "sim_id": "blockchain-decision-flowchart",
+  "diagram_name": "When to Use Blockchain Decision Tree",
+  "chapter_number": 11,
+  "chapter_title": "Governance and Scalability",
+  "chapter_dir": "11-governance-and-scalability",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-03-22",
+  "specification": "Type: MicroSim\n**sim-id:** blockchain-decision-flowchart<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\n**Learning objective:** Apply (L3) — Apply the blockchain decision framework to real-world scenarios, determining whether blockchain is an appropriate solution based on trust requirements, performance needs, and regulatory constraints.\n\n**Description:** An interactive decision flowchart that guides students through the \"should you use blockchain?\" evaluation. Each decision node poses a question (e.g., \"Do multiple untrusted parties need write access?\") with yes/no branches. The path highlights as students make choices, leading to a recommendation: \"Use a database,\" \"Consider a permissioned blockchain,\" \"Consider a public blockchain,\" or \"Blockchain is a strong candidate.\" A scenario panel provides pre-built use cases (hospital records, supply chain tracking, cryptocurrency exchange, voting system, land registry) that auto-navigate the flowchart with explanations at each step. A summary panel shows the reasoning chain for the final recommendation.\n\n**Canvas:** Responsive width, 600px height. Background: aliceblue.\n\n**Controls:**\n\n- Click yes/no at each decision node\n- Dropdown: Select pre-built scenario\n- Button: Reset flowchart\n- Button: Show all paths simultaneously\n- Hover: Explanation tooltips at each node\n\n**Visual elements:**\n\n- Flowchart with decision diamonds and outcome rectangles\n- Highlighted active path (green for yes, red for no)\n- Scenario description sidebar\n- Reasoning chain summary panel\n- Color-coded outcome categories\n\nImplementation: p5.js with flowchart layout, path highlighting, scenario auto-navigation"
+}

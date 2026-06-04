@@ -1,232 +1,1743 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="How cognitive biases systematically distort technology evaluation and adoption decisions, with debiasing techniques, critical thinking frameworks, and hype cycle analysis.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/blockchain/chapters/15-cognitive-bias-technology/">
+      
+      
+        <link rel="prev" href="../14-risk-analysis-quality-attributes/">
+      
+      
+        <link rel="next" href="../16-evidence-based-evaluation/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Cognitive Bias in Technology Decisions - Blockchain - The Skeptic's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
         
-        
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>15. Cognitive Bias in Technology - Blockchain - The Skeptic's Guide</title>
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../../css/brands.min.css" rel="stylesheet">
-        <link href="../../css/solid.min.css" rel="stylesheet">
-        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <link href="../../css/mascot.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="../..">Blockchain - The Skeptic's Guide</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item">
-                                <a href="../.." class="nav-link">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../course-description/" class="nav-link">Course Description</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Chapters</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../" class="dropdown-item">List of Chapters</a>
-</li>
-                                    
-<li>
-    <a href="../01-trust-and-digital-networks/" class="dropdown-item">1. Trust and Digital Networks</a>
-</li>
-                                    
-<li>
-    <a href="../02-cryptographic-foundations/" class="dropdown-item">2. Cryptographic Foundations</a>
-</li>
-                                    
-<li>
-    <a href="../03-keys-signatures-identity/" class="dropdown-item">3. Keys, Signatures, and Identity</a>
-</li>
-                                    
-<li>
-    <a href="../04-certificate-authorities-pki/" class="dropdown-item">4. Certificate Authorities and PKI</a>
-</li>
-                                    
-<li>
-    <a href="../05-distributed-systems-ledgers/" class="dropdown-item">5. Distributed Systems and Ledgers</a>
-</li>
-                                    
-<li>
-    <a href="../06-nodes-throughput-performance/" class="dropdown-item">6. Nodes, Throughput, and Performance</a>
-</li>
-                                    
-<li>
-    <a href="../07-consensus-mechanisms/" class="dropdown-item">7. Consensus Mechanisms</a>
-</li>
-                                    
-<li>
-    <a href="../08-mining-computational-economics/" class="dropdown-item">8. Mining and Computational Economics</a>
-</li>
-                                    
-<li>
-    <a href="../09-smart-contracts-tokens/" class="dropdown-item">9. Smart Contracts and Tokens</a>
-</li>
-                                    
-<li>
-    <a href="../10-blockchain-types-platforms/" class="dropdown-item">10. Blockchain Types and Platforms</a>
-</li>
-                                    
-<li>
-    <a href="../11-governance-and-scalability/" class="dropdown-item">11. Governance and Scalability</a>
-</li>
-                                    
-<li>
-    <a href="../12-cost-analysis-tco/" class="dropdown-item">12. Cost Analysis and TCO</a>
-</li>
-                                    
-<li>
-    <a href="../13-architecture-tradeoff-analysis/" class="dropdown-item">13. Architecture Tradeoff Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../14-risk-analysis-quality-attributes/" class="dropdown-item">14. Risk Analysis and Quality Attributes</a>
-</li>
-                                    
-<li>
-    <a href="./" class="dropdown-item active" aria-current="page">15. Cognitive Bias in Technology</a>
-</li>
-                                    
-<li>
-    <a href="../16-evidence-based-evaluation/" class="dropdown-item">16. Evidence-Based Evaluation</a>
-</li>
-                                    
-<li>
-    <a href="../17-industry-case-studies/" class="dropdown-item">17. Industry Case Studies</a>
-</li>
-                                    
-<li>
-    <a href="../18-emerging-trust-technologies/" class="dropdown-item">18. Emerging Trust Technologies</a>
-</li>
-                                    
-<li>
-    <a href="../19-alternative-architectures-decisions/" class="dropdown-item">19. Alternative Architectures</a>
-</li>
-                                    
-<li>
-    <a href="../20-implementation-capstone/" class="dropdown-item">20. Implementation and Capstone</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Learning Graph</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../learning-graph/" class="dropdown-item">Introduction</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/course-description-assessment/" class="dropdown-item">Course Description Assessment</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/concept-list/" class="dropdown-item">Concept Enumeration</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/quality-metrics/" class="dropdown-item">Graph Quality Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/concept-taxonomy/" class="dropdown-item">Concept Taxonomy</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/taxonomy-distribution/" class="dropdown-item">Taxonomy Distribution Report</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">MicroSims</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../sims/graph-viewer/" class="dropdown-item">Graph Viewer</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../about/" class="nav-link">About</a>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../14-risk-analysis-quality-attributes/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../16-evidence-based-evaluation/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="1"><a href="#cognitive-bias-in-technology-decisions" class="nav-link">Cognitive Bias in Technology Decisions</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#summary" class="nav-link">Summary</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#concepts-covered" class="nav-link">Concepts Covered</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Cognitive Bias in Technology Decisions - Blockchain - The Skeptic's Guide" >
+      
+        <meta  property="og:description"  content="How cognitive biases systematically distort technology evaluation and adoption decisions, with debiasing techniques, critical thinking frameworks, and hype cycle analysis." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/blockchain/assets/images/social/chapters/15-cognitive-bias-technology/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/blockchain/chapters/15-cognitive-bias-technology/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Cognitive Bias in Technology Decisions - Blockchain - The Skeptic's Guide" >
+      
+        <meta  name="twitter:description"  content="How cognitive biases systematically distort technology evaluation and adoption decisions, with debiasing techniques, critical thinking frameworks, and hype cycle analysis." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/blockchain/assets/images/social/chapters/15-cognitive-bias-technology/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cognitive-bias-in-technology-decisions" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Blockchain - The Skeptic&#39;s Guide" class="md-header__button md-logo" aria-label="Blockchain - The Skeptic's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Blockchain - The Skeptic's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cognitive Bias in Technology Decisions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/blockchain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Blockchain - The Skeptic&#39;s Guide" class="md-nav__button md-logo" aria-label="Blockchain - The Skeptic's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Blockchain - The Skeptic's Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/blockchain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-trust-and-digital-networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Trust and Digital Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-cryptographic-foundations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Cryptographic Foundations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-keys-signatures-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Keys, Signatures, and Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-certificate-authorities-pki/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Certificate Authorities and PKI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-distributed-systems-ledgers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Distributed Systems and Ledgers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-nodes-throughput-performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Nodes, Throughput, and Performance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-consensus-mechanisms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Consensus Mechanisms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-mining-computational-economics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Mining and Computational Economics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-smart-contracts-tokens/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Smart Contracts and Tokens
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-blockchain-types-platforms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Blockchain Types and Platforms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-governance-and-scalability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Governance and Scalability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-cost-analysis-tco/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Cost Analysis and TCO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-architecture-tradeoff-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Architecture Tradeoff Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-risk-analysis-quality-attributes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Risk Analysis and Quality Attributes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    15. Cognitive Bias in Technology
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    15. Cognitive Bias in Technology
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-cognitive-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Cognitive Bias?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confirmation-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmation Bias
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sunk-cost-fallacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sunk Cost Fallacy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bandwagon-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bandwagon Effect
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appeal-to-novelty" class="md-nav__link">
+    <span class="md-ellipsis">
+      Appeal to Novelty
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anchoring-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anchoring Bias
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status-quo-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status Quo Bias
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dunning-kruger-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dunning-Kruger Effect
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#halo-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Halo Effect
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#survivorship-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Survivorship Bias
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#availability-heuristic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Availability Heuristic
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groupthink" class="md-nav__link">
+    <span class="md-ellipsis">
+      Groupthink
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-bias-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Bias Checklist
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debiasing-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debiasing Techniques
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#critical-thinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Critical Thinking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-hype-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Hype Cycle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Hype Cycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-hype-cycle-bias-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Hype Cycle Bias Map
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Change Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-bias-interaction-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Bias Interaction Network
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-evidence-based-evaluation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Evidence-Based Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-industry-case-studies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Industry Case Studies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-emerging-trust-technologies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Emerging Trust Technologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-alternative-architectures-decisions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Alternative Architectures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-implementation-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Implementation and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-cognitive-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Cognitive Bias?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confirmation-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmation Bias
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sunk-cost-fallacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sunk Cost Fallacy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bandwagon-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bandwagon Effect
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appeal-to-novelty" class="md-nav__link">
+    <span class="md-ellipsis">
+      Appeal to Novelty
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anchoring-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anchoring Bias
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status-quo-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status Quo Bias
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dunning-kruger-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dunning-Kruger Effect
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#halo-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Halo Effect
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#survivorship-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Survivorship Bias
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#availability-heuristic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Availability Heuristic
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groupthink" class="md-nav__link">
+    <span class="md-ellipsis">
+      Groupthink
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-bias-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Bias Checklist
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debiasing-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debiasing Techniques
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#critical-thinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Critical Thinking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-hype-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Hype Cycle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Hype Cycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-hype-cycle-bias-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Hype Cycle Bias Map
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Change Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-bias-interaction-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Bias Interaction Network
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/blockchain/edit/master/docs/chapters/15-cognitive-bias-technology/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
 
 <h1 id="cognitive-bias-in-technology-decisions">Cognitive Bias in Technology Decisions</h1>
 <h2 id="summary">Summary</h2>
@@ -255,82 +1766,605 @@
 <h2 id="prerequisites">Prerequisites</h2>
 <p>This chapter assumes only the prerequisites listed in the <a href="../../course-description/">course description</a>. This chapter can be read independently of the technical chapters, though it is most effective after exposure to blockchain claims in Chapters 5-11.</p>
 <hr />
-<p>TODO: Generate Chapter Content</p></div>
-            </div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js"></script>
-        <script src="../../search/main.js"></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Rex Says: Trust, but Verify!</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Rex welcomes you">
+Welcome, fellow analysts! We have spent the last three chapters building rigorous
+analytical frameworks — cost models, architecture tradeoffs, risk assessments. But
+even the best framework is useless if the person using it is unconsciously rigging the
+results. This chapter turns the analytical lens inward: onto our own thinking.
+Trust, but verify — especially your own reasoning!</p>
+</div>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>After completing this chapter, you will be able to:</p>
+<ul>
+<li>Define cognitive bias and explain how it differs from ignorance, error, and deliberate deception</li>
+<li>Identify at least ten specific cognitive biases that commonly affect technology evaluation decisions</li>
+<li>Recognize how each bias manifests in blockchain adoption debates and proposals</li>
+<li>Apply debiasing techniques to reduce the influence of cognitive biases on architecture decisions</li>
+<li>Use critical thinking frameworks to evaluate technology claims systematically</li>
+<li>Analyze where a technology sits on the Gartner Hype Cycle and what that position implies for adoption decisions</li>
+<li>Design change management strategies that account for cognitive biases in stakeholder groups</li>
+</ul>
+<h2 id="what-is-cognitive-bias">What Is Cognitive Bias?</h2>
+<p>A <strong>cognitive bias</strong> is a systematic pattern of deviation from rational judgment, where inferences about other people, situations, or technologies are drawn in an illogical fashion. Cognitive biases are not random errors — they are predictable, directional, and consistent across individuals and groups. They arise from the mental shortcuts (heuristics) that the human brain uses to process complex information quickly.</p>
+<p>Cognitive biases differ from related concepts in important ways:</p>
+<ul>
+<li><strong>Ignorance</strong> is a lack of information — it can be corrected by providing facts</li>
+<li><strong>Error</strong> is a random mistake — it averages out over many decisions</li>
+<li><strong>Deliberate deception</strong> is intentional misrepresentation — it can be addressed through verification</li>
+<li><strong>Cognitive bias</strong> is a systematic distortion that persists even when the individual has access to correct information and is trying to reason honestly</li>
+</ul>
+<p>This last characteristic makes cognitive bias particularly dangerous in technology evaluation. A well-intentioned, intelligent architect with access to all relevant data can still reach a biased conclusion if cognitive biases are influencing how they process that data. The biases examined in this chapter are not flaws of character — they are features of human cognition that affect everyone.</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Nature</th>
+<th>Correction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ignorance</td>
+<td>Missing information</td>
+<td>Provide data</td>
+</tr>
+<tr>
+<td>Random error</td>
+<td>Unsystematic mistake</td>
+<td>Repeat and average</td>
+</tr>
+<tr>
+<td>Deliberate deception</td>
+<td>Intentional misrepresentation</td>
+<td>Verify independently</td>
+</tr>
+<tr>
+<td>Cognitive bias</td>
+<td>Systematic distortion</td>
+<td>Awareness + structured process</td>
+</tr>
+</tbody>
+</table>
+<p>The key insight is that cognitive bias requires a different corrective approach than the others. You cannot debias someone by simply giving them more information (that may actually strengthen certain biases). Effective debiasing requires awareness of the specific bias, structured decision processes that counteract it, and organizational norms that legitimize challenging biased reasoning.</p>
+<h2 id="confirmation-bias">Confirmation Bias</h2>
+<p><strong>Confirmation bias</strong> is the tendency to search for, interpret, favor, and recall information in a way that confirms one's preexisting beliefs while giving disproportionately less attention to information that contradicts them. It is arguably the most pervasive and damaging bias in technology evaluation.</p>
+<p>In blockchain contexts, confirmation bias manifests in predictable ways:</p>
+<p><strong>Among blockchain advocates:</strong></p>
+<ul>
+<li>Seeking out successful blockchain case studies while ignoring failed implementations</li>
+<li>Interpreting ambiguous evidence ("the pilot showed promise") as confirmation that blockchain is the right choice</li>
+<li>Remembering statistics that support blockchain (transaction immutability rate) while forgetting statistics that undermine it (cost per transaction, throughput limitations)</li>
+<li>Dismissing critics as "not understanding the technology" rather than engaging with their arguments</li>
+</ul>
+<p><strong>Among blockchain skeptics:</strong></p>
+<ul>
+<li>Focusing exclusively on blockchain failures and scams while ignoring legitimate use cases</li>
+<li>Interpreting early-stage difficulties as evidence that the technology is fundamentally flawed</li>
+<li>Remembering high-profile hacks while forgetting the billions of successful transactions</li>
+<li>Dismissing advocates as "hype-driven" rather than evaluating their specific claims</li>
+</ul>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+Confirmation bias is an equal-opportunity distorter. A course called "A Skeptic's
+Guide" must be honest about this: skeptics are just as vulnerable to confirmation
+bias as advocates. The antidote is not skepticism alone but structured analysis
+that forces you to consider evidence that contradicts your position with the same
+rigor you apply to evidence that supports it.</p>
+</div>
+<p>A practical test for confirmation bias in a technology evaluation: can you articulate the three strongest arguments <em>against</em> your preferred architecture? If you cannot, confirmation bias is likely influencing your analysis.</p>
+<h2 id="sunk-cost-fallacy">Sunk Cost Fallacy</h2>
+<p>The <strong>sunk cost fallacy</strong> is the tendency to continue investing in a project or decision because of the resources already committed, rather than evaluating the decision based on future costs and benefits alone. In rational decision-making, sunk costs are irrelevant — only future costs and benefits should influence the decision to continue or abandon.</p>
+<p>In blockchain projects, the sunk cost fallacy is particularly treacherous because blockchain implementations often require large upfront investments in development, infrastructure, and team training. When a pilot reveals that the blockchain approach is more expensive and less performant than the centralized alternative, the sunk cost fallacy makes it psychologically difficult to abandon the blockchain path.</p>
+<p>Common manifestations:</p>
+<ul>
+<li>"We've already spent $800K on smart contract development — we can't switch to a database now"</li>
+<li>"Our team spent six months learning Solidity — we should use it even if the use case doesn't require blockchain"</li>
+<li>"We've announced our blockchain initiative to the board — changing course would be embarrassing"</li>
+</ul>
+<p>The rational response is: the $800K, the six months, and the board announcement are sunk costs. They are gone regardless of what you decide next. The only relevant question is: going forward, which approach delivers the most value for the lowest cost?</p>
+<p>The antidote to the sunk cost fallacy is establishing <strong>kill criteria</strong> before the investment begins. Before starting a blockchain proof of concept, define the specific metrics that would cause the project to be abandoned:</p>
+<ul>
+<li>If per-transaction cost exceeds $X, we will switch to the centralized alternative</li>
+<li>If throughput fails to reach Y transactions per second, we will re-evaluate the architecture</li>
+<li>If development timeline exceeds the estimate by more than Z%, we will reassess</li>
+</ul>
+<h2 id="bandwagon-effect">Bandwagon Effect</h2>
+<p>The <strong>bandwagon effect</strong> is the tendency to adopt beliefs, practices, or technologies because many other people or organizations have adopted them, independent of the underlying evidence. In technology decisions, the bandwagon effect is amplified by media coverage, conference presentations, and vendor marketing.</p>
+<p>The blockchain bandwagon has been one of the most powerful in recent technology history. Between 2016 and 2022, organizations across finance, healthcare, supply chain, government, and entertainment launched blockchain initiatives — many driven less by specific business requirements than by the perception that "everyone is doing blockchain."</p>
+<p>Evidence of bandwagon-driven adoption:</p>
+<ul>
+<li>Survey data showing that executives cited "competitive pressure" and "fear of falling behind" as primary drivers for blockchain exploration, ahead of specific business problems</li>
+<li>The proliferation of blockchain pilot projects in industries where no production deployment materialized</li>
+<li>Consulting firms publishing reports on blockchain's "transformative potential" while simultaneously profiting from blockchain advisory services</li>
+<li>Conference presentations showcasing proofs of concept without disclosing that the PoC was never promoted to production</li>
+</ul>
+<p>The bandwagon effect interacts with other biases in dangerous ways. When "everyone is doing blockchain," confirmation bias makes it easier to find supporting evidence, the availability heuristic makes blockchain success stories more memorable, and groupthink suppresses dissenting voices within teams.</p>
+<p>A useful counter-question: "Of the organizations that adopted blockchain in our industry, how many have a production system running today, and what are the measurable results?" The answer is often sobering.</p>
+<h2 id="appeal-to-novelty">Appeal to Novelty</h2>
+<p>The <strong>appeal to novelty</strong> (argumentum ad novitatem) is the logical fallacy that something is better simply because it is newer. In technology evaluation, this manifests as the assumption that a newer technology is inherently superior to an older one.</p>
+<p>Blockchain proponents sometimes frame the choice as "innovative blockchain versus legacy databases." The word "legacy" carries negative connotations — outdated, slow, soon-to-be-replaced. But "legacy" often means battle-tested, well-understood, widely supported, and proven at scale. A technology that has operated reliably for 30 years (relational databases) has a track record that a technology with 15 years of history (Bitcoin) and far less enterprise deployment experience cannot match.</p>
+<p>The appeal to novelty in blockchain contexts:</p>
+<table>
+<thead>
+<tr>
+<th>Novelty Claim</th>
+<th>Skeptic's Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Blockchain is the next generation of databases"</td>
+<td>Blockchain is not a database — it makes different tradeoffs for different purposes</td>
+</tr>
+<tr>
+<td>"Traditional systems are outdated"</td>
+<td>Traditional systems process trillions of transactions daily with high reliability</td>
+</tr>
+<tr>
+<td>"We need to innovate or be disrupted"</td>
+<td>Innovation means choosing the right tool, not the newest tool</td>
+</tr>
+<tr>
+<td>"Early adopters gain competitive advantage"</td>
+<td>Early adopters also bear the highest risk and cost of immature technology</td>
+</tr>
+</tbody>
+</table>
+<p>The antidote is not rejecting new technology but demanding the same evidence standard for new and old alike. If a blockchain solution must prove its performance, cost, and reliability to earn adoption, the traditional alternative should face the same scrutiny. Neither age nor novelty is evidence of quality.</p>
+<h2 id="anchoring-bias">Anchoring Bias</h2>
+<p><strong>Anchoring bias</strong> is the tendency to rely too heavily on the first piece of information encountered (the "anchor") when making subsequent judgments. In technology evaluation, anchoring often occurs when an initial cost estimate, performance claim, or timeline becomes the reference point against which all subsequent information is evaluated.</p>
+<p>Common anchoring scenarios in blockchain evaluations:</p>
+<ul>
+<li>A vendor's initial demo shows 10,000 TPS on a test network. All subsequent performance discussions are anchored to this number, even though production performance with real data, consensus, and network latency will be far lower.</li>
+<li>A consulting report estimates blockchain implementation cost at $500K. The team anchors to this number even when detailed engineering analysis reveals the true cost is $1.5M.</li>
+<li>An executive read that Bitcoin processes 7 TPS. Every blockchain discussion is anchored to this number, even when the proposal uses a completely different platform with different performance characteristics.</li>
+<li>A competitor announces a blockchain initiative. The perceived urgency anchors all timeline discussions, compressing evaluation and increasing the risk of poor decisions.</li>
+</ul>
+<p>Anchoring bias is particularly insidious because it operates even when people are aware of it. Experimental research consistently shows that providing an arbitrary anchor (even a randomly generated number) influences subsequent numerical estimates.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Rex's Tip</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Rex shares a tip">
+To counter anchoring bias, generate your own estimates before reviewing vendor claims,
+analyst reports, or competitor announcements. If your independent analysis says
+implementation will cost $1.2M and the vendor says $400K, the discrepancy demands
+investigation — not blind acceptance of whichever number you heard first.</p>
+</div>
+<h2 id="status-quo-bias">Status Quo Bias</h2>
+<p><strong>Status quo bias</strong> is the preference for the current state of affairs, where change is perceived as a loss even when the change would produce a net benefit. Status quo bias is the mirror image of the appeal to novelty — instead of favoring new technology because it is new, it favors existing technology because it is familiar.</p>
+<p>In blockchain evaluations, status quo bias manifests among those who resist any change to existing systems:</p>
+<ul>
+<li>"Our current database works fine — why would we change?" (even when evidence shows that a distributed ledger would provide meaningful auditability or transparency improvements)</li>
+<li>"We've always done reconciliation manually — it's how our process works" (even when the manual process costs millions per year in labor and errors)</li>
+<li>"The migration risk is too high" (stated without quantifying either the migration risk or the risk of not migrating)</li>
+</ul>
+<p>Status quo bias is not inherently irrational. There are genuine costs and risks to changing systems, and the default position of "don't change what works" prevents many bad decisions. The bias becomes problematic when it prevents honest evaluation of alternatives or when the status quo is assumed to be risk-free (it never is — existing systems carry ongoing risks that are simply more familiar).</p>
+<p>The structured ATAM framework from Chapter 13 is an effective countermeasure against status quo bias because it requires evaluating the existing architecture against the same quality attribute scenarios as the proposed alternatives. When the current system's weaknesses are documented with the same rigor as the proposed system's risks, the comparison becomes more balanced.</p>
+<h2 id="dunning-kruger-effect">Dunning-Kruger Effect</h2>
+<p>The <strong>Dunning-Kruger effect</strong> is the cognitive bias in which people with limited knowledge or competence in a domain tend to overestimate their own expertise, while genuine experts tend to underestimate theirs. In blockchain technology decisions, this bias creates a specific and recognizable pattern.</p>
+<p>The Dunning-Kruger progression in blockchain understanding typically follows these stages:</p>
+<ol>
+<li>
+<p><strong>Peak of initial confidence</strong> — after reading a whitepaper or attending a conference, an individual believes they understand blockchain well enough to make architecture decisions. They use terms like "immutable," "trustless," and "decentralized" with confidence but may not understand the tradeoffs, limitations, or implementation complexity beneath these terms.</p>
+</li>
+<li>
+<p><strong>Valley of despair</strong> — after attempting to implement a blockchain solution or studying the technology deeply, the individual discovers the enormous complexity of consensus mechanisms, cryptographic protocols, smart contract security, and network economics. Their confidence drops as their knowledge increases.</p>
+</li>
+<li>
+<p><strong>Slope of informed competence</strong> — with continued study and experience, the individual develops genuine expertise and calibrated confidence. They can articulate both the strengths and weaknesses of blockchain approaches, identify appropriate use cases, and recognize where their knowledge ends.</p>
+</li>
+</ol>
+<p>The danger for organizations is that technology decisions are often made by people at stage 1 — executives, project sponsors, or architects who have attended a few conferences and read vendor materials, but who have not grappled with the implementation realities. Their high confidence at low competence can override the cautious assessments of more knowledgeable team members.</p>
+<h2 id="halo-effect">Halo Effect</h2>
+<p>The <strong>halo effect</strong> is the tendency for a positive impression in one area to influence judgment in unrelated areas. In technology evaluation, the halo effect causes the success or prestige of a company, platform, or individual to create an unwarranted assumption of quality in specific technical capabilities.</p>
+<p>Blockchain halo effects include:</p>
+<ul>
+<li><strong>Bitcoin's halo</strong> — because Bitcoin has successfully operated for over 15 years, blockchain technology in general is assumed to be reliable. But Bitcoin's specific architecture (proof-of-work, simple scripting language, established network) is very different from a new consortium blockchain with untested smart contracts.</li>
+<li><strong>Big Tech halo</strong> — when IBM launched Hyperledger or JPMorgan launched Quorum, organizations assumed these blockchain initiatives were well-engineered and commercially viable. IBM subsequently scaled back its blockchain division, and JPMorgan's Quorum was spun out to ConsenSys.</li>
+<li><strong>Cryptocurrency market halo</strong> — rising cryptocurrency prices created a halo of success around blockchain technology broadly. But cryptocurrency trading success says nothing about the suitability of blockchain for enterprise supply chain management or healthcare records.</li>
+<li><strong>Conference speaker halo</strong> — a charismatic presentation at a technology conference can create a halo effect around the specific blockchain platform being promoted, independent of its technical merits.</li>
+</ul>
+<p>The antidote to the halo effect is domain-specific evaluation. The question is never "is blockchain successful?" (too broad) but "does this specific blockchain platform, with this specific configuration, meet these specific quality attribute scenarios for our specific use case?" (appropriately narrow).</p>
+<h2 id="survivorship-bias">Survivorship Bias</h2>
+<p><strong>Survivorship bias</strong> is the error of focusing on entities that passed a selection process while overlooking those that did not, leading to false conclusions about why success occurred. In blockchain technology, survivorship bias creates a distorted picture of the technology's track record.</p>
+<p>The blockchain case study landscape is dominated by survivorship bias:</p>
+<ul>
+<li>Conference presentations feature successful blockchain pilots. The dozens of abandoned pilots in the same organization or industry are never presented.</li>
+<li>Vendor case studies showcase implementations that went well. Implementations that failed or were quietly shelved do not appear in marketing materials.</li>
+<li>Media coverage highlights blockchain "unicorn" companies. The thousands of blockchain startups that failed are not considered newsworthy.</li>
+<li>Industry reports cite the number of organizations "exploring blockchain." They rarely report how many of those explorations led to production deployments.</li>
+</ul>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Bias Alert</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Rex warns you">
+When someone presents blockchain success stories as evidence that your project will
+succeed, ask: "How many projects started with similar goals, and what percentage
+achieved production deployment?" If they do not know (or will not say), survivorship
+bias is likely distorting the picture. The denominator matters as much as the numerator.</p>
+</div>
+<p>A study by Gartner in 2021 found that only approximately 10% of enterprise blockchain pilots progressed to production deployment. This means that for every success story at a conference, there are roughly nine unpublicized failures or abandonments. Any evidence-based evaluation must account for this base rate.</p>
+<h2 id="availability-heuristic">Availability Heuristic</h2>
+<p>The <strong>availability heuristic</strong> is the mental shortcut of judging the likelihood or importance of events based on how easily examples come to mind. Events that are vivid, recent, or emotionally charged are more "available" in memory and are therefore judged as more common or more important than they actually are.</p>
+<p>In blockchain technology evaluation, the availability heuristic works in both directions:</p>
+<p><strong>Overestimating blockchain threats (for advocates):</strong></p>
+<ul>
+<li>A vivid account of a bank freezing someone's assets makes centralized trust failures seem common, motivating blockchain adoption</li>
+<li>A high-profile data breach at a centralized company makes all centralized systems seem insecure</li>
+<li>Media coverage of currency devaluation in a specific country makes "censorship-resistant money" seem universally needed</li>
+</ul>
+<p><strong>Overestimating blockchain risks (for skeptics):</strong></p>
+<ul>
+<li>The dramatic DAO hack ($60M stolen) makes all smart contracts seem dangerous</li>
+<li>Vivid cryptocurrency scam stories make all blockchain projects seem fraudulent</li>
+<li>A specific blockchain platform's technical failure makes all distributed ledgers seem unreliable</li>
+</ul>
+<p>The corrective for the availability heuristic is base rate thinking. Instead of asking "can I think of an example of X?" (availability), ask "what is the actual frequency of X across all relevant cases?" (base rate). The actual rate of smart contract exploits, the actual frequency of centralized system breaches, and the actual success rate of blockchain deployments are all measurable — and often quite different from what vivid examples would suggest.</p>
+<h2 id="groupthink">Groupthink</h2>
+<p><strong>Groupthink</strong> is the psychological phenomenon where the desire for conformity within a group leads to irrational or dysfunctional decision-making. Group members suppress dissenting opinions, fail to critically evaluate alternatives, and create an illusion of unanimity that does not reflect the actual range of views.</p>
+<p>Groupthink in blockchain technology decisions often follows a recognizable pattern:</p>
+<ol>
+<li><strong>Illusion of invulnerability</strong> — the team believes their blockchain initiative will succeed because they are smart, innovative, and ahead of the competition</li>
+<li><strong>Collective rationalization</strong> — warning signs (high costs, performance shortfalls, partner reluctance) are explained away rather than investigated</li>
+<li><strong>Belief in inherent morality</strong> — the team frames blockchain adoption as ethically superior ("transparency," "democratization") making opposition feel morally suspect</li>
+<li><strong>Stereotyping out-groups</strong> — internal skeptics are labeled as "resistant to change" or "not understanding the technology"</li>
+<li><strong>Self-censorship</strong> — team members with doubts stay silent because they perceive that the group consensus favors blockchain</li>
+<li><strong>Illusion of unanimity</strong> — silence is interpreted as agreement, reinforcing the perception of consensus</li>
+<li><strong>Direct pressure on dissenters</strong> — those who voice concerns face social pressure to conform</li>
+<li><strong>Self-appointed mindguards</strong> — certain team members take it upon themselves to shield the group from contradictory information</li>
+</ol>
+<p>The antidote to groupthink is structural: assign a designated devil's advocate (rotating the role), require documented consideration of at least one alternative architecture, conduct anonymous sentiment surveys before group discussions, and invite external reviewers who have no investment in the outcome.</p>
+<h2 id="the-bias-checklist">The Bias Checklist</h2>
+<p>A <strong>bias checklist</strong> is a structured tool that decision-makers can use to screen for cognitive biases before finalizing a technology recommendation. The checklist does not eliminate biases — that is neurologically impossible — but it creates a deliberate pause for reflection that can catch the most egregious distortions.</p>
+<p>A blockchain technology evaluation bias checklist:</p>
+<ul>
+<li>[ ] <strong>Confirmation bias</strong> — Have we actively sought evidence against our preferred architecture? Can we state the three strongest arguments for the alternative?</li>
+<li>[ ] <strong>Sunk cost</strong> — Are we continuing with this approach because of future value, or because of past investment? Would we make the same choice if starting fresh today?</li>
+<li>[ ] <strong>Bandwagon</strong> — Are we adopting this technology because of specific business requirements, or because competitors/peers are adopting it?</li>
+<li>[ ] <strong>Appeal to novelty</strong> — Are we favoring this technology because it is newer, or because it is better for our specific use case?</li>
+<li>[ ] <strong>Anchoring</strong> — Is our cost/performance/timeline estimate based on our own analysis, or anchored to a vendor claim or initial impression?</li>
+<li>[ ] <strong>Status quo</strong> — Are we rejecting alternatives because of genuine analysis, or because change is uncomfortable?</li>
+<li>[ ] <strong>Dunning-Kruger</strong> — Do the decision-makers have deep enough technical knowledge, or are they operating at the peak of initial confidence?</li>
+<li>[ ] <strong>Halo effect</strong> — Are we assuming this platform/vendor is good for our use case because they are successful elsewhere?</li>
+<li>[ ] <strong>Survivorship bias</strong> — Are our reference case studies representative of all similar projects, or only the successful ones?</li>
+<li>[ ] <strong>Availability heuristic</strong> — Are we basing our risk assessment on vivid examples or on base rate data?</li>
+<li>[ ] <strong>Groupthink</strong> — Has anyone in the group expressed dissent? If not, why not?</li>
+</ul>
+<p>This checklist should be completed independently by each decision-maker before the group convenes to make the final recommendation. Discrepancies between individual responses often reveal biases that group discussion would conceal.</p>
+<h2 id="debiasing-techniques">Debiasing Techniques</h2>
+<p><strong>Debiasing techniques</strong> are structured interventions designed to reduce the influence of cognitive biases on decision-making. Research in behavioral economics and organizational psychology has identified several techniques that are effective in technology evaluation contexts.</p>
+<p><strong>Pre-mortem analysis</strong> — before committing to an architecture, ask the team to imagine that the project has failed spectacularly two years from now. Each team member independently writes a brief narrative explaining <em>why</em> it failed. This technique surfaces risks and concerns that optimism bias and groupthink would otherwise suppress. Pre-mortems consistently identify risks that traditional risk analysis misses because they give permission to think pessimistically.</p>
+<p><strong>Red team / blue team</strong> — divide the evaluation team into two groups. The blue team advocates for the proposed architecture (blockchain or otherwise). The red team's explicit job is to attack the proposal — finding weaknesses, challenging assumptions, and proposing alternatives. The adversarial structure legitimizes dissent and produces higher-quality analysis.</p>
+<p><strong>Reference class forecasting</strong> — instead of estimating costs, timelines, and outcomes from the inside (based on the specifics of this project), estimate them from the outside (based on how similar projects have performed historically). If 90% of enterprise blockchain pilots in your industry failed to reach production, your base estimate should reflect that rate, adjusted for specific factors that make your project more or less likely to succeed.</p>
+<p><strong>Structured analytic techniques</strong> — use formal methods like Analysis of Competing Hypotheses (ACH) to evaluate technology claims:</p>
+<ol>
+<li>List all plausible hypotheses (blockchain is the best architecture; a centralized database is better; a hybrid approach is optimal)</li>
+<li>For each piece of evidence, assess whether it is consistent, inconsistent, or neutral with respect to each hypothesis</li>
+<li>The hypothesis with the least inconsistent evidence is the most supported — not the one with the most confirming evidence</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Primary Bias Addressed</th>
+<th>Implementation Effort</th>
+<th>Effectiveness</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pre-mortem</td>
+<td>Optimism, groupthink</td>
+<td>Low (1-hour workshop)</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Red team / blue team</td>
+<td>Confirmation bias, groupthink</td>
+<td>Medium (requires two teams)</td>
+<td>Very high</td>
+</tr>
+<tr>
+<td>Reference class forecasting</td>
+<td>Planning fallacy, anchoring</td>
+<td>Medium (requires historical data)</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Analysis of competing hypotheses</td>
+<td>Confirmation bias</td>
+<td>Medium (structured framework)</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Bias checklist</td>
+<td>Multiple biases</td>
+<td>Low (pre-decision review)</td>
+<td>Moderate</td>
+</tr>
+<tr>
+<td>Designated devil's advocate</td>
+<td>Groupthink, self-censorship</td>
+<td>Low (rotate role)</td>
+<td>Moderate</td>
+</tr>
+</tbody>
+</table>
+<h2 id="critical-thinking">Critical Thinking</h2>
+<p><strong>Critical thinking</strong> in technology evaluation is the disciplined practice of analyzing claims, examining evidence, identifying assumptions, and evaluating arguments before reaching conclusions. It is not cynicism or reflexive skepticism — it is the rigorous application of evidentiary standards to technology claims.</p>
+<p>A critical thinking framework for evaluating blockchain proposals:</p>
+<p><strong>Step 1: Identify the claim.</strong> What exactly is being claimed? "Blockchain will improve our supply chain" is too vague. "A Hyperledger Fabric network will reduce reconciliation costs by 40% within 18 months" is specific enough to evaluate.</p>
+<p><strong>Step 2: Examine the evidence.</strong> What evidence supports the claim? Is it from the vendor (potentially biased)? From independent research (more credible)? From a comparable deployment (most credible)? Is the evidence quantitative or anecdotal?</p>
+<p><strong>Step 3: Identify assumptions.</strong> What must be true for the claim to hold? Common hidden assumptions in blockchain proposals include: consortium partners will participate reliably, gas prices will remain stable, the development team can hire blockchain specialists, and the regulatory environment will not change.</p>
+<p><strong>Step 4: Consider alternatives.</strong> Could the same benefit be achieved through a different approach? If blockchain's claimed benefit is "tamper-evident records," could append-only databases with digital signatures provide the same guarantee at lower cost?</p>
+<p><strong>Step 5: Evaluate the argument structure.</strong> Is the reasoning valid? Watch for logical fallacies:</p>
+<ul>
+<li>Appeal to authority ("IBM uses blockchain, so it must be good for us")</li>
+<li>False dichotomy ("either we adopt blockchain or we fall behind")</li>
+<li>Slippery slope ("if we don't start with blockchain now, we'll never catch up")</li>
+<li>Argument from ignorance ("no one has proved blockchain <em>won't</em> work for this use case")</li>
+</ul>
+<p><strong>Step 6: Reach a provisional conclusion.</strong> Based on the evidence, what is the most reasonable conclusion? Frame it probabilistically: "The evidence supports a 60% probability that the blockchain approach will meet our requirements, versus an 80% probability for the centralized approach."</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+Critical thinking does not mean rejecting blockchain. It means demanding the same
+quality of evidence for blockchain proposals as for any other technology decision.
+A blockchain solution that survives rigorous critical analysis is a much stronger
+choice than one that was adopted without scrutiny — even if both solutions are
+technically identical.</p>
+</div>
+<h2 id="the-hype-cycle">The Hype Cycle</h2>
+<p>The <strong>Gartner Hype Cycle</strong> is a graphical model that describes the typical progression of a technology through five phases: Innovation Trigger, Peak of Inflated Expectations, Trough of Disillusionment, Slope of Enlightenment, and Plateau of Productivity. While the model is simplified and not without criticism, it provides a useful framework for understanding where blockchain sits in the public perception cycle and what that means for adoption decisions.</p>
+<p>The five phases, applied to blockchain:</p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Description</th>
+<th>Blockchain Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Innovation Trigger</td>
+<td>Technology emerges, early media coverage</td>
+<td>2008-2013: Bitcoin launches, early adopters experiment</td>
+</tr>
+<tr>
+<td>Peak of Inflated Expectations</td>
+<td>Hype exceeds reality, everyone claims the technology will change everything</td>
+<td>2016-2018: ICO boom, "blockchain for everything"</td>
+</tr>
+<tr>
+<td>Trough of Disillusionment</td>
+<td>Failed implementations pile up, media turns negative</td>
+<td>2019-2022: Pilot failures, IBM scales back, crypto winter</td>
+</tr>
+<tr>
+<td>Slope of Enlightenment</td>
+<td>Realistic use cases emerge, second-generation implementations succeed</td>
+<td>2023-present: Targeted applications, improved platforms</td>
+</tr>
+<tr>
+<td>Plateau of Productivity</td>
+<td>Technology is mature, adoption is based on evidence</td>
+<td>Partial: some use cases (cryptocurrency, DeFi) approaching; most enterprise use cases still developing</td>
+</tr>
+</tbody>
+</table>
+<p>The hype cycle has direct implications for technology evaluation:</p>
+<ul>
+<li><strong>During the Peak</strong>, decision-makers face intense pressure to adopt. Bandwagon effect and fear of missing out (FOMO) dominate. The risk of biased evaluation is highest.</li>
+<li><strong>During the Trough</strong>, the opposite bias prevails — status quo bias and availability heuristic (vivid failure stories) make decision-makers reject blockchain even for legitimate use cases.</li>
+<li><strong>On the Slope</strong>, evidence-based evaluation becomes possible because both success stories and failure stories are available, and the emotional intensity has diminished.</li>
+</ul>
+<p>The practical takeaway: understanding where a technology sits on the hype cycle helps calibrate the biases that are most likely to affect your evaluation at that moment. If you are evaluating blockchain during a period of intense hype, apply extra scrutiny to positive claims. If you are evaluating during a period of disillusionment, apply extra scrutiny to dismissals.</p>
+<h4 id="diagram-hype-cycle-bias-map">Diagram: Hype Cycle Bias Map</h4>
+<details>
+<summary>Interactive Hype Cycle with Cognitive Bias Annotations</summary>
+<p>Type: MicroSim
+<strong>sim-id:</strong> hype-cycle-bias-map<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective:</strong> Analyze (L4) — Map specific cognitive biases to each phase of the Gartner Hype Cycle and predict which biases are most likely to affect technology decisions at each phase.</p>
+<p><strong>Description:</strong> An interactive visualization of the Gartner Hype Cycle curve with blockchain-specific annotations. The x-axis represents time/maturity and the y-axis represents visibility/expectations. The classic hype cycle curve is drawn through its five labeled phases. Along the curve, clickable hotspot markers represent specific cognitive biases that are most active at each phase. Clicking a hotspot reveals a panel showing: the bias name, a description, a blockchain-specific example of how it manifests at that phase, and a recommended debiasing technique. A draggable marker on the curve allows students to position "current state" and see which biases are most relevant at that position. A timeline sidebar shows key blockchain events plotted against the curve.</p>
+<p><strong>Canvas:</strong> Responsive width, 550px height. Background: aliceblue.</p>
+<p><strong>Controls:</strong></p>
+<ul>
+<li>Click bias hotspots for detailed panels</li>
+<li>Draggable "current position" marker on the curve</li>
+<li>Toggle: "Show blockchain timeline events"</li>
+<li>Button: "Show all biases" / "Show phase biases only"</li>
+</ul>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>Smooth hype cycle curve through five labeled phases</li>
+<li>Color-coded bias hotspot markers along the curve</li>
+<li>Detail panel with bias name, description, example, debiasing technique</li>
+<li>Draggable current-position marker</li>
+<li>Timeline event labels (Bitcoin launch, ICO boom, pilot failures, etc.)</li>
+<li>Phase labels and dividers</li>
+</ul>
+<p>Implementation: p5.js with responsive canvas, click detection, draggable element, panel rendering</p>
+</details>
+<h2 id="change-management">Change Management</h2>
+<p><strong>Change management</strong> is the structured approach to transitioning individuals, teams, and organizations from a current state to a desired future state. In blockchain adoption contexts, change management must account for the cognitive biases described throughout this chapter — because introducing a new trust technology changes not just systems but processes, roles, relationships, and power structures.</p>
+<p>Effective change management for trust technology transitions addresses three layers:</p>
+<p><strong>Technical change</strong> — migrating systems, deploying new infrastructure, integrating with existing workflows. This is the most visible layer but often the least difficult.</p>
+<p><strong>Process change</strong> — redesigning business processes to leverage the new architecture's capabilities (or accommodate its constraints). Blockchain's immutability means that data entry processes must include validation steps that may not exist in current workflows. Multi-party consensus means that approval processes may become slower.</p>
+<p><strong>Cultural change</strong> — shifting organizational attitudes, expectations, and norms. If the organization is moving from a centralized trust model (where a single authority controls data) to a shared model (where multiple parties collaborate), this changes power dynamics, accountability structures, and decision-making authority.</p>
+<p>Change management strategies that account for cognitive biases:</p>
+<ul>
+<li><strong>Address status quo bias</strong> by clearly documenting the costs and risks of <em>not</em> changing (the current system has risks too — they are just more familiar)</li>
+<li><strong>Address anchoring</strong> by presenting the full range of possible outcomes (best case, expected case, worst case) rather than a single optimistic projection</li>
+<li><strong>Address loss aversion</strong> by framing the transition in terms of what will be gained rather than what will be given up</li>
+<li><strong>Address Dunning-Kruger</strong> by providing tiered training that builds genuine competence rather than surface-level familiarity</li>
+<li><strong>Address groupthink</strong> by creating forums for honest feedback, including anonymous channels, during the transition</li>
+</ul>
+<p>Change management is not a one-time activity at the beginning of a project. It is an ongoing process that must adapt as the organization encounters the realities of the new architecture — realities that invariably differ from what was projected, no matter how good the analysis.</p>
+<h4 id="diagram-bias-interaction-network">Diagram: Bias Interaction Network</h4>
+<details>
+<summary>Cognitive Bias Interaction Network for Technology Decisions</summary>
+<p>Type: Diagram
+<strong>sim-id:</strong> bias-interaction-network<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective:</strong> Understand (L2) — Recognize how cognitive biases interact and reinforce each other in technology evaluation contexts, creating cascading distortions that are harder to detect than individual biases.</p>
+<p><strong>Description:</strong> A network diagram showing the 12 cognitive biases covered in this chapter as labeled nodes arranged in a circle. Connecting edges between nodes represent reinforcement relationships (where one bias amplifies another). For example, bandwagon effect reinforces confirmation bias (when everyone is adopting blockchain, confirming evidence is easier to find). Edge thickness represents the strength of the reinforcement. Clicking a node highlights all its connections and displays a panel explaining how that bias interacts with each connected bias, with a blockchain-specific example for each interaction. A "cascade simulation" button animates how activating one bias can trigger a chain of reinforcing biases.</p>
+<p><strong>Canvas:</strong> Responsive width, 550px height. Background: aliceblue.</p>
+<p><strong>Controls:</strong></p>
+<ul>
+<li>Click any bias node to see its interaction panel</li>
+<li>Button: "Cascade Simulation" — select a starting bias and watch reinforcement propagate</li>
+<li>Button: "Reset"</li>
+<li>Checkbox: "Show debiasing interventions" (adds green intervention nodes that break reinforcement chains)</li>
+</ul>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>12 circular nodes with bias names</li>
+<li>Directed edges showing reinforcement relationships with varying thickness</li>
+<li>Highlighted node and connections on click</li>
+<li>Interaction detail panel</li>
+<li>Animation for cascade simulation (pulsing nodes and edges)</li>
+<li>Optional green intervention nodes when checkbox is active</li>
+</ul>
+<p>Implementation: p5.js with responsive canvas, network layout, click detection, animation</p>
+</details>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>This chapter examined the cognitive biases that systematically distort technology evaluation:</p>
+<ul>
+<li><strong>Cognitive bias</strong> is a systematic, predictable distortion of judgment that affects even well-informed, well-intentioned decision-makers — it requires structured countermeasures, not just more information</li>
+<li><strong>Confirmation bias</strong> leads both advocates and skeptics to selectively process evidence that supports their existing position</li>
+<li><strong>Sunk cost fallacy</strong> causes organizations to continue with failing blockchain projects because of past investment rather than future prospects</li>
+<li><strong>Bandwagon effect</strong> drives adoption based on peer behavior rather than evidence — blockchain's bandwagon was one of the most powerful in recent technology history</li>
+<li><strong>Appeal to novelty</strong> treats "new" as synonymous with "better," while <strong>status quo bias</strong> treats "familiar" as synonymous with "safe"</li>
+<li><strong>Anchoring bias</strong> causes initial estimates (often from vendors) to distort all subsequent analysis</li>
+<li><strong>Dunning-Kruger effect</strong> means that the people most confident in their blockchain expertise may be the least qualified to make architecture decisions</li>
+<li><strong>Halo effect</strong> and <strong>survivorship bias</strong> create a distorted picture of blockchain's track record by highlighting successes and hiding failures</li>
+<li><strong>Availability heuristic</strong> makes vivid examples (spectacular hacks, dramatic price swings) disproportionately influence risk assessment</li>
+<li><strong>Groupthink</strong> suppresses dissent and creates false consensus within decision-making teams</li>
+<li>The <strong>bias checklist</strong> and <strong>debiasing techniques</strong> (pre-mortem, red team, reference class forecasting) provide practical countermeasures</li>
+<li><strong>Critical thinking</strong> demands the same evidence standard for blockchain proposals as for any other technology decision</li>
+<li>The <strong>hype cycle</strong> helps calibrate which biases are most active at a given moment in a technology's maturation</li>
+<li><strong>Change management</strong> must account for cognitive biases at every stage of a trust technology transition</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Brilliant Self-Awareness!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Rex celebrates">
+You have completed the most important chapter in this course — not because the
+content is technically complex, but because it equips you to use all the other
+chapters honestly. Cost models, ATAM evaluations, and risk analyses are only as
+good as the minds applying them. By recognizing and countering your own cognitive
+biases, you become a genuinely evidence-based technology evaluator. That is the
+ultimate skeptic's superpower. Exceptional work, fellow analyst!</p>
 </div>
 
-    </body>
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../14-risk-analysis-quality-attributes/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 14. Risk Analysis and Quality Attributes">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                14. Risk Analysis and Quality Attributes
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../16-evidence-based-evaluation/" class="md-footer__link md-footer__link--next" aria-label="Next: 16. Evidence-Based Evaluation">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                16. Evidence-Based Evaluation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
 </html>

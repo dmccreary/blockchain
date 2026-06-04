@@ -1,232 +1,1809 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete implementation process from evaluation to deployment, including proof of concept design, pilot programs, implementation roadmaps, and a capstone project synthesizing all course knowledge.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/blockchain/chapters/20-implementation-capstone/">
+      
+      
+        <link rel="prev" href="../19-alternative-architectures-decisions/">
+      
+      
+        <link rel="next" href="../../sims/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Implementation and Capstone - Blockchain - The Skeptic's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
         
-        
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>20. Implementation and Capstone - Blockchain - The Skeptic's Guide</title>
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../../css/brands.min.css" rel="stylesheet">
-        <link href="../../css/solid.min.css" rel="stylesheet">
-        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <link href="../../css/mascot.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="../..">Blockchain - The Skeptic's Guide</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item">
-                                <a href="../.." class="nav-link">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../course-description/" class="nav-link">Course Description</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Chapters</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../" class="dropdown-item">List of Chapters</a>
-</li>
-                                    
-<li>
-    <a href="../01-trust-and-digital-networks/" class="dropdown-item">1. Trust and Digital Networks</a>
-</li>
-                                    
-<li>
-    <a href="../02-cryptographic-foundations/" class="dropdown-item">2. Cryptographic Foundations</a>
-</li>
-                                    
-<li>
-    <a href="../03-keys-signatures-identity/" class="dropdown-item">3. Keys, Signatures, and Identity</a>
-</li>
-                                    
-<li>
-    <a href="../04-certificate-authorities-pki/" class="dropdown-item">4. Certificate Authorities and PKI</a>
-</li>
-                                    
-<li>
-    <a href="../05-distributed-systems-ledgers/" class="dropdown-item">5. Distributed Systems and Ledgers</a>
-</li>
-                                    
-<li>
-    <a href="../06-nodes-throughput-performance/" class="dropdown-item">6. Nodes, Throughput, and Performance</a>
-</li>
-                                    
-<li>
-    <a href="../07-consensus-mechanisms/" class="dropdown-item">7. Consensus Mechanisms</a>
-</li>
-                                    
-<li>
-    <a href="../08-mining-computational-economics/" class="dropdown-item">8. Mining and Computational Economics</a>
-</li>
-                                    
-<li>
-    <a href="../09-smart-contracts-tokens/" class="dropdown-item">9. Smart Contracts and Tokens</a>
-</li>
-                                    
-<li>
-    <a href="../10-blockchain-types-platforms/" class="dropdown-item">10. Blockchain Types and Platforms</a>
-</li>
-                                    
-<li>
-    <a href="../11-governance-and-scalability/" class="dropdown-item">11. Governance and Scalability</a>
-</li>
-                                    
-<li>
-    <a href="../12-cost-analysis-tco/" class="dropdown-item">12. Cost Analysis and TCO</a>
-</li>
-                                    
-<li>
-    <a href="../13-architecture-tradeoff-analysis/" class="dropdown-item">13. Architecture Tradeoff Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../14-risk-analysis-quality-attributes/" class="dropdown-item">14. Risk Analysis and Quality Attributes</a>
-</li>
-                                    
-<li>
-    <a href="../15-cognitive-bias-technology/" class="dropdown-item">15. Cognitive Bias in Technology</a>
-</li>
-                                    
-<li>
-    <a href="../16-evidence-based-evaluation/" class="dropdown-item">16. Evidence-Based Evaluation</a>
-</li>
-                                    
-<li>
-    <a href="../17-industry-case-studies/" class="dropdown-item">17. Industry Case Studies</a>
-</li>
-                                    
-<li>
-    <a href="../18-emerging-trust-technologies/" class="dropdown-item">18. Emerging Trust Technologies</a>
-</li>
-                                    
-<li>
-    <a href="../19-alternative-architectures-decisions/" class="dropdown-item">19. Alternative Architectures</a>
-</li>
-                                    
-<li>
-    <a href="./" class="dropdown-item active" aria-current="page">20. Implementation and Capstone</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Learning Graph</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../learning-graph/" class="dropdown-item">Introduction</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/course-description-assessment/" class="dropdown-item">Course Description Assessment</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/concept-list/" class="dropdown-item">Concept Enumeration</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/quality-metrics/" class="dropdown-item">Graph Quality Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/concept-taxonomy/" class="dropdown-item">Concept Taxonomy</a>
-</li>
-                                    
-<li>
-    <a href="../../learning-graph/taxonomy-distribution/" class="dropdown-item">Taxonomy Distribution Report</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">MicroSims</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../sims/graph-viewer/" class="dropdown-item">Graph Viewer</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../about/" class="nav-link">About</a>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../19-alternative-architectures-decisions/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../../learning-graph/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="1"><a href="#implementation-and-capstone" class="nav-link">Implementation and Capstone</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#summary" class="nav-link">Summary</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#concepts-covered" class="nav-link">Concepts Covered</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Implementation and Capstone - Blockchain - The Skeptic's Guide" >
+      
+        <meta  property="og:description"  content="Complete implementation process from evaluation to deployment, including proof of concept design, pilot programs, implementation roadmaps, and a capstone project synthesizing all course knowledge." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/blockchain/assets/images/social/chapters/20-implementation-capstone/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/blockchain/chapters/20-implementation-capstone/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Implementation and Capstone - Blockchain - The Skeptic's Guide" >
+      
+        <meta  name="twitter:description"  content="Complete implementation process from evaluation to deployment, including proof of concept design, pilot programs, implementation roadmaps, and a capstone project synthesizing all course knowledge." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/blockchain/assets/images/social/chapters/20-implementation-capstone/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#implementation-and-capstone" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Blockchain - The Skeptic&#39;s Guide" class="md-header__button md-logo" aria-label="Blockchain - The Skeptic's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Blockchain - The Skeptic's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Implementation and Capstone
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/blockchain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Blockchain - The Skeptic&#39;s Guide" class="md-nav__button md-logo" aria-label="Blockchain - The Skeptic's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Blockchain - The Skeptic's Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/blockchain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-trust-and-digital-networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Trust and Digital Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-cryptographic-foundations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Cryptographic Foundations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-keys-signatures-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Keys, Signatures, and Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-certificate-authorities-pki/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Certificate Authorities and PKI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-distributed-systems-ledgers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Distributed Systems and Ledgers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-nodes-throughput-performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Nodes, Throughput, and Performance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-consensus-mechanisms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Consensus Mechanisms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-mining-computational-economics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Mining and Computational Economics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-smart-contracts-tokens/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Smart Contracts and Tokens
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-blockchain-types-platforms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Blockchain Types and Platforms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-governance-and-scalability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Governance and Scalability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-cost-analysis-tco/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Cost Analysis and TCO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-architecture-tradeoff-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Architecture Tradeoff Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-risk-analysis-quality-attributes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Risk Analysis and Quality Attributes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-cognitive-bias-technology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Cognitive Bias in Technology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-evidence-based-evaluation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Evidence-Based Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-industry-case-studies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Industry Case Studies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-emerging-trust-technologies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Emerging Trust Technologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-alternative-architectures-decisions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Alternative Architectures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    20. Implementation and Capstone
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    20. Implementation and Capstone
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-evaluation-to-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      From Evaluation to Implementation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#designing-a-proof-of-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      Designing a Proof of Concept
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Designing a Proof of Concept">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#poc-design-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      PoC Design Principles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poc-deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      PoC Deliverables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planning-a-pilot-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Planning a Pilot Program
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Planning a Pilot Program">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pilot-scope-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pilot Scope Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria-and-decision-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Success Criteria and Decision Gates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilot-anti-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pilot Anti-Patterns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-an-implementation-roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating an Implementation Roadmap
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating an Implementation Roadmap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#roadmap-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Roadmap Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roadmap-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Roadmap Visualization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost-tracking-and-roi-measurement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Tracking and ROI Measurement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technology-readiness-level-in-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technology Readiness Level in Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technology Readiness Level in Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-implementation-phase-gate-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Implementation Phase Gate Dashboard
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capstone-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capstone Project
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Capstone Project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capstone-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capstone Scenario
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capstone-deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capstone Deliverables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capstone-evaluation-rubric" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capstone Evaluation Rubric
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capstone-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capstone Timeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Capstone Timeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-capstone-project-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Capstone Project Workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-evaluation-to-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      From Evaluation to Implementation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#designing-a-proof-of-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      Designing a Proof of Concept
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Designing a Proof of Concept">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#poc-design-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      PoC Design Principles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poc-deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      PoC Deliverables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planning-a-pilot-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Planning a Pilot Program
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Planning a Pilot Program">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pilot-scope-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pilot Scope Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria-and-decision-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Success Criteria and Decision Gates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilot-anti-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pilot Anti-Patterns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-an-implementation-roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating an Implementation Roadmap
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating an Implementation Roadmap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#roadmap-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Roadmap Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roadmap-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Roadmap Visualization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost-tracking-and-roi-measurement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Tracking and ROI Measurement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technology-readiness-level-in-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technology Readiness Level in Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technology Readiness Level in Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-implementation-phase-gate-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Implementation Phase Gate Dashboard
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capstone-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capstone Project
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Capstone Project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capstone-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capstone Scenario
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capstone-deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capstone Deliverables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capstone-evaluation-rubric" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capstone Evaluation Rubric
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capstone-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capstone Timeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Capstone Timeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-capstone-project-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Capstone Project Workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/blockchain/edit/master/docs/chapters/20-implementation-capstone/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
 
 <h1 id="implementation-and-capstone">Implementation and Capstone</h1>
 <h2 id="summary">Summary</h2>
@@ -243,82 +1820,596 @@
 <h2 id="prerequisites">Prerequisites</h2>
 <p>This chapter builds on concepts from all previous chapters. Students should complete the full course sequence before attempting the capstone project.</p>
 <hr />
-<p>TODO: Generate Chapter Content</p></div>
-            </div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js"></script>
-        <script src="../../search/main.js"></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Rex Says: Trust, but Verify!</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Rex welcomes you">
+Welcome to the final chapter, fellow analysts! This is where everything
+comes together. You have learned the cryptographic foundations, examined
+the architectures, mastered the evaluation frameworks, and studied the
+real-world evidence. Now it is time to apply all of that knowledge to
+build something real — a complete trust architecture implementation plan.
+Trust, but verify — and then ship it!</p>
+</div>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>After completing this chapter, you will be able to:</p>
+<ul>
+<li>Design a proof of concept that tests the specific hypotheses most critical to an architecture decision</li>
+<li>Plan a pilot program with measurable success criteria, defined scope, and clear go/no-go decision gates</li>
+<li>Create a phased implementation roadmap that manages risk through incremental deployment</li>
+<li>Apply Technology Readiness Level assessment to determine appropriate deployment scope and risk budgeting</li>
+<li>Complete a capstone project that synthesizes all course concepts into a professional trust architecture recommendation</li>
+</ul>
+<h2 id="from-evaluation-to-implementation">From Evaluation to Implementation</h2>
+<p>The architecture evaluation process (Chapters 16 and 19) produces a recommendation. The implementation process translates that recommendation into a deployed system. The gap between these two activities is where the majority of technology projects fail — not because the evaluation was wrong, but because the implementation plan was unrealistic, the organizational change was underestimated, or the technology's production behavior differed from its evaluation-stage behavior.</p>
+<p>The implementation process follows a staged approach designed to manage risk through incremental commitment:</p>
+<div class="arithmatex">\[\text{Risk} = \text{Probability of failure} \times \text{Cost of failure}\]</div>
+<p>At each stage, the organization invests more resources but also has more evidence about whether the investment will pay off. The staged approach ensures that the most expensive commitments are made only after the most uncertain assumptions have been validated.</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Investment Level</th>
+<th>Evidence Gained</th>
+<th>Go/No-Go Decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Proof of Concept</td>
+<td>Low ($50K-200K)</td>
+<td>Technical feasibility confirmed or denied</td>
+<td>Can the technology do what we need?</td>
+</tr>
+<tr>
+<td>Pilot Program</td>
+<td>Medium ($200K-1M)</td>
+<td>Operational viability at limited scale</td>
+<td>Does it work in our environment with real data?</td>
+</tr>
+<tr>
+<td>Limited Production</td>
+<td>High ($500K-3M)</td>
+<td>Production behavior under real conditions</td>
+<td>Does it deliver the expected business value?</td>
+</tr>
+<tr>
+<td>Full Deployment</td>
+<td>Very High ($1M-10M+)</td>
+<td>Full-scale operational data</td>
+<td>Ongoing optimization and evolution</td>
+</tr>
+</tbody>
+</table>
+<p>The cost ranges above are illustrative for mid-sized enterprise deployments. Actual costs vary significantly based on industry, regulatory requirements, integration complexity, and the number of participating organizations. The key principle is not the specific dollar amounts but the progressive increase in investment as evidence accumulates.</p>
+<h2 id="designing-a-proof-of-concept">Designing a Proof of Concept</h2>
+<p>A <strong>proof of concept (PoC)</strong> is a small-scale implementation designed to validate or invalidate specific technical hypotheses before committing to a full implementation. The PoC is not a demo, not a prototype, and not a minimum viable product — it is an experiment with a clearly defined hypothesis and success criteria.</p>
+<p>The distinction matters. A demo shows that something looks good. A prototype shows that something can be built. A PoC answers a specific question: "Can this technology achieve outcome X under conditions Y?" If the answer is no, the organization has spent a small amount to avoid a large mistake. If the answer is yes, the organization proceeds with increased confidence.</p>
+<h3 id="poc-design-principles">PoC Design Principles</h3>
+<p><strong>Principle 1: Test the riskiest assumption first.</strong></p>
+<p>Every architecture decision rests on assumptions. The PoC should test the assumption whose failure would most decisively invalidate the recommendation. For a blockchain deployment, this might be:</p>
+<ul>
+<li>"Can the platform sustain our required transaction throughput with production data volumes?"</li>
+<li>"Can five competing organizations agree on governance rules and data sharing policies?"</li>
+<li>"Can our legacy ERP system integrate with the blockchain platform within acceptable latency bounds?"</li>
+</ul>
+<p><strong>Principle 2: Use production-representative data.</strong></p>
+<p>PoCs that use synthetic data or simplified schemas routinely produce misleading results. Production data contains edge cases, inconsistencies, and volumes that synthetic data cannot replicate. Wherever legally and practically possible, use anonymized production data for the PoC.</p>
+<p><strong>Principle 3: Define success and failure criteria before starting.</strong></p>
+<p>Before writing a line of code, document what measurable outcomes will constitute success and what will constitute failure. This prevents the common failure mode where a PoC produces ambiguous results that are interpreted optimistically by advocates and pessimistically by skeptics.</p>
+<p><strong>Principle 4: Set a time box.</strong></p>
+<p>PoCs should have a fixed duration — typically 4-8 weeks for a technology evaluation PoC. Without a time box, PoCs drift into extended development projects that consume resources without producing a clear verdict.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+The most valuable PoC outcome is failure. A PoC that conclusively
+demonstrates that a technology cannot meet requirements saves the
+organization from a much larger investment in a doomed project. Teams
+that view PoC failure as a negative outcome have the wrong mental model.
+The purpose of the PoC is to generate evidence, not to validate a
+decision that has already been made.</p>
+</div>
+<h3 id="poc-deliverables">PoC Deliverables</h3>
+<p>A completed PoC should produce the following deliverables:</p>
+<ul>
+<li><strong>Hypothesis statement</strong> — the specific technical question the PoC was designed to answer</li>
+<li><strong>Test environment specification</strong> — hardware, software, network configuration, and data characteristics</li>
+<li><strong>Test methodology</strong> — step-by-step procedure for the tests performed, sufficient for replication</li>
+<li><strong>Results data</strong> — raw performance metrics, error rates, integration test outcomes</li>
+<li><strong>Analysis</strong> — interpretation of results against the pre-defined success criteria</li>
+<li><strong>Recommendation</strong> — proceed to pilot, modify approach and re-test, or abandon the technology option</li>
+<li><strong>Lessons learned</strong> — unexpected findings, assumptions that proved incorrect, risks not previously identified</li>
+</ul>
+<h2 id="planning-a-pilot-program">Planning a Pilot Program</h2>
+<p>A <strong>pilot program</strong> extends the PoC into a limited real-world deployment with actual users, real data, and production-like operational conditions. While the PoC tests technical feasibility in a controlled environment, the pilot tests operational viability in the messy reality of organizational workflows, user behavior, and integration with live systems.</p>
+<p>The pilot program bridges the gap between TRL 5-6 (validated in relevant environment) and TRL 7-8 (system prototype demonstrated in operational environment). This is the "valley of death" where the majority of technology projects fail, and it requires careful planning to navigate successfully.</p>
+<h3 id="pilot-scope-definition">Pilot Scope Definition</h3>
+<p>The pilot scope must be narrow enough to be manageable but broad enough to generate meaningful evidence. Key scoping decisions include:</p>
+<ul>
+<li><strong>User population</strong> — which users or departments will participate? Start with early adopters who are motivated and technically capable.</li>
+<li><strong>Data scope</strong> — which data sets, product lines, or transaction types will be included? Choose a representative subset, not the simplest cases.</li>
+<li><strong>Geographic scope</strong> — which locations or regions will participate? For multi-party deployments, start with 2-3 partners, not the full consortium.</li>
+<li><strong>Duration</strong> — how long will the pilot run? Minimum 3 months for enterprise systems to capture seasonal patterns and operational edge cases.</li>
+<li><strong>Parallel operation</strong> — will the pilot system run alongside the existing system, or replace it? Parallel operation is strongly recommended to provide a safety net and enable direct comparison.</li>
+</ul>
+<h3 id="success-criteria-and-decision-gates">Success Criteria and Decision Gates</h3>
+<p>The pilot must have pre-defined success criteria and decision gates — specific checkpoints where stakeholders review progress and decide whether to continue, modify, or terminate the pilot.</p>
+<table>
+<thead>
+<tr>
+<th>Decision Gate</th>
+<th>Timing</th>
+<th>Key Questions</th>
+<th>Possible Outcomes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gate 1: Technical readiness</td>
+<td>Pre-launch</td>
+<td>Is the pilot environment stable? Are integrations functional?</td>
+<td>Launch / Delay / Redesign</td>
+</tr>
+<tr>
+<td>Gate 2: Early operational check</td>
+<td>Week 4-6</td>
+<td>Are users able to complete core workflows? Are error rates acceptable?</td>
+<td>Continue / Adjust / Escalate</td>
+</tr>
+<tr>
+<td>Gate 3: Mid-pilot review</td>
+<td>Month 2-3</td>
+<td>Are performance metrics on track? Are users adopting the system?</td>
+<td>Continue / Modify scope / Terminate</td>
+</tr>
+<tr>
+<td>Gate 4: Pilot conclusion</td>
+<td>End of pilot</td>
+<td>Did the pilot meet success criteria? What is the go/no-go recommendation?</td>
+<td>Proceed to production / Extend pilot / Abandon</td>
+</tr>
+</tbody>
+</table>
+<p>Each gate should have documented criteria — not vague assessments like "things are going well" but quantified thresholds like "transaction error rate below 0.1%" and "90% of pilot users completing daily workflows without support escalation."</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Rex's Tip</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Rex shares a tip">
+Build the rollback plan before you launch the pilot, not after it fails.
+Every pilot should have a documented rollback procedure that restores
+the previous system within a defined timeframe. If you cannot describe
+how to undo the pilot, you are not piloting — you are deploying.</p>
+</div>
+<h3 id="pilot-anti-patterns">Pilot Anti-Patterns</h3>
+<p>The following anti-patterns are common in blockchain pilot programs and should be actively avoided:</p>
+<ul>
+<li><strong>The showcase pilot</strong> — designed to produce impressive demos for executives rather than to generate honest operational data. Characterized by hand-picked data, dedicated support staff, and scripted workflows that do not represent real operations.</li>
+<li><strong>The endless pilot</strong> — runs indefinitely without clear decision gates. Stakeholders avoid making a go/no-go decision because the pilot provides the appearance of progress without the risk of commitment.</li>
+<li><strong>The isolated pilot</strong> — runs on a separate infrastructure with no integration to existing systems. Validates that blockchain works in isolation but provides no evidence about the integration challenges that dominate production deployment.</li>
+<li><strong>The success-only pilot</strong> — measures only the scenarios where blockchain adds value while ignoring the scenarios where it adds complexity. Produces a biased evidence set that does not support honest decision-making.</li>
+</ul>
+<h2 id="creating-an-implementation-roadmap">Creating an Implementation Roadmap</h2>
+<p>An <strong>implementation roadmap</strong> is a phased plan that transitions from pilot success to full production deployment. The roadmap specifies what will be deployed, when, by whom, at what cost, and with what decision gates along the way.</p>
+<h3 id="roadmap-structure">Roadmap Structure</h3>
+<p>A well-structured implementation roadmap consists of phases, each with defined scope, timeline, resource requirements, deliverables, and success criteria.</p>
+<p><strong>Phase 1: Foundation (Months 1-3)</strong></p>
+<ul>
+<li>Finalize production architecture based on pilot lessons learned</li>
+<li>Establish development and staging environments</li>
+<li>Complete vendor contracts and SLAs</li>
+<li>Hire or train specialized development resources</li>
+<li>Define security and compliance controls</li>
+<li>Deliverable: Production-ready infrastructure and development team</li>
+</ul>
+<p><strong>Phase 2: Core Implementation (Months 3-9)</strong></p>
+<ul>
+<li>Develop production application components</li>
+<li>Implement integrations with existing enterprise systems</li>
+<li>Conduct security penetration testing and code audit</li>
+<li>Perform load testing at projected production volumes</li>
+<li>Deliverable: Tested, integrated application ready for limited production</li>
+</ul>
+<p><strong>Phase 3: Limited Production (Months 9-12)</strong></p>
+<ul>
+<li>Deploy to a subset of users, locations, or transaction types</li>
+<li>Monitor performance, error rates, and user adoption metrics</li>
+<li>Address production issues identified during limited deployment</li>
+<li>Validate cost projections against actual operational costs</li>
+<li>Deliverable: Operational evidence from real production use</li>
+</ul>
+<p><strong>Phase 4: Full Production (Months 12-18)</strong></p>
+<ul>
+<li>Expand deployment to remaining users, locations, and transaction types</li>
+<li>Decommission parallel legacy systems (after stability is confirmed)</li>
+<li>Establish ongoing operational monitoring and support processes</li>
+<li>Conduct post-implementation review and ROI assessment</li>
+<li>Deliverable: Fully operational system with measured business outcomes</li>
+</ul>
+<h3 id="roadmap-visualization">Roadmap Visualization</h3>
+<p>The roadmap should be visualized in two forms:</p>
+<ul>
+<li><strong>Gantt-style timeline</strong> — showing phases, milestones, and dependencies for the project management audience</li>
+<li><strong>Decision gate diagram</strong> — showing the key go/no-go decisions for the executive audience</li>
+</ul>
+<p>Each phase should include explicit off-ramps: if the phase fails to meet its success criteria, what happens? An implementation roadmap without off-ramps is not a plan — it is a commitment to spend the full budget regardless of results.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Rex is thinking">
+The best implementation roadmaps are designed to fail cheaply. Each phase
+gates the next: if Phase 2 load testing reveals that the platform cannot
+meet throughput requirements, the organization has spent $500K to discover
+this — not $5M. The phased approach is not slower than a big-bang
+deployment; it is faster, because it avoids the costly rework that follows
+when big-bang deployments encounter reality.</p>
+</div>
+<h3 id="cost-tracking-and-roi-measurement">Cost Tracking and ROI Measurement</h3>
+<p>The implementation roadmap must include a cost tracking plan that compares actual costs against the TCO projections from the evaluation phase. This serves two purposes: it enables course correction if costs are trending above projections, and it builds the evidence base for future technology evaluations.</p>
+<p>Key cost metrics to track:</p>
+<ul>
+<li><strong>Infrastructure cost</strong> — cloud resources, network, storage (monthly tracking)</li>
+<li><strong>Development cost</strong> — internal and external development resources (sprint/monthly tracking)</li>
+<li><strong>Integration cost</strong> — effort spent connecting to existing systems (monthly tracking)</li>
+<li><strong>Operational cost</strong> — monitoring, support, incident response (monthly tracking post-deployment)</li>
+<li><strong>Training cost</strong> — user training, documentation, change management (phase tracking)</li>
+<li><strong>Opportunity cost</strong> — value of resources that could have been deployed on other projects (quarterly assessment)</li>
+</ul>
+<p>The ROI calculation should compare actual measured outcomes against the business case:</p>
+<div class="arithmatex">\[\text{ROI} = \frac{\text{Measured Benefits} - \text{Actual Total Cost}}{\text{Actual Total Cost}} \times 100\%\]</div>
+<p>If the five-year business case projected $3 million in benefits and $2 million in costs (projected ROI of 50%), but actual costs are tracking at $2.8 million while benefits are tracking at $2.5 million, the actual ROI trajectory is negative. The implementation roadmap's decision gates should catch this trajectory early enough to adjust scope, timeline, or — if necessary — terminate the project.</p>
+<h2 id="technology-readiness-level-in-implementation">Technology Readiness Level in Implementation</h2>
+<p><strong>Technology Readiness Level (TRL)</strong> assessment, introduced in Chapter 18, plays a direct role in implementation planning. The TRL of the chosen technology determines how much risk the implementation plan must absorb and how much contingency should be budgeted.</p>
+<table>
+<thead>
+<tr>
+<th>Technology TRL at Selection</th>
+<th>Implementation Implication</th>
+<th>Recommended Contingency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TRL 9 (proven in production)</td>
+<td>Standard implementation risk</td>
+<td>10-15% budget contingency</td>
+</tr>
+<tr>
+<td>TRL 7-8 (demonstrated in operational environment)</td>
+<td>Moderate technical risk; may encounter scale issues</td>
+<td>20-30% budget contingency</td>
+</tr>
+<tr>
+<td>TRL 5-6 (validated in relevant environment)</td>
+<td>Significant technical risk; expect surprises at production scale</td>
+<td>40-60% budget contingency</td>
+</tr>
+<tr>
+<td>TRL 3-4 (proof of concept validated)</td>
+<td>High technical risk; should not proceed to production without extended piloting</td>
+<td>80-100% budget contingency (or reconsider)</td>
+</tr>
+</tbody>
+</table>
+<p>The contingency percentages above are derived from the historical relationship between technology maturity and project overrun frequency. Organizations that select TRL 5-6 technologies for mission-critical deployments and budget only standard contingency are statistically likely to experience significant cost overruns, schedule delays, or both.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Bias Alert</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Rex warns you">
+Most enterprise blockchain platforms are currently at TRL 6-7 for general
+enterprise use cases. Budget contingency accordingly. If a vendor claims
+TRL 9, ask for independent production deployment evidence at your scale
+and complexity level. A platform that is TRL 9 for cryptocurrency trading
+is not necessarily TRL 9 for healthcare record management.</p>
+</div>
+<h4 id="diagram-implementation-phase-gate-dashboard">Diagram: Implementation Phase Gate Dashboard</h4>
+<details>
+<summary>Interactive Implementation Phase Gate Tracker</summary>
+<p>Type: MicroSim
+<strong>sim-id:</strong> implementation-phase-gates<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective:</strong> Apply (L3) — Design a phased implementation roadmap with decision gates, cost tracking, and TRL-appropriate contingency budgeting for a trust architecture deployment.</p>
+<p><strong>Description:</strong> An interactive dashboard showing the four implementation phases as a horizontal timeline with vertical gate markers between each phase. Each phase is represented as a colored block showing: phase name, duration, budget, key deliverables, and status indicator (not started, in progress, completed, blocked). Clicking a gate marker opens a detail panel showing the gate criteria, actual vs. projected metrics, and the go/no-go decision. A cost tracking chart below the timeline shows projected vs. actual cost curves over time. A TRL indicator in the upper right shows the current technology TRL with corresponding contingency recommendation. Users can simulate different scenarios by adjusting a "TRL at Selection" slider and observing how the recommended contingency changes.</p>
+<p><strong>Canvas:</strong> Responsive width, 600px height. Background: aliceblue.</p>
+<p><strong>Controls:</strong></p>
+<ul>
+<li>Click phase blocks to see detail panels</li>
+<li>Click gate markers to see gate criteria and metrics</li>
+<li>TRL slider (3-9) to adjust contingency recommendations</li>
+<li>"Simulate Cost Overrun" toggle to show impact of under-budgeted contingency</li>
+<li>"Reset" button to restore default view</li>
+</ul>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>Horizontal timeline with 4 phase blocks and 4 gate markers</li>
+<li>Phase blocks with status colors (gray/blue/green/red)</li>
+<li>Gate markers with pass/fail indicators</li>
+<li>Cost tracking line chart (projected vs. actual)</li>
+<li>TRL thermometer gauge with contingency recommendation</li>
+<li>Detail panels with metrics and criteria</li>
+</ul>
+<p>Implementation: p5.js with responsive canvas, interactive timeline, cost chart, slider control</p>
+</details>
+<h2 id="capstone-project">Capstone Project</h2>
+<p>The <strong>capstone project</strong> synthesizes all concepts from this course into a single comprehensive deliverable: a professional trust architecture recommendation for a real-world scenario. The capstone is not an exam — it is a portfolio piece that demonstrates your ability to apply evidence-based analysis to complex technology decisions.</p>
+<h3 id="capstone-scenario">Capstone Scenario</h3>
+<p>Select one of the following scenarios (or propose your own with instructor approval):</p>
+<p><strong>Scenario A: Pharmaceutical Supply Chain Integrity</strong></p>
+<p>A consortium of three pharmaceutical manufacturers, two distributors, and a national regulatory authority needs to comply with the US Drug Supply Chain Security Act (DSCSA), which requires electronic, interoperable tracking of prescription drugs from manufacturer to dispenser by November 2024. The consortium must choose between a centralized track-and-trace platform operated by a third party, a consortium blockchain, and a hybrid architecture. The system must handle 50 million transaction records annually, comply with FDA regulations and GDPR (for EU operations), and achieve 99.99% availability.</p>
+<p><strong>Scenario B: Cross-Border Trade Finance</strong></p>
+<p>A regional bank consortium (four banks across three countries) wants to digitize letters of credit and trade document processing to reduce processing time from 5-10 days to under 24 hours. Current processing involves extensive manual document verification, multiple intermediaries, and significant fraud risk. The consortium must evaluate blockchain-based trade finance platforms against modernized centralized alternatives, considering regulatory requirements in all three jurisdictions, existing core banking system integration, and the failed TradeLens and Marco Polo precedents.</p>
+<p><strong>Scenario C: Municipal Digital Identity</strong></p>
+<p>A mid-sized city (population 500,000) wants to provide residents with portable digital identity credentials for accessing municipal services — library cards, transit passes, building permits, voting registration verification. The city must evaluate centralized identity management, self-sovereign identity with verifiable credentials, and blockchain-based identity against requirements including accessibility for non-technical users, privacy regulations, ADA compliance, and a limited municipal IT budget.</p>
+<h3 id="capstone-deliverables">Capstone Deliverables</h3>
+<p>The capstone project requires the following deliverables, each applying concepts from specific course chapters:</p>
+<p><strong>Deliverable 1: Problem Analysis (Chapters 1-5)</strong></p>
+<ul>
+<li>Define the trust problem in the selected scenario using the frameworks from Chapters 1-5</li>
+<li>Identify all stakeholders and their trust relationships</li>
+<li>Map the data flows and identify where trust breaks down in the current system</li>
+<li>Specify measurable success criteria for any proposed solution</li>
+</ul>
+<p><strong>Deliverable 2: Technology Assessment (Chapters 6-11, 18)</strong></p>
+<ul>
+<li>Evaluate at least three technology options (must include at least one blockchain option and one non-blockchain alternative)</li>
+<li>For each option: describe the architecture, consensus mechanism (if applicable), key properties, and production evidence</li>
+<li>Apply the Technology Readiness Level framework to assess each option's maturity</li>
+<li>Include at least one emerging trust technology (ZKPs, VCs, DIDs) in the assessment</li>
+</ul>
+<p><strong>Deliverable 3: Architecture Evaluation (Chapters 12-16)</strong></p>
+<ul>
+<li>Apply the ATAM methodology to identify quality attribute tradeoffs</li>
+<li>Conduct a five-year TCO analysis for each option</li>
+<li>Perform risk analysis identifying top 5 risks per option with mitigation strategies</li>
+<li>Apply the cognitive bias checklist and document which biases were identified and mitigated</li>
+<li>Use the evidence-based evaluation framework to score options against weighted criteria</li>
+</ul>
+<p><strong>Deliverable 4: Recommendation Report (Chapter 19)</strong></p>
+<ul>
+<li>Write a complete architecture report following the structure from Chapter 19</li>
+<li>Include executive summary, evaluation methodology, comparative analysis, and recommendation</li>
+<li>Explicitly address dissenting factors and the strongest arguments against the recommendation</li>
+<li>Include a sensitivity analysis: if key assumptions change, does the recommendation hold?</li>
+</ul>
+<p><strong>Deliverable 5: Implementation Plan (Chapter 20)</strong></p>
+<ul>
+<li>Design a proof of concept with specific hypotheses, success criteria, and time box</li>
+<li>Plan a pilot program with scope, duration, decision gates, and rollback procedure</li>
+<li>Create an implementation roadmap with phases, milestones, cost projections, and off-ramps</li>
+<li>Include TRL-appropriate contingency budgeting</li>
+</ul>
+<p><strong>Deliverable 6: Management Presentation (Chapter 19)</strong></p>
+<ul>
+<li>Create an 8-slide management presentation following the structure from Chapter 19</li>
+<li>Lead with business outcomes, not technology details</li>
+<li>Include quantified cost comparison and risk assessment</li>
+<li>Anticipate and prepare responses for three likely management objections</li>
+</ul>
+<h3 id="capstone-evaluation-rubric">Capstone Evaluation Rubric</h3>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Weight</th>
+<th>Excellent (5)</th>
+<th>Adequate (3)</th>
+<th>Insufficient (1)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Problem definition</td>
+<td>15%</td>
+<td>Clear, measurable success criteria tied to business needs</td>
+<td>General problem description with some success criteria</td>
+<td>Vague problem statement; technology-first thinking</td>
+</tr>
+<tr>
+<td>Technology assessment breadth</td>
+<td>15%</td>
+<td>3+ options with production evidence and TRL assessment</td>
+<td>2 options with basic comparison</td>
+<td>Single option evaluated; no alternatives considered</td>
+</tr>
+<tr>
+<td>Analytical rigor</td>
+<td>20%</td>
+<td>ATAM, TCO, risk analysis, and bias checklist all applied correctly</td>
+<td>Most frameworks applied but with gaps</td>
+<td>Frameworks mentioned but not substantively applied</td>
+</tr>
+<tr>
+<td>Evidence quality</td>
+<td>15%</td>
+<td>Production data cited; vendor claims verified; counterfactuals examined</td>
+<td>Mix of production and vendor-sourced evidence</td>
+<td>Reliance on vendor claims without verification</td>
+</tr>
+<tr>
+<td>Recommendation clarity</td>
+<td>15%</td>
+<td>Specific, quantified, with dissenting factors and sensitivity analysis</td>
+<td>Clear recommendation with basic justification</td>
+<td>Vague recommendation without supporting evidence</td>
+</tr>
+<tr>
+<td>Implementation realism</td>
+<td>10%</td>
+<td>Phased plan with gates, contingency, rollback, and TRL-appropriate risk budgeting</td>
+<td>Basic implementation timeline</td>
+<td>Implementation plan without phases or decision gates</td>
+</tr>
+<tr>
+<td>Communication quality</td>
+<td>10%</td>
+<td>Professional presentation and report; pyramid principle; quantified impact</td>
+<td>Competent writing with some structural issues</td>
+<td>Disorganized; lacks professional presentation standards</td>
+</tr>
+</tbody>
+</table>
+<h3 id="capstone-timeline">Capstone Timeline</h3>
+<p>For a semester-length course, the recommended capstone timeline is:</p>
+<ul>
+<li><strong>Weeks 1-2:</strong> Scenario selection, stakeholder analysis, problem definition</li>
+<li><strong>Weeks 3-4:</strong> Technology research, evidence gathering, TRL assessment</li>
+<li><strong>Weeks 5-6:</strong> ATAM analysis, TCO modeling, risk assessment</li>
+<li><strong>Weeks 7-8:</strong> Comparative evaluation, bias check, recommendation formulation</li>
+<li><strong>Weeks 9-10:</strong> Implementation roadmap, PoC design, pilot planning</li>
+<li><strong>Weeks 11-12:</strong> Report writing, presentation preparation, peer review</li>
+<li><strong>Week 13:</strong> Final presentation and report submission</li>
+</ul>
+<h4 id="diagram-capstone-project-workflow">Diagram: Capstone Project Workflow</h4>
+<details>
+<summary>Interactive Capstone Project Progress Tracker</summary>
+<p>Type: MicroSim
+<strong>sim-id:</strong> capstone-project-tracker<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning objective:</strong> Create (L6) — Synthesize all course concepts into a comprehensive trust architecture recommendation that integrates problem analysis, technology assessment, architecture evaluation, and implementation planning.</p>
+<p><strong>Description:</strong> An interactive project tracker showing the six capstone deliverables as interconnected hexagonal nodes arranged in a workflow diagram. Each node displays the deliverable name, associated course chapters, and completion status. Clicking a node expands it to show the specific requirements, relevant frameworks to apply, and a checklist of items to complete. Arrows between nodes show dependencies (e.g., Problem Analysis feeds into Technology Assessment). A progress bar at the top shows overall completion. A sidebar shows a timeline view mapping deliverables to the 13-week capstone schedule. Color coding indicates status: gray (not started), blue (in progress), green (completed).</p>
+<p><strong>Canvas:</strong> Responsive width, 600px height. Background: aliceblue.</p>
+<p><strong>Controls:</strong></p>
+<ul>
+<li>Click hexagonal nodes to expand deliverable details</li>
+<li>"Timeline View" toggle to switch between workflow and timeline views</li>
+<li>"Checklist" toggle to show accumulated requirements across all deliverables</li>
+<li>"Reset Progress" button</li>
+</ul>
+<p><strong>Visual elements:</strong></p>
+<ul>
+<li>6 hexagonal nodes with deliverable labels and chapter references</li>
+<li>Directional arrows showing dependencies</li>
+<li>Expandable detail panels with requirements checklists</li>
+<li>Progress bar showing overall completion percentage</li>
+<li>Timeline sidebar with 13-week schedule</li>
+<li>Color-coded status indicators (gray/blue/green)</li>
+<li>Connecting lines highlighting which course concepts map to which deliverables</li>
+</ul>
+<p>Implementation: p5.js with responsive canvas, hexagonal node layout, click-to-expand panels, dual view modes (workflow/timeline)</p>
+</details>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>This final chapter provided the implementation methodology to translate evidence-based evaluations into deployed systems:</p>
+<ul>
+<li><strong>Proof of concept</strong> design tests the riskiest assumptions first, using production-representative data, with pre-defined success/failure criteria and a fixed time box — the most valuable PoC outcome is early failure that saves the organization from a larger mistake</li>
+<li><strong>Pilot programs</strong> bridge the gap between controlled testing and production reality, with defined scope, decision gates, rollback plans, and explicit anti-patterns to avoid (showcase pilots, endless pilots, isolated pilots, success-only pilots)</li>
+<li><strong>Implementation roadmaps</strong> manage risk through phased deployment, where each phase gates the next, and include explicit off-ramps — a roadmap without off-ramps is not a plan but an irrevocable commitment</li>
+<li><strong>Technology Readiness Level</strong> directly determines implementation risk and contingency budgeting — selecting a TRL 5-6 technology for mission-critical deployment without proportional contingency is statistically likely to produce overruns</li>
+<li><strong>The capstone project</strong> synthesizes every course concept into a professional deliverable: problem analysis, technology assessment, architecture evaluation, recommendation report, implementation plan, and management presentation</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Excellent Analytical Work!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Rex celebrates">
+Congratulations, fellow analyst! You have completed the full journey from
+understanding trust as a fundamental problem, through the technical
+foundations of cryptography and distributed systems, to the analytical
+frameworks for evidence-based evaluation, and finally to the practical
+skills of implementation planning. You are now equipped to evaluate any
+trust technology proposal — blockchain or otherwise — with rigor,
+skepticism, and intellectual honesty. Remember: trust, but verify.
+Always verify. Outstanding work!</p>
 </div>
 
-    </body>
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../19-alternative-architectures-decisions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 19. Alternative Architectures">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                19. Alternative Architectures
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../sims/" class="md-footer__link md-footer__link--next" aria-label="Next: List of MicroSims">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                List of MicroSims
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
 </html>
