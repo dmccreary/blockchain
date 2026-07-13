@@ -1,0 +1,413 @@
+{
+  "project": {
+    "title": "Blockchain - The Skeptic's Guide",
+    "subtitle": "Auto-scanned intelligent textbook",
+    "author": "Dan McCreary",
+    "costPerMTokens": 15,
+    "sessionBudget": {
+      "pro": 900000,
+      "max": 3500000
+    }
+  },
+  "sections": {
+    "scaffold": {
+      "status": "published",
+      "tokensTarget": 2000,
+      "tokensDone": 2000
+    },
+    "course-description": {
+      "status": "published",
+      "tokensTarget": 4000,
+      "tokensDone": 2418
+    },
+    "learning-graph": {
+      "status": "published",
+      "tokensTarget": 20000,
+      "tokensDone": 20000
+    },
+    "chapter-structure": {
+      "status": "published",
+      "tokensTarget": 15000,
+      "tokensDone": 15000
+    },
+    "chapter-content": {
+      "countLabel": "20 chapters",
+      "children": [
+        {
+          "n": 1,
+          "title": "Trust and Digital Networks",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 2,
+          "title": "Cryptographic Foundations",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 3,
+          "title": "Keys, Signatures, and Identity",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 4,
+          "title": "Certificate Authorities and PKI",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 5,
+          "title": "Distributed Systems and Ledgers",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 6,
+          "title": "Nodes, Throughput, and Network Performance",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 7,
+          "title": "Consensus Mechanisms",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 8,
+          "title": "Mining and Computational Economics",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 9,
+          "title": "Smart Contracts and Tokens",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 10,
+          "title": "Blockchain Types and Platforms",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 11,
+          "title": "Governance and Scalability",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 12,
+          "title": "Cost Analysis and Total Cost of Ownership",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 13,
+          "title": "Architecture Tradeoff Analysis Method",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 14,
+          "title": "Risk Analysis and Quality Attributes",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 15,
+          "title": "Cognitive Bias in Technology Decisions",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 16,
+          "title": "Evidence-Based Evaluation",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 17,
+          "title": "Industry Case Studies",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 18,
+          "title": "Emerging Trust Technologies",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 19,
+          "title": "Alternative Architectures and Decision Frameworks",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 20,
+          "title": "Implementation and Capstone",
+          "status": "reviewed",
+          "tokens": 10000
+        }
+      ]
+    },
+    "chapter-images": {
+      "status": "published",
+      "tokensTarget": 8000,
+      "tokensDone": 8000
+    },
+    "microsims": {
+      "countLabel": "34 simulations",
+      "children": [
+        {
+          "n": 1,
+          "title": "Architecture Decision Communication Flow",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 2,
+          "title": "ATAM Process Flow",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 3,
+          "title": "Bias Interaction Network",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 4,
+          "title": "Block Anatomy",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 5,
+          "title": "Monte Carlo Cost Simulation",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 6,
+          "title": "When to Use Blockchain Decision Tree",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 7,
+          "title": "Blockchain Type Decision Matrix",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 8,
+          "title": "Capstone Project Workflow",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 9,
+          "title": "Case Study Analysis Dashboard",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 10,
+          "title": "Certificate Chain of Trust",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 11,
+          "title": "Consensus Mechanism Comparison",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 12,
+          "title": "Cryptographic Primitives Relationship Map",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 13,
+          "title": "Digital Signature Process",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 14,
+          "title": "Energy Consumption Comparison",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 15,
+          "title": "Evidence-Based Evaluation Process",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 16,
+          "title": "Governance Model Comparison",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 17,
+          "title": "Graph Viewer",
+          "status": "drafted",
+          "tokens": 5000
+        },
+        {
+          "n": 18,
+          "title": "Hash Chain Visualization",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 19,
+          "title": "Hype Cycle Bias Map",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 20,
+          "title": "Implementation Phase Gate Dashboard",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 21,
+          "title": "Internet Protocol Stack and Trust Gaps",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 22,
+          "title": "Mining Economics Dashboard",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 23,
+          "title": "Client-Server vs. Peer-to-Peer Network Topology",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 24,
+          "title": "Quality Attribute Radar Chart",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 25,
+          "title": "Risk Theme Heat Map",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 26,
+          "title": "Scalability Trilemma Explorer",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 27,
+          "title": "Smart Contract Risk Taxonomy",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 28,
+          "title": "TCO Comparison Dashboard",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 29,
+          "title": "Throughput vs Latency Comparison",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 30,
+          "title": "Token Types Comparison",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 31,
+          "title": "Technology Readiness Level Assessment Tool",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 32,
+          "title": "Trust Architecture Decision Flowchart",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 33,
+          "title": "Trust Model Spectrum",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 34,
+          "title": "Utility Tree Builder",
+          "status": "published",
+          "tokens": 5000
+        }
+      ]
+    },
+    "glossary": {
+      "status": "published",
+      "tokensTarget": 16330,
+      "tokensDone": 16330
+    },
+    "faq": {
+      "status": "published",
+      "tokensTarget": 12000,
+      "tokensDone": 6986
+    },
+    "quiz": {
+      "status": "not-started",
+      "tokensTarget": 30000,
+      "tokensDone": 0
+    },
+    "reference": {
+      "status": "not-started",
+      "tokensTarget": 20000,
+      "tokensDone": 0
+    },
+    "teachers-guide": {
+      "status": "not-started",
+      "tokensTarget": 15000,
+      "tokensDone": 0
+    },
+    "book-metrics": {
+      "status": "published",
+      "tokensTarget": 2000,
+      "tokensDone": 2000
+    },
+    "publish": {
+      "status": "not-started",
+      "tokensTarget": 10000,
+      "tokensDone": 0
+    },
+    "stories": {
+      "status": "not-started",
+      "tokensTarget": 30000,
+      "tokensDone": 0
+    }
+  }
+}
