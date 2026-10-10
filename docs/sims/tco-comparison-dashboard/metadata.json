@@ -1,17 +1,14 @@
 {
   "title": "TCO Comparison Dashboard",
   "creator": "Dan McCreary",
-  "subject": "High School Geometry",
+  "subject": "Blockchain - The Skeptic's Guide",
   "description": "Interactive MicroSim for tco comparison dashboard",
   "date": "2026-03-22",
   "educational": {
     "gradeLevel": [
-      "9",
-      "10",
-      "11",
-      "12"
+      "Adult"
     ],
-    "subjectArea": "Mathematics",
+    "subjectArea": "Computer Science",
     "topic": "TCO Comparison Dashboard",
     "learningObjectives": [
       "TODO: Add learning objectives"

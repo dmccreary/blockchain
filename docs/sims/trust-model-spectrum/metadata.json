@@ -1,17 +1,14 @@
 {
   "title": "Trust Model Spectrum",
   "creator": "Dan McCreary",
-  "subject": "High School Geometry",
+  "subject": "Blockchain - The Skeptic's Guide",
   "description": "Interactive MicroSim for trust model spectrum",
   "date": "2026-03-22",
   "educational": {
     "gradeLevel": [
-      "9",
-      "10",
-      "11",
-      "12"
+      "Adult"
     ],
-    "subjectArea": "Mathematics",
+    "subjectArea": "Computer Science",
     "topic": "Trust Model Spectrum",
     "learningObjectives": [
       "TODO: Add learning objectives"

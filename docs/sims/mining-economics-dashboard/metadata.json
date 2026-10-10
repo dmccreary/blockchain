@@ -1,17 +1,14 @@
 {
   "title": "Mining Economics Dashboard",
   "creator": "Dan McCreary",
-  "subject": "High School Geometry",
+  "subject": "Blockchain - The Skeptic's Guide",
   "description": "Interactive MicroSim for mining economics dashboard",
   "date": "2026-03-22",
   "educational": {
     "gradeLevel": [
-      "9",
-      "10",
-      "11",
-      "12"
+      "Adult"
     ],
-    "subjectArea": "Mathematics",
+    "subjectArea": "Computer Science",
     "topic": "Mining Economics Dashboard",
     "learningObjectives": [
       "TODO: Add learning objectives"

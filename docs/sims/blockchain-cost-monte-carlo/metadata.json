@@ -1,17 +1,14 @@
 {
   "title": "Monte Carlo Cost Simulation",
   "creator": "Dan McCreary",
-  "subject": "High School Geometry",
+  "subject": "Blockchain - The Skeptic's Guide",
   "description": "Interactive MicroSim for monte carlo cost simulation",
   "date": "2026-03-22",
   "educational": {
     "gradeLevel": [
-      "9",
-      "10",
-      "11",
-      "12"
+      "Adult"
     ],
-    "subjectArea": "Mathematics",
+    "subjectArea": "Computer Science",
     "topic": "Monte Carlo Cost Simulation",
     "learningObjectives": [
       "TODO: Add learning objectives"

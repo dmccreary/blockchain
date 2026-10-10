@@ -1,17 +1,14 @@
 {
   "title": "Utility Tree Builder",
   "creator": "Dan McCreary",
-  "subject": "High School Geometry",
+  "subject": "Blockchain - The Skeptic's Guide",
   "description": "Interactive MicroSim for utility tree builder",
   "date": "2026-03-22",
   "educational": {
     "gradeLevel": [
-      "9",
-      "10",
-      "11",
-      "12"
+      "Adult"
     ],
-    "subjectArea": "Mathematics",
+    "subjectArea": "Computer Science",
     "topic": "Utility Tree Builder",
     "learningObjectives": [
       "TODO: Add learning objectives"

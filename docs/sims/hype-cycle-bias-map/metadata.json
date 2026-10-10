@@ -1,17 +1,14 @@
 {
   "title": "Hype Cycle Bias Map",
   "creator": "Dan McCreary",
-  "subject": "High School Geometry",
+  "subject": "Blockchain - The Skeptic's Guide",
   "description": "Interactive MicroSim for hype cycle bias map",
   "date": "2026-03-22",
   "educational": {
     "gradeLevel": [
-      "9",
-      "10",
-      "11",
-      "12"
+      "Adult"
     ],
-    "subjectArea": "Mathematics",
+    "subjectArea": "Computer Science",
     "topic": "Hype Cycle Bias Map",
     "learningObjectives": [
       "TODO: Add learning objectives"

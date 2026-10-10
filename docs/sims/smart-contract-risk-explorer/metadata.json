@@ -1,17 +1,14 @@
 {
   "title": "Smart Contract Risk Taxonomy",
   "creator": "Dan McCreary",
-  "subject": "High School Geometry",
+  "subject": "Blockchain - The Skeptic's Guide",
   "description": "Interactive MicroSim for smart contract risk taxonomy",
   "date": "2026-03-22",
   "educational": {
     "gradeLevel": [
-      "9",
-      "10",
-      "11",
-      "12"
+      "Adult"
     ],
-    "subjectArea": "Mathematics",
+    "subjectArea": "Computer Science",
     "topic": "Smart Contract Risk Taxonomy",
     "learningObjectives": [
       "TODO: Add learning objectives"

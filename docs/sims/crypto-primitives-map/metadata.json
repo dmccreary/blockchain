@@ -1,17 +1,14 @@
 {
   "title": "Cryptographic Primitives Relationship Map",
   "creator": "Dan McCreary",
-  "subject": "High School Geometry",
+  "subject": "Blockchain - The Skeptic's Guide",
   "description": "Interactive MicroSim for cryptographic primitives relationship map",
   "date": "2026-03-22",
   "educational": {
     "gradeLevel": [
-      "9",
-      "10",
-      "11",
-      "12"
+      "Adult"
     ],
-    "subjectArea": "Mathematics",
+    "subjectArea": "Computer Science",
     "topic": "Cryptographic Primitives Relationship Map",
     "learningObjectives": [
       "TODO: Add learning objectives"

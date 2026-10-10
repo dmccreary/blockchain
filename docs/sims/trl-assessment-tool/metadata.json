@@ -1,17 +1,14 @@
 {
   "title": "Technology Readiness Level Assessment Tool",
   "creator": "Dan McCreary",
-  "subject": "High School Geometry",
+  "subject": "Blockchain - The Skeptic's Guide",
   "description": "Interactive MicroSim for technology readiness level assessment tool",
   "date": "2026-03-22",
   "educational": {
     "gradeLevel": [
-      "9",
-      "10",
-      "11",
-      "12"
+      "Adult"
     ],
-    "subjectArea": "Mathematics",
+    "subjectArea": "Computer Science",
     "topic": "Technology Readiness Level Assessment Tool",
     "learningObjectives": [
       "TODO: Add learning objectives"

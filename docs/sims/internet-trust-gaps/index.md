@@ -39,7 +39,7 @@ You can add this MicroSim to any web page by adding this to your HTML:
 ## Lesson Plan
 
 ### Grade Level
-9-12 (High School Geometry)
+Business professionals, software architects, technology managers, and technical decision-makers (Blockchain - The Skeptic's Guide)
 
 ### Duration
 10-15 minutes
